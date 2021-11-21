@@ -53,6 +53,11 @@ public class Product implements Serializable {
         this.price = price;
     }
 
+    public Product(int id, String category) {
+        this.id = id;
+        this.category = category;
+    }
+
 
     public int getId() {
         return id;

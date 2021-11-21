@@ -71,7 +71,7 @@
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
+                <li><a href="shop-grid">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="./shop-details.html">Shop Details</a></li>
@@ -82,6 +82,7 @@
                 </li>
                 <li><a href="./blog.html">Blog</a></li>
                 <li><a href="./contact.html">Contact</a></li>
+
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -150,6 +151,8 @@
                         <ul>
                             <li><a href="./index.html">Home</a></li>
                             <li class="active"><a href="./shop-grid.html">Shop</a></li>
+                            <li class="active"><a href="./shop-grid.html">Mới Nhất</a></li>
+                            <li class="active"><a href="./shop-grid.html">Bán Chạy</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.html">Shop Details</a></li>
@@ -191,8 +194,10 @@
                             <span>All departments</span>
                         </div>
                         <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
+                            <c:forEach items="${listCate}" var="c">
+                                <li><a href="#">${c.category}</a></li>
+                            </c:forEach>
+    <%--                          <li><a href="#">Vegetables</a></li>
                             <li><a href="#">Fruit & Nut Gifts</a></li>
                             <li><a href="#">Fresh Berries</a></li>
                             <li><a href="#">Ocean Foods</a></li>
@@ -201,7 +206,7 @@
                             <li><a href="#">Fresh Onion</a></li>
                             <li><a href="#">Papayaya & Crisps</a></li>
                             <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
+                            <li><a href="#">Fresh Bananas</a></li>--%>
                         </ul>
                     </div>
                 </div>
@@ -260,16 +265,19 @@
                         <div class="sidebar__item">
                             <h4>Department</h4>
                             <ul>
-                                <li><a href="#">Fresh Meat</a></li>
-                                <li><a href="#">Vegetables</a></li>
-                                <li><a href="#">Fruit & Nut Gifts</a></li>
-                                <li><a href="#">Fresh Berries</a></li>
-                                <li><a href="#">Ocean Foods</a></li>
-                                <li><a href="#">Butter & Eggs</a></li>
-                                <li><a href="#">Fastfood</a></li>
-                                <li><a href="#">Fresh Onion</a></li>
-                                <li><a href="#">Papayaya & Crisps</a></li>
-                                <li><a href="#">Oatmeal</a></li>
+                                <c:forEach items="${listCate}" var="c">
+                                    <li><a href="#">${c.category}</a></li>
+                                </c:forEach>
+<%--                                <li><a href="#">Fresh Meat</a></li>--%>
+<%--                                <li><a href="#">Vegetables</a></li>--%>
+<%--                                <li><a href="#">Fruit & Nut Gifts</a></li>--%>
+<%--                                <li><a href="#">Fresh Berries</a></li>--%>
+<%--                                <li><a href="#">Ocean Foods</a></li>--%>
+<%--                                <li><a href="#">Butter & Eggs</a></li>--%>
+<%--                                <li><a href="#">Fastfood</a></li>--%>
+<%--                                <li><a href="#">Fresh Onion</a></li>--%>
+<%--                                <li><a href="#">Papayaya & Crisps</a></li>--%>
+<%--                                <li><a href="#">Oatmeal</a></li>--%>
                             </ul>
                         </div>
                         <div class="sidebar__item">
@@ -752,7 +760,7 @@
 <%--                                </div>--%>
 <%--                            </div>--%>
 <%--                        </div>--%>
-<%--                    </div>--%>
+                    </div>
                     <div class="product__pagination">
                         <a href="#">1</a>
                         <a href="#">2</a>
