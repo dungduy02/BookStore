@@ -18,14 +18,14 @@ public class ConnectDB {
         }
     }
 
-    // public static void main(String[] args) throws SQLException, ClassNotFoundException {
-    //     Statement s =  ConnectDB.getMySQLConnect();
-    //     ResultSet rs = s.executeQuery("select * from products");
-    //     rs.last();
-    //     System.out.println(rs.getRow());
-    //     rs.beforeFirst();
-    //     while (rs.next()){
-    //         System.out.println(rs.getString(2));
-    //     }
-    // }
+//    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+//        Statement s =  ConnectDB.getMySQLConnect();
+//        ResultSet rs = s.executeQuery("select * from products");
+//        rs.last();
+//        System.out.println(rs.getRow());
+//        rs.beforeFirst();
+//        while (rs.next()){
+//            System.out.println(rs.getString(2));
+//        }
+//    }
 }

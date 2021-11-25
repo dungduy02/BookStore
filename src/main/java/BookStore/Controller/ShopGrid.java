@@ -20,7 +20,9 @@ public class ShopGrid extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Collection<Product> values = new ProductEntity().getAll();
+        Collection<Product> valuesCate = new ProductEntity().getCategory();
         request.setAttribute("list", values);
+        request.setAttribute("listCate", valuesCate);
         request.getRequestDispatcher("shop-grid.jsp").forward(request, response);
     }
 }
