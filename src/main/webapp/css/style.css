@@ -1955,8 +1955,8 @@ ol {
 	text-align: right;
 }
 
-.shoping__cart__table table tbody tr td.shoping__cart__item__close span {
-	font-size: 24px;
+.shoping__cart__table table tbody tr td.shoping__cart__item__close i {
+	font-size: 25px;
 	color: #b2b2b2;
 	cursor: pointer;
 }
@@ -2335,6 +2335,7 @@ ol {
 	border: 1px solid #b2b2b2;
 	padding: 14px 20px 12px;
 	border-radius: 25px;
+	margin-bottom: 20px;
 }
 
 .blog__item__text .blog__btn span {
@@ -4295,4 +4296,24 @@ changPass*/
 	justify-content: space-around;
 	align-content: space-around;
 	font-size: 20px;
+}
+.option{
+	display: flex;
+	width: 100%;
+	
+}
+.option .selectop{
+	display: flex;
+	width: 30%;
+
+	padding-right: 10px;
+	
+	
+}
+.option .selectop label{
+	float: right;
+	margin-top: 10px;
+	margin-left: 10px;
+	word-break: normal;
+	margin-right: 15px;
 }
