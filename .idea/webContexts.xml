@@ -3,7 +3,7 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
-        <entry key="file://$PROJECT_DIR$/src/main/webapp/admin-page/add-admin.html" value="file://$PROJECT_DIR$/src/main/webapp/admin-page" />
+<!--        <entry key="file://$PROJECT_DIR$/src/main/webapp/admin-page/add-admin.html" value="file://$PROJECT_DIR$/src/main/webapp/admin-page" />-->
         <entry key="file://$PROJECT_DIR$/src/main/webapp/change_information.html" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/shop-grid.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
       </map>
