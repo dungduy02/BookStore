@@ -7,8 +7,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Ogani Template">
-    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="description" content="BookStore NLU Template">
+    <meta name="keywords" content="BookStore NLU, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Book Store | Trang chủ</title>
@@ -53,7 +53,7 @@
     </div>
     <div class="humberger__menu__widget">
         <div class="header__top__right__register">
-            <a class="register" href="register.html"> Đăng kí</a>
+            <a class="register" href="register.jsp"> Đăng kí</a>
         </div>
         <div class="header__top__right__auth">
             <!-- sau chinh sua -->
@@ -64,18 +64,18 @@
     </div>
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
-            <li class="active"><a href="./index.html">Home</a></li>
-            <li><a href="./shop-grid.html">Shop</a></li>
+            <li class="active"><a href="./index.jsp">Home</a></li>
+            <li><a href="./shop-grid.jsp">Shop</a></li>
             <li><a href="#">Pages</a>
                 <ul class="header__menu__dropdown">
-                    <li><a href="./shop-details.html">Shop Details</a></li>
-                    <li><a href="./shoping-cart.html">Shopping Cart</a></li>
-                    <li><a href="./checkout.html">Check Out</a></li>
-                    <li><a href="./blog-details.html">Blog Details</a></li>
+                    <li><a href="./shop-details.jsp">Shop Details</a></li>
+                    <li><a href="./shoping-cart.jsp">Shopping Cart</a></li>
+                    <li><a href="./checkout.jsp">Check Out</a></li>
+                    <li><a href="./blog-details.jsp">Blog Details</a></li>
                 </ul>
             </li>
-            <li><a href="./blog.html">Blog</a></li>
-            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./blog.jsp">Blog</a></li>
+            <li><a href="./contact.jsp">Contact</a></li>
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>
@@ -117,7 +117,7 @@
                         </div>
                         <div class="header__top__right__register">
                             <!-- <img src="img/language.png" alt=""> -->
-                            <a href="register.html" class="register" >Đăng ký</a>
+                            <a href="register.jsp" class="register" >Đăng ký</a>
 
                         </div>
                         <div class="header__top__right__auth">
@@ -148,7 +148,7 @@
                                                     <input type="checkbox">
                                                     <label>Lưu</label>
                                                 </div>
-                                                <a href="#" class="forgot-pass">Quên mật khẩu?</a>
+                                                <a href="./register.jsp" class="forgot-pass">Quên mật khẩu?</a>
                                                 <button class="btn">Đăng nhập</button>
                                             </div>
                                         </div>
@@ -165,32 +165,27 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                    <a href="./index.jsp"><img src="img/logo.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Trang Chủ</a></li>
-                        <li><a href="./shop-grid.html">Mua Sắm</a></li>
-                        <li><a href="#">Giảm Giá</a>
-                            <!-- <ul class="header__menu__dropdown">
-                                <li><a href="./shop-details.html">Shop Details</a></li>
-                                <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                <li><a href="./checkout.html">Check Out</a></li>
-                                <li><a href="./blog-details.html">Blog Details</a></li>
-                            </ul> -->
+                        <li class="active"><a href="./index.jsp">Trang Chủ</a></li>
+                        <li><a href="./shop-grid.jsp">Mua Sắm</a></li>
+                        <li><a href="./sale.jsp">Giảm Giá</a>
+
                         </li>
-                        <li><a href="./blog.html">Bài Viết</a></li>
-                        <li><a href="./contact.html">Liên Hệ</a></li>
+                        <li><a href="./blog.jsp">Bài Viết</a></li>
+                        <li><a href="./contact.jsp">Liên Hệ</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-                        <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        <li><a href="./favorite.jsp"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                        <li><a href="./shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                     </ul>
                     <div class="header__cart__price">Tổng: <span>150.000 VND</span></div>
                 </div>

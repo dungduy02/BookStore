@@ -10,7 +10,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Book Store | Trang chủ</title>
+    <title>BOOKSTORE NLU | Đăng ký</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -34,7 +34,60 @@
 <body>
 
 <%@include file="header.jsp"%>
-<!-- Header Section End -->
+
+<!-- Hero Section Begin -->
+<section class="hero hero-normal">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>Danh mục</span>
+                    </div>
+                    <ul>
+                        <li><a href="#">Văn Học</a></li>
+                        <li><a href="#">Kinh Tế</a></li>
+                        <li><a href="#">Tâm Lý</a></li>
+                        <li><a href="#">Kĩ Năng Sống</a></li>
+                        <li><a href="#">Nuôi dạy con</a></li>
+                        <li><a href="#">Sách Thiếu Nhi</a></li>
+                        <li><a href="#">Tiểu Sử</a></li>
+                        <li><a href="#">Giáo Dục</a></li>
+                        <li><a href="#">Ngoại Ngữ</a></li>
+                        <li><a href="#">Tham Khảo</a></li>
+                        <li><a href="#">Khác</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="#">
+                            <!-- <div class="hero__search__categories">
+                                All Categories
+                                <span class="arrow_carrot-down"></span>
+                            </div> -->
+                            <input type="text" placeholder="Tìm kiếm sách mong muốn....">
+                            <button type="submit" class="site-btn">TÌM</button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>+841234567</h5>
+                            <span>Hỗ trợ 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+
 <div class="register-center">
     <div class="container">
         <div class="title">Đăng Ký</div>

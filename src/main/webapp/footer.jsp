@@ -35,6 +35,7 @@
 
 <body>
 <!-- Footer Section Begin -->
+
 <footer class="footer spad">
     <div class="container">
         <div class="row">
