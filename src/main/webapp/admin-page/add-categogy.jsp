@@ -2,19 +2,17 @@
   Created by IntelliJ IDEA.
   User: DELL
   Date: 12/8/2021
-  Time: 11:04 AM
+  Time: 10:28 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
-<!DOCTYPE html>
 <html lang="vi-VN">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Người dùng</title>
+    <title>Thêm danh mục</title>
     <link href="assets/img/icon/icon-logo.png" rel="shortcut icon">
 
     <!-- Bootstrap CSS -->
@@ -24,9 +22,6 @@
     <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-
-    <!-- Datatables CSS -->
-    <link rel="stylesheet" href="assets/plugins/datatables/datatables.min.css">
 
     <!-- Animate CSS -->
     <link rel="stylesheet" href="assets/css/animate.min.css">
@@ -221,13 +216,13 @@
         <div class="sidebar-inner">
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
-                    <li >
+                    <li>
                         <a href="dashboard.html"><i class="fas fa-columns"></i> <span>Dashboard</span></a>
                     </li>
                     <li class="submenu">
                         <a href="#"><i class="fas fa-tasks"></i> <span>Quản lí</span> <span class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="categories.html">Danh mục</a></li>
+                            <li><a href="categories.html" class="active">Danh mục</a></li>
                             <li><a href="product.html" >Sản phẩm</a></li>
                             <li><a href="blog.html" >Blog</a></li>
                             <!-- <li><a href="coupon-code-type.html">Loại mã giảm giá</a></li>
@@ -254,14 +249,14 @@
                     <li class="submenu">
                         <a href="#"><i class="fas fa-users"></i><span>Người dùng</span> <span class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="users.html" class="active" >Khách hàng</a></li>
+                            <li><a href="users.html">Khách hàng</a></li>
                             <li><a href="admin-list.html">Danh sách admin</a></li>
-                            <li><a href="service-list.html" >Nhà cung cấp</a></li>
+                            <li><a href="service-list.html">Nhà cung cấp</a></li>
                             <li><a href="publisher.html">Nhà xuất bản</a></li>
                         </ul>
                     </li>
-                    <li >
-                        <a href="admin-profile.html" ><i class="fas fa-user-plus"></i> <span>Thông tin cá nhân</span></a>
+                    <li>
+                        <a href="admin-profile.html"><i class="fas fa-user-plus"></i> <span>Thông tin cá nhân</span></a>
                     </li>
                     <li>
                         <a href="settings.html"><i class="fas fa-cog"></i> <span>Thiết lập</span></a>
@@ -274,147 +269,67 @@
 
     <div class="page-wrapper">
         <div class="content container-fluid">
+            <div class="row">
+                <div class="col-xl-8 offset-xl-2">
 
-            <!-- Page Header -->
-            <div class="page-header">
-                <div class="row">
-                    <div class="col">
-                        <h3 class="page-title">Khách hàng</h3>
-                    </div>
-                    <div class="col-auto text-right">
-                        <a class="btn btn-white filter-btn" href="javascript:void(0);" id="filter_search">
-                            <i class="fas fa-filter"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- /Page Header -->
-
-            <!-- Search Filter -->
-            <div class="card filter-card" id="filter_inputs">
-                <div class="card-body pb-0">
-                    <form>
-                        <div class="row filter-row">
-                            <div class="col-sm-6 col-md-3">
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <div class="form-group">
-                                    <label>Tên</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <div class="form-group">
-                                    <button class="btn btn-primary btn-block" type="submit">Chọn</button>
-                                </div>
+                    <!-- Page Header -->
+                    <div class="page-header">
+                        <div class="row">
+                            <div class="col">
+                                <h3 class="page-title">Thêm danh mục</h3>
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="categories.html">Danh mục</a></li>
+                                    <li class="breadcrumb-item active">Thêm danh mục</li>
+                                </ul>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-            <!-- /Search Filter -->
+                    </div>
+                    <!-- /Page Header -->
 
-            <div class="row">
-                <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover table-center mb-0 datatable">
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Tên</th>
-                                        <th>Email</th>
-                                        <th>Đăng nhập lần cuối</th>
-                                        <th>Chỉnh sửa</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Nguyễn Văn A</td>
-                                        <td>nguyenvana@gmail.com</td>
-                                        <td>12 Dec 2021</td>
-                                        <td class="text-right">
-                                            <a href="edit-users.html" class="btn btn-sm bg-success-light mr-2">	<i class="far fa-edit mr-1"></i> Sửa</a>
-                                            <button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i> Xóa</button>
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Trần Văn B</td>
-                                        <td>tranvanb@gmail.com</td>
-                                        <td>11 Dec 2021</td>
-                                        <td class="text-right">
-                                            <a href="edit-users.html" class="btn btn-sm bg-success-light mr-2">	<i class="far fa-edit mr-1"></i> Sửa</a>
-                                            <button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i> Xóa</button>
+                            <!-- Form -->
+                            <form action="categories.html">
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-2">ID</label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-2">Tên danh mục</label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-2">Hình ảnh</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="file">
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group row">
+                                    <label class="col-form-label col-md-2">Số lượng</label>
+                                    <div class="col-md-10">
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-2">Admin</label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control" disabled>
+                                    </div>
+                                </div> -->
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Lê Văn C</td>
-                                        <td>levanc@gmail.com</td>
-                                        <td>10 Dec 2021</td>
-                                        <td class="text-right">
-                                            <a href="edit-users.html" class="btn btn-sm bg-success-light mr-2">	<i class="far fa-edit mr-1"></i> Sửa</a>
-                                            <button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i> Xóa</button>
+                                <div class="mt-4">
+                                    <button class="btn btn-primary" type="submit">Thêm</button>
+                                    <a href="add-admin.html" class="btn btn-link">Hủy</a>
+                                </div>
+                            </form>
+                            <!-- /Form -->
+                            <!-- Form -->
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Lý Văn D</td>
-                                        <td>lyvand@gmail.com</td>
-                                        <td>09 Dec 2021</td>
-                                        <td class="text-right">
-                                            <a href="edit-users.html" class="btn btn-sm bg-success-light mr-2">	<i class="far fa-edit mr-1"></i> Sửa</a>
-                                            <button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i> Xóa</button>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Mai Văn H</td>
-                                        <td>maivanh@gmail.com</td>
-                                        <td>08 Dec 2021</td>
-                                        <td class="text-right">
-                                            <a href="edit-users.html" class="btn btn-sm bg-success-light mr-2">	<i class="far fa-edit mr-1"></i> Sửa</a>
-                                            <button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i> Xóa</button>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Nông Văn E</td>
-                                        <td>nongvane@gmail.com</td>
-                                        <td>07 Dec 2021</td>
-                                        <td class="text-right">
-                                            <a href="edit-users.html" class="btn btn-sm bg-success-light mr-2">	<i class="far fa-edit mr-1"></i> Sửa</a>
-                                            <button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i> Xóa</button>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Lư Văn L</td>
-                                        <td>luvanl@gmail.com</td>
-                                        <td>06 Dec 2021</td>
-                                        <td class="text-right">
-                                            <a href="edit-users.html" class="btn btn-sm bg-success-light mr-2">	<i class="far fa-edit mr-1"></i> Sửa</a>
-                                            <button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i> Xóa</button>
-
-                                        </td>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -429,9 +344,6 @@
 <!-- Bootstrap Core JS -->
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-<!-- Datatables JS -->
-<script src="assets/plugins/datatables/datatables.min.js"></script>
 
 <!-- Custom JS -->
 <script src="assets/js/admin.js"></script>
