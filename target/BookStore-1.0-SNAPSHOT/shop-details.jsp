@@ -25,7 +25,9 @@
 </head>
 
 <body>
+
 <%@include file="header.jsp"%>
+
 
 <!-- Hero Section Begin -->
 <section class="hero hero-normal">
