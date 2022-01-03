@@ -1,8 +1,7 @@
 package BookStore.Controller;
 
 import BookStore.Model.Product;
-import BookStore.entity.ProductEntity;
-import BookStore.filter.Data;
+import BookStore.service.ProductEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
