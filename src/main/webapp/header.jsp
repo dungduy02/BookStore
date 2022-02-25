@@ -129,8 +129,10 @@
                                 </button>
 
                                 <!-- Modal -->
+
                                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                     <div class="modal-dialog" role="document">
+                                        <form action="LoginController" method="post">
                                         <div class="modal-content clearfix">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
@@ -138,20 +140,20 @@
                                                 <p class="description"></p>
                                                 <div class="form-group">
                                                     <span class="input-icon"><i class="fa fa-user"></i></span>
-                                                    <input type="email" class="form-control" placeholder="Email hoặc tên tài khoản">
+                                                    <input type="text" class="form-control" placeholder="Tên tài khoản" name="username">
                                                 </div>
                                                 <div class="form-group">
                                                     <span class="input-icon"><i class="fa fa-key"></i></span>
-                                                    <input type="password" class="form-control" placeholder="Mật khẩu">
+                                                    <input type="password" class="form-control" placeholder="Mật khẩu" name="password">
                                                 </div>
                                                 <div class="form-group checkbox">
                                                     <input type="checkbox">
                                                     <label>Lưu</label>
                                                 </div>
                                                 <a href="./register.jsp" class="forgot-pass">Quên mật khẩu?</a>
-                                                <button class="btn">Đăng nhập</button>
+                                                <button class="btn" type="submit">Đăng nhập</button>
                                             </div>
-                                        </div>
+                                        </div></form>
                                     </div>
                                 </div>
                             </div>
