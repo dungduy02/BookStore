@@ -1,4 +1,7 @@
-<%--
+<%@ page import="BookStore.Model.Product" %>
+<%@ page import="java.util.List" %>
+<%@ page import="BookStore.service.ProductDAO" %>
+<%@ page import="BookStore.service.NewProductDAO" %><%--
   Created by IntelliJ IDEA.
   User: DUNGDUY
   Date: 10/14/2021
@@ -89,7 +92,7 @@
                         <span>MUA HÀNG TẠI BOOKSTORE NLU</span>
                         <h2>Giảm ngay <br />20%</h2>
                         <p>Ưu đãi cho các đầu sách về Kinh Tế.</p>
-                        <a href="shop-grid.html" class="primary-btn">SHOP NOW</a>
+                        <a href="shop-grid.jsp" class="primary-btn">SHOP NOW</a>
                     </div>
                 </div>
             </div>
@@ -177,7 +180,7 @@
                         </ul>
                     </div>
                     <div class="featured__item__text">
-                        <h6><a href="./shop-details.html">Từ Tốt Đến Vĩ Đại</a></h6>
+                        <h6><a href="product-details.jsp">Từ Tốt Đến Vĩ Đại</a></h6>
                         <h5>50.000 VND</h5>
                     </div>
                 </div>
@@ -225,66 +228,37 @@
             <div class="col-lg-4 col-md-6">
                 <div class="latest-product__text">
                     <h4>Mới Nhất</h4>
+                    <% List<Product> newproduct = new NewProductDAO().getNewProduct();
+                        request.setAttribute("listnew",newproduct);
+                    %>
+                    <c:forEach items="${listnew}" var="n">
                     <div class="latest-product__slider owl-carousel">
                         <div class="latest-prdouct__slider__item">
                             <a href="./shop-details.html" class="latest-product__item">
                                 <div class="latest-product__item__pic">
-                                    <img src="img/latest-product/lp-1.jpg" alt="">
+                                    <img src="${n.img}" alt="">
                                 </div>
                                 <div class="latest-product__item__text">
-                                    <h6>Khéo Ăn Nói Sẽ Có Được Thiên Hạ</h6>
-                                    <span>60.500 VND</span>
+                                    <h6>${n.name}</h6>
+                                    <span>${n.price}</span>
                                 </div>
                             </a>
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="img/latest-product/lp-2.jpg" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h6>Đắc Nhân Tâm</h6>
-                                    <span>58.4000 VND</span>
-                                </div>
-                            </a>
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="img/latest-product/lp-3.jpg" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h6>Chủ Nghĩa Khắc Kỷ</h6>
-                                    <span>100.000 VND</span>
-                                </div>
-                            </a>
+
                         </div>
                         <div class="latest-prdouct__slider__item">
                             <a href="./shop-details.html" class="latest-product__item">
                                 <div class="latest-product__item__pic">
-                                    <img src="img/latest-product/lp-4.jpg" alt="">
+                                    <img src="${n.img}" alt="">
                                 </div>
                                 <div class="latest-product__item__text">
-                                    <h6>Thay Đổi Cuộc Sống Với Nhân Số Học</h6>
-                                    <span>148.800 VND</span>
+                                    <h6>${n.name}</h6>
+                                    <span>${n.price}</span>
                                 </div>
                             </a>
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="img/latest-product/lp-5.jpg" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h6>Hiểu Về Trái Tim</h6>
-                                    <span>110.400 VND</span>
-                                </div>
-                            </a>
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="img/latest-product/lp-6.jpg" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h6>Trên Đường Băng</h6>
-                                    <span>68.000 VND</span>
-                                </div>
-                            </a>
+
                         </div>
                     </div>
+                    </c:forEach>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
