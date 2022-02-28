@@ -1,6 +1,9 @@
+<%@ page import="BookStore.Service.ProductDetailDAO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="BookStore.Model.ProductDetails" %>
 <!DOCTYPE html>
-<html lang="zxx">
-
+<%@ page contentType="text/html;charset=UTF-8" %>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
@@ -25,8 +28,8 @@
 </head>
 
 <body>
-<<<<<<< HEAD:src/main/webapp/shop-details.jsp
 <%@include file="header.jsp"%>
+<<<<<<< HEAD:src/main/webapp/views/web/shop-details.jsp
 =======
 <!-- Page Preloder -->
 <div id="preloder">
@@ -198,6 +201,8 @@
 </header>
 <!-- Header Section End -->
 >>>>>>> main:src/main/webapp/shop-details.html
+=======
+>>>>>>> origin/minhman:src/main/webapp/product-details.jsp
 
 <!-- Hero Section Begin -->
 <section class="hero hero-normal">
@@ -294,8 +299,13 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
+                <% ProductDetailDAO detailsdao = new ProductDetailDAO();
+                List<ProductDetails> list = detailsdao.getDetail();
+                request.setAttribute("Details",list);
+                %>
+                <c:forEach items="${Details}" var="dt">
                 <div class="product__details__text">
-                    <h3>Tập Tô Nét Cơ Bản</h3>
+                    <h3>${dt.name}</h3>
                     <div class="product__details__rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -304,10 +314,8 @@
                         <i class="fa fa-star-half-o"></i>
                         <span>(18 reviews)</span>
                     </div>
-                    <div class="product__details__price">6.000 VNĐ <span>11.900 VNĐ</span> </div>
-                    <!-- <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
-                        vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
-                        quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p> -->
+                    <div class="product__details__price">${dt.price} <span>${dt.pricesale}</span> </div>
+
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
@@ -320,8 +328,8 @@
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
                         <li><b>Nhà cung cấp:</b> <span>Minh Long</span></li>
-                        <li><b>Nhà xuất bản:</b> <span>NXB Đại học sư phạm</span></li>
-                        <li><b>Tác giả:</b> <span>Lê Tuệ Minh, Lê Thu Ngọc </span></li>
+                        <li><b>Nhà xuất bản:</b> <span>${dt.publisher}</span></li>
+                        <li><b>Tác giả:</b> <span>${dt.cate} </span></li>
                         <li><b>Giao Hàng:</b> <span>Giao hàng trong ngày. <samp>Miễn phí vận chuyển.</samp></span></li>
                         <li><b>Share on</b>
                             <div class="share">
@@ -333,6 +341,7 @@
                         </li>
                     </ul>
                 </div>
+                </c:forEach>
             </div>
             <div class="col-lg-12">
                 <div class="product__details__tab">

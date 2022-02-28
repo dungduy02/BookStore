@@ -2,6 +2,7 @@ package BookStore.Controller.Shop;
 
 import BookStore.Model.Publisher;
 import BookStore.Service.CategoryDAO;
+
 import BookStore.Model.Category;
 import BookStore.Service.PublisherDAO;
 
@@ -22,8 +23,4 @@ public class CategoryController extends HttpServlet {
         request.getRequestDispatcher("shop-grid.jsp").forward(request,response);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }

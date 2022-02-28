@@ -1,16 +1,16 @@
 package BookStore.Model;
 
 public class Publisher {
-    int id;
-    String name;
 
-    public Publisher(){
+    private int id;
+    private String publishername;
 
+    public Publisher() {
     }
 
-    public Publisher(int id, String name) {
+    public Publisher(int id, String publishername) {
         this.id = id;
-        this.name = name;
+        this.publishername = publishername;
     }
 
     public int getId() {
@@ -21,19 +21,20 @@ public class Publisher {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+
+    public String getPublishername() {
+        return publishername;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPublishername(String publishername) {
+        this.publishername = publishername;
     }
 
     @Override
     public String toString() {
         return "Publisher{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", publishername='" + publishername + '\'' +
                 '}';
     }
 }

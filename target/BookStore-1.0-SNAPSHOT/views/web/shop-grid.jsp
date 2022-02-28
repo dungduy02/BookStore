@@ -1,13 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: DUNGDUY
-  Date: 10/14/2021
-  Time: 8:21 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ page import="java.util.List" %>
+<%@ page import="BookStore.Model.Product" %>
+<%@ page import="BookStore.Service.ProductDAO" %>
+<%@ page import="BookStore.Model.Category" %>
+<%@ page import="BookStore.Service.CategoryDAO" %>
+<%@ page import="BookStore.Model.Publisher" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix = "c"  uri = "http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -34,6 +32,7 @@
 <body>
 
 <%@include file="header.jsp"%>
+
 
 <!-- Hero Section Begin -->
 <section class="hero hero-normal">
@@ -115,9 +114,7 @@
                     <div class="sidebar__item">
                         <h4>Nhóm Sản Phẩm</h4>
                         <ul>
-                            <c:forEach items="${listPublisher}" var="pl">
-                            <li><a href="#">${pl.name}</a></li>
-                            </c:forEach>
+                            <li><a href="#">abc</a></li>
                         </ul>
                     </div>
                     <div class="sidebar__item">
@@ -140,13 +137,18 @@
                     </div>
                     <div class="sidebar__item sidebar__item__color--option">
                         <h4>Nhà Cung Cấp</h4>
+
+
                         <ul>
-                            <li><a href="#">Nhã Nam</a></li>
-                            <li><a href="#">Nhà Xuất Bản Kim Đồng</a></li>
-                            <li><a href="#">Bách Việt</a></li>
-                            <li><a href="#">AZ Việt Nam</a></li>
-                            <li><a href="#">IPM</a></li>
-                            <li><a href="#">NXB Trẻ</a></li>
+                            <li ><a href="#">Tiểu thuyết</a></li>
+                            <li ><a href="#">Tiểu thuyết</a></li>
+                            <li ><a href="#">Tiểu thuyết</a></li>
+                            <li ><a href="#">Tiểu thuyết</a></li>
+                            <li ><a href="#">Tiểu thuyết</a></li>
+                            <li ><a href="#">Tiểu thuyết</a></li>
+                            <li ><a href="#">Tiểu thuyết</a></li>
+                            <li ><a href="#">Tiểu thuyết</a></li>
+                            <li ><a href="#">Tiểu thuyết</a></li>
 
                         </ul>
 
@@ -363,12 +365,14 @@
                     </div>
                 </div>
                 <div class="row">
-
-
-                    <c:forEach items="${listPr}" var="o">
+                <%
+                    List<Product> list = new ProductDAO().getAllProduct();
+                    request.setAttribute("listPr",list);
+                %>
+                   <c:forEach items="${listPr}" var="p">
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="${o.img}">
+                            <div class="product__item__pic set-bg" data-setbg="${p.img}">
                                 <ul class="product__item__pic__hover">
                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -376,12 +380,12 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="#">${o.name}</a></h6>
-                                <h5>${o.price}</h5>
+                                <h6><a href="#">${p.name}</a></h6>
+                                <h5>${p.price}</h5>
                             </div>
                         </div>
                     </div>
-                    </c:forEach>
+                   </c:forEach>
                 </div>
 
 
