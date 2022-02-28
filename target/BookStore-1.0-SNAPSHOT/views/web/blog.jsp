@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@include file="/common/taglib.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -28,7 +28,6 @@
 </head>
 
 <body>
-<%@include file="header.jsp"%>
 
 <!-- Hero Section Begin -->
 <section class="hero hero-normal">
@@ -282,7 +281,6 @@
     </div>
 </section>
 <!-- Blog Section End -->
-<%@include file="footer.jsp"%>
 
     <!-- Js Plugins -->
     <script src="../../js/jquery-3.3.1.min.js"></script>

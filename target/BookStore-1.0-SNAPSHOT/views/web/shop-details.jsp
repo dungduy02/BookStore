@@ -3,6 +3,7 @@
 <%@ page import="BookStore.Model.ProductDetails" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@include file="/common/taglib.jsp"%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -15,22 +16,9 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="../../css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../../css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="../../css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="../../css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="../../css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="../../css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="../../css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="../../css/style.css" type="text/css">
-    <link rel="stylesheet" href="../../css/style-page.css">
 </head>
 
 <body>
-<%@include file="header.jsp"%>
-<<<<<<< HEAD:src/main/webapp/views/web/shop-details.jsp
-=======
 <!-- Page Preloder -->
 <div id="preloder">
     <div class="loader"></div>
@@ -647,21 +635,6 @@
         </div>
     </div>
 </section>
-<!-- Blog Section End -->
-<%@include file="footer.jsp"%>
-
-    <!-- Js Plugins -->
-    <script src="../../js/jquery-3.3.1.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
-    <script src="../../js/jquery.nice-select.min.js"></script>
-    <script src="../../js/jquery-ui.min.js"></script>
-    <script src="../../js/jquery.slicknav.js"></script>
-    <script src="../../js/mixitup.min.js"></script>
-    <script src="../../js/owl.carousel.min.js"></script>
-    <script src="../../js/main.js"></script>
-
-
-
 </body>
 
 </html>
