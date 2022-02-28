@@ -1,6 +1,6 @@
 package BookStore.Controller.Shop;
 
-import BookStore.service.LoginDAO;
+import BookStore.Service.LoginDAO;
 import BookStore.Model.User;
 
 import javax.servlet.*;

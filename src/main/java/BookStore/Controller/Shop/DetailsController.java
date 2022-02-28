@@ -1,7 +1,7 @@
 package BookStore.Controller.Shop;
 
 import BookStore.Model.ProductDetails;
-import BookStore.service.ProductDetailDAO;
+import BookStore.Service.ProductDetailDAO;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

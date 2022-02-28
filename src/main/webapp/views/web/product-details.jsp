@@ -1,4 +1,4 @@
-<%@ page import="BookStore.service.ProductDetailDAO" %>
+<%@ page import="BookStore.Service.ProductDetailDAO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="BookStore.Model.ProductDetails" %>
 <!DOCTYPE html>

@@ -1,5 +1,5 @@
 package BookStore.Controller.Shop;
-import BookStore.service.ProductDAO;
+import BookStore.Service.ProductDAO;
 import BookStore.Model.Product;
 import javax.servlet.*;
 import javax.servlet.http.*;

@@ -1,4 +1,4 @@
-package BookStore.service;
+package BookStore.Service;
 
 import BookStore.Model.User;
 

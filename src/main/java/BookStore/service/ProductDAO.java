@@ -1,4 +1,4 @@
-package BookStore.service;
+package BookStore.Service;
 import BookStore.Model.Product;
 import java.sql.*;
 import java.util.ArrayList;
