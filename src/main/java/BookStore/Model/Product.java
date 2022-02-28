@@ -1,63 +1,19 @@
 package BookStore.Model;
 
-import java.io.Serializable;
-
-public class Product implements Serializable {
+public class Product {
     private int id;
     private String name;
     private String img;
     private long price;
-    private long priceSale;
-    private int quantity;
-    private String nameAuthor;
-    private String category;
-    private String url;
-    private String description;
-    private int idAuthor;
+    public Product() {
+    }
 
-    public Product(int id, String name, String img, long price, long priceSale) {
+    public Product(int id, String name, String img,  long price) {
         this.id = id;
         this.name = name;
         this.img = img;
         this.price = price;
-        this.priceSale = priceSale;
     }
-
-    public Product(int id, String name, String img, long price, long priceSale, int quantity, String nameAuthor, String category, String url, String description, int idAuthor) {
-        this.id = id;
-        this.name = name;
-        this.img = img;
-        this.price = price;
-        this.priceSale = priceSale;
-        this.quantity = quantity;
-        this.nameAuthor = nameAuthor;
-        this.category = category;
-        this.url = url;
-        this.description = description;
-        this.idAuthor = idAuthor;
-    }
-
-
-    public Product(int id, String name, String picture, int price) {
-        this.id = id;
-        this.name = name;
-        this.img = picture;
-        this.price = price;
-    }
-
-    public Product(int id, String name, String picture,String description, int price) {
-        this.id = id;
-        this.name = name;
-        this.img = picture;
-        this.description = description;
-        this.price = price;
-    }
-
-    public Product(int id, String category) {
-        this.id = id;
-        this.category = category;
-    }
-
 
     public int getId() {
         return id;
@@ -83,6 +39,7 @@ public class Product implements Serializable {
         this.img = img;
     }
 
+
     public long getPrice() {
         return price;
     }
@@ -91,62 +48,12 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    public long getPriceSale() {
-        return priceSale;
-    }
-
-    public void setPriceSale(long priceSale) {
-        this.priceSale = priceSale;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getNameAuthor() {
-        return nameAuthor;
-    }
-
-    public void setNameAuthor(String nameAuthor) {
-        this.nameAuthor = nameAuthor;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getIdAuthor() {
-        return idAuthor;
-    }
-
-    public void setIdAuthor(int idAuthor) {
-        this.idAuthor = idAuthor;
-    }
-
-    public void add() {
+    @Override
+    public String toString() {
+        return "Product{" +  "id=" + id +
+                ", name='" + name + '\'' +
+                ", img='" + img + '\'' +
+                ", price=" + price +
+                '}';
     }
 }
