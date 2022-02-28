@@ -1,6 +1,7 @@
 package BookStore.Service;
 
 import BookStore.Model.Category;
+import BookStore.Model.Publisher;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -35,6 +36,30 @@ public class CategoryDAO {
         }
 
         return lscate;
+    }
+
+    public List<Publisher> getP(){
+        List<Publisher> list = new ArrayList<>();
+        String que = "SELECT * FROM Publisher";
+
+        try {
+            connection = getConnection();
+            prepared = connection.prepareStatement(que);
+            rs = prepared.executeQuery();
+            while (rs.next()){
+                Publisher pub = new Publisher(
+                        rs.getInt(1),
+                        rs.getString(2)
+                );
+                returnConnection(connection);
+                list.add(pub);
+
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
     }
 
     public static void main(String[] args) {

@@ -9,15 +9,12 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "HomeController", value = "/HomeController")
+@WebServlet(name = "HomeController", value = "/TrangChu")
 public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        ProductDAO product = new ProductDAO();
-        List<Product> listpr = product.getAllProduct();
-        request.setAttribute("list",listpr);
-        request.getRequestDispatcher("index.jsp").forward(request,response);
+        RequestDispatcher rd = request.getRequestDispatcher("/views/web/index.jsp");
+        rd.forward(request, response);
 
     }
 
