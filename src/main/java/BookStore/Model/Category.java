@@ -1,15 +1,22 @@
 package BookStore.Model;
 
-public class Category {
+public class Category extends AbstracModel {
     private int id;
     private String name;
+    private String code;
 
     public Category() {
     }
 
-    public Category(int id, String name) {
+//    public Category(int id, String name) {
+//        this.id = id;
+//        this.name = name;
+//    }
+
+    public Category(int id, String name, String code) {
         this.id = id;
         this.name = name;
+        this.code = code;
     }
 
     public int getId() {
@@ -26,6 +33,14 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     @Override

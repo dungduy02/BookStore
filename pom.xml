@@ -17,6 +17,7 @@
         <servlet.api.version>3.1.0</servlet.api.version>
         <taglibs.version>1.1.2</taglibs.version>
         <sitmesh.version>2.4.2</sitmesh.version>
+        <weld.version>2.2.5.Final</weld.version>
         <jstl.version>1.2</jstl.version>
         <junit.version>5.7.0</junit.version>
     </properties>
@@ -73,7 +74,16 @@
             <artifactId>sitemesh</artifactId>
             <version>${sitmesh.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet</artifactId>
+            <version>${weld.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.sonatype.sisu</groupId>
+            <artifactId>sisu-inject-bean</artifactId>
+            <version>1.4.2</version>
+        </dependency>
     </dependencies>
 
     <build>

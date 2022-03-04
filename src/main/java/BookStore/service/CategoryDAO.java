@@ -23,8 +23,9 @@ public class CategoryDAO {
             rs = prepared.executeQuery();
             while (rs.next()){
                 Category cate = new Category(
-                        rs.getInt(1),
-                        rs.getString(2)
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("code_name")
                 );
                 returnConnection(connection);
                 lscate.add(cate);
@@ -85,8 +86,8 @@ public class CategoryDAO {
 
     public static void main(String[] args) {
         CategoryDAO cate = new CategoryDAO();
-        List<Publisher> list = cate.getPublisher();
-        for (Publisher ca : list){
+        List<Category> list = cate.getAllCategory();
+        for (Category ca : list){
             System.out.println(ca);
         }
     }
