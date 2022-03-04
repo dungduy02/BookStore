@@ -6,7 +6,6 @@
         <exploded>true</exploded>
         <module>BookStore</module>
         <packaging>war</packaging>
-        <unpackNestedArchives>false</unpackNestedArchives>
       </options>
     </properties>
     <root id="root">
@@ -15,9 +14,15 @@
           <element id="module-output" name="BookStore" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.servlet:jsp-api:2.0" />
+          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.4" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.38" />
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
           <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
+          <element id="library" level="project" name="Maven: opensymphony:sitemesh:2.4.2" />
+          <element id="library" level="project" name="Maven: org.jboss.weld.servlet:weld-servlet:2.2.5.Final" />
+          <element id="library" level="project" name="Maven: org.sonatype.sisu:sisu-inject-bean:1.4.2" />
+          <element id="library" level="project" name="Maven: org.sonatype.sisu:sisu-guice:noaop:2.1.7" />
         </element>
       </element>
       <element id="directory" name="META-INF">

@@ -1,8 +1,10 @@
 package BookStore.Controller.Shop;
 
 import BookStore.Model.Publisher;
-import BookStore.service.CategoryDAO;
+import BookStore.Service.CategoryDAO;
+
 import BookStore.Model.Category;
+import BookStore.Service.PublisherDAO;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

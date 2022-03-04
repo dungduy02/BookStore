@@ -1,4 +1,4 @@
-package BookStore.service;
+package BookStore.Service;
 
 import BookStore.Model.Category;
 import BookStore.Model.Publisher;
@@ -23,8 +23,9 @@ public class CategoryDAO {
             rs = prepared.executeQuery();
             while (rs.next()){
                 Category cate = new Category(
-                        rs.getInt(1),
-                        rs.getString(2)
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("code_name")
                 );
                 returnConnection(connection);
                 lscate.add(cate);
@@ -59,10 +60,34 @@ public class CategoryDAO {
         return lst;
     }
 
+    public List<Publisher> getP(){
+        List<Publisher> list = new ArrayList<>();
+        String que = "SELECT * FROM Publisher";
+
+        try {
+            connection = getConnection();
+            prepared = connection.prepareStatement(que);
+            rs = prepared.executeQuery();
+            while (rs.next()){
+                Publisher pub = new Publisher(
+                        rs.getInt(1),
+                        rs.getString(2)
+                );
+                returnConnection(connection);
+                list.add(pub);
+
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
         CategoryDAO cate = new CategoryDAO();
-        List<Publisher> list = cate.getPublisher();
-        for (Publisher ca : list){
+        List<Category> list = cate.getAllCategory();
+        for (Category ca : list){
             System.out.println(ca);
         }
     }

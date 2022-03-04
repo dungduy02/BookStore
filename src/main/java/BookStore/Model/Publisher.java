@@ -1,6 +1,7 @@
 package BookStore.Model;
 
 public class Publisher {
+
     private int id;
     private String publishername;
 
@@ -19,6 +20,7 @@ public class Publisher {
     public void setId(int id) {
         this.id = id;
     }
+
 
     public String getPublishername() {
         return publishername;

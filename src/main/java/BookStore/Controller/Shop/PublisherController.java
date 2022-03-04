@@ -1,7 +1,8 @@
 package BookStore.Controller.Shop;
 
+
 import BookStore.Model.Publisher;
-import BookStore.service.CategoryDAO;
+import BookStore.Service.CategoryDAO;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @WebServlet(name = "PublisherController", value = "/PublisherController")
 public class PublisherController extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -19,6 +21,5 @@ public class PublisherController extends HttpServlet {
         request.setAttribute("plisher",lst);
         request.getRequestDispatcher("shop-grid.jsp").forward(request,response);
     }
-
 
 }
