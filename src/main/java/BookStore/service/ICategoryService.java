@@ -1,4 +1,4 @@
-package BookStore.Service;
+package BookStore.service;
 
 import BookStore.Model.Category;
 

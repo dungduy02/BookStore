@@ -23,6 +23,8 @@
           <element id="library" level="project" name="Maven: org.jboss.weld.servlet:weld-servlet:2.2.5.Final" />
           <element id="library" level="project" name="Maven: org.sonatype.sisu:sisu-inject-bean:1.4.2" />
           <element id="library" level="project" name="Maven: org.sonatype.sisu:sisu-guice:noaop:2.1.7" />
+          <element id="library" level="project" name="Maven: com.mchange:c3p0:0.9.5.4" />
+          <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.15" />
         </element>
       </element>
       <element id="directory" name="META-INF">

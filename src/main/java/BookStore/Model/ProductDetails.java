@@ -1,34 +1,36 @@
 package BookStore.Model;
 
 public class ProductDetails {
-    private long id;
+    private int id;
     private String name;
-    private String picture;
-    private long price;
+    private String img;
+    private int price;
     private String description;
     private String publisher;
-    private String cate;
-    private String namesale;
-    private long pricesale;
+    private String category;
+    private int pricesale;
+    private String author;
 
+    public ProductDetails() {
+    }
 
-    public ProductDetails(long id, String name, String picture, long price, String description, String publisher, String cate, String namesale, long pricesale) {
+    public ProductDetails(int id, String name, String img, int price, String description, String publisher, String category, int pricesale, String author) {
         this.id = id;
         this.name = name;
-        this.picture = picture;
+        this.img = img;
         this.price = price;
         this.description = description;
         this.publisher = publisher;
-        this.cate = cate;
-        this.namesale = namesale;
+        this.category = category;
         this.pricesale = pricesale;
+        this.author = author;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -40,19 +42,19 @@ public class ProductDetails {
         this.name = name;
     }
 
-    public String getPicture() {
-        return picture;
+    public String getImg() {
+        return img;
     }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
+    public void setImg(String img) {
+        this.img = img;
     }
 
-    public long getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -72,28 +74,28 @@ public class ProductDetails {
         this.publisher = publisher;
     }
 
-    public String getCate() {
-        return cate;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCate(String cate) {
-        this.cate = cate;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public String getNamesale() {
-        return namesale;
-    }
-
-    public void setNamesale(String namesale) {
-        this.namesale = namesale;
-    }
-
-    public long getPricesale() {
+    public int getPricesale() {
         return pricesale;
     }
 
-    public void setPricesale(long pricesale) {
+    public void setPricesale(int pricesale) {
         this.pricesale = pricesale;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     @Override
@@ -101,13 +103,13 @@ public class ProductDetails {
         return "ProductDetails{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", picture='" + picture + '\'' +
+                ", img='" + img + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
                 ", publisher='" + publisher + '\'' +
-                ", cate='" + cate + '\'' +
-                ", namesale='" + namesale + '\'' +
+                ", category='" + category + '\'' +
                 ", pricesale=" + pricesale +
+                ", author='" + author + '\'' +
                 '}';
     }
 }

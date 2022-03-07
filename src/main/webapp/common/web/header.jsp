@@ -2,11 +2,6 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ include file="/common/taglib.jsp" %>
-<!-- Page Preloder -->
-<%--<div id="preloder">--%>
-<%--    <div class="loader"></div>--%>
-<%--</div>--%>
-
 
 
 <!-- Header Section Begin -->
@@ -32,7 +27,7 @@
                         </div>
                         <div class="header__top__right__register">
                             <!-- <img src="img/language.png" alt=""> -->
-                            <a href="register.jsp" class="register" >Đăng ký</a>
+                            <a href="#" class="register" >Đăng ký</a>
 
                         </div>
                         <div class="header__top__right__auth">
@@ -65,7 +60,7 @@
                                                         <input type="checkbox">
                                                         <label>Lưu</label>
                                                     </div>
-                                                    <a href="register.jsp" class="forgot-pass">Quên mật khẩu?</a>
+                                                    <a href="#" class="forgot-pass">Quên mật khẩu?</a>
                                                     <button class="btn" type="submit">Đăng nhập</button>
                                                 </div>
                                             </div></form>
@@ -82,27 +77,27 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a href="index.jsp"><img src="../../template/web/img/logo.png" alt=""></a>
+                    <a href="#"><img src="../../template/web/img/logo.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="index.jsp">Trang Chủ</a></li>
-                        <li><a href="shop-grid.jsp">Mua Sắm</a></li>
-                        <li><a href="sale.jsp">Giảm Giá</a>
+                        <li class="active"><a href="<c:url value = "/"/>">Trang Chủ</a></li>
+                        <li><a href="<c:url value = "/shop"/>">Mua Sắm</a></li>
+                        <li><a href="#">Giảm Giá</a>
 
                         </li>
-                        <li><a href="blog.jsp">Bài Viết</a></li>
-                        <li><a href="contact.jsp">Liên Hệ</a></li>
+                        <li><a href="#">Bài Viết</a></li>
+                        <li><a href="#">Liên Hệ</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-                        <li><a href="favorite.jsp"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                        <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                     </ul>
                     <div class="header__cart__price">Tổng: <span>150.000 VND</span></div>
                 </div>
@@ -113,4 +108,3 @@
         </div>
     </div>
 </header>
-<!-- Header Section End -->

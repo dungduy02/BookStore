@@ -5,14 +5,17 @@ public class Product {
     private String name;
     private String img;
     private long price;
+    private String description;
+
     public Product() {
     }
 
-    public Product(int id, String name, String img,  long price) {
+    public Product(int id, String name, String img, long price, String description) {
         this.id = id;
         this.name = name;
         this.img = img;
         this.price = price;
+        this.description = description;
     }
 
     public int getId() {
@@ -39,7 +42,6 @@ public class Product {
         this.img = img;
     }
 
-
     public long getPrice() {
         return price;
     }
@@ -48,9 +50,18 @@ public class Product {
         this.price = price;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
-        return "Product{" +  "id=" + id +
+        return "Product{" +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", img='" + img + '\'' +
                 ", price=" + price +

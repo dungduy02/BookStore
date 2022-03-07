@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: DUNGDUY
-  Date: 10/14/2021
-  Time: 8:21 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/common/taglib.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -112,7 +105,7 @@
             <div class="categories__slider owl-carousel">
                 <div class="col-lg-3">
                     <div class="categories__item set-bg" data-setbg="../../template/web/img/categories/cat-1.jpg">
-                        <img src="../../template/web/img/categories/cat-1.jpg">
+                        <%--                        <img src="../../template/web/img/categories/cat-1.jpg">--%>
                         <h5><a href="#">Đầu Tư</a></h5>
                     </div>
                 </div>
@@ -154,23 +147,23 @@
             </div>
         </div>
         <div class="row featured__filter">
-<%--            <c:forEach begin="1" end="8" var="p">--%>
-<%--            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">--%>
-<%--                <div class="featured__item">--%>
-<%--                    <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">--%>
-<%--                        <ul class="featured__item__pic__hover">--%>
-<%--                            <li><a href="#"><i class="fa fa-heart"></i></a></li>--%>
-<%--                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>--%>
-<%--                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>--%>
-<%--                        </ul>--%>
-<%--                    </div>--%>
-<%--                    <div class="featured__item__text">--%>
-<%--                        <h6><a href="./shop-details.html">Từ Tốt Đến Vĩ Đại</a></h6>--%>
-<%--                        <h5>50.000 VND</h5>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            </c:forEach>--%>
+            <%--            <c:forEach begin="1" end="8" var="p">--%>
+            <%--            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">--%>
+            <%--                <div class="featured__item">--%>
+            <%--                    <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">--%>
+            <%--                        <ul class="featured__item__pic__hover">--%>
+            <%--                            <li><a href="#"><i class="fa fa-heart"></i></a></li>--%>
+            <%--                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>--%>
+            <%--                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>--%>
+            <%--                        </ul>--%>
+            <%--                    </div>--%>
+            <%--                    <div class="featured__item__text">--%>
+            <%--                        <h6><a href="./shop-details.html">Từ Tốt Đến Vĩ Đại</a></h6>--%>
+            <%--                        <h5>50.000 VND</h5>--%>
+            <%--                    </div>--%>
+            <%--                </div>--%>
+            <%--            </div>--%>
+            <%--            </c:forEach>--%>
 
 
 
