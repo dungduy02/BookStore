@@ -1,21 +1,33 @@
 package BookStore.Model;
 
-public class Product {
+public class Product extends AbstracModel{
     private int id;
+    private String code;
     private String name;
     private String img;
-    private long price;
+    private int price;
     private String description;
+    private int quantity;
+    private int publisherid;
+    private int categoryid;
+    private int saleid;
+    private int authorid;
 
     public Product() {
     }
 
-    public Product(int id, String name, String img, long price, String description) {
+    public Product(int id, String code, String name, String img, int price, String description, int quantity, int publisherid, int categoryid, int saleid, int authorid) {
         this.id = id;
+        this.code = code;
         this.name = name;
         this.img = img;
         this.price = price;
         this.description = description;
+        this.quantity = quantity;
+        this.publisherid = publisherid;
+        this.categoryid = categoryid;
+        this.saleid = saleid;
+        this.authorid = authorid;
     }
 
     public int getId() {
@@ -24,6 +36,14 @@ public class Product {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getName() {
@@ -42,11 +62,11 @@ public class Product {
         this.img = img;
     }
 
-    public long getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -58,13 +78,59 @@ public class Product {
         this.description = description;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getPublisherid() {
+        return publisherid;
+    }
+
+    public void setPublisherid(int publisherid) {
+        this.publisherid = publisherid;
+    }
+
+    public int getCategoryid() {
+        return categoryid;
+    }
+
+    public void setCategoryid(int categoryid) {
+        this.categoryid = categoryid;
+    }
+
+    public int getSaleid() {
+        return saleid;
+    }
+
+    public void setSaleid(int saleid) {
+        this.saleid = saleid;
+    }
+
+    public int getAuthorid() {
+        return authorid;
+    }
+
+    public void setAuthorid(int authorid) {
+        this.authorid = authorid;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
                 "id=" + id +
+                ", code='" + code + '\'' +
                 ", name='" + name + '\'' +
                 ", img='" + img + '\'' +
                 ", price=" + price +
+                ", quantity=" + quantity +
+                ", publisherid=" + publisherid +
+                ", categoryid=" + categoryid +
+                ", saleid=" + saleid +
+                ", authorid=" + authorid +
                 '}';
     }
 }

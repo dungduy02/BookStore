@@ -2,6 +2,7 @@ package BookStore.Model;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.Timestamp;
 import java.util.Date;
 
 public class User {
@@ -10,24 +11,26 @@ public class User {
     private String password;
     private String fullname;
     private String email;
-    private int addressid;
+    private String address;
     private String gender;
-    private Date Date;
     private String phone;
+    private Integer status;
+    private Integer blogid;
 
     public User() {
     }
 
-    public User(int id, String username, String password, String fullname, String email, int addressid, String gender, Date date, String phone) {
+    public User(int id, String username, String password, String fullname, String email, String address, String gender, String phone, Integer status, Integer blogid) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.fullname = fullname;
         this.email = email;
-        this.addressid = addressid;
+        this.address = address;
         this.gender = gender;
-        this.Date = date;
         this.phone = phone;
+        this.status = status;
+        this.blogid = blogid;
     }
 
     public int getId() {
@@ -70,12 +73,12 @@ public class User {
         this.email = email;
     }
 
-    public int getAddressid() {
-        return addressid;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddressid(int addressid) {
-        this.addressid = addressid;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getGender() {
@@ -86,14 +89,6 @@ public class User {
         this.gender = gender;
     }
 
-    public Date getDate() {
-        return Date;
-    }
-
-    public void setDate(Date date) {
-        this.Date = date;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -102,34 +97,19 @@ public class User {
         this.phone = phone;
     }
 
-
-    public String toMd5(String str){
-        String result = "";
-        MessageDigest digest;
-        try {
-            digest = MessageDigest.getInstance("MD5");
-            digest.update(str.getBytes());
-            BigInteger bigInteger = new BigInteger(1,digest.digest());
-            result = bigInteger.toString(16);
-        } catch ( NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return result;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setPasswordMD5(String pass){
-        String result = "";
-        MessageDigest digest;
-        try {
-            digest = MessageDigest.getInstance("MD5");
-            digest.update(pass.getBytes());
-            BigInteger bigInteger = new BigInteger(1,digest.digest());
-            result = bigInteger.toString(16);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        this.password  = result;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
+    public Integer getBlogid() {
+        return blogid;
+    }
 
+    public void setBlogid(Integer blogid) {
+        this.blogid = blogid;
+    }
 }

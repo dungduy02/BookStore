@@ -88,9 +88,118 @@ public class AbstractDAO<T> implements GenericDAO<T> {
         Connection connection = null;
         PreparedStatement prestament = null;
         ResultSet rs = null;
+        try {
+            Integer id = null;
+            connection = ConnectionPool.getConnection("insert");
+            connection.setAutoCommit(false);
+            prestament = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            setParameter(prestament,parameters);
+            prestament.executeUpdate();
+            rs = prestament.getGeneratedKeys();
+            if (rs.next()){
+                id = rs.getInt(1);
+            }
+            connection.commit();
+            return id;
+
+        } catch (SQLException e) {
+           if (connection != null){
+                try {
+                    connection.rollback();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+           }
+        }finally {
+            try {
+                if (connection != null){
+                        connection.close();
+                }
+                if (prestament != null){
+                        prestament.close();
+                }
+                if (rs != null){
+                        rs.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
         return null;
     }
+
+    @Override
+    public boolean update(String sql, Object... parameters) {
+        Connection connection = null;
+        PreparedStatement prestament = null;
+        boolean updated = true;
+        try {
+            connection = ConnectionPool.getConnection("update");
+            connection.setAutoCommit(false);
+            prestament = connection.prepareStatement(sql);
+            setParameter(prestament,parameters);
+            prestament.executeUpdate();
+            connection.commit();
+            updated = true;
+        } catch (SQLException e) {
+            try {
+                connection.rollback();
+            }catch (SQLException e1){
+                e1.printStackTrace();
+            }
+            updated = false;
+        }finally {
+            try {
+                if (prestament != null){
+                    prestament.close();
+                }
+                if (connection != null){
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return updated;
+    }
+
+    @Override
+    public boolean delete(String sql, Object... parameters) {
+        Connection connection = null;
+        PreparedStatement prestament = null;
+        boolean deleted = true;
+        try {
+            connection = ConnectionPool.getConnection("delete");
+            connection.setAutoCommit(false);
+            prestament = connection.prepareStatement(sql);
+            setParameter(prestament,parameters);
+            connection.commit();
+            deleted = true;
+        } catch (SQLException e) {
+            try {
+                connection.rollback();
+            }catch (SQLException e1){
+                e1.printStackTrace();
+            }
+            deleted = false;
+        }finally {
+            try {
+                if (prestament != null){
+                    prestament.close();
+                }
+                if (connection != null){
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return deleted;
+    }
+
     private void setParameter(PreparedStatement prestament, Object...parameters){
         try {
             for (int i = 0;i< parameters.length; i++){

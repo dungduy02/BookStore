@@ -7,58 +7,6 @@
 </head>
 
 <body>
-<!-- Hero Section Begin -->
-<section class="hero hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>Danh mục</span>
-                    </div>
-                    <ul>
-                        <li><a href="#">Văn Học</a></li>
-                        <li><a href="#">Kinh Tế</a></li>
-                        <li><a href="#">Tâm Lý</a></li>
-                        <li><a href="#">Kĩ Năng Sống</a></li>
-                        <li><a href="#">Nuôi dạy con</a></li>
-                        <li><a href="#">Sách Thiếu Nhi</a></li>
-                        <li><a href="#">Tiểu Sử</a></li>
-                        <li><a href="#">Giáo Dục</a></li>
-                        <li><a href="#">Ngoại Ngữ</a></li>
-                        <li><a href="#">Tham Khảo</a></li>
-                        <li><a href="#">Khác</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <!-- <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div> -->
-                            <input type="text" placeholder="Tìm kiếm sách mong muốn....">
-                            <button type="submit" class="site-btn">TÌM</button>
-                        </form>
-                    </div>
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+841234567</h5>
-                            <span>Hỗ trợ 24/7</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
@@ -87,7 +35,11 @@
                     <div class="sidebar__item">
                         <h4>Nhóm Sản Phẩm</h4>
                         <ul>
-                            <li><a href="#">abc</a></li>
+                            <c:forEach items="${listC}" var="ca">
+                                <li><a href="category?cid=${ca.id}">${ca.name}</a></li>
+                            </c:forEach>
+
+
                         </ul>
                     </div>
                     <div class="sidebar__item">
@@ -99,12 +51,7 @@
                                 <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                                 <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                             </div>
-                            <div class="range-slider">
-                                <div class="price-input">
-                                    <input type="text" id="minamount">
-                                    <input type="text" id="maxamount">
-                                </div>
-                            </div>
+
                         </div>
 
                     </div>
@@ -112,8 +59,8 @@
                         <h4>Nhà Cung Cấp</h4>
 
                         <ul>
-                            <c:forEach items="${listPub}" var="pub">
-                            <li ><a href="#">${pub.name}</a></li>
+                            <c:forEach items="${listPu}" var="pu">
+                            <li ><a href="publisher?pid=${pu.id}"> ${pu.publishername}</a></li>
 
                             </c:forEach>
                         </ul>
@@ -123,189 +70,28 @@
 
                     <div class="sidebar__item">
                         <div class="latest-product__text">
-                            <h4>Nổi Bật</h4>
-                            <div class="latest-product__slider owl-carousel">
-                                <div class="latest-prdouct__slider__item">
+                            <h4>Sản Phẩm Mới Nhất</h4>
+                            <div class="last">
+
+
+
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="../../img/latest-product/lp-1.jpg" alt="">
+                                            <img src="${lastP.img}" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
-                                            <h6>Khéo Ăn Nói Sẽ Có Được Thiên Hạ</h6>
-                                            <span>60.5000 VND</span>
+                                            <h6>${lastP.name}</h6>
+                                            <span>${lastP.price} VND</span>
                                         </div>
                                     </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="../../img/latest-product/lp-2.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Đắc Nhân Tâm</h6>
-                                            <span>58.4000 VND</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="../../img/latest-product/lp-3.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Thay Đổi Cuộc Sống Với Nhân Số Học</h6>
-                                            <span>148.800 VND</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="latest-prdouct__slider__item">
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="../../img/latest-product/lp-1.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Khéo Ăn Nói Sẽ Có Được Thiên Hạ</h6>
-                                            <span>60.5000 VND</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="../../img/latest-product/lp-2.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Đắc Nhân Tâm</h6>
-                                            <span>58.4000 VND</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="../../img/latest-product/lp-3.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Khéo Ăn Nói Sẽ Có Được Thiên Hạ</h6>
-                                            <span>60.5000 VND</span>
-                                        </div>
-                                    </a>
-                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-9 col-md-7">
-                <div class="product__discount">
-                    <div class="section-title product__discount__title">
-                        <h2>Giảm Giá</h2>
-                    </div>
-                    <div class="row">
-                        <div class="product__discount__slider owl-carousel">
-                            <div class="col-lg-4">
-                                <div class="product__discount__item">
-                                    <div class="product__discount__item__pic set-bg"
-                                         data-setbg="img/product/discount/pd-1.jpg">
-                                        <div class="product__discount__percent">-30%</div>
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__discount__item__text">
-                                        <span>Hồi  ký</span>
-                                        <h5><a href="#">Điệp Viên Hoàn Hảo X6</a></h5>
-                                        <div class="product__item__price">117.600 VND <span>168.000 VND</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="product__discount__item">
-                                    <div class="product__discount__item__pic set-bg"
-                                         data-setbg="img/product/discount/pd-2.jpg">
-                                        <div class="product__discount__percent">-18%</div>
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__discount__item__text">
-                                        <span>Hồi  ký</span>
-                                        <h5><a href="#">Lấy Nước Đường Xa</a></h5>
-                                        <div class="product__item__price">56.580 VND <span>69.000 VND</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="product__discount__item">
-                                    <div class="product__discount__item__pic set-bg"
-                                         data-setbg="img/product/discount/pd-3.jpg">
-                                        <div class="product__discount__percent">-20%</div>
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__discount__item__text">
-                                        <span>Tiểu Sử</span>
-                                        <h5><a href="#">Câu Chuyện Nghệ Thuật</a></h5>
-                                        <div class="product__item__price">799.200 VND <span>999.000 VND</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="product__discount__item">
-                                    <div class="product__discount__item__pic set-bg"
-                                         data-setbg="img/product/discount/pd-4.jpg">
-                                        <div class="product__discount__percent">-10%</div>
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__discount__item__text">
-                                        <span>Hồi Ký</span>
-                                        <h5><a href="#">Trump - Đừng Bao Giờ Bỏ Cuộc</a></h5>
-                                        <div class="product__item__price">58.000 VND <span>65.000 VND</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="product__discount__item">
-                                    <div class="product__discount__item__pic set-bg"
-                                         data-setbg="img/product/discount/pd-5.jpg">
-                                        <div class="product__discount__percent">-15%</div>
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__discount__item__text">
-                                        <span>Tiểu Sử</span>
-                                        <h5><a href="#">Cuộc Đời Kỳ Lạ Của Nikola Tesla</a></h5>
-                                        <div class="product__item__price">65.250 VND <span>75.000 VND</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="product__discount__item">
-                                    <div class="product__discount__item__pic set-bg"
-                                         data-setbg="img/product/discount/pd-6.jpg">
-                                        <div class="product__discount__percent">-20%</div>
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__discount__item__text">
-                                        <span>Tiểu Sử</span>
-                                        <h5><a href="#">Leonardo Da Vinci</a></h5>
-                                        <div class="product__item__price">615.420 VND <span>789.000 VND</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="filter__item">
                     <div class="row">
                         <div class="col-lg-4 col-md-5">
@@ -340,12 +126,12 @@
                                 <ul class="product__item__pic__hover">
                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    <li><a href="add-to-cart?id=${p.id}"><i class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="<c:url value="/DetailsController?id=${p.id}"/>">${p.name}</a></h6>
-                                <h5>${p.price}</h5>
+                                <h6><a href="DetailsController?pid=${p.id}">${p.name}</a></h6>
+                                <h5>${p.price} VND</h5>
                             </div>
                         </div>
                     </div>

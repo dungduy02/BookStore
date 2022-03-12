@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/common/taglib.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <html>
 
 <head>
@@ -16,66 +17,6 @@
 
 <body>
 
-<!-- Hero Section Begin -->
-<section class="hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>Danh mục</span>
-                    </div>
-                    <ul>
-                        <li><a href="#">Văn Học</a></li>
-                        <li><a href="#">Kinh Tế</a></li>
-                        <li><a href="#">Tâm Lý</a></li>
-                        <li><a href="#">Kĩ Năng Sống</a></li>
-                        <li><a href="#">Nuôi dạy con</a></li>
-                        <li><a href="#">Sách Thiếu Nhi</a></li>
-                        <li><a href="#">Tiểu Sử</a></li>
-                        <li><a href="#">Giáo Dục</a></li>
-                        <li><a href="#">Ngoại Ngữ</a></li>
-                        <li><a href="#">Tham Khảo</a></li>
-                        <li><a href="#">Hồi Ký</a></li>
-                        <li><a href="#">Khác</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <!-- <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div> -->
-                            <input type="text" placeholder="Tìm kiếm sách mong muốn....">
-                            <button  type="submit" class="site-btn"><a style="color: white" href="./shop-grid.html">TÌM</a></button>
-                        </form>
-                    </div>
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+841234567</h5>
-                            <span>Hỗ trợ 24/7</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
-                    <div class="hero__text">
-                        <span>MUA HÀNG TẠI BOOKSTORE NLU</span>
-                        <h2>Giảm ngay <br />20%</h2>
-                        <p>Ưu đãi cho các đầu sách về Kinh Tế.</p>
-                        <a href="shop-grid.html" class="primary-btn">SHOP NOW</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <!-- Hero Section End -->
 <!-- Begin banner top -->
 <section class="container ">
@@ -103,32 +44,16 @@
     <div class="container">
         <div class="row">
             <div class="categories__slider owl-carousel">
+
                 <div class="col-lg-3">
                     <div class="categories__item set-bg" data-setbg="../../template/web/img/categories/cat-1.jpg">
-                        <%--                        <img src="../../template/web/img/categories/cat-1.jpg">--%>
                         <h5><a href="#">Đầu Tư</a></h5>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="img/categories/cat-2.jpg">
-                        <h5><a href="#">Tiếng Anh</a></h5>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="img/categories/cat-3.jpg">
-                        <h5><a href="#">Văn Học</a></h5>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="img/categories/cat-4.jpg">
-                        <h5><a href="#">Tiểu Thuyết</a></h5>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg">
-                        <h5><a href="#">Kinh Tế</a></h5>
-                    </div>
-                </div>
+
+
+
+
             </div>
         </div>
     </div>
@@ -147,23 +72,24 @@
             </div>
         </div>
         <div class="row featured__filter">
-            <%--            <c:forEach begin="1" end="8" var="p">--%>
-            <%--            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">--%>
-            <%--                <div class="featured__item">--%>
-            <%--                    <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">--%>
-            <%--                        <ul class="featured__item__pic__hover">--%>
-            <%--                            <li><a href="#"><i class="fa fa-heart"></i></a></li>--%>
-            <%--                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>--%>
-            <%--                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>--%>
-            <%--                        </ul>--%>
-            <%--                    </div>--%>
-            <%--                    <div class="featured__item__text">--%>
-            <%--                        <h6><a href="./shop-details.html">Từ Tốt Đến Vĩ Đại</a></h6>--%>
-            <%--                        <h5>50.000 VND</h5>--%>
-            <%--                    </div>--%>
-            <%--                </div>--%>
-            <%--            </div>--%>
-            <%--            </c:forEach>--%>
+                        <c:forEach items="${list}" var="pro" begin="1" end="12">
+                        <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                            <div class="featured__item">
+                                <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
+                                    <img src="${pro.img}">
+                                    <ul class="featured__item__pic__hover">
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                        <li><a href="add-to-cart?bid=${pro.id}"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="featured__item__text">
+                                    <h6><a href="DetailsController?pid=${pro.id}">${pro.name}</a></h6>
+                                    <h5>${pro.price} VND</h5>
+                                </div>
+                            </div>
+                        </div>
+                        </c:forEach>
 
 
 
@@ -206,143 +132,48 @@
             <div class="col-lg-4 col-md-6">
                 <div class="latest-product__text">
                     <h4>Mới Nhất</h4>
-                    <div class="latest-product__slider owl-carousel">
-                        <div class="latest-prdouct__slider__item">
-                            <a href="./shop-details.html" class="latest-product__item">
+                    <c:forEach items="${ListNew}" var="news">
+                    <div class="new">
+
+                        <div class="n">
+                            <a href="DetailsController?pid=${news.id}" class="latest-product__item">
                                 <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-1.jpg" alt="">
+                                    <img src="${news.img}" alt="">
                                 </div>
                                 <div class="latest-product__item__text">
-                                    <h6>Khéo Ăn Nói Sẽ Có Được Thiên Hạ</h6>
-                                    <span>60.500 VND</span>
+                                    <h6>${news.name}</h6>
+                                    <span>${news.price} VND</span>
                                 </div>
                             </a>
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-2.jpg" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h6>Đắc Nhân Tâm</h6>
-                                    <span>58.4000 VND</span>
-                                </div>
-                            </a>
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-3.jpg" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h6>Chủ Nghĩa Khắc Kỷ</h6>
-                                    <span>100.000 VND</span>
-                                </div>
-                            </a>
+
+
                         </div>
-                        <div class="latest-prdouct__slider__item">
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-4.jpg" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h6>Thay Đổi Cuộc Sống Với Nhân Số Học</h6>
-                                    <span>148.800 VND</span>
-                                </div>
-                            </a>
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-5.jpg" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h6>Hiểu Về Trái Tim</h6>
-                                    <span>110.400 VND</span>
-                                </div>
-                            </a>
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-6.jpg" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h6>Trên Đường Băng</h6>
-                                    <span>68.000 VND</span>
-                                </div>
-                            </a>
-                        </div>
+
                     </div>
+                    </c:forEach>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="latest-product__text">
                     <h4>Giảm Giá</h4>
-                    <div class="latest-product__slider owl-carousel">
-                        <div class="latest-prdouct__slider__item">
-                            <a href="./shop-details.html" class="latest-product__item">
+                    <c:forEach items="${listSale}" var="sale">
+                    <div class="sale">
+
+                        <div class="sl">
+                            <a href="DetailsController?pid=${sale.id}" class="latest-product__item">
                                 <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-7.jpg" alt="">
+                                    <img src="${sale.img}" alt="">
                                 </div>
                                 <div class="discount__precent">-15%</div>
                                 <div class="latest-product__item__text">
-                                    <h6>Rèn Luyện Tư Duy Phản Biện</h6>
+                                    <h6>${sale.name}</h6>
                                     <span class="discount">79.200 VND</span>
-                                    <span>110.400 VND</span>
-                                </div>
-                            </a>
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-8.jpg" alt="">
-                                </div>
-                                <div class="discount__precent">-15%</div>
-                                <div class="latest-product__item__text">
-                                    <h6>Kiếp Nào Ta Cũng Tìm Thấy Nhau</h6>
-                                    <span class="discount">72.250 VND</span>
-                                    <span>114.240 VND</span>
-                                </div>
-                            </a>
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-9.jpg" alt="">
-                                </div>
-                                <div class="discount__precent">-15%</div>
-                                <div class="latest-product__item__text">
-                                    <h6>OSHO - Yêu - Being In Love</h6>
-                                    <span class="discount">155.240 VND</span>
-                                    <span>140.800 VND</span>
+                                    <span>${sale.price} VND</span>
                                 </div>
                             </a>
                         </div>
-                        <div class="latest-prdouct__slider__item">
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-1.jpg" alt="">
-                                </div>
-                                <div class="discount__precent">-15%</div>
-                                <div class="latest-product__item__text">
-                                    <h6>Khéo Ăn Nói Sẽ Có Được Thiên Hạ</h6>
-                                    <span class="discount">60.5000 VND</span>
-                                    <span>55.000 VND</span>
-                                </div>
-                            </a>
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-2.jpg" alt="">
-                                </div>
-                                <div class="discount__precent">-15%</div>
-                                <div class="latest-product__item__text">
-                                    <h6>Chủ Nghĩa Khắc Kỷ</h6>
-                                    <span class="discount">130.000 VND</span>
-                                    <span>100.000 VND</span>
-                                </div>
-                            </a>
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-3.jpg" alt="">
-                                </div>
-                                <div class="discount__precent">-15%</div>
-                                <div class="latest-product__item__text">
-                                    <h6>Thay Đổi Cuộc Sống Với Nhân Số Học</h6>
-                                    <span class="discount">155.000 VND</span>
-                                    <span>148.800 VND</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+
+                    </div></c:forEach>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">

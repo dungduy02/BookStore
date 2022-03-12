@@ -4,10 +4,11 @@ import java.sql.Timestamp;
 
 public class AbstracModel {
     private int id;
-    private String createdBy;
-    private String modifiedBy;
-    private Timestamp createdDate;
-    private Timestamp modifiedDate;
+    private Category category;
+    private Publisher publisher;
+    private Integer maxPage;
+    private Integer totalPage;
+    private Integer totalItem;
 
     public int getId() {
         return id;
@@ -17,35 +18,27 @@ public class AbstracModel {
         this.id = id;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
+    public Integer getMaxPage() {
+        return maxPage;
     }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
+    public void setMaxPage(Integer maxPage) {
+        this.maxPage = maxPage;
     }
 
-    public String getModifiedBy() {
-        return modifiedBy;
+    public Integer getTotalPage() {
+        return totalPage;
     }
 
-    public void setModifiedBy(String modifiedBy) {
-        this.modifiedBy = modifiedBy;
+    public void setTotalPage(Integer totalPage) {
+        this.totalPage = totalPage;
     }
 
-    public Timestamp getCreatedDate() {
-        return createdDate;
+    public Integer getTotalItem() {
+        return totalItem;
     }
 
-    public void setCreatedDate(Timestamp createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public Timestamp getModifiedDate() {
-        return modifiedDate;
-    }
-
-    public void setModifiedDate(Timestamp modifiedDate) {
-        this.modifiedDate = modifiedDate;
+    public void setTotalItem(Integer totalItem) {
+        this.totalItem = totalItem;
     }
 }

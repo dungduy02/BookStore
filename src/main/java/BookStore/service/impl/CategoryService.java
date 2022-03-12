@@ -16,5 +16,11 @@ public class CategoryService implements ICategoryService {
         return categoryDAO.getAllCategory();
     }
 
+    @Override
+    public Category getCategory(String cid) {
+        return categoryDAO.getCategory(cid);
+    }
+
+
 
 }

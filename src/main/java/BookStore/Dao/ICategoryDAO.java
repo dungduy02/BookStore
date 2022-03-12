@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ICategoryDAO {
     List<Category> getAllCategory();
+    Category getCategory(String id);
 }

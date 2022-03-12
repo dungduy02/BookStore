@@ -1,4 +1,5 @@
 <%@include file="/common/taglib.jsp"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -16,58 +17,7 @@
 </head>
 
 <body>
-<!-- Hero Section Begin -->
-<section class="hero hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>Danh mục</span>
-                    </div>
-                    <ul>
-                        <li><a href="#">Văn Học</a></li>
-                        <li><a href="#">Kinh Tế</a></li>
-                        <li><a href="#">Tâm Lý</a></li>
-                        <li><a href="#">Kĩ Năng Sống</a></li>
-                        <li><a href="#">Nuôi dạy con</a></li>
-                        <li><a href="#">Sách Thiếu Nhi</a></li>
-                        <li><a href="#">Tiểu Sử</a></li>
-                        <li><a href="#">Giáo Dục</a></li>
-                        <li><a href="#">Ngoại Ngữ</a></li>
-                        <li><a href="#">Tham Khảo</a></li>
-                        <li><a href="#">Khác</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <!-- <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div> -->
-                            <input type="text" placeholder="Tìm kiếm sách mong muốn....">
-                            <button type="submit" class="site-btn">TÌM</button>
-                        </form>
-                    </div>
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+841234567</h5>
-                            <span>Hỗ trợ 24/7</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
+
 
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
@@ -77,7 +27,7 @@
                 <div class="breadcrumb__text">
                     <h2>Organi Shop</h2>
                     <div class="breadcrumb__option">
-                        <a href="./index.html">Trang Chủ</a>
+                        <a href="<c:url value = "/views/web/index.jsp"/>">Trang Chủ</a>
                         <span>Tìm kiếm</span>
                     </div>
                 </div>
@@ -239,69 +189,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
-                                <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h6><a href="#">Atlat Địa Lí Việt Nam - 2021</a></h6>
-                                <h5>29.450 VND</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
-                                <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h6><a href="#">Bé Tập Tô Chữ Thường</a></h6>
-                                <h5>4.068 VND</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
-                                <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h6><a href="#">Bé Tập Tô Chữ Số</a></h6>
-                                <h5>4.980 VND</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="img/product/product-4.jpg">
-                                <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h6><a href="#">Bé Tập Tô Nét Cơ Bản</a></h6>
-                                <h5>4.960 VND</h5>
-                            </div>
-                        </div>
-                    </div>
+                    <c:forEach items="${listProduct}" var="tk">
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="img/product/product-5.jpg">
+                                <img src="${tk.img}">
                                 <ul class="product__item__pic__hover">
                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -309,11 +201,11 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="#">Bé Tập Tô Chữ Hoa</a></h6>
-                                <h5>$30.00</h5>
+                                <h6><a href="#">${tk.name}</a></h6>
+                                <h5>${tk.price}</h5>
                             </div>
                         </div>
-                    </div>
+                    </div></c:forEach>
                 </div>
                 <div class="product__pagination">
                     <a href="#">1</a>

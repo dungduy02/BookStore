@@ -13,14 +13,22 @@ public class PublisherService implements IPublisherService {
     IPublisherDAO publisherDAO;
     @Override
     public List<Publisher> getAllPublisher() {
+
         return publisherDAO.getAllPublisher();
+    }
+
+    @Override
+    public Publisher getPublisherById(String  id) {
+        return publisherDAO.getPublisherById(id);
     }
 
     public static void main(String[] args) {
         PublisherDAO publisherDAO = new PublisherDAO();
+        Publisher publisher = publisherDAO.getPublisherById("2");
+        System.out.println(publisher);
         List<Publisher> list = publisherDAO.getAllPublisher();
-        for (Publisher pub : list){
-            System.out.println(pub);
-        }
+//        for (Publisher pub : list){
+//            System.out.println(pub);
+//        }
     }
 }
