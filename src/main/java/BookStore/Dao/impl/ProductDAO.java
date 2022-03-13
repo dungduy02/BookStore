@@ -8,36 +8,73 @@ import java.util.List;
 
 public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
     @Override
-    public List<Product> getByName() {
-        return null;
+    public List<Product> getByName(String name) {
+        name = "%"+ name +"%";
+        String sql = "SELECT * FROM products WHERE `name` like ?";
+        return query(sql,new ProductMapper(),name);
+    }
+
+
+
+    @Override
+    public List<Product> getByCategory(String cid) {
+        String sql ="SELECT * FROM products WHERE category_id = ?";
+        return query(sql,new ProductMapper(),cid);
     }
 
     @Override
-    public List<Product> getByPublisher(String publishername) {
-        publishername = "%" +publishername + "%";
+    public List<Product> getByPublisher(String pubid) {
+        String sql = "SELECT * FROM products WHERE publisher_id = ?";
 
-        return null;
+
+        return query(sql,new ProductMapper(),pubid);
     }
 
     @Override
     public List<Product> getAll() {
-        String sql = "SELECT * FROM products ";
-        return query(sql,new ProductMapper());
+
+            String sql = "SELECT * FROM products";
+
+
+        return query(sql, new ProductMapper());
     }
 
     @Override
     public List<Product> getNewProduct() {
-        String sql = "SELECT * FROM products ORDER BY id DESC LIMIT 9";
+        String sql = "SELECT * FROM products ORDER BY id DESC LIMIT 6";
         return query(sql,new ProductMapper());
     }
 
     @Override
-    public Product getOne(Integer id) {
-        String sql = "SELECT p.*,au.`name` as author,pub.`name` as pubname,cate.`name` as catename,sl.price_sale as pricesale" +
-                " FROM (((((products p JOIN detail_product de ON p.id = de.product_id) JOIN author au ON p.author_id = au.id)" +
-                " JOIN publisher pub ON de.publisher_id = pub.id) JOIN category cate ON de.category_id = cate.id)" +
-                " JOIN sale sl ON de.sale_id = sl.id) WHERE p.id = ?";
+    public Product getOne(String id) {
+        String sql = "SELECT p.*,pub.`name` as publishername,cate.`name` as category,au.name as authors " +
+                "FROM ((((products p JOIN publisher pub ON p.publisher_id = pub.id)" +
+                "JOIN category cate ON p.category_id = cate.id) JOIN sale sl ON p.sale_id = sl.id) " +
+                "JOIN author au ON p.author_id = au.id) WHERE p.id = ?;";
+        return queryOne(sql,new ProductMapper(),id);
+    }
 
+    @Override
+    public List<Product> getSaleProduct() {
+        String sql = "SELECT p.*,sl.* FROM products p JOIN sale sl ON p.sale_id = sl.id WHERE p.sale_id = 3;";
+        return query(sql,new ProductMapper());
+    }
+
+    @Override
+    public List<Product> getByPrice(String price) {
+        String sql = "SELECT * FROM products WHERE price BETWEEN ? AND ?";
+        return query(sql,new ProductMapper(),price);
+    }
+
+    @Override
+    public Product getLastProduct() {
+        String sql = "SELECT * FROM products ORDER BY id DESC LIMIT 1;";
+        return queryOne(sql,new ProductMapper());
+    }
+
+    @Override
+    public Product getProductById(String id) {
+        String sql ="SELECT * FROM products WHERE id = ?";
         return queryOne(sql,new ProductMapper(),id);
     }
 

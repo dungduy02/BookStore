@@ -12,9 +12,6 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
     public User findOneById(Integer id) {
         String sql = "select * from users where id = ?";
         return query(sql, new UserMapper(), id).get(0);
-//        String sql = "SELECT * FROM users WHERE id = ?";
-//        List<User> users = query(sql, new UserMapper(),id);
-//        return users.isEmpty() ? null : users.get(0);
     }
 
     @Override
@@ -22,23 +19,31 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
         String sql = "select * from users where username = ?";
         List<User> list = query(sql, new UserMapper(), username);
         return list.size() == 0 ? null : list.get(0);
-//            return  query(sql, new UserMapper(), username).get(0);
+
     }
 
     @Override
     public Integer insert(User user) {
-        StringBuilder sql = new StringBuilder("insert into users " +
-                "(username, password, fullname, email, phone, status) ");
-        sql.append("value (?,?,?,?,?,?) ");
-        return insert(sql.toString(),
-                user.getId(),
+        String sql = "INSERT INTO users (usename,`password`,fullname,email,address,sex,phone,`status`,blog_id)" +
+                " VALUES (?,?,?,?,?,?,?,?,?)";
+        return insert(
                 user.getUsername(),
                 user.getPassword(),
                 user.getFullname(),
                 user.getEmail(),
+                user.getAddress(),
+                user.getGender(),
                 user.getPhone(),
-                user.getStatus());
+                user.getStatus(),
+                user.getBlogid()
+                );
+    }
 
+    @Override
+    public User getUser(Integer id) {
+        String sql = "SELECT * FROM users WHERE id = ?";
+        return queryOne(sql,new USerMapper(),id);
+    }
     }
 
 }

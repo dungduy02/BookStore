@@ -3,6 +3,7 @@ package BookStore.utils;
 import javax.servlet.http.HttpServletRequest;
 
 public class SessionUtil {
+    
     private static SessionUtil sessionUtil = null;
 
     public static SessionUtil getInstance(){
@@ -23,4 +24,5 @@ public class SessionUtil {
     public void removeValue(HttpServletRequest request, String key){
         request.getSession().removeAttribute(key);
     }
+
 }

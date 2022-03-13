@@ -1,4 +1,4 @@
-
+<%@ page import="BookStore.service.IProductService" %>
 
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" %>
@@ -10,58 +10,6 @@
 
 <body>
 
-<!-- Hero Section Begin -->
-<section class="hero hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>Danh mục</span>
-                    </div>
-                    <ul>
-                        <li><a href="#">Văn Học</a></li>
-                        <li><a href="#">Kinh Tế</a></li>
-                        <li><a href="#">Tâm Lý</a></li>
-                        <li><a href="#">Kĩ Năng Sống</a></li>
-                        <li><a href="#">Nuôi dạy con</a></li>
-                        <li><a href="#">Sách Thiếu Nhi</a></li>
-                        <li><a href="#">Tiểu Sử</a></li>
-                        <li><a href="#">Giáo Dục</a></li>
-                        <li><a href="#">Ngoại Ngữ</a></li>
-                        <li><a href="#">Tham Khảo</a></li>
-                        <li><a href="#">Khác</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <!-- <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div> -->
-                            <input type="text" placeholder="Tìm kiếm sách mong muốn....">
-                            <button type="submit" class="site-btn">TÌM</button>
-                        </form>
-                    </div>
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+841234567</h5>
-                            <span>Hỗ trợ 24/7</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
@@ -91,7 +39,7 @@
 
                     <div class="product__details__pic__item">
                         <img class="product__details__pic__item--large"
-                             src="${list.img}" alt="">
+                             src="${details.img}" alt="">
                     </div>
                     <div class="product__details__pic__slider owl-carousel">
                         <img data-imgbigurl="img/product/details/product-details-2.jpg"
@@ -108,7 +56,7 @@
             <div class="col-lg-6 col-md-6">
 
                 <div class="product__details__text">
-                    <h3>abv</h3>
+                    <h3>${details.name}</h3>
                     <div class="product__details__rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -117,23 +65,18 @@
                         <i class="fa fa-star-half-o"></i>
                         <span>(18 reviews)</span>
                     </div>
-                    <div class="product__details__price">${list.price}
-                        <span>${details.pricesale}</span> </div>
+                    <div class="product__details__price">${details.price}
+                        <span>${sale.priceSale}</span> </div>
 
-                    <div class="product__details__quantity">
-                        <div class="quantity">
-                            <div class="pro-qty">
-                                <input type="text" value="1">
-                            </div>
-                        </div>
-                    </div>
+
                     <a href="#" class="primary-btn" style="background:steelblue;">ADD TO CARD</a>
                     <a href="#" class="primary-btn" >MUA NGAY</a>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
-                        <li><b>Thể loại:</b> <span>${details.category}</span></li>
-                        <li><b>Nhà xuất bản:</b> <span>${details.pubname}</span></li>
-                        <li><b>Tác giả:</b> <span>${details.author}</span></li>
+
+                        <li><b>Thể loại:</b> <span >${cate.name}</span></li>
+                        <li><b>Nhà xuất bản:</b> <span>${publis.publishername}</span></li>
+                        <li><b>Tác giả:</b> <span>${author.authorname}</span></li>
                         <li><b>Giao Hàng:</b> <span>Giao hàng trong ngày. <samp>Miễn phí vận chuyển.</samp></span></li>
                         <li><b>Share on</b>
                             <div class="share">
@@ -211,12 +154,7 @@
                                 </table>
                             </div>
                         </div>
-                        <!-- <div class="tab-pane" id="tabs-3" role="tabpanel">
-                            <div class="product__details__tab__desc">
-                                <h6>Products Infomation</h6>
-                                <p></p>
-                            </div>
-                        </div> -->
+
                     </div>
                 </div>
             </div>

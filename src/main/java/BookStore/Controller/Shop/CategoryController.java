@@ -2,6 +2,11 @@ package BookStore.Controller.Shop;
 
 import BookStore.Dao.ICategoryDAO;
 import BookStore.Model.Category;
+import BookStore.Model.Product;
+import BookStore.Model.Publisher;
+import BookStore.service.ICategoryService;
+import BookStore.service.IProductService;
+import BookStore.service.IPublisherService;
 
 import javax.inject.Inject;
 import javax.servlet.*;
@@ -10,16 +15,28 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "CategoryController", value = "/CategoryController")
+@WebServlet(urlPatterns = "/category")
 public class CategoryController extends HttpServlet {
     @Inject
-    ICategoryDAO categoryDAO;
+    ICategoryService categoryService;
+    @Inject
+    IProductService productService;
+    @Inject
+    IPublisherService publisherService;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        List<Category> listcate = categoryDAO.getAllCategory();
-        request.setAttribute("listCate",listcate);
-        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+        String caid = request.getParameter("cid");
+        List<Product> listpc = productService.getProductByCategory(caid);
+        List<Publisher> listPu = publisherService.getAllPublisher();
+        List<Category> listC = categoryService.findAll();
+
+
+        request.setAttribute("listC",listC);
+        request.setAttribute("list",listpc);
+        request.setAttribute("listPu",listPu);
+
+        RequestDispatcher rd = request.getRequestDispatcher("/views/web/shop.jsp");
         rd.forward(request,response);
 
     }

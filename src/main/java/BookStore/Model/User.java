@@ -2,6 +2,7 @@ package BookStore.Model;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.Timestamp;
 import java.util.Date;
 
 public class User extends AbstracModel {
@@ -14,12 +15,18 @@ public class User extends AbstracModel {
     private String sex;
     private Date Date;
     private String phone;
+    private Integer status;
+    private Integer blogid;
 
     public User() {
     }
 
+
     public User(String username, String password, String fullname, long status, String email,
                 int addressid, String sex, Date date, String phone) {
+
+//     public User(int id, String username, String password, String fullname, String email, String address, String gender, String phone, Integer status, Integer blogid) {
+//         this.id = id;
         this.username = username;
         this.password = password;
         this.fullname = fullname;
@@ -28,7 +35,11 @@ public class User extends AbstracModel {
         this.addressid = addressid;
         this.sex = sex;
         Date = date;
+//         this.address = address;
+//         this.gender = gender;
         this.phone = phone;
+        this.status = status;
+        this.blogid = blogid;
     }
 
     public String getUsername() {
@@ -71,12 +82,12 @@ public class User extends AbstracModel {
         this.email = email;
     }
 
-    public int getAddressid() {
-        return addressid;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddressid(int addressid) {
-        this.addressid = addressid;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getSex() {
@@ -103,33 +114,19 @@ public class User extends AbstracModel {
         this.phone = phone;
     }
 
-    public String toMd5(String str){
-        String result = "";
-        MessageDigest digest;
-        try {
-            digest = MessageDigest.getInstance("MD5");
-            digest.update(str.getBytes());
-            BigInteger bigInteger = new BigInteger(1,digest.digest());
-            result = bigInteger.toString(16);
-        } catch ( NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return result;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setPasswordMD5(String pass){
-        String result = "";
-        MessageDigest digest;
-        try {
-            digest = MessageDigest.getInstance("MD5");
-            digest.update(pass.getBytes());
-            BigInteger bigInteger = new BigInteger(1,digest.digest());
-            result = bigInteger.toString(16);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        this.password  = result;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
+    public Integer getBlogid() {
+        return blogid;
+    }
 
+    public void setBlogid(Integer blogid) {
+        this.blogid = blogid;
+    }
 }

@@ -3,32 +3,6 @@
          pageEncoding="UTF-8" %>
 <%@ include file="/common/taglib.jsp" %>
 
-<%--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">--%>
-<%--    <div class="modal-dialog" role="document">--%>
-<%--        <form action="LoginController" method="post">--%>
-<%--            <div class="modal-content clearfix">--%>
-<%--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>--%>
-<%--                <div class="modal-body">--%>
-<%--                    <h3 class="title"> Đăng nhập </h3>--%>
-<%--                    <p class="description"></p>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <span class="input-icon"><i class="fa fa-user"></i></span>--%>
-<%--                        <input type="text" class="form-control" placeholder="Tên tài khoản" name="username">--%>
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <span class="input-icon"><i class="fa fa-key"></i></span>--%>
-<%--                        <input type="password" class="form-control" placeholder="Mật khẩu" name="password">--%>
-<%--                    </div>--%>
-<%--                    <div class="form-group checkbox">--%>
-<%--                        <input type="checkbox">--%>
-<%--                        <label>Lưu</label>--%>
-<%--                    </div>--%>
-<%--                    <a href="register.jsp" class="forgot-pass">Quên mật khẩu?</a>--%>
-<%--                    <button class="btn" type="submit">Đăng nhập</button>--%>
-<%--                </div>--%>
-<%--            </div></form>--%>
-<%--    </div>--%>
-<%--</div>--%>
 
 <!-- Header Section Begin -->
 <header class="header">
@@ -53,7 +27,9 @@
                         </div>
                         <c:if test="${not empty USERMODEL}">
                         <div class="header__top__right__register">
+
                             <p href="<c:url value = "#"/>"> ${USERMODEL.fullname}</p>
+
                         </div>
                         <div class="header__top__right__auth">
                             <!-- sau chinh sua -->
@@ -62,8 +38,6 @@
                                     <button type="button" class=" btn-lg show-modal fa fa-sign-out" aria-hidden="true">  Đăng xuất</button>
                                 </a>
                                 <!-- Modal -->
-
-
                             </div>
                         </div>
                         </c:if>
@@ -95,10 +69,10 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-top: 20px">
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a href="#"><img src="../../template/web/img/logo.png" alt=""></a>
+                   <img src="../template/web/img/logo.png" alt="" style="height: 85%;width: 100px">
                 </div>
             </div>
             <div class="col-lg-6">
@@ -106,11 +80,9 @@
                     <ul>
                         <li class="active"><a href="<c:url value = "/"/>">Trang Chủ</a></li>
                         <li><a href="<c:url value = "/shop"/>">Mua Sắm</a></li>
-                        <li><a href="#">Giảm Giá</a>
 
-                        </li>
                         <li><a href="#">Bài Viết</a></li>
-                        <li><a href="#">Liên Hệ</a></li>
+                        <li><a href="<c:url value = "/contact"/>">Liên Hệ</a></li>
                     </ul>
                 </nav>
             </div>
@@ -128,4 +100,35 @@
             <i class="fa fa-bars"></i>
         </div>
     </div>
+    <!-- Hero Section Begin -->
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-9" style="margin: 0 auto">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="<c:url value="/search"/>">
+                                <select id = "filterSearch" name ="filter">
+                                    <option value="name">Sản phẩm</option>
+                                </select>
+                                <input type="text" placeholder="Tìm kiếm sách mong muốn...." name="keyword">
+                                <button  type="submit" class="site-btn">TÌM</button>
+                            </form>
+                        </div>
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>+841234567</h5>
+                                <span>Hỗ trợ 24/7</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
 </header>
