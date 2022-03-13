@@ -4,38 +4,31 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
-public class User {
-    private int id;
+public class User extends AbstracModel {
     private String username;
     private String password;
     private String fullname;
+    private long status;
     private String email;
     private int addressid;
-    private String gender;
+    private String sex;
     private Date Date;
     private String phone;
 
     public User() {
     }
 
-    public User(int id, String username, String password, String fullname, String email, int addressid, String gender, Date date, String phone) {
-        this.id = id;
+    public User(String username, String password, String fullname, long status, String email,
+                int addressid, String sex, Date date, String phone) {
         this.username = username;
         this.password = password;
         this.fullname = fullname;
+        this.status = status;
         this.email = email;
         this.addressid = addressid;
-        this.gender = gender;
-        this.Date = date;
+        this.sex = sex;
+        Date = date;
         this.phone = phone;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getUsername() {
@@ -62,6 +55,14 @@ public class User {
         this.fullname = fullname;
     }
 
+    public long getStatus() {
+        return status;
+    }
+
+    public void setStatus(long status) {
+        this.status = status;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -78,20 +79,20 @@ public class User {
         this.addressid = addressid;
     }
 
-    public String getGender() {
-        return gender;
+    public String getSex() {
+        return sex;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setSex(String gender) {
+        this.sex = gender;
     }
 
-    public Date getDate() {
+    public java.util.Date getDate() {
         return Date;
     }
 
-    public void setDate(Date date) {
-        this.Date = date;
+    public void setDate(java.util.Date date) {
+        Date = date;
     }
 
     public String getPhone() {
@@ -101,7 +102,6 @@ public class User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
 
     public String toMd5(String str){
         String result = "";

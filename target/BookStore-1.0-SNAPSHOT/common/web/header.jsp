@@ -3,6 +3,32 @@
          pageEncoding="UTF-8" %>
 <%@ include file="/common/taglib.jsp" %>
 
+<%--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">--%>
+<%--    <div class="modal-dialog" role="document">--%>
+<%--        <form action="LoginController" method="post">--%>
+<%--            <div class="modal-content clearfix">--%>
+<%--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>--%>
+<%--                <div class="modal-body">--%>
+<%--                    <h3 class="title"> Đăng nhập </h3>--%>
+<%--                    <p class="description"></p>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <span class="input-icon"><i class="fa fa-user"></i></span>--%>
+<%--                        <input type="text" class="form-control" placeholder="Tên tài khoản" name="username">--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <span class="input-icon"><i class="fa fa-key"></i></span>--%>
+<%--                        <input type="password" class="form-control" placeholder="Mật khẩu" name="password">--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group checkbox">--%>
+<%--                        <input type="checkbox">--%>
+<%--                        <label>Lưu</label>--%>
+<%--                    </div>--%>
+<%--                    <a href="register.jsp" class="forgot-pass">Quên mật khẩu?</a>--%>
+<%--                    <button class="btn" type="submit">Đăng nhập</button>--%>
+<%--                </div>--%>
+<%--            </div></form>--%>
+<%--    </div>--%>
+<%--</div>--%>
 
 <!-- Header Section Begin -->
 <header class="header">
@@ -25,49 +51,44 @@
                             <a href="#"><i class="fa fa-linkedin"></i></a>
                             <a href="#"><i class="fa fa-pinterest-p"></i></a>
                         </div>
+                        <c:if test="${not empty USERMODEL}">
                         <div class="header__top__right__register">
-                            <!-- <img src="img/language.png" alt=""> -->
-                            <a href="#" class="register" >Đăng ký</a>
-
+                            <p href="<c:url value = "#"/>"> ${USERMODEL.fullname}</p>
                         </div>
                         <div class="header__top__right__auth">
                             <!-- sau chinh sua -->
                             <div class="modal-box">
-                                <!-- Button trigger modal -->
-                                <button type="button" class=" btn-lg show-modal" data-toggle="modal" data-target="#myModal">
-                                    Đăng nhập
-                                </button>
-
+                                <a href="<c:url value="/Dang-nhap?action=logout" />">
+                                    <button type="button" class=" btn-lg show-modal fa fa-sign-out" aria-hidden="true">  Đăng xuất</button>
+                                </a>
                                 <!-- Modal -->
 
-                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                    <div class="modal-dialog" role="document">
-                                        <form action="LoginController" method="post">
-                                            <div class="modal-content clearfix">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                <div class="modal-body">
-                                                    <h3 class="title"> Đăng nhập </h3>
-                                                    <p class="description"></p>
-                                                    <div class="form-group">
-                                                        <span class="input-icon"><i class="fa fa-user"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Tên tài khoản" name="username">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <span class="input-icon"><i class="fa fa-key"></i></span>
-                                                        <input type="password" class="form-control" placeholder="Mật khẩu" name="password">
-                                                    </div>
-                                                    <div class="form-group checkbox">
-                                                        <input type="checkbox">
-                                                        <label>Lưu</label>
-                                                    </div>
-                                                    <a href="#" class="forgot-pass">Quên mật khẩu?</a>
-                                                    <button class="btn" type="submit">Đăng nhập</button>
-                                                </div>
-                                            </div></form>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
+                        </c:if>
+                        <c:if test="${ empty USERMODEL}">
+                            <div class="header__top__right__auth">
+                                <!-- sau chinh sua -->
+                                <div class="modal-box">
+                                    <!-- Button trigger modal -->
+                                    <a href="<c:url value = "/Dang-nhap"/>">
+                                    <button type="button" class=" btn-lg show-modal" data-toggle="modal" data-target="#myModal">
+                                        Đăng nhập
+                                    </button>
+                                    </a>
+                                    <!-- Modal -->
+                                </div>
+                            </div>
+                            <div class="header__top__right__register">
+                                <!-- <img src="img/language.png" alt=""> -->
+                                <a href="<c:url value = "/dang-ky"/>" >
+                                    <button type="button" class=" btn-lg show-modal" data-toggle="modal" data-target="#myModal">
+                                        Đăng ký
+                                    </button>
+                                </a>
+                            </div>
+                        </c:if>
                     </div>
                 </div>
             </div>
