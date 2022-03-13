@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.security.Timestamp;
 import java.util.Calendar;
 
-@WebServlet(urlPatterns = "/register")
+@WebServlet(urlPatterns = "/dang-ky")
 public class RegisterController extends HttpServlet {
     @Inject
     private IUserService userService;
@@ -32,40 +32,41 @@ public class RegisterController extends HttpServlet {
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
-        String address = request.getParameter("address");
-        String gender = request.getParameter("gender");
+//        String address = request.getParameter("address");
+//        String sex = request.getParameter("sex");
 
         User us = userService.getUser(username);
         if (us == null){
             User user = new User();
 
             password = EncryptUtil.encryptMD5(password);
-
             user.setUsername(username);
-            user.setFullname(fullname);
             user.setPassword(password);
+            user.setFullname(fullname);
             user.setEmail(email);
             user.setPhone(phone);
-            user.setAddress(address);
-            user.setGender(gender);
-            user.setStatus(1);
-            user.setBlogid(1);
+//            user.setAddressid(address);
+//            user.setSex(sex);
+//            user.setStatus(1);
+//            user.setBlogid(1);
 
 
-            if ((user = userService.register(user)) !=  null){
-                SessionUtil.getInstance().putValue(request,"USERMODEL",user);
-                response.sendRedirect(request.getContextPath()+ "/TrangChu");
-
-            }else {
-                request.getRequestDispatcher("/views/web/register.jsp").forward(request,response);
+            try {
+                user = userService.insert(user);
+                System.out.println(user.toString());
+                request.getSession().setAttribute("USERMODEL", user);
+            }catch (Exception e){
+                response.sendRedirect(request.getContextPath() + "/TrangChu");
             }
-
+            response.sendRedirect(request.getContextPath() + "/TrangChu");
         }else {
+            request.setAttribute("username",username);
             request.setAttribute("fullname",fullname);
+            request.setAttribute("password",password);
             request.setAttribute("email",email);
-            request.setAttribute("address",address);
+//            request.setAttribute("address",address);
             request.setAttribute("phone",phone);
-            request.setAttribute("gender",gender);
+//            request.setAttribute("sex",sex);
             request.setAttribute("uname-err","Tên tài khoản đã tồn tại");
             request.getRequestDispatcher("/views/web/register.jsp").forward(request,response);
         }

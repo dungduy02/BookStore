@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html;charset=UTF-8"
+         pageEncoding="UTF-8" %>
 <%@include file="/common/taglib.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
@@ -18,58 +19,6 @@
 </head>
 
 <body>
-<!-- Hero Section Begin -->
-<section class="hero hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>Danh mục</span>
-                    </div>
-                    <ul>
-                        <li><a href="#">Văn Học</a></li>
-                        <li><a href="#">Kinh Tế</a></li>
-                        <li><a href="#">Tâm Lý</a></li>
-                        <li><a href="#">Kĩ Năng Sống</a></li>
-                        <li><a href="#">Nuôi dạy con</a></li>
-                        <li><a href="#">Sách Thiếu Nhi</a></li>
-                        <li><a href="#">Tiểu Sử</a></li>
-                        <li><a href="#">Giáo Dục</a></li>
-                        <li><a href="#">Ngoại Ngữ</a></li>
-                        <li><a href="#">Tham Khảo</a></li>
-                        <li><a href="#">Khác</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <!-- <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div> -->
-                            <input type="text" placeholder="Tìm kiếm sách mong muốn....">
-                            <button type="submit" class="site-btn">TÌM</button>
-                        </form>
-                    </div>
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+841234567</h5>
-                            <span>Hỗ trợ 24/7</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
 
 <div class="register-center">
     <div class="container">
@@ -94,6 +43,7 @@
                         <input type="email" name="email" id="email" placeholder="Email của bạn" required
                                value="<%=request.getAttribute("email")==null?"":request.getAttribute("email")%>">
 <%--                        <input type="text" placeholder="Email của bạn" required>--%>
+
                     </div>
                     <div class="input-box">
                         <span for="phone" class="details">Số điện thoại</span>
@@ -106,13 +56,14 @@
                     <div class="input-box">
                         <span class="details">Mật khẩu</span>
                         <input type="password" name="password" id="password" placeholder="Nhập mật khẩu" required
-                               value="<%=request.getAttribute("password")==null?"":request.getAttribute("password")%>">>
+                               value="<%=request.getAttribute("password")==null?"":request.getAttribute("password")%>">
 <%--                        <input type="text" placeholder="Nhập mật khẩu" required>--%>
                     </div>
                     <div class="input-box">
                         <span class="details">Nhập lại mật khẩu</span>
                         <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Nhập lại mật khẩu" required>
 <%--                        <input type="text" placeholder="Nhập lại mật khẩu" required>--%>
+
                     </div>
                 </div>
                 <div style="display: flex">
@@ -128,8 +79,8 @@
                 </div>
                 <div class="group-input" style="margin-left: 20px">
                     <label for="address" style="margin-right: 12px">Địa chỉ *</label>
-                    <input type="text" name="address" id="address" style="width: 230px"
-                           value="<%=request.getAttribute("address")==null?"":request.getAttribute("address")%>">
+                    <input type="text" name="address" id="address" style="width: 230px">
+<%--                           value="<%=request.getAttribute("address")==null?"":request.getAttribute("address")%>">--%>
                     <label style="color: #F00" class="error" for="address"></label>
                 </div></div>
                 <div class="button">

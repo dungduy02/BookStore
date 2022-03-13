@@ -68,7 +68,7 @@
                     <div class="product__details__price">${details.price}
                         <span>${sale.priceSale}</span> </div>
 
-           
+
                     <a href="#" class="primary-btn" style="background:steelblue;">ADD TO CARD</a>
                     <a href="#" class="primary-btn" >MUA NGAY</a>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>

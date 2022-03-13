@@ -4,7 +4,6 @@ import BookStore.Dao.IUserDAO;
 import BookStore.Model.User;
 import BookStore.mapper.UserMapper;
 
-import java.util.Date;
 import java.util.List;
 
 public class UserDAO extends AbstractDAO<User> implements IUserDAO {
@@ -24,26 +23,25 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
 
     @Override
     public Integer insert(User user) {
-        String sql = "INSERT INTO users (usename,`password`,fullname,email,address,sex,phone,`status`,blog_id)" +
-                " VALUES (?,?,?,?,?,?,?,?,?)";
-        return insert(
+        StringBuilder sql = new StringBuilder("INSERT INTO users " +
+                "(username,password,fullname,email,phone) ");
+        sql.append("VALUES (?,?,?,?,?) ");
+        return insert(sql.toString(),
                 user.getUsername(),
                 user.getPassword(),
                 user.getFullname(),
                 user.getEmail(),
-                user.getAddress(),
-                user.getGender(),
-                user.getPhone(),
-                user.getStatus(),
-                user.getBlogid()
-                );
+//                user.getAddressid(),
+//                user.getSex(),
+                user.getPhone());
+//                user.getBlogid()
     }
 
     @Override
     public User getUser(Integer id) {
         String sql = "SELECT * FROM users WHERE id = ?";
-        return queryOne(sql,new USerMapper(),id);
+        return queryOne(sql,new UserMapper(),id);
     }
-    }
+
 
 }

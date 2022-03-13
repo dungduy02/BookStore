@@ -75,7 +75,7 @@ public class CartController extends HttpServlet {
             }
             response.sendRedirect(request.getRequestURI());
         } catch (NumberFormatException e) {
-            response.sendRedirect("/views/web/loi404.jsp");
+            response.sendRedirect("/views/loi404.jsp");
         }
 
 

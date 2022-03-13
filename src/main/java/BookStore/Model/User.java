@@ -9,9 +9,8 @@ public class User extends AbstracModel {
     private String username;
     private String password;
     private String fullname;
-    private long status;
     private String email;
-    private int addressid;
+    private String address;
     private String sex;
     private Date Date;
     private String phone;
@@ -21,22 +20,14 @@ public class User extends AbstracModel {
     public User() {
     }
 
-
-    public User(String username, String password, String fullname, long status, String email,
-                int addressid, String sex, Date date, String phone) {
-
-//     public User(int id, String username, String password, String fullname, String email, String address, String gender, String phone, Integer status, Integer blogid) {
-//         this.id = id;
+    public User(String username, String password, String fullname, String email, String address, String sex, java.util.Date date, String phone, Integer status, Integer blogid) {
         this.username = username;
         this.password = password;
         this.fullname = fullname;
-        this.status = status;
         this.email = email;
-        this.addressid = addressid;
+        this.address = address;
         this.sex = sex;
         Date = date;
-//         this.address = address;
-//         this.gender = gender;
         this.phone = phone;
         this.status = status;
         this.blogid = blogid;
@@ -66,12 +57,12 @@ public class User extends AbstracModel {
         this.fullname = fullname;
     }
 
-    public long getStatus() {
-        return status;
+    public String getAddress() {
+        return address;
     }
 
-    public void setStatus(long status) {
-        this.status = status;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getEmail() {
@@ -80,14 +71,6 @@ public class User extends AbstracModel {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getSex() {
