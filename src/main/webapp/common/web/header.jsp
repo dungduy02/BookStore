@@ -2,13 +2,72 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ include file="/common/taglib.jsp" %>
-<!-- Page Preloder -->
-<%--<div id="preloder">--%>
-<%--    <div class="loader"></div>--%>
-<%--</div>--%>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .dropdown-btn {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #000000;
+        border: none;
+        background: #7fad39;
+        width: 200px;
+        text-align: left;
+        cursor: pointer;
+        outline: none;
+    }
 
+    /* On mouse-over */
+    .sidenav a:hover, .dropdown-btn:hover {
+        color: #f1f1f1;
+    }
 
+    /* Main content */
+    .main {
+        margin-left: 200px; /* Same as the width of the sidenav */
+        font-size: 20px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+    }
+
+    /* Add an active class to the active dropdown button */
+    .activec {
+        background-color: #7fad39;
+        color: white;
+    }
+
+    /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+    .dropdown-container {
+        display: none;
+        background-color: #ffffff;
+        padding-left: 8px;
+
+    }
+
+    /* Optional: Style the caret down icon */
+    .fa-caret-down {
+        float: right;
+        padding-right: 8px;
+    }
+
+    /* Some media queries for responsiveness */
+    @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+    }
+    .dropdown-container a{
+        font-size: 16px;
+        color: #1c1c1c;
+        line-height: 39px;
+        display: block;
+    }
+    .hero__categories{
+        position: absolute;
+    }
+    .hero-normal{
+        height: 100px;
+    }
+</style>
 <!-- Header Section Begin -->
 <header class="header">
     <div class="header__top">
@@ -30,79 +89,72 @@
                             <a href="#"><i class="fa fa-linkedin"></i></a>
                             <a href="#"><i class="fa fa-pinterest-p"></i></a>
                         </div>
+                        <c:if test="${not empty USERMODEL}">
                         <div class="header__top__right__register">
-                            <!-- <img src="img/language.png" alt=""> -->
-                            <a href="register.jsp" class="register" >Đăng ký</a>
+
+                            <p href="<c:url value = "#"/>"> ${USERMODEL.fullname}</p>
 
                         </div>
                         <div class="header__top__right__auth">
                             <!-- sau chinh sua -->
                             <div class="modal-box">
-                                <!-- Button trigger modal -->
-                                <button type="button" class=" btn-lg show-modal" data-toggle="modal" data-target="#myModal">
-                                    Đăng nhập
-                                </button>
-
+                                <a href="<c:url value="/Dang-nhap?action=logout" />">
+                                    <button type="button" class=" btn-lg show-modal fa fa-sign-out" aria-hidden="true">  Đăng xuất</button>
+                                </a>
                                 <!-- Modal -->
-
-                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                    <div class="modal-dialog" role="document">
-                                        <form action="LoginController" method="post">
-                                            <div class="modal-content clearfix">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                <div class="modal-body">
-                                                    <h3 class="title"> Đăng nhập </h3>
-                                                    <p class="description"></p>
-                                                    <div class="form-group">
-                                                        <span class="input-icon"><i class="fa fa-user"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Tên tài khoản" name="username">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <span class="input-icon"><i class="fa fa-key"></i></span>
-                                                        <input type="password" class="form-control" placeholder="Mật khẩu" name="password">
-                                                    </div>
-                                                    <div class="form-group checkbox">
-                                                        <input type="checkbox">
-                                                        <label>Lưu</label>
-                                                    </div>
-                                                    <a href="register.jsp" class="forgot-pass">Quên mật khẩu?</a>
-                                                    <button class="btn" type="submit">Đăng nhập</button>
-                                                </div>
-                                            </div></form>
-                                    </div>
-                                </div>
                             </div>
                         </div>
+                        </c:if>
+                        <c:if test="${ empty USERMODEL}">
+                            <div class="header__top__right__auth">
+                                <!-- sau chinh sua -->
+                                <div class="modal-box">
+                                    <!-- Button trigger modal -->
+                                    <a href="<c:url value = "/Dang-nhap"/>">
+                                    <button type="button" class=" btn-lg show-modal" data-toggle="modal" data-target="#myModal">
+                                        Đăng nhập
+                                    </button>
+                                    </a>
+                                    <!-- Modal -->
+                                </div>
+                            </div>
+                            <div class="header__top__right__register">
+                                <!-- <img src="img/language.png" alt=""> -->
+                                <a href="<c:url value = "/dang-ky"/>" >
+                                    <button type="button" class=" btn-lg show-modal" data-toggle="modal" data-target="#myModal">
+                                        Đăng ký
+                                    </button>
+                                </a>
+                            </div>
+                        </c:if>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-top: 20px">
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a href="index.jsp"><img src="../../template/web/img/logo.png" alt=""></a>
+                   <img src="../template/web/img/logo.png" alt="" style="height: 85%;width: 100px">
                 </div>
             </div>
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="index.jsp">Trang Chủ</a></li>
-                        <li><a href="shop-grid.jsp">Mua Sắm</a></li>
-                        <li><a href="sale.jsp">Giảm Giá</a>
+                        <li class="actives"><a href="<c:url value = "/"/>">Trang Chủ</a></li>
+                        <li><a href="<c:url value = "/shop"/>">Mua Sắm</a></li>
 
-                        </li>
-                        <li><a href="blog.jsp">Bài Viết</a></li>
-                        <li><a href="contact.jsp">Liên Hệ</a></li>
+                        <li><a href="#">Bài Viết</a></li>
+                        <li><a href="<c:url value = "/contact"/>">Liên Hệ</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-                        <li><a href="favorite.jsp"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                        <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                     </ul>
                     <div class="header__cart__price">Tổng: <span>150.000 VND</span></div>
                 </div>
@@ -112,5 +164,60 @@
             <i class="fa fa-bars"></i>
         </div>
     </div>
+    <!-- Hero Section Begin -->
+
+    <section class="hero hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <button class="dropdown-btn hero__categories__all">Danh Mục
+<%--                            <i class="fa fa-caret-down"></i>--%>
+                        </button>
+                        <div class="dropdown-container">
+                            <c:forEach items="${listC}" var="ca">
+                                <a href="category?cid=${ca.id}">${ca.name}</a>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="<c:url value="/search"/>">
+
+                                <input type="text" placeholder="Tìm kiếm sách bạn mong muốn....">
+                                <button type="submit" class="site-btn">Tìm Kiếm</button>
+                            </form>
+                        </div>
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>+ 84353535355</h5>
+                                <span>Hỗ trợ 24/7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </header>
-<!-- Header Section End -->
+<script>
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("activec");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "grid") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "grid";
+            }
+        });
+    }
+</script>

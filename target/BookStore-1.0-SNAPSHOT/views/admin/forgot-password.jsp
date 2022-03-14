@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: DELL
-  Date: 12/8/2021
-  Time: 10:57 AM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/common/taglib.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -20,21 +14,10 @@
     <!-- Favicons -->
     <link rel="shortcut icon" href="assets/img/favicon.png">
 
-    <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/admin.css">
 
 </head>
 
 <body>
-<div class="main-wrapper">
 
     <div class="login-page">
         <div class="login-body container">
@@ -67,17 +50,6 @@
             </div>
         </div>
     </div>
-</div>
-
-<!-- jQuery -->
-<script src="assets/js/jquery-3.5.0.min.js"></script>
-
-<!-- Bootstrap Core JS -->
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-<!-- Custom JS -->
-<script src="assets/js/admin.js"></script>
 
 </body>
 

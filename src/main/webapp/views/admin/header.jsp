@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: DELL
-  Date: 12/8/2021
-  Time: 10:14 AM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/common/taglib.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -31,8 +25,6 @@
 </head>
 
 <body>
-<div class="main-wrapper">
-
 	<!-- Header -->
 	<div class="header">
 		<div class="header-left">
@@ -204,7 +196,6 @@
 		</ul>
 	</div>
 	<!-- /Header -->
-</div>
 <!-- jQuery -->
 <script src="assets/js/jquery-3.5.0.min.js"></script>
 

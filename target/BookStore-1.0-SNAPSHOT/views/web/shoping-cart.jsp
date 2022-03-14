@@ -1,4 +1,5 @@
 <%@include file="/common/taglib.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -16,56 +17,6 @@
 </head>
 
 <body>
-
-<!-- Hero Section Begin -->
-<section class="hero hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>Danh mục</span>
-                    </div>
-                    <ul>
-                        <li><a href="#">Văn Học</a></li>
-                        <li><a href="#">Kinh Tế</a></li>
-                        <li><a href="#">Tâm Lý</a></li>
-                        <li><a href="#">Kĩ Năng Sống</a></li>
-                        <li><a href="#">Nuôi dạy con</a></li>
-                        <li><a href="#">Sách Thiếu Nhi</a></li>
-                        <li><a href="#">Tiểu Sử</a></li>
-                        <li><a href="#">Giáo Dục</a></li>
-                        <li><a href="#">Ngoại Ngữ</a></li>
-                        <li><a href="#">Tham Khảo</a></li>
-                        <li><a href="#">Khác</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-
-                            <input type="text" placeholder="Tìm kiếm sách mong muốn...">
-                            <button type="submit" class="site-btn">Tìm kiếm</button>
-                        </form>
-                    </div>
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+84123456789</h5>
-                            <span>Hỗ trợ 24/7</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
@@ -89,6 +40,7 @@
 <section class="shoping-cart spad">
     <div class="container">
         <div class="row">
+
             <div class="col-lg-12">
                 <div class="shoping__cart__table">
                     <table>
@@ -101,10 +53,12 @@
                             <th></th>
                         </tr>
                         </thead>
+
                         <tbody>
+
                         <tr>
                             <td class="shoping__cart__item">
-                                <img src="../../img/product/product-1.jpg" alt="" style="width: 30%;">
+                                <img src="" alt="" style="width: 30%;">
                                 <h5>Atlat Địa Lý Việt Nam</h5>
                             </td>
                             <td class="shoping__cart__price">
@@ -146,28 +100,8 @@
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </td>
                         </tr>
-                        <tr>
-                            <td class="shoping__cart__item">
-                                <img src="../../img/product/Ranma.jpg" alt="" style="width: 30%;">
-                                <h5>Ramma</h5>
-                            </td>
-                            <td class="shoping__cart__price">
-                                99.000 VND
-                            </td>
-                            <td class="shoping__cart__quantity">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="shoping__cart__total">
-                                99.000 VND
-                            </td>
-                            <td class="shoping__cart__item__close">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </td>
-                        </tr>
+
+
                         </tbody>
                     </table>
                 </div>
