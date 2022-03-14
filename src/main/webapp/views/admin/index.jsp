@@ -12,6 +12,11 @@
     <title>Admin-home</title>
 </head>
 <body>
-    Đây là trang chủ
+<%--    <%@include file="sidebar.jsp"%>--%>
+    <%@include file="dashboard.jsp"%>
+
+<%--    <%@include file="sidebar.jsp"%>--%>
+<%--    <%@include file="dashboard.jsp"%>--%>
+<%--    <%@include file="/views/admin/dashboard.jsp"%>--%>
 </body>
 </html>
