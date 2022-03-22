@@ -136,7 +136,7 @@
         <div class="row" style="margin-top: 20px">
             <div class="col-lg-3">
                 <div class="header__logo">
-                   <img src="../template/web/img/logo.png" alt="" style="height: 85%;width: 100px">
+                    <a src="https://firebasestorage.googleapis.com/v0/b/image-c757c.appspot.com/o/logo.png?alt=media&token=e813ab15-c955-48fe-83cf-47d48007a4b6" alt="" style="height: 85%;width: 100px"></a>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -154,9 +154,9 @@
                 <div class="header__cart">
                     <ul>
                         <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        <li><a href="<c:url value = "/cart"/>"><i class="fa fa-shopping-bag"></i> <span>${cart.size()}</span></a></li>
                     </ul>
-                    <div class="header__cart__price">Tổng: <span>150.000 VND</span></div>
+                    <div class="header__cart__price">Tổng: <span>${cart.totalPrice()} VND</span></div>
                 </div>
             </div>
         </div>

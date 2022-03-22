@@ -33,43 +33,48 @@ public class RegisterController extends HttpServlet {
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
-//        String address = request.getParameter("address");
+        String confirmPassword = request.getParameter("confirmPassword");
 //        String sex = request.getParameter("sex");
+        if (password.equals(confirmPassword)) {
+            User us = userService.getUser(username);
+            if (us == null) {
+                User user = new User();
 
-        User us = userService.getUser(username);
-        if (us == null) {
-            User user = new User();
-
-            password = EncryptUtil.encryptMD5(password);
-            user.setUsername(username);
-            user.setPassword(password);
-            user.setFullname(fullname);
-            user.setEmail(email);
-            user.setPhone(phone);
+                password = EncryptUtil.encryptMD5(password);
+                user.setUsername(username);
+                user.setPassword(password);
+                user.setFullname(fullname);
+                user.setEmail(email);
+                user.setPhone(phone);
 //            user.setAddressid(address);
 //            user.setSex(sex);
 //            user.setStatus(1);
 //            user.setBlogid(1);
 
 
-            try {
-                user = userService.insert(user);
-                System.out.println(user.toString());
-                request.getSession().setAttribute("USERMODEL", user);
-            } catch (Exception e) {
+                try {
+                    user = userService.insert(user);
+                    System.out.println(user.toString());
+                    request.getSession().setAttribute("USERMODEL", user);
+                } catch (Exception e) {
+                    response.sendRedirect(request.getContextPath() + "/TrangChu");
+                }
                 response.sendRedirect(request.getContextPath() + "/TrangChu");
-            }
-            response.sendRedirect(request.getContextPath() + "/TrangChu");
-        } else {
-            request.setAttribute("username", username);
-            request.setAttribute("fullname", fullname);
-            request.setAttribute("password", password);
-            request.setAttribute("email", email);
+            } else {
+                request.setAttribute("username", username);
+                request.setAttribute("fullname", fullname);
+                request.setAttribute("password", password);
+                request.setAttribute("email", email);
 //            request.setAttribute("address",address);
-            request.setAttribute("phone", phone);
+                request.setAttribute("phone", phone);
 //            request.setAttribute("sex",sex);
-            request.setAttribute("uname-err", "Tên tài khoản đã tồn tại");
+                request.setAttribute("uname-err", "Tên tài khoản đã tồn tại");
+                request.getRequestDispatcher("/views/web/register.jsp").forward(request, response);
+            }
+        }else{
+            request.setAttribute("mess", "Password không khớp");
             request.getRequestDispatcher("/views/web/register.jsp").forward(request, response);
         }
+
     }
 }

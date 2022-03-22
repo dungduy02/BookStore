@@ -4,6 +4,7 @@ import BookStore.Dao.IUserDAO;
 import BookStore.Model.User;
 import BookStore.service.IUserService;
 import BookStore.utils.SessionUtil;
+import BookStore.utils.EncryptUtil;
 
 
 import javax.inject.Inject;
@@ -25,6 +26,7 @@ public class LoginController extends HttpServlet {
             request.getRequestDispatcher("views/web/login.jsp").forward(request, response);
         } else if (action.equals("logout")) {
             SessionUtil.getInstance().removeValue(request, "USERMODEL");
+            SessionUtil.getInstance().removeValue(request, "cart");
             response.sendRedirect(request.getRequestURI());
         }
 
@@ -36,9 +38,11 @@ public class LoginController extends HttpServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String pass = EncryptUtil.encryptMD5(password);
         User user = userService.getUser(username);
         if (user != null) {
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)) { //user.getPassword().equals(password)
+            if (user.getUsername().equals(username) && user.getPassword().equals(password) || user.getPassword().equals(pass)){//user.getPassword().equals(password)
+
                 HttpSession ss = request.getSession();
                 ss.setAttribute("USERMODEL", user);
 
