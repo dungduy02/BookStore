@@ -1,5 +1,7 @@
-<%@include file="/common/taglib.jsp"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="/common/taglib.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -48,60 +50,44 @@
                         <tr>
                             <th class="shoping__product">Sản Phẩm</th>
                             <th>Giá</th>
-                            <th>Số Lượng</th>
+                            <th>Số Lượng
+                            </th>
                             <th>Tổng Giá</th>
                             <th></th>
                         </tr>
                         </thead>
-
                         <tbody>
-
-                        <tr>
-                            <td class="shoping__cart__item">
-                                <img src="" alt="" style="width: 30%;">
-                                <h5>Atlat Địa Lý Việt Nam</h5>
-                            </td>
-                            <td class="shoping__cart__price">
-                                69.000 VND
-                            </td>
-                            <td class="shoping__cart__quantity">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="shoping__cart__total">
-                                69.000 VND
-                            </td>
-                            <td class="shoping__cart__item__close">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="shoping__cart__item">
-                                <img src="../../img/product/product-10.jpg" alt="" style="width: 30%;">
-                                <h5>Sách Tiếng Anh</h5>
-                            </td>
-                            <td class="shoping__cart__price">
-                                99.000 VND
-                            </td>
-                            <td class="shoping__cart__quantity">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="shoping__cart__total">
-                                99.000 VND
-                            </td>
-                            <td class="shoping__cart__item__close">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </td>
-                        </tr>
-
-
+                        <c:forEach items="${cart.items}" var="item">
+                            <form action="/BookStore/cart?action=update&code=${item.product.id}" method="post">
+                                <tr>
+                                    <td class="shoping__cart__item">
+                                        <img src="<c:url value='${item.product.img}' /> " alt="" style="width: 30%;">
+                                        <h5>${item.product.name}</h5>
+                                    </td>
+                                    <td class="shoping__cart__price">
+                                            ${item.price}
+                                    </td>
+                                    <td class="shoping__cart__quantity">
+                                        <div class="quantity">
+                                            <div class="pro-qty"style="display: flex">
+                                                <input type="text" name="quantity" value="${item.quantity}"
+                                                        <%= request.getAttribute("quantity") == null
+                                   ? "" : request.getAttribute("quantity") %>>
+                                                <button type="submit" style="margin-left: auto; border-radius: 5px;"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="shoping__cart__total">
+                                            ${item.price * item.quantity} VND
+                                    </td>
+                                    <td class="shoping__cart__item__close">
+                                        <a href="removeCart?id=${item.product.id}">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </form>
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -110,9 +96,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__btns">
-                    <a href="#" class="primary-btn cart-btn">Tiếp tục mua sắm</a>
-                    <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                        Cập nhật giỏ hàng</a>
+                    <a href="<c:url value = "/TrangChu"/>" class="primary-btn cart-btn">Tiếp tục mua sắm</a>
+<%--                    <a href="<c:url value = "/cart"/>" class="primary-btn cart-btn cart-btn-right"><span--%>
+<%--                            class="icon_loading"></span>--%>
+<%--                        Cập nhật giỏ hàng</a>--%>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -130,8 +117,8 @@
                 <div class="shoping__checkout">
                     <h5>Tổng tiền trong giỏ hàng</h5>
                     <ul>
-                        <li>Tạm Tính <span>999.999 VND</span></li>
-                        <li>Tổng <span>999.999 VND</span></li>
+                        <li>Tạm Tính <span>${cart.totalPrice()} VND</span></li>
+                        <li>Tổng <span>${cart.totalPrice()} VND</span></li>
                     </ul>
                     <a href="./checkout.html" class="primary-btn">Kiểm tra</a>
                 </div>
