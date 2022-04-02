@@ -7,4 +7,6 @@ import java.util.List;
 public interface ISaleDAO {
     List<Sale> getAllSale();
     Sale getSaleById(String id);
+
+
 }

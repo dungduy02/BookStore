@@ -5,14 +5,14 @@ import java.security.NoSuchAlgorithmException;
 import java.security.Timestamp;
 import java.util.Date;
 
-public class User {
-    private int id;
+public class User extends AbstracModel{
     private String username;
     private String password;
     private String fullname;
     private String email;
     private String address;
-    private String gender;
+    private String sex;
+    private Date Date;
     private String phone;
     private Integer status;
     private Integer blogid;
@@ -20,25 +20,17 @@ public class User {
     public User() {
     }
 
-    public User(int id, String username, String password, String fullname, String email, String address, String gender, String phone, Integer status, Integer blogid) {
-        this.id = id;
+    public User(String username, String password, String fullname, String email, String address, String sex, java.util.Date date, String phone, Integer status, Integer blogid) {
         this.username = username;
         this.password = password;
         this.fullname = fullname;
         this.email = email;
         this.address = address;
-        this.gender = gender;
+        this.sex = sex;
+        Date = date;
         this.phone = phone;
         this.status = status;
         this.blogid = blogid;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getUsername() {
@@ -65,14 +57,6 @@ public class User {
         this.fullname = fullname;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -81,12 +65,28 @@ public class User {
         this.address = address;
     }
 
-    public String getGender() {
-        return gender;
+    public String getEmail() {
+        return email;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String gender) {
+        this.sex = gender;
+    }
+
+    public java.util.Date getDate() {
+        return Date;
+    }
+
+    public void setDate(java.util.Date date) {
+        Date = date;
     }
 
     public String getPhone() {
@@ -112,4 +112,5 @@ public class User {
     public void setBlogid(Integer blogid) {
         this.blogid = blogid;
     }
+
 }

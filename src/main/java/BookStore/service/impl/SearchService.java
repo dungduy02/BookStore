@@ -12,14 +12,9 @@ public class SearchService implements ISearchService {
     @Inject
     IProductDAO productDAO;
     @Override
-    public List<Product> search(String filter, String keyword) {
+    public List<Product> search( String keyword) {
         List<Product> list = new ArrayList<>();
-        switch (filter){
-            case "name":
-                list = productDAO.getByName(keyword);
-                break;
-
-        }
+        list = productDAO.getByName(keyword);
         return list;
     }
 }

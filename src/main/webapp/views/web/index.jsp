@@ -20,7 +20,7 @@
 <!-- Hero Section End -->
 <!-- Begin banner top -->
 <section class="container ">
-    <div class=" banner_top row set-bg" data-setbg="img/banner/bg1.png">
+    <div class=" banner_top row set-bg" data-setbg="<c:url value="/template/web/img/banner/bg1.png"/>">
         <div class="col-lg-12">
             <h2>BOOKSTORE NLU</h2>
             <div class="row ">
@@ -46,7 +46,7 @@
             <div class="categories__slider owl-carousel">
 
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="../../template/web/img/categories/cat-1.jpg">
+                    <div class="categories__item set-bg" data-setbg="#">
                         <h5><a href="#">Đầu Tư</a></h5>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                                     <ul class="featured__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="add-to-cart?bid=${pro.id}"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="add-to-cart?bid=${pro.id}muasp&txtmasp=${pro.id}"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">

@@ -31,8 +31,22 @@ public class PublisherController extends HttpServlet {
         List<Product> listpub = productService.getProductByPublisher(puid);
         List<Publisher> listPu = publisherService.getAllPublisher();
         List<Category> listC = categoryService.findAll();
-
-
+        Product product = productService.getLastProduct();
+        int page, numberpage = 18;
+        int size = listpub.size();
+        int num = (size % 18 == 0?(size/18): ((size/18))+ 1); // number page
+        String xpage = request.getParameter("page");
+        if (xpage == null){
+            page = 1;
+        }else {
+            page = Integer.parseInt(xpage);
+        }
+        int start,end;
+        start = (page-1) * numberpage;
+        end = Math.min(page* numberpage,size);
+        List<Product> listPage = productService.getPageProduct(listpub,start,end);
+        request.setAttribute("Page",listPage);
+        request.setAttribute("lastP",product);
         request.setAttribute("listC",listC);
         request.setAttribute("list",listpub);
         request.setAttribute("listPu",listPu);

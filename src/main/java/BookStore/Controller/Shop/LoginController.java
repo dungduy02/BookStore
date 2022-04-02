@@ -17,7 +17,7 @@ public class LoginController extends HttpServlet {
     private IUserDAO userDAO;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("index.jsp");
+        request.getRequestDispatcher("/views/web/index.jsp");
     }
 
     @Override
@@ -25,12 +25,8 @@ public class LoginController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        User user = userDAO.Login(username,password);
-        if (user == null){
-            request.getRequestDispatcher("/views/web/index.jsp").forward(request,response);
-        }else {
-            request.getRequestDispatcher("/views/web/shop.jsp").forward(request,response);
-        }
+
+
 
     }
 }

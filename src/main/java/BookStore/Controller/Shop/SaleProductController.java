@@ -1,6 +1,8 @@
 package BookStore.Controller.Shop;
 
+import BookStore.Model.Sale;
 import BookStore.service.IProductService;
+import BookStore.service.ISaleService;
 
 import javax.inject.Inject;
 import javax.servlet.*;
@@ -13,12 +15,12 @@ import java.io.IOException;
 public class SaleProductController extends HttpServlet {
     @Inject
     IProductService productService;
+    @Inject
+    ISaleService saleService;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-//        List<Product> listS = productService.getSaleProduct();
-//
-//        request.setAttribute("listSl",listS);
+
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/index.jsp");
         rd.forward(request, response);
     }

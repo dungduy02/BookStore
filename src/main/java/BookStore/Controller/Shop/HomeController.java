@@ -18,6 +18,7 @@ public class HomeController extends HttpServlet {
     @Inject private IProductService productService;
     @Inject
     private IPublisherService publisherService;
+    @Inject private ISaleService saleService;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -26,9 +27,12 @@ public class HomeController extends HttpServlet {
         List<Product> listn = productService.getNewProduct();
 
 
+
+
         request.setAttribute("ListNew",listn);
         request.setAttribute("listSale",listS);
         request.setAttribute("list",list);
+
 
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/index.jsp");
         rd.forward(request, response);

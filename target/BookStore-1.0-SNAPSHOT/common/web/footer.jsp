@@ -8,7 +8,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="footer__about">
                     <div class="footer__about__logo">
-<%--                        <a href="./index.html"><img src="../../template/web/img/logo.png" alt=""></a>--%>
+
                     </div>
                     <ul>
                         <li>Địa chỉ: Đại học Nông Lâm TP.HCM</li>

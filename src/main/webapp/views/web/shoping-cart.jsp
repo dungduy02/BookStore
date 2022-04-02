@@ -55,14 +55,14 @@
                         </thead>
 
                         <tbody>
-
+                        <c:forEach items="${cart}" var="i">
                         <tr>
                             <td class="shoping__cart__item">
-                                <img src="" alt="" style="width: 30%;">
-                                <h5>Atlat Địa Lý Việt Nam</h5>
+                                <img src="${i.getProductById().getImg()}" alt="" style="width: 30%;">
+                                <h5>${i.name}</h5>
                             </td>
                             <td class="shoping__cart__price">
-                                69.000 VND
+                                ${i.price} VND
                             </td>
                             <td class="shoping__cart__quantity">
                                 <div class="quantity">
@@ -78,30 +78,9 @@
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </td>
                         </tr>
-                        <tr>
-                            <td class="shoping__cart__item">
-                                <img src="../../img/product/product-10.jpg" alt="" style="width: 30%;">
-                                <h5>Sách Tiếng Anh</h5>
-                            </td>
-                            <td class="shoping__cart__price">
-                                99.000 VND
-                            </td>
-                            <td class="shoping__cart__quantity">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="shoping__cart__total">
-                                99.000 VND
-                            </td>
-                            <td class="shoping__cart__item__close">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </td>
-                        </tr>
 
 
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>

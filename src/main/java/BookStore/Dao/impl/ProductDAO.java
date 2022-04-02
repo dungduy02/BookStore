@@ -2,8 +2,14 @@ package BookStore.Dao.impl;
 
 import BookStore.Dao.IProductDAO;
 import BookStore.Model.Product;
+import BookStore.config.ConnectionPool;
 import BookStore.mapper.ProductMapper;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
@@ -32,12 +38,11 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
 
     @Override
     public List<Product> getAll() {
-
-            String sql = "SELECT * FROM products";
-
+        String sql = "SELECT * FROM products";
 
         return query(sql, new ProductMapper());
     }
+
 
     @Override
     public List<Product> getNewProduct() {
@@ -61,12 +66,6 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
     }
 
     @Override
-    public List<Product> getByPrice(String price) {
-        String sql = "SELECT * FROM products WHERE price BETWEEN ? AND ?";
-        return query(sql,new ProductMapper(),price);
-    }
-
-    @Override
     public Product getLastProduct() {
         String sql = "SELECT * FROM products ORDER BY id DESC LIMIT 1;";
         return queryOne(sql,new ProductMapper());
@@ -76,6 +75,16 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
     public Product getProductById(String id) {
         String sql ="SELECT * FROM products WHERE id = ?";
         return queryOne(sql,new ProductMapper(),id);
+    }
+
+
+    @Override
+    public List<Product> getPageProduct(List<Product> list, int start, int end) {
+        List<Product> arr = new ArrayList<>();
+        for (int i = start;i<end;i++){
+            arr.add(list.get(i));
+        }
+        return arr;
     }
 
 

@@ -8,8 +8,8 @@
 
 <body>
 
-<!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+
+<section class="breadcrumb-section set-bg" data-setbg="<c:url value="/template/web/img/breadcrumb.jpg"/>">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -45,16 +45,20 @@
                     <div class="sidebar__item">
                         <h4>Giá</h4>
                         <div class="price-range-wrap">
-                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                 data-min="100" data-max="900000">
-                                <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                            </div>
+                            <select name="price_filter">
+                                <option name="small"> Từ 0 VND đến 40000 VND</option>
+                                <option name="medium">Từ 40000 VND đến 100000 VND</option>
+                                <option name="large">Từ 100000 trở lên</option>
+
+                            </select>
 
                         </div>
 
+
+
                     </div>
+
+
                     <div class="sidebar__item sidebar__item__color--option">
                         <h4>Nhà Cung Cấp</h4>
 
@@ -118,20 +122,20 @@
                 </div>
                 <div class="row">
 
-                    <c:forEach items="${list}" var="p">
+                    <c:forEach items="${Page}" var="pag">
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="${p.img}">
-                                <img src="${p.img}" alt="" style="cursor: pointer">
+                            <div class="product__item__pic set-bg" data-setbg="${pag.img}">
+                                <img src="${pag.img}" alt="" style="cursor: pointer">
                                 <ul class="product__item__pic__hover">
                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                    <li><a href="add-to-cart?id=${p.id}"><i class="fa fa-shopping-cart"></i></a></li>
+                                    <li><a href="add-to-cart?id=${pag.id}"><i class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="DetailsController?pid=${p.id}">${p.name}</a></h6>
-                                <h5>${p.price} VND</h5>
+                                <h6><a href="DetailsController?pid=${pag.id}">${pag.name}</a></h6>
+                                <h5>${pag.price} VND</h5>
                             </div>
                         </div>
                     </div>
@@ -141,15 +145,15 @@
 
 
             </div>
-                <div class="product__pagination">
-                    <a href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                </div>
+            <div class="row" style="margin: 0 auto">
+            <c:forEach begin="${1}" end="${requestScope.num}" var="i">
+                <div class="product__pagination" >
+                    <a href="shop?page=${i}">${i}</a>
+                </div></c:forEach></div>
+
         </div>
     </div>
 </section>
-<!-- Product Section End -->
+
 </body>
 </html>

@@ -17,12 +17,15 @@ public class SearchController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String filter = request.getParameter("filter");
+
         String keyword = request.getParameter("keyword");
-        List<Product> list = searchService.search(filter,keyword);
+        if (keyword == null){
+            keyword = "";
+        }
+        List<Product> list = searchService.search(keyword);
 
         request.setAttribute("listProduct",list);
-        request.setAttribute("filter",filter);
+
         request.setAttribute("keyword",keyword);
 
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/search.jsp");

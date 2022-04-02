@@ -1,58 +1,55 @@
 package BookStore.Model;
 
+import BookStore.service.IProductService;
+
+import javax.inject.Inject;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Cart extends AbstracModel{
-    List<Item> items ;
-    private Integer customerId;
+    @Inject IProductService productService;
+    HashMap<String,Item> cart;
 
-    public Cart() {
+
+    public Cart(){
+        cart = new HashMap<>();
     }
 
-    public Cart(List<Item> items, Integer customerId) {
-        this.items = items;
-        this.customerId = customerId;
+    public Cart(HashMap<String, Item> cart) {
+        this.cart = cart;
     }
 
-
-    public List<Item> getItems() {
-        return items;
+    public HashMap<String, Item> getCart() {
+        return cart;
     }
 
-    public void setItems(List<Item> items) {
-        this.items = items;
+    public void setCart(HashMap<String, Item> cart) {
+        this.cart = cart;
     }
+    public void addItem(String idproduct){
+        if (cart.containsKey(idproduct)){
+            Item item = cart.get(idproduct);
+            item.setQuanty(item.getQuanty() + 1);
 
-    public Integer getCustomerId() {
-        return customerId;
-    }
+        }else {
+            Product product = productService.getProductById(idproduct);
+            Item item = new Item();
+            item.setProduct(product);
+            item.setQuanty(1);
+            cart.put(idproduct,item);
 
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
-    }
-    public Integer totalPrice(){
-        Integer total = 0;
-        for (Item item: items){
-            total += item.getQuantity() * item.getProduct().getPrice();
+
         }
-        return total;
-    }
-    public Item getItem(Integer itemid){
-        for (Item it: items){
-            if (it.getId() == itemid){
 
-                return it;
-            }
-        }
-        return null;
     }
-    public boolean removeItem(Integer itemId){
-        for (Item item : items){
-            if (item.getId() == itemId){
-                items.remove(item);
-                return true;
-            }
+    public ArrayList<Item> getListItems(){
+        ArrayList<Item> listItem = new ArrayList<>();
+        for (Item i: cart.values()){
+            listItem.add(i);
         }
-        return true;
+        return listItem;
     }
+
 }

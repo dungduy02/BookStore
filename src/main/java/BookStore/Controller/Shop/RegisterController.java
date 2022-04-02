@@ -27,47 +27,44 @@ public class RegisterController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String username = request.getParameter("username");
         String fullname = request.getParameter("fullname");
+        String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
         String gender = request.getParameter("gender");
-
-        User us = userService.getUser(username);
-        if (us == null){
+        User tmp = userService.getUser(username);
+        if (tmp == null){
             User user = new User();
-
             password = EncryptUtil.encryptMD5(password);
-
-            user.setUsername(username);
             user.setFullname(fullname);
+            user.setUsername(username);
             user.setPassword(password);
             user.setEmail(email);
-            user.setPhone(phone);
             user.setAddress(address);
-            user.setGender(gender);
+            user.setPhone(phone);
+            user.setSex(gender);
             user.setStatus(1);
-            user.setBlogid(1);
 
-
-            if ((user = userService.register(user)) !=  null){
-                SessionUtil.getInstance().putValue(request,"USERMODEL",user);
-                response.sendRedirect(request.getContextPath()+ "/TrangChu");
-
+            if ((user = userService.register(user)) != null){
+                SessionUtil.getInstance().putValue(request,"USERMODE",user);
+                response.sendRedirect(request.getContextPath() + "/login");
             }else {
                 request.getRequestDispatcher("/views/web/register.jsp").forward(request,response);
             }
-
         }else {
             request.setAttribute("fullname",fullname);
             request.setAttribute("email",email);
             request.setAttribute("address",address);
             request.setAttribute("phone",phone);
             request.setAttribute("gender",gender);
-            request.setAttribute("uname-err","Tên tài khoản đã tồn tại");
+            request.setAttribute("uname-err", "Tên tài khoản đã tồn tại");
             request.getRequestDispatcher("/views/web/register.jsp").forward(request,response);
+
+
+
         }
+
     }
 }

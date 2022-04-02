@@ -11,9 +11,7 @@ public class ItemMapper implements RowMapper<Item>{
             Item item = new Item();
         try {
             item.setId(rs.getInt("id"));
-            item.setCartId(rs.getInt("cart_id"));
-            item.setQuantity(rs.getInt("quantity"));
-            item.setProductid(rs.getInt("product_id"));
+
 
         } catch (Exception e) {
             e.printStackTrace();
