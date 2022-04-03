@@ -1,10 +1,6 @@
 package BookStore.Controller.Shop;
-import BookStore.Model.Product;
-import BookStore.Model.Publisher;
-import BookStore.Model.Sale;
-import BookStore.service.IProductService;
-import BookStore.service.IPublisherService;
-import BookStore.service.ISaleService;
+import BookStore.Model.*;
+import BookStore.service.*;
 
 import javax.inject.Inject;
 import javax.servlet.*;
@@ -15,15 +11,27 @@ import java.util.List;
 
 @WebServlet(name = "HomeController", value = "/TrangChu")
 public class HomeController extends HttpServlet {
-    @Inject private IProductService productService;
+    @Inject
+    private IProductService productService;
+
     @Inject
     private IPublisherService publisherService;
-    @Inject private ISaleService saleService;
+
+    @Inject
+    private ISaleService saleService;
+
+
+    @Inject
+    private ICategoryService categoryService;
+
+    @Inject
+    private ICartService cartService;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         List<Product> list = productService.getAll();
         List<Product> listS = productService.getSaleProduct();
+        List<Category> listC = categoryService.findAll();
         List<Product> listn = productService.getNewProduct();
 
 
@@ -31,6 +39,7 @@ public class HomeController extends HttpServlet {
 
         request.setAttribute("ListNew",listn);
         request.setAttribute("listSale",listS);
+        request.setAttribute("listC",listC);
         request.setAttribute("list",list);
 
 

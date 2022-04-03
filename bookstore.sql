@@ -1,11 +1,10 @@
 /*
 MySQL Backup
 Database: bookstore
-Backup Time: 2022-03-07 22:56:29
+Backup Time: 2022-03-14 18:09:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
-DROP TABLE IF EXISTS `bookstore`.`address`;
 DROP TABLE IF EXISTS `bookstore`.`author`;
 DROP TABLE IF EXISTS `bookstore`.`blog`;
 DROP TABLE IF EXISTS `bookstore`.`cart`;
@@ -18,13 +17,6 @@ DROP TABLE IF EXISTS `bookstore`.`publisher`;
 DROP TABLE IF EXISTS `bookstore`.`reviews`;
 DROP TABLE IF EXISTS `bookstore`.`sale`;
 DROP TABLE IF EXISTS `bookstore`.`users`;
-CREATE TABLE `address` (
-  `id` int(11) NOT NULL,
-  `permanent_residence` varchar(255) DEFAULT NULL,
-  `city` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 CREATE TABLE `author` (
   `id` int(11) NOT NULL,
   `code_author` varchar(255) DEFAULT NULL,
@@ -34,11 +26,10 @@ CREATE TABLE `author` (
 CREATE TABLE `blog` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
   `picture` varchar(255) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  CONSTRAINT `fk_blog_user` FOREIGN KEY (`id`) REFERENCES `users` (`blog_id`)
+  CONSTRAINT `fk_blog_users` FOREIGN KEY (`id`) REFERENCES `users` (`blog_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 CREATE TABLE `cart` (
   `id` int(11) NOT NULL,
@@ -46,7 +37,7 @@ CREATE TABLE `cart` (
   `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   KEY `fk_Cart_user_1` (`user_id`) USING BTREE,
-  CONSTRAINT `fk_Cart_user_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  CONSTRAINT `fk_cart_users` FOREIGN KEY (`id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
@@ -83,7 +74,7 @@ CREATE TABLE `order` (
   `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   KEY `fk_order_customer` (`user_id`) USING BTREE,
-  CONSTRAINT `fk_order_customer` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  CONSTRAINT `fk_order_users` FOREIGN KEY (`id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
@@ -124,8 +115,8 @@ CREATE TABLE `reviews` (
   PRIMARY KEY (`id`) USING BTREE,
   KEY `FRK_REV_PRODUCT` (`product_id`) USING BTREE,
   KEY `FRK_REV_USER` (`commentator`) USING BTREE,
-  CONSTRAINT `FRK_REV_CUST` FOREIGN KEY (`commentator`) REFERENCES `users` (`id`),
-  CONSTRAINT `FRK_REV_PRODUCT` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+  CONSTRAINT `FRK_REV_PRODUCT` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+  CONSTRAINT `fk_review_users` FOREIGN KEY (`id`) REFERENCES `users` (`review_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 CREATE TABLE `sale` (
   `id` int(11) NOT NULL,
@@ -134,31 +125,27 @@ CREATE TABLE `sale` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `usename` varchar(255) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `fullname` varchar(255) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `address_id` int(11) DEFAULT NULL,
+  `address` text DEFAULT NULL,
   `sex` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
-  `status` tinyint(1) DEFAULT NULL,
   `blog_id` int(11) DEFAULT NULL,
+  `review_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  KEY `fk_user_address_1` (`address_id`) USING BTREE,
+  KEY `fk_user_address_1` (`address`(768)) USING BTREE,
   KEY `fk_user_blog_1` (`blog_id`) USING BTREE,
-  CONSTRAINT `fk_user_address_1` FOREIGN KEY (`address_id`) REFERENCES `address` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
-BEGIN;
-LOCK TABLES `bookstore`.`address` WRITE;
-DELETE FROM `bookstore`.`address`;
-UNLOCK TABLES;
-COMMIT;
+  KEY `review_id` (`review_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 BEGIN;
 LOCK TABLES `bookstore`.`author` WRITE;
 DELETE FROM `bookstore`.`author`;
-INSERT INTO `bookstore`.`author` (`id`,`code_author`,`name`) VALUES (0, NULL, NULL),(1, 'paulo-coelho', 'Paulo Coelho'),(2, 'josé-mauro-de-vascon', 'José Mauro de Vasconcelos'),(3, 'hae-min', 'Hae Min'),(4, 'mario-quzo', 'Mario Puzo'),(5, 'nguyen-nhat-anh', 'Nguyễn Nhật Ánh'),(6, 'nguyen-phong', 'Nguyên Phong'),(7, 'andrea-hirata', 'Andrea Hirata'),(8, 'madeline-miller', 'Madeline Miller'),(9, 'khaled-hosseini', 'Khaled Hosseini'),(10, 'luis-sepulveda', 'Luis Sepúlveda'),(11, 'mieu-cong-tu', 'Miêu Công Tử'),(12, 'nguyen-ngoc-thuan', 'Nguyễn Ngọc Thuần'),(13, 'nguyen-huu-nam', 'Nguyễn Hữu Nam'),(14, 'agatha-christie', 'Agatha Christie'),(15, 'nina-lacour', 'Nina LaCour'),(16, 'erich-maria-remarque', 'Erich Maria Remarque'),(17, 'sidney-sheldon', 'Sidney Sheldon'),(18, 'andre-acaman', 'André Aciman'),(19, NULL, 'Khotudien'),(20, NULL, 'Tony Buổi Sáng'),(21, NULL, 'Ở Đây Zui Nè'),(22, NULL, 'Anh Cầm Fact'),(23, NULL, 'Tuệ Nghi'),(24, NULL, 'Phạm Lữ Ân'),(25, NULL, 'Ngoa'),(26, NULL, 'Trí'),(27, NULL, 'Thought Catalog'),(28, NULL, 'Jenny Kiều'),(29, NULL, 'Nhất Linh'),(30, NULL, 'Cinderella'),(31, NULL, 'Frank Herbert'),(32, NULL, 'Đài Tiếng Nói GenZ'),(33, NULL, 'Thiên An '),(34, NULL, 'An'),(35, NULL, 'Hiên'),(36, NULL, 'Trần Minh Phương Thảo'),(37, NULL, 'Dương Thùy'),(38, NULL, 'Nguyễn Bảo Trung'),(39, NULL, 'Mèo Mốc'),(40, NULL, 'Quan Đông Dã Khách');
+INSERT INTO `bookstore`.`author` (`id`,`code_author`,`name`) VALUES (0, NULL, NULL),(1, 'paulo-coelho', 'Paulo Coelho'),(2, 'josé-mauro-de-vascon', 'José Mauro de Vasconcelos'),(3, 'hae-min', 'Hae Min'),(4, 'mario-quzo', 'Mario Puzo'),(5, 'nguyen-nhat-anh', 'Nguyễn Nhật Ánh'),(6, 'nguyen-phong', 'Nguyên Phong'),(7, 'andrea-hirata', 'Andrea Hirata'),(8, 'madeline-miller', 'Madeline Miller'),(9, 'khaled-hosseini', 'Khaled Hosseini'),(10, 'luis-sepulveda', 'Luis Sepúlveda'),(11, 'mieu-cong-tu', 'Miêu Công Tử'),(12, 'nguyen-ngoc-thuan', 'Nguyễn Ngọc Thuần'),(13, 'nguyen-huu-nam', 'Nguyễn Hữu Nam'),(14, 'agatha-christie', 'Agatha Christie'),(15, 'nina-lacour', 'Nina LaCour'),(16, 'erich-maria-remarque', 'Erich Maria Remarque'),(17, 'sidney-sheldon', 'Sidney Sheldon'),(18, 'andre-acaman', 'André Aciman'),(19, 'kho-tu-dien', 'Khotudien'),(20, 'tony-buoi-sang', 'Tony Buổi Sáng'),(21, 'o-day-zui-ne', 'Ở Đây Zui Nè'),(22, 'anh-cam-fact', 'Anh Cầm Fact'),(23, 'tue-nghi', 'Tuệ Nghi'),(24, 'pham-lu-an', 'Phạm Lữ Ân'),(25, 'ngoa', 'Ngoa'),(26, 'tri', 'Trí'),(27, 'thought-catalog', 'Thought Catalog'),(28, 'jenny-kieu', 'Jenny Kiều'),(29, 'nhat-linh', 'Nhất Linh'),(30, 'cinderella', 'Cinderella'),(31, 'frank-herbert', 'Frank Herbert'),(32, 'dai-tieng-noi-genz', 'Đài Tiếng Nói GenZ'),(33, 'thien-an', 'Thiên An '),(34, 'an', 'An'),(35, 'hien', 'Hiên'),(36, 'tran-minh-phuong-thao', 'Trần Minh Phương Thảo'),(37, 'duong-thuy', 'Dương Thùy'),(38, 'nguyen-bao-trung', 'Nguyễn Bảo Trung'),(39, 'meo-moc', 'Mèo Mốc'),(40, 'quan-dong-da-khach', 'Quan Đông Dã Khách');
 UNLOCK TABLES;
 COMMIT;
 BEGIN;
@@ -218,5 +205,6 @@ COMMIT;
 BEGIN;
 LOCK TABLES `bookstore`.`users` WRITE;
 DELETE FROM `bookstore`.`users`;
+INSERT INTO `bookstore`.`users` (`id`,`username`,`password`,`fullname`,`status`,`email`,`address`,`sex`,`date`,`phone`,`blog_id`,`review_id`) VALUES (0, 'dung', '123', 'Nguyễn Duy Dung', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),(1, '', '1234', 'duydung', 1, 'dungduy@gmail.com', NULL, 'nam', '0000-00-00 00:00:00', '123455', NULL, NULL),(2, 'abc', '12345', 'abc', 1, 'abc@gmail.com', NULL, 'nu', NULL, NULL, NULL, NULL),(5, 'sdf', '123', '213', NULL, 'sdf@gmail', NULL, 'nam', NULL, '2314234', NULL, NULL),(6, 'qqqq', '3BAD6AF0FA4B8B330D162E19938EE981', 'qqqq', NULL, 'dungduy20000@gmail.com', NULL, NULL, NULL, '21423423', NULL, NULL),(7, 'bbb', '08F8E0260C64418510CEFB2B06EEE5CD', 'bbb', NULL, 'dungduy020@gmail.com', NULL, NULL, NULL, '234234', NULL, NULL),(8, 'ccc', '9DF62E693988EB4E1E1444ECE0578579', 'ccc', NULL, 'dungduy20000@gmail.com', NULL, NULL, NULL, '32343', NULL, NULL),(9, 'dd', '1AABAC6D068EEF6A7BAD3FDF50A05CC8', 'dd', NULL, 'dungduy020@gmail.com', NULL, NULL, NULL, '234234', NULL, NULL),(10, 'eee', 'D2F2297D6E829CD3493AA7DE4416A18F', 'eee', NULL, 'abc@gmail.com', NULL, NULL, NULL, '34234', NULL, NULL),(11, 'fff', '343D9040A671C45832EE5381860E2996', 'fff', NULL, 'dungduy20000@gmail.com', NULL, NULL, NULL, '3423', NULL, NULL),(12, 'ggg', 'BA248C985ACE94863880921D8900C53F', 'ggg', NULL, 'dungduy20000@gmail.com', NULL, NULL, NULL, '25434', NULL, NULL),(13, 'hhh', 'A3ACA2964E72000EEA4C56CB341002A4', 'hhh', NULL, '123@gmail.com', NULL, NULL, NULL, '3534643', NULL, NULL);
 UNLOCK TABLES;
 COMMIT;

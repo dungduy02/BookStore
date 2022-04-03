@@ -25,12 +25,54 @@ public class AddToCartController extends HttpServlet {
         String masp = request.getParameter("masp");
         String bid = request.getParameter("bid");
 
-        if (bid.equals("muasp")){
-            cart.addItem(masp);
-            request.setAttribute("cart",cart.getListItems());
+        int quantity = 1;
+        String id;
+        if(request.getParameter("bid") != null){
+            id = request.getParameter("bid");
+            Product product = productService.getProductById(id);
+            if (product != null) {
+                if (request.getParameter("quantity") != null) {
+                    quantity = Integer.parseInt(request.getParameter("quantity"));
+                }
+                HttpSession session = request.getSession();
+                if (session.getAttribute("cart") == null) {
+                    Cart cart = new Cart();
+//                    Order order = new Order();
+                    List<Item> listItems = new ArrayList<Item>();
+                    Item item = new Item();
+                    item.setQuantity(quantity);
+                    item.setProduct(product);
+                    item.setPrice(product.getPrice());
+                    listItems.add(item);
+                    cart.setItems(listItems);
+
+                    session.setAttribute("cart", cart);
+                }else{
+                    Cart cart = (Cart) session.getAttribute("cart");
+                    List<Item> listItems = cart.getItems();
+                    boolean check = false;
+                    for (Item item : listItems){
+                        if (item.getProduct().getId() == product.getId()){
+                            item.setQuantity(item.getQuantity()+ quantity);
+                            check = true;
+                        }
+                    }
+                    if (check == false) {
+                        Item item = new Item();
+                        item.setQuantity(quantity);
+                        item.setProduct(product);
+                        item.setPrice(product.getPrice());
+                        listItems.add(item);
+                    }
+                    session.setAttribute("cart", cart);
+                }
+                response.sendRedirect(request.getContextPath() + "/TrangChu");
+            }else{
+                response.sendRedirect(request.getContextPath() + "/TrangChu");
+            }
+
         }
-            RequestDispatcher rd = request.getRequestDispatcher("/views/web/shoping-cart.jsp");
-            rd.forward(request,response);
+
 
     }
 

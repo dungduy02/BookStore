@@ -9,6 +9,7 @@
                 <div class="footer__about">
                     <div class="footer__about__logo">
 
+                        <a href="<c:url value = "/TrangChu"/>"><img src="https://firebasestorage.googleapis.com/v0/b/image-c757c.appspot.com/o/logo.png?alt=media&token=e813ab15-c955-48fe-83cf-47d48007a4b6" alt=""></a>
                     </div>
                     <ul>
                         <li>Địa chỉ: Đại học Nông Lâm TP.HCM</li>
