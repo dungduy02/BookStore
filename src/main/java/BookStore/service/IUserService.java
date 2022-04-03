@@ -7,4 +7,5 @@ public interface IUserService {
     User getUser(String username);
     User insert(User user);
     User register(User user);
+
 }

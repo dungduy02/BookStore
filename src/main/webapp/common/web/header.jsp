@@ -154,9 +154,9 @@
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-
                         <li><a href="<c:url value = "/favourite"/>"><i class="fa fa-heart"></i> <span>1</span></a></li>
                         <li><a href="<c:url value = "/cart"/>"><i class="fa fa-shopping-bag"></i> <span>${cart.size()}</span></a></li>
+
 
                     </ul>
                     <div class="header__cart__price">Tổng: <span>${cart.totalPrice()} VND</span></div>
@@ -191,6 +191,7 @@
 
                                 <input type="text" placeholder="Tìm kiếm sách mong muốn...." name="keyword">
                                 <button  type="submit" class="site-btn">TÌM</button>
+
 
                             </form>
                         </div>

@@ -24,7 +24,6 @@
     <div class="container">
         <div class="title">Đăng Ký</div>
         <div class="content">
-
             <form id="registry" action="<c:url value="/dang-ky"/> " method="POST">
                 <div class="user-details">
                     <div class="input-box">

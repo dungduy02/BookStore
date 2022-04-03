@@ -10,27 +10,25 @@ public class Item extends AbstracModel{
     private long price;
 
 
-    public Item() {
-    }
 
-    private Product product;
+
 
 
     public Item() {
     }
 
-    public Item(int quanty, Product product) {
-        this.quanty = quanty;
+    public Item(int quantity, Product product) {
+        this.quantity = quantity;
 
         this.product = product;
     }
 
-    public int getQuanty() {
-        return quanty;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setQuanty(int quanty) {
-        this.quanty = quanty;
+    public void setQuantity(int quanty) {
+        this.quantity = quanty;
     }
 
 

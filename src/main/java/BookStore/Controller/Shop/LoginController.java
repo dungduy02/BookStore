@@ -50,6 +50,7 @@ public class LoginController extends HttpServlet {
 
 
 
+
                 response.sendRedirect(request.getContextPath() + "/TrangChu");
             } else {
                 request.setAttribute("username", username);

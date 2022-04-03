@@ -5,7 +5,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.Timestamp;
 import java.util.Date;
 
-
 public class User extends AbstracModel {
     private String username;
     private String password;

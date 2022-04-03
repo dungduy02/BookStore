@@ -55,6 +55,7 @@
 
                             </select>
                         <!-- <div class="wrapper">
+
                             <div class="container">
 
                                 <div class="slider-wrapper">
@@ -82,6 +83,7 @@
 
 
                                 </div>
+
 
                             </div>
                         </div>
@@ -187,7 +189,6 @@
         </div>
     </div>
 </section>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>

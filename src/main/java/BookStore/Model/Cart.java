@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import javax.servlet.http.HttpSession;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class Cart extends AbstracModel{
@@ -52,6 +53,7 @@ public class Cart extends AbstracModel{
             listItem.add(i);
         }
         return listItem;
+
     public List<Item> removeItem(Integer itemId){
         for (Item item : items){
             if (item.getProduct().getId() == itemId){

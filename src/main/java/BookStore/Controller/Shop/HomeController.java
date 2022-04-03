@@ -19,9 +19,9 @@ public class HomeController extends HttpServlet {
 
     @Inject
     private ISaleService saleService;
-
-
+    
     @Inject
+
     private ICategoryService categoryService;
 
     @Inject
