@@ -31,16 +31,8 @@ public class UserService implements IUserService {
 
 
     public User register(User user) {
-
         Integer id = userDAO.insert(user);
-        return findOneById(id);
+        return userDAO.getUser(id);
     }
-
-
-    public User register(User user) {
-        Integer id = userDAO.insert(user);
-        return findOneById(id);
-    }
-
 
 }

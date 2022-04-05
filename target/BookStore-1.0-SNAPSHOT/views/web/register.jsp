@@ -24,6 +24,7 @@
     <div class="container">
         <div class="title">Đăng Ký</div>
         <div class="content">
+
             <form id="registry" action="<c:url value="/dang-ky"/> " method="POST">
                 <div class="user-details">
                     <div class="input-box">
@@ -61,10 +62,9 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Nhập lại mật khẩu</span>
-                        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Nhập lại mật khẩu" required
-                               value="<%=request.getAttribute("confirmPassword")==null?"":request.getAttribute("confirmPassword")%>">
+                        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Nhập lại mật khẩu" required>
 <%--                        <input type="text" placeholder="Nhập lại mật khẩu" required>--%>
-                        <p class="text-danger">${mess}</p>
+
                     </div>
                 </div>
                 <div style="display: flex">

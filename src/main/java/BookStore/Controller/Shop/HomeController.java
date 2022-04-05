@@ -1,6 +1,12 @@
 package BookStore.Controller.Shop;
-import BookStore.Model.*;
-import BookStore.service.*;
+import BookStore.Model.Category;
+import BookStore.Model.Product;
+import BookStore.Model.Publisher;
+import BookStore.Model.Sale;
+import BookStore.service.ICategoryService;
+import BookStore.service.IProductService;
+import BookStore.service.IPublisherService;
+import BookStore.service.ISaleService;
 
 import javax.inject.Inject;
 import javax.servlet.*;
@@ -19,13 +25,10 @@ public class HomeController extends HttpServlet {
 
     @Inject
     private ISaleService saleService;
-    
+
     @Inject
 
     private ICategoryService categoryService;
-
-    @Inject
-    private ICartService cartService;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");

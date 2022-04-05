@@ -3,8 +3,8 @@ package BookStore.Controller.Shop;
 import BookStore.Dao.IUserDAO;
 import BookStore.Model.User;
 import BookStore.service.IUserService;
-import BookStore.utils.SessionUtil;
 import BookStore.utils.EncryptUtil;
+import BookStore.utils.SessionUtil;
 
 
 import javax.inject.Inject;
@@ -27,7 +27,6 @@ public class LoginController extends HttpServlet {
             request.getRequestDispatcher("views/web/login.jsp").forward(request, response);
         } else if (action.equals("logout")) {
             SessionUtil.getInstance().removeValue(request, "USERMODEL");
-            SessionUtil.getInstance().removeValue(request, "cart");
             response.sendRedirect(request.getRequestURI());
         }
 
@@ -44,13 +43,8 @@ public class LoginController extends HttpServlet {
         User user = userService.getUser(username);
         if (user != null) {
             if (user.getPassword().equals(password) || user.getPassword().equals(pass)){//user.getPassword().equals(password)
-
                 HttpSession ss = request.getSession();
                 ss.setAttribute("USERMODEL", user);
-
-
-
-
                 response.sendRedirect(request.getContextPath() + "/TrangChu");
             } else {
                 request.setAttribute("username", username);

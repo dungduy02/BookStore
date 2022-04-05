@@ -29,75 +29,23 @@
 
 <body>
 
-<!-- Hero Section Begin -->
-<section class="hero hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>Danh mục</span>
-                    </div>
-                    <ul>
-                        <li><a href="#">Văn Học</a></li>
-                        <li><a href="#">Kinh Tế</a></li>
-                        <li><a href="#">Tâm Lý</a></li>
-                        <li><a href="#">Kĩ Năng Sống</a></li>
-                        <li><a href="#">Nuôi dạy con</a></li>
-                        <li><a href="#">Sách Thiếu Nhi</a></li>
-                        <li><a href="#">Tiểu Sử</a></li>
-                        <li><a href="#">Giáo Dục</a></li>
-                        <li><a href="#">Ngoại Ngữ</a></li>
-                        <li><a href="#">Tham Khảo</a></li>
-                        <li><a href="#">Khác</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <!-- <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div> -->
-                            <input type="text" placeholder="Tìm kiếm sách mong muốn....">
-                            <button type="submit" class="site-btn">TÌM</button>
-                        </form>
-                    </div>
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+841234567</h5>
-                            <span>Hỗ trợ 24/7</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="breadcrumb__text">
-                    <h2>Bài viết</h2>
-                    <div class="breadcrumb__option">
-                        <a href="./index.html">Home</a>
-                        <span>Bài viết</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<%--<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">--%>
+<%--    <div class="container">--%>
+<%--        <div class="row">--%>
+<%--            <div class="col-lg-12 text-center">--%>
+<%--                <div class="breadcrumb__text">--%>
+<%--                    <h2>Bài viết</h2>--%>
+<%--                    <div class="breadcrumb__option">--%>
+<%--                        <a href="./index.html">Home</a>--%>
+<%--                        <span>Bài viết</span>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</section>--%>
 <!-- Breadcrumb Section End -->
 
 <!-- Blog Section Begin -->

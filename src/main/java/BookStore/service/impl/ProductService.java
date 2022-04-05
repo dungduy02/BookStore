@@ -32,6 +32,10 @@ public class ProductService implements IProductService {
         return productDAO.getByPublisher(pubid);
     }
 
+//    @Override
+//    public List<Product> getProductByPrice(String price) {
+//        return productDAO.getByPrice(price);
+//    }
 
 
     @Override
@@ -62,18 +66,18 @@ public class ProductService implements IProductService {
     }
 
 
-
     @Override
     public List<Product> getPageProduct(List<Product> list, int start, int end) {
         return productDAO.getPageProduct(list,start,end);
     }
 
 
+
     public static void main(String[] args) {
         ProductDAO productDAO = new ProductDAO();
 //        Product product = productDAO.getProductById("12");
 
-        List<Product> all = productDAO.getByCategory("1");
+        List<Product> all = productDAO.getAll();
         for (Product a : all){
             System.out.println(a);
         }
