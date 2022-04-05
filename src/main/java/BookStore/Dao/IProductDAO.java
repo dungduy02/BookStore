@@ -16,7 +16,7 @@ public interface IProductDAO {
     Product getLastProduct();
     Product getProductById(String id);
     List<Product> getPageProduct(List<Product> list,int start,int end);
-
+    List<Product> getByPrice(String price);
 
 
 }

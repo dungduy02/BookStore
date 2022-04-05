@@ -1,7 +1,6 @@
 package BookStore.Model;
 
 public class Item extends AbstracModel{
-
     private Integer cartId;
     private Integer quantity;
     private Integer productid;
@@ -10,27 +9,48 @@ public class Item extends AbstracModel{
     private long price;
 
 
-
-
-
-
     public Item() {
     }
 
-    public Item(int quantity, Product product) {
+    public Item(Integer cartId, Integer quantity, Integer productid, Cart cart, Product product) {
+        this.cartId = cartId;
         this.quantity = quantity;
-
+        this.productid = productid;
+        this.cart = cart;
         this.product = product;
     }
 
-    public int getQuantity() {
+    public Integer getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(Integer cartId) {
+        this.cartId = cartId;
+    }
+
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quanty) {
-        this.quantity = quanty;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
+    public Integer getProductid() {
+        return productid;
+    }
+
+    public void setProductid(Integer productid) {
+        this.productid = productid;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 
     public Product getProduct() {
         return product;
@@ -40,7 +60,6 @@ public class Item extends AbstracModel{
         this.product = product;
     }
 
-
     public long getPrice() {
         return price;
     }
@@ -49,20 +68,10 @@ public class Item extends AbstracModel{
         this.price = price;
     }
 
-//    public void sub(){
-//        if(quantity > 1)
-//            --quantity;
-//        else
-//            quantity = 1;
-//    }
-//    public void plus(){
-//        ++quantity;
-//    }
-
     public void update(int productId, int quantity){
         if (product.getId() == productId) {
-           setQuantity(quantity);
+            setQuantity(quantity);
         }
     }
 
-    }
+}

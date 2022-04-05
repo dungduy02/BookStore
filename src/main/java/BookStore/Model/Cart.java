@@ -7,53 +7,52 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import javax.servlet.http.HttpSession;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class Cart extends AbstracModel{
-    @Inject IProductService productService;
-    HashMap<String,Item> cart;
+    List<Item> items ;
+    private Integer customerId;
 
-
-    public Cart(){
-        cart = new HashMap<>();
+    public Cart() {
     }
 
-    public Cart(HashMap<String, Item> cart) {
-        this.cart = cart;
+    public Cart(List<Item> items, Integer customerId) {
+        this.items = items;
+        this.customerId = customerId;
     }
 
-    public HashMap<String, Item> getCart() {
-        return cart;
+
+    public List<Item> getItems() {
+        return items;
     }
 
-    public void setCart(HashMap<String, Item> cart) {
-        this.cart = cart;
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
-    public void addItem(String idproduct){
-        if (cart.containsKey(idproduct)){
-            Item item = cart.get(idproduct);
-            item.setQuanty(item.getQuanty() + 1);
 
-        }else {
-            Product product = productService.getProductById(idproduct);
-            Item item = new Item();
-            item.setProduct(product);
-            item.setQuanty(1);
-            cart.put(idproduct,item);
+    public Integer getCustomerId() {
+        return customerId;
+    }
 
-
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
+    public Integer totalPrice(){
+        Integer total = 0;
+        for (Item item: items){
+            total += item.getQuantity() * item.getProduct().getPrice();
         }
-
+        return total;
     }
+    public Item getItem(Integer itemid){
+        for (Item it: items){
+            if (it.getId() == itemid){
 
-    public ArrayList<Item> getListItems(){
-        ArrayList<Item> listItem = new ArrayList<>();
-        for (Item i: cart.values()){
-            listItem.add(i);
+                return it;
+            }
         }
-        return listItem;
-
+        return null;
+    }
     public List<Item> removeItem(Integer itemId){
         for (Item item : items){
             if (item.getProduct().getId() == itemId){
@@ -84,7 +83,7 @@ public class Cart extends AbstracModel{
         if (item.getQuantity() <= 0) {
             items.remove(productId);
         }
-        
+
     }
     public Item getItem1(Integer itemId){
         for (Item cd : items) {

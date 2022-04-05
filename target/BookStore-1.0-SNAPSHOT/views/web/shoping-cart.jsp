@@ -1,7 +1,5 @@
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="/common/taglib.jsp" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@include file="/common/taglib.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -19,6 +17,7 @@
 </head>
 
 <body>
+
 
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
@@ -97,9 +96,9 @@
             <div class="col-lg-12">
                 <div class="shoping__cart__btns">
                     <a href="<c:url value = "/TrangChu"/>" class="primary-btn cart-btn">Tiếp tục mua sắm</a>
-<%--                    <a href="<c:url value = "/cart"/>" class="primary-btn cart-btn cart-btn-right"><span--%>
-<%--                            class="icon_loading"></span>--%>
-<%--                        Cập nhật giỏ hàng</a>--%>
+                    <%--                    <a href="<c:url value = "/cart"/>" class="primary-btn cart-btn cart-btn-right"><span--%>
+                    <%--                            class="icon_loading"></span>--%>
+                    <%--                        Cập nhật giỏ hàng</a>--%>
                 </div>
             </div>
             <div class="col-lg-6">

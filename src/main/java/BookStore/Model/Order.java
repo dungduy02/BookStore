@@ -50,12 +50,4 @@ public class Order implements Serializable {
     public void setStatus(int status) {
         this.status = status;
     }
-
-    public Integer totalPrice(){
-        Integer total = 0;
-        for (Item item: items){
-            total += item.getQuantity() * item.getProduct().getPrice();
-        }
-        return total;
-    }
 }

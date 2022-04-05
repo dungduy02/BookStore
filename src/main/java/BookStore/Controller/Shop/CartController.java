@@ -2,12 +2,16 @@ package BookStore.Controller.Shop;
 
 import BookStore.Model.Cart;
 import BookStore.Model.Item;
+import BookStore.Model.Product;
+import BookStore.Model.User;
+import BookStore.service.ICartService;
+import BookStore.service.IProductService;
 
+import javax.inject.Inject;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-
 
 @WebServlet(urlPatterns = "/cart")
 public class CartController extends HttpServlet {

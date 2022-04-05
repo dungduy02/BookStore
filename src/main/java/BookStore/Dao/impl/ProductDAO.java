@@ -87,5 +87,11 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
         return arr;
     }
 
+    @Override
+    public List<Product> getByPrice(String price) {
+        String sql = "SELECT * FROM products WHERE price BETWEEN ? AND ?";
+        return query(sql,new ProductMapper(),price);
+    }
+
 
 }
