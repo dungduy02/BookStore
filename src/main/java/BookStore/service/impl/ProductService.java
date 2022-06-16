@@ -1,15 +1,12 @@
 package BookStore.service.impl;
 
 import BookStore.Dao.IProductDAO;
-import BookStore.Dao.impl.CategoryDAO;
 import BookStore.Dao.impl.ProductDAO;
-import BookStore.Model.Category;
 import BookStore.Model.Product;
 import BookStore.service.ICategoryService;
 import BookStore.service.IProductService;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService implements IProductService {
@@ -71,18 +68,27 @@ public class ProductService implements IProductService {
         return productDAO.getPageProduct(list,start,end);
     }
 
+    @Override
+    public void deleteProduct(String id) {
+        productDAO.deleteProduct(id);
+    }
 
+    public void insertProduct(Product product){
+        productDAO.insertProduct(product);
+    }
 
+    public void updateProduct(Product product){
+        productDAO.updateProduct(product);
+    }
     public static void main(String[] args) {
         ProductDAO productDAO = new ProductDAO();
-//        Product product = productDAO.getProductById("12");
-
-        List<Product> all = productDAO.getAll();
-        for (Product a : all){
-            System.out.println(a);
-        }
-
-
-
+//         productDAO.insertProduct("fsd","sdf", "sdf", 342, 2, 1,2,1);
+//        System.out.println(productDAO.deleteProduct("50"));
+//        productDAO.updateProduct(new Product());
+//        List<Product> all = productDAO.getAll();
+//        for (Product a : all){
+//        }
+//        System.out.println(productDAO.getProductById("2"));
     }
+
 }

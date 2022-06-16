@@ -2,7 +2,6 @@ package BookStore.Dao;
 
 import BookStore.Model.Product;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface IProductDAO {
@@ -17,6 +16,9 @@ public interface IProductDAO {
     Product getProductById(String id);
     List<Product> getPageProduct(List<Product> list,int start,int end);
     List<Product> getByPrice(String price);
-
-
+    void deleteProduct(String id);
+    void insertProduct(Product product);
+//    void updateProduct(String name, String picture, String description, String price,
+//                       String quantity, String published, String categoryid, String authorid);
+    void updateProduct(Product product);
 }

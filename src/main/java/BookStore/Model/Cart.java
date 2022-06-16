@@ -1,22 +1,17 @@
 package BookStore.Model;
-import BookStore.service.IProductService;
 
-import javax.inject.Inject;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
 import javax.servlet.http.HttpSession;
 
 import java.util.List;
 
 public class Cart extends AbstracModel{
     List<Item> items ;
-    private Integer customerId;
+    private String customerId;
 
     public Cart() {
     }
 
-    public Cart(List<Item> items, Integer customerId) {
+    public Cart(List<Item> items, String customerId) {
         this.items = items;
         this.customerId = customerId;
     }
@@ -30,11 +25,11 @@ public class Cart extends AbstracModel{
         this.items = items;
     }
 
-    public Integer getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Integer customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
     public Integer totalPrice(){
@@ -93,4 +88,14 @@ public class Cart extends AbstracModel{
         return null;
     }
 
+    public void setCustomerId(int user_id) {
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "items=" + items +
+                ", customerId='" + customerId + '\'' +
+                '}';
+    }
 }

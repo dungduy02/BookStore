@@ -3,6 +3,7 @@ package BookStore.Controller.Shop;
 import BookStore.Model.Cart;
 import BookStore.Model.Item;
 import BookStore.Model.Product;
+import BookStore.service.ICartService;
 import BookStore.service.IProductService;
 
 import javax.inject.Inject;
@@ -18,6 +19,9 @@ public class AddToCartController extends HttpServlet {
 
     @Inject
     private IProductService productService;
+
+    @Inject
+    private ICartService cartService;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,8 +47,10 @@ public class AddToCartController extends HttpServlet {
                     item.setPrice(product.getPrice());
                     listItems.add(item);
                     cart.setItems(listItems);
-
+                    cart.setCustomerId(id);
+                    System.out.println(cart.toString());
                     session.setAttribute("cart", cart);
+
                 }else{
                     Cart cart = (Cart) session.getAttribute("cart");
                     List<Item> listItems = cart.getItems();
@@ -61,6 +67,13 @@ public class AddToCartController extends HttpServlet {
                         item.setProduct(product);
                         item.setPrice(product.getPrice());
                         listItems.add(item);
+                        try {
+                            cart = cartService.insert(cart);
+                            System.out.println(cart.toString());
+                            session.setAttribute("cart", cart);
+                        }catch (Exception e){
+                            response.sendRedirect(request.getContextPath() + "/TrangChu");
+                        }
                     }
                     session.setAttribute("cart", cart);
                 }
