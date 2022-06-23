@@ -3,6 +3,7 @@ package BookStore.service.impl;
 import BookStore.Dao.ICartDAO;
 import BookStore.Dao.impl.CartDAO;
 import BookStore.Model.Cart;
+import BookStore.Model.User;
 import BookStore.service.ICartService;
 
 import javax.inject.Inject;
@@ -20,9 +21,10 @@ public class CartService implements ICartService {
     }
 
     @Override
-    public Cart insert(Cart cart) {
-        Integer id = cartDAO.insert(cart);
-        return cartDAO.findById(id);
+    public void insert(Cart cart, User user) {
+//        Integer id = cartDAO.insert(cart);
+//        return cartDAO.findById(id);
+        cartDAO.insert(cart, user);
     }
 
     public static void main(String[] args) {

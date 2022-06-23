@@ -6,7 +6,7 @@ public class Item extends AbstracModel{
     private Integer productid;
     private Cart cart;
     private Product product;
-    private long price;
+    private double price;
 
 
     public Item() {
@@ -60,11 +60,11 @@ public class Item extends AbstracModel{
         this.product = product;
     }
 
-    public long getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

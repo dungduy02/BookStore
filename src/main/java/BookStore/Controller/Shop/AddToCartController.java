@@ -2,6 +2,7 @@ package BookStore.Controller.Shop;
 
 import BookStore.Model.Cart;
 import BookStore.Model.Item;
+import BookStore.Model.Order;
 import BookStore.Model.Product;
 import BookStore.service.ICartService;
 import BookStore.service.IProductService;
@@ -46,6 +47,7 @@ public class AddToCartController extends HttpServlet {
                     item.setProduct(product);
                     item.setPrice(product.getPrice());
                     listItems.add(item);
+
                     cart.setItems(listItems);
                     cart.setCustomerId(id);
                     System.out.println(cart.toString());
@@ -67,13 +69,6 @@ public class AddToCartController extends HttpServlet {
                         item.setProduct(product);
                         item.setPrice(product.getPrice());
                         listItems.add(item);
-                        try {
-                            cart = cartService.insert(cart);
-                            System.out.println(cart.toString());
-                            session.setAttribute("cart", cart);
-                        }catch (Exception e){
-                            response.sendRedirect(request.getContextPath() + "/TrangChu");
-                        }
                     }
                     session.setAttribute("cart", cart);
                 }
