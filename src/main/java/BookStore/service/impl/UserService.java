@@ -3,6 +3,7 @@ package BookStore.service.impl;
 import BookStore.Dao.IUserDAO;
 
 import BookStore.Dao.impl.UserDAO;
+import BookStore.Model.Info;
 import BookStore.Model.User;
 import BookStore.service.IUserService;
 
@@ -28,7 +29,6 @@ public class UserService implements IUserService {
         Integer id = userDAO.insert(user);
         return findOneById(id);
     }
-
 
     public User register(User user) {
         Integer id = userDAO.insert(user);

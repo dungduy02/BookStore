@@ -6,6 +6,7 @@ import BookStore.Model.Product;
 import BookStore.Model.User;
 import BookStore.config.ConnectionPool;
 import BookStore.mapper.CartMapper;
+import BookStore.mapper.ProductMapper;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -44,5 +45,11 @@ public class CartDAO extends AbstractDAO<Cart> implements ICartDAO {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+    @Override
+    public Cart getLastCart() {
+        String sql = "SELECT * FROM detail_cart ORDER BY id DESC LIMIT 1;";
+        return queryOne(sql,new CartMapper());
     }
 }

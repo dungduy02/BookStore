@@ -44,4 +44,6 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
         return queryOne(sql,new UserMapper(),id);
     }
 
+
+
 }

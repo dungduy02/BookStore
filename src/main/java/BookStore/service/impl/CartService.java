@@ -3,6 +3,7 @@ package BookStore.service.impl;
 import BookStore.Dao.ICartDAO;
 import BookStore.Dao.impl.CartDAO;
 import BookStore.Model.Cart;
+import BookStore.Model.Product;
 import BookStore.Model.User;
 import BookStore.service.ICartService;
 
@@ -27,6 +28,11 @@ public class CartService implements ICartService {
         cartDAO.insert(cart, user);
     }
 
+    @Override
+    public Cart getLastCart() {
+        return cartDAO.getLastCart();
+    }
+
     public static void main(String[] args) {
         CartDAO cd = new CartDAO();
 //        cd.insert()
@@ -34,4 +40,5 @@ public class CartService implements ICartService {
         List<Cart> c = (List<Cart>) cd.findByCustomerId(1);
         System.out.println(c);
     }
+
 }
