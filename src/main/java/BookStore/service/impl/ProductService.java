@@ -7,6 +7,7 @@ import BookStore.service.ICategoryService;
 import BookStore.service.IProductService;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService implements IProductService {
@@ -145,7 +146,7 @@ public class ProductService implements IProductService {
 //        }
 
 
-        }
+
 //         productDAO.insertProduct("fsd","sdf", "sdf", 342, 2, 1,2,1);
 //        System.out.println(productDAO.deleteProduct("50"));
 //        productDAO.updateProduct(new Product());

@@ -13,21 +13,6 @@
 
 
 
-<%--<section class="breadcrumb-section set-bg" data-setbg="<c:url value="/template/web/img/breadcrumb.jpg"/>">--%>
-<%--    <div class="container">--%>
-<%--        <div class="row">--%>
-<%--            <div class="col-lg-12 text-center">--%>
-<%--                <div class="breadcrumb__text">--%>
-<%--                    <h2>Sản phẩm</h2>--%>
-<%--                    <div class="breadcrumb__option">--%>
-<%--                        <a href="./index.html">Home</a>--%>
-<%--                        <span>Sản phẩm</span>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</section>--%>
 <!-- Breadcrumb Section End -->
 
 <!-- Product Section Begin -->

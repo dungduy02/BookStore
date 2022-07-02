@@ -1,4 +1,4 @@
- <%@include file="/common/taglib.jsp"%>
+<%@include file="/common/taglib.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -56,16 +56,6 @@
                         </tr>
                         </thead>
                         <tbody>
-
-                        <!-- <c:forEach items="${sessionScope.cart }" var="item">
-
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src=" ${item.product.img}" alt="" style="width: 30%;">
-                                        <h5>${item.product.name}</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                            ${item.product.price} -->
                         <c:forEach items="${cart.items}" var="item">
                             <form action="/BookStore/cart?action=update&code=${item.product.id}" method="post">
                                 <tr>
@@ -87,7 +77,6 @@
                                         </div>
                                     </td>
                                     <td class="shoping__cart__total">
-
                                             ${item.price * item.quantity} VND
                                     </td>
                                     <td class="shoping__cart__item__close">
@@ -96,7 +85,6 @@
                                         </a>
                                     </td>
                                 </tr>
-
                             </form>
                         </c:forEach>
                         </tbody>
@@ -131,7 +119,6 @@
                         <li>Tạm Tính <span>${cart.totalPrice()} VND</span></li>
                         <li>Tổng <span>${cart.totalPrice()} VND</span></li>
                     </ul>
-
                     <a href="<c:url value = "/checkout"/>" class="primary-btn">Kiểm tra</a>
                 </div>
             </div>
