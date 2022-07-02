@@ -1,6 +1,5 @@
 package BookStore.mapper;
 
-import BookStore.Model.Category;
 import BookStore.Model.Product;
 
 import java.sql.ResultSet;
@@ -24,8 +23,6 @@ public class ProductMapper implements RowMapper<Product>{
             product.setCategoryid(rs.getInt("category_id"));
             product.setSaleid(rs.getInt("sale_id"));
             product.setAuthorid(rs.getInt("author_id"));
-
-
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();

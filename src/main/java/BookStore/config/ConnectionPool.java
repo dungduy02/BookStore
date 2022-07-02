@@ -21,7 +21,7 @@ public class ConnectionPool {
                 e.printStackTrace();
             }
         }
-        private ConnectionPool(){
+        public ConnectionPool(){
             super();
         }
         public static Connection getConnection(String task) throws SQLException{

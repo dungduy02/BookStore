@@ -2,7 +2,6 @@ package BookStore.service;
 
 import BookStore.Model.Product;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface IProductService {
@@ -22,5 +21,7 @@ public interface IProductService {
     List<Product> getProductBySort(String select);
     List<Product> get12Product();
     List<Product> getNextProduct(int count);
-
+    void deleteProduct(String id);
+    void insertProduct(Product product);
+    void updateProduct(Product product);
 }

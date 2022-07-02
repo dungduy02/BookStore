@@ -121,26 +121,23 @@
                                 <span class="icon_ul"></span>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="row" id="content">
-
-                    <c:forEach items="${Page}" var="pag">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="${pag.img}">
-                                <img src="${pag.img}" alt="" style="cursor: pointer">
-                                <ul class="product__item__pic__hover">
-
-                                    <li><a href="favourite?pid=${pag.id}"><i class="fa fa-heart" style="margin: 10px"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-retweet" style="margin: 10px"></i></a></li>
-                                    <li><a href="cart?action=add&id=${pag.id}"><i class="fa fa-shopping-cart" style="margin: 10px"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h6><a href="DetailsController?pid=${pag.id}">${pag.name}</a></h6>
-                                <h5>${pag.price} VND</h5>
+                        <c:forEach items="${Page}" var="pag">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="${pag.img}">
+                                        <img src="${pag.img}" alt="" style="cursor: pointer">
+                                        <ul class="product__item__pic__hover">
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                            <li><a href="add-to-cart?bid=${pag.id}"><i
+                                                    class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <h6><a href="DetailsController?pid=${pag.id}">${pag.name}</a></h6>
+                                        <h5>${pag.price} VND</h5>
+                                    </div>
+                                </div>
                             </div>
                         </c:forEach>
                     </div>

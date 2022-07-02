@@ -1,19 +1,56 @@
 package BookStore.Controller.Shop;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
-import java.io.IOException;
+import BookStore.Model.Cart;
+import BookStore.Model.User;
+import BookStore.service.ICartService;
 
-@WebServlet(urlPatterns = "/checkout")
+import javax.inject.Inject;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.Objects;
+
+@WebServlet(name = "CheckoutController", urlPatterns = "/checkout")
 public class CheckoutController extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            request.getRequestDispatcher("views/web/checkout.jsp").forward(request,response);
+
+    @Inject
+    private ICartService cartService;
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+//        User user = (User) session.getAttribute("USERMODE");
+//        System.out.println("ten gì đó: " + user.getPassword());
+//        response.sendRedirect(request.getContextPath() + "/TrangChu");
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            doGet(request,response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("USERMODEL");
+        System.out.println("ten gì đó: _" + user + " _");
+        if (user!=null) {
+            System.out.println("co zo day khong");
+
+
+            Cart cart = (Cart) session.getAttribute("cart");
+//            System.out.println("ten gì đó: " + cart.getId());
+//            System.out.println("gì đây:" + cart.getCustomerId());
+//            System.out.println("bao nhieu:" + user.getId());
+//            System.out.println("đô la:" + cart.getItems().get(cart.getId()).getPrice());
+//            System.out.println("nhiêu:" + cart.getItems().get(cart.getId()).getQuantity());
+//            System.out.println("gì:" + cart.getItems().size());
+//            System.out.println("ko biết là gì:" + cart.getItems().get(cart.getId()).getProduct().getId());
+            cartService.insert(cart, user);
+            request.getSession().setAttribute("cart", cart);
+            RequestDispatcher rd = request.getRequestDispatcher("/views/web/checkout.jsp");
+            rd.forward(request, response);
+        }else {
+
+            response.sendRedirect(request.getContextPath() + "/Dang-nhap");
+        }
+
     }
 }

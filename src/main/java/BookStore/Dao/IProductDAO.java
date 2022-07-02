@@ -3,7 +3,6 @@ package BookStore.Dao;
 import BookStore.Model.Cart;
 import BookStore.Model.Product;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface IProductDAO {
@@ -25,7 +24,10 @@ public interface IProductDAO {
     List<Product> getNextProduct(int count);
 
     List<Product> getByPrice(String price);
-
-
+    void deleteProduct(String id);
+    void insertProduct(Product product);
+//    void updateProduct(String name, String picture, String description, String price,
+//                       String quantity, String published, String categoryid, String authorid);
+    void updateProduct(Product product);
 
 }

@@ -26,7 +26,7 @@
                 <a class="btn btn-white filter-btn" href="javascript:void(0);" id="filter_search">
                     <i class="fas fa-filter"></i>
                 </a>
-                <a href="add-product.html" class="btn btn-primary add-button ml-3">
+                <a href="add-product" class="btn btn-primary add-button ml-3">
                     <i class="fas fa-plus"></i>
                 </a>
             </div>
@@ -99,101 +99,27 @@
 
                             <!-- Thêm vào nội dung ở đây -->
                             <tbody>
+                            <c:forEach items="${listAll}" var="x">
                             <tr>
-                                <td>1</td>
+                                <td>${x.id}</td>
                                 <td>
-                                    <img class="rounded service-img mr-1" src="assets/img/categories/powervsforce.jpg"
+                                    <img class="rounded service-img mr-1" src="${x.img}"
                                          alt="Hình ảnh danh mục"></td>
-                                <td>Power vs Force</td>
-                                <td>Tâm Lý</td>
-                                <td>149.000 VNĐ</td>
-                                <td>10</td>
-                                <td>1</td>
-                                <td>1</td>
+                                <td>${x.name}</td>
+                                <td>${x.categoryid}</td>
+                                <td>${x.price}</td>
+                                <td>${x.quantity}</td>
+                                <td>${x.publisherid}</td>
+                                <td>${x.authorid}</td>
                                 <td class="text-right">
-                                    <a href="edit-product.html" class="btn btn-sm bg-success-light mr-2"> <i
+                                    <a href="update?sid=${x.id}" class="btn btn-sm bg-success-light mr-2"> <i
                                             class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
+                                    <a href="#" type="button" onclick="showMess(${x.id})" class="btn btn-outline-danger btn-sm"><i
                                             class="fa fa-trash-o"></i> Xóa
-                                    </button>
+                                    </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <img class="rounded service-img mr-1" src="assets/img/categories/powervsforce.jpg"
-                                         alt="Hình ảnh danh mục"></td>
-                                <td>Power vs Force</td>
-                                <td>Tâm Lý</td>
-                                <td>149.000 VNĐ</td>
-                                <td>10</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td class="text-right">
-                                    <a href="edit-product.html" class="btn btn-sm bg-success-light mr-2"> <i
-                                            class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
-                                            class="fa fa-trash-o"></i> Xóa
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <img class="rounded service-img mr-1" src="assets/img/categories/powervsforce.jpg"
-                                         alt="Hình ảnh danh mục"></td>
-                                <td>Power vs Force</td>
-                                <td>Tâm Lý</td>
-                                <td>149.000 VNĐ</td>
-                                <td>10</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td class="text-right">
-                                    <a href="edit-product.html" class="btn btn-sm bg-success-light mr-2"> <i
-                                            class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
-                                            class="fa fa-trash-o"></i> Xóa
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <img class="rounded service-img mr-1" src="assets/img/categories/powervsforce.jpg"
-                                         alt="Hình ảnh danh mục"></td>
-                                <td>Power vs Force</td>
-                                <td>Tâm Lý</td>
-                                <td>149.000 VNĐ</td>
-                                <td>10</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td class="text-right">
-                                    <a href="edit-product.html" class="btn btn-sm bg-success-light mr-2"> <i
-                                            class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
-                                            class="fa fa-trash-o"></i> Xóa
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <img class="rounded service-img mr-1" src="assets/img/categories/powervsforce.jpg"
-                                         alt="Hình ảnh danh mục"></td>
-                                <td>Power vs Force</td>
-                                <td>Tâm Lý</td>
-                                <td>149.000 VNĐ</td>
-                                <td>10</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td class="text-right">
-                                    <a href="edit-product.html" class="btn btn-sm bg-success-light mr-2"> <i
-                                            class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
-                                            class="fa fa-trash-o"></i> Xóa
-                                    </button>
-                                </td>
-                            </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>
@@ -204,6 +130,13 @@
 </div>
 
 </body>
-
+<script>
+    function showMess(id){
+        var option = confirm("Bạn chắc chắn muốn xóa");
+        if(option === true){
+            window.location.href = 'delete?sid='+id;
+        }
+    }
+</script>
 </html>
 

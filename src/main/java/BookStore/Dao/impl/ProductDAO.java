@@ -8,7 +8,6 @@ import BookStore.mapper.ProductMapper;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -85,6 +84,7 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
     }
 
 
+
     @Override
     public List<Product> getPageProduct(List<Product> list, int start, int end) {
         List<Product> arr = new ArrayList<>();
@@ -128,5 +128,71 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
         return query(sql,new ProductMapper(),price);
     }
 
+    public void deleteProduct(String id){
+        String sql = "delete from products where id = ?";
+        Connection con = null;
+        PreparedStatement pr = null;
+        try {
+            con = new ConnectionPool().getConnection("delete");
+            pr = con.prepareStatement(sql);
+            pr.setString(1, id);
+            pr.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
+    }
+
+    public void insertProduct(Product product) {
+        StringBuffer sql = new StringBuffer("insert   products(products.`name`, products.picture, products.description, " +
+                "products.price, products.quanity, products.publisher_id, products.category_id, " +
+                "products.author_id ) values (?,?, ?, ?, ?, ?,?,?);");
+//         insert(sql.toString(), product.getName(), product.getImg(), product.getDescription(),
+//                product.getPrice(), product.getQuantity(), product.getPublisherid(), product.getCategoryid(),
+//                product.getAuthorid());
+
+        Connection con = null;
+        PreparedStatement pr = null;
+        try {
+            con = new ConnectionPool().getConnection("delete");
+            pr = con.prepareStatement(String.valueOf(sql));
+            pr.setString(1, product.getName());
+            pr.setString(2, product.getImg());
+            pr.setString(3, product.getDescription());
+            pr.setInt(4, product.getPrice());
+            pr.setInt(5, product.getQuantity());
+            pr.setInt(6, product.getPublisherid());
+            pr.setInt(7, product.getCategoryid());
+            pr.setInt(8, product.getAuthorid());
+
+            pr.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
+    public void updateProduct(Product product){
+        String sql = "UPDATE products SET `name`= ?, picture = ?, description = ?, price = ?, " +
+                "quanity = ?, publisher_id = ?, category_id = ?, author_id = ? WHERE\tid = ?";
+
+        Connection con = null;
+        PreparedStatement pr = null;
+        try {
+            con = new ConnectionPool().getConnection("update");
+            pr = con.prepareStatement(sql);
+            pr.setString(1, product.getName());
+            pr.setString(2, product.getImg());
+            pr.setString(3, product.getDescription());
+            pr.setString(4, String.valueOf(product.getPrice()));
+            pr.setString(5, String.valueOf(product.getQuantity()));
+            pr.setString(6, String.valueOf(product.getPublisherid()));
+            pr.setString(7, String.valueOf(product.getCategoryid()));
+            pr.setString(8, String.valueOf(product.getAuthorid()));
+            pr.setString(9, String.valueOf(product.getId()));
+            pr.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 }

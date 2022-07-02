@@ -2,13 +2,11 @@ package BookStore.service.impl;
 
 import BookStore.Dao.IProductDAO;
 import BookStore.Dao.impl.ProductDAO;
-import BookStore.Model.Category;
 import BookStore.Model.Product;
 import BookStore.service.ICategoryService;
 import BookStore.service.IProductService;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService implements IProductService {
@@ -119,20 +117,28 @@ public class ProductService implements IProductService {
         return productDAO.getNextProduct(count);
     }
 
+    public void deleteProduct(String id) {
+        productDAO.deleteProduct(id);
+    }
+    public void insertProduct(Product product){
+        productDAO.insertProduct(product);
+    }
 
-
+    public void updateProduct(Product product){
+        productDAO.updateProduct(product);
+    }
     public static void main(String[] args) {
-        ProductDAO productDAO = new ProductDAO();
-        List<Product> list = productDAO.getNextProduct(12);
-        for (Product p: list) {
-            System.out.println(p);
+        // ProductDAO productDAO = new ProductDAO();
+        // List<Product> list = productDAO.getNextProduct(12);
+        // for (Product p: list) {
+        //     System.out.println(p);
 
 //        Product product = productDAO.getProductById("12");
 
-            List<Product> all = productDAO.getAll();
-            for (Product a : all) {
-                System.out.println(a);
-            }
+            // List<Product> all = productDAO.getAll();
+            // for (Product a : all) {
+            //     System.out.println(a);
+            // }
 //        List<Product> li = productDAO.getPageProduct(list,1,18);
 //        for (Product p : li){
 //            System.out.println(p);
@@ -140,6 +146,13 @@ public class ProductService implements IProductService {
 
 
         }
-
+//         productDAO.insertProduct("fsd","sdf", "sdf", 342, 2, 1,2,1);
+//        System.out.println(productDAO.deleteProduct("50"));
+//        productDAO.updateProduct(new Product());
+//        List<Product> all = productDAO.getAll();
+//        for (Product a : all){
+//        }
+//        System.out.println(productDAO.getProductById("2"));
     }
+
 }
