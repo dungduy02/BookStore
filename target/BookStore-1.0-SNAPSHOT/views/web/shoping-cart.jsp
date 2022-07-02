@@ -79,7 +79,6 @@
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
                                             <div class="pro-qty"style="display: flex">
-
                                                 <input type="text" name="quantity" value="${item.quantity}"
                                                         <%= request.getAttribute("quantity") == null
                                    ? "" : request.getAttribute("quantity") %>>
@@ -88,7 +87,7 @@
                                         </div>
                                     </td>
                                     <td class="shoping__cart__total">
-                                           <!-- ${item.quantity * item.product.price} VND -->
+
                                             ${item.price * item.quantity} VND
                                     </td>
                                     <td class="shoping__cart__item__close">

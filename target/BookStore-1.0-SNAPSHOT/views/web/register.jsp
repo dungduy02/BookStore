@@ -28,7 +28,7 @@
             <form id="registry" action="<c:url value="/dang-ky"/> " method="POST">
                 <div class="user-details">
                     <div class="input-box">
-                    <%--                        <input type="text" placeholder="Tên của bạn" required>--%>
+
                         <span class="details">Họ Và Tên</span>
                         <input type="text" name="fullname" id="fullname" placeholder="Tên của bạn" required
                                value="<%=request.getAttribute("fullname")==null?"":request.getAttribute("fullname")%>"/>
@@ -67,28 +67,29 @@
                     <div class="input-box">
                         <span class="details">Nhập lại mật khẩu</span>
                         <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Nhập lại mật khẩu" required>
+
 <%--                        <input type="text" placeholder="Nhập lại mật khẩu" required>--%>
+
                     </div>
                 </div>
                 <div style="display: flex">
-                  <label style="color: #F00" class="error" for="address"></label>
-        
-                <div class="group-input" style="width: 50%">
-                    <label for="gender">Giới tính *</label>
-                    <select id="gender" name = "gender">
-                        <option value ="">--Chọn giới tính--</option>
-                        <option value = "male">Nam</option>
-                        <option value = "female">Nữ</option>
-                        <option value = "other">Khác</option>
-                    </select>
-                    <label style="color: #F00" class="error" for="gender"></label>
-                </div>
-                <div class="group-input" style="margin-left: 20px">
-                    <label for="address" style="margin-right: 12px">Địa chỉ *</label>
-                    <input type="text" name="address" id="address" style="width: 230px">
-<%--                           value="<%=request.getAttribute("address")==null?"":request.getAttribute("address")%>">--%>
-                    <label style="color: #F00" class="error" for="address"></label>
-                </div></div>
+                    <div class="group-input" style="width: 50%">
+                        <label for="gender">Giới tính *</label>
+                        <select id="gender" name = "gender">
+                            <option value ="">--Chọn giới tính--</option>
+                            <option value = "male">Nam</option>
+                            <option value = "female">Nữ</option>
+                            <option value = "other">Khác</option>
+                        </select>
+                        <label style="color: #F00" class="error" for="gender"></label>
+                    </div>
+                    <div class="group-input" style="margin-left: 20px">
+                        <label for="address" style="margin-right: 12px">Địa chỉ *</label>
+                        <input type="text" name="address" id="address" style="width: 230px">
+                        <%--                           value="<%=request.getAttribute("address")==null?"":request.getAttribute("address")%>">--%>
+                        <label style="color: #F00" class="error" for="address"></label>
+                    </div></div>
+
                 <div class="button">
                     <input type="submit" value="Đăng Ký">
                 </div>

@@ -1,7 +1,6 @@
 package BookStore.service.impl;
 
 import BookStore.Dao.IProductDAO;
-import BookStore.Dao.impl.CategoryDAO;
 import BookStore.Dao.impl.ProductDAO;
 import BookStore.Model.Category;
 import BookStore.Model.Product;
@@ -125,22 +124,22 @@ public class ProductService implements IProductService {
     public static void main(String[] args) {
         ProductDAO productDAO = new ProductDAO();
         List<Product> list = productDAO.getNextProduct(12);
-        for (Product p: list){
+        for (Product p: list) {
             System.out.println(p);
 
 //        Product product = productDAO.getProductById("12");
 
-        List<Product> all = productDAO.getAll();
-        for (Product a : all){
-            System.out.println(a);
-        }
+            List<Product> all = productDAO.getAll();
+            for (Product a : all) {
+                System.out.println(a);
+            }
 //        List<Product> li = productDAO.getPageProduct(list,1,18);
 //        for (Product p : li){
 //            System.out.println(p);
 //        }
 
 
-
+        }
 
     }
 }

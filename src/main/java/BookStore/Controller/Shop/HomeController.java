@@ -29,7 +29,7 @@ public class HomeController extends HttpServlet {
 
 
     @Inject
-    private ISaleService saleService;
+    private ISliderService sliderService;
 
     @Inject
     private ICategoryService categoryService;

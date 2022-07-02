@@ -121,7 +121,8 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
     @Override
     public List<Product> getNextProduct(int count) {
         String sql = "SELECT * FROM products LIMIT ?,8";
-        return query(sql,new ProductMapper(),count);
+        return query(sql, new ProductMapper(), count);
+    }
     public List<Product> getByPrice(String price) {
         String sql = "SELECT * FROM products WHERE price BETWEEN ? AND ?";
         return query(sql,new ProductMapper(),price);

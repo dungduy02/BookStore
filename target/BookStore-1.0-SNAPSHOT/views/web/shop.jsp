@@ -28,7 +28,6 @@
 <%--        </div>--%>
 <%--    </div>--%>
 <%--</section>--%>
-
 <!-- Breadcrumb Section End -->
 
 <!-- Product Section Begin -->
@@ -40,6 +39,7 @@
                     <div class="sidebar__item">
                         <h4>Giá</h4>
                         <div class="price-range-wrap">
+
 
                             <select id="filter-price" name="filter" onchange="changeFilterPrice()">
                                 <option value="small"> Từ 0 VND đến 50000 VND</option>
@@ -89,13 +89,14 @@
                                     </a>
 
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-9 col-md-7" id="main-view">
 
-            <div class="col-lg-8 col-md-7">
+
                 <div class="filter__item">
                     <div class="row">
                         <div class="col-lg-4 col-md-5">
@@ -140,7 +141,6 @@
                             <div class="product__item__text">
                                 <h6><a href="DetailsController?pid=${pag.id}">${pag.name}</a></h6>
                                 <h5>${pag.price} VND</h5>
-
                             </div>
                         </c:forEach>
                     </div>
@@ -153,6 +153,13 @@
                     <a href="page?page=${i}" id="paging">${i}</a>
                 </div></c:forEach></div>
 
+
+                <!-- <c:forEach begin="${1}" end="${requestScope.num}" var="i">
+                    <div class="product__pagination">
+                        <a href="shop?page=${i}">${i}</a>
+                    </div>
+                </c:forEach>
+            </div> -->
 
         </div>
     </div>
@@ -354,6 +361,5 @@
     });
 </script>
 <!-- Product Section End -->
-
 </body>
 </html>

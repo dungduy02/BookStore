@@ -72,7 +72,6 @@
 
     }
 
-
     /* On mouse-over */
     .sidenav a:hover, .dropdown-btn:hover {
         color: #f1f1f1;
@@ -146,21 +145,20 @@
                         </div>
                         <c:if test="${not empty USERMODEL}">
 
-                            <div class="header__top__right__register">
+                        <div class="header__top__right__register">
 
-                                <p href="<c:url value = "#"/>"> ${USERMODEL.fullname}</p>
+                            <p href="<c:url value = "#"/>"> ${USERMODEL.fullname}</p>
 
+                        </div>
+                        <div class="header__top__right__auth">
+                            <!-- sau chinh sua -->
+                            <div class="modal-box">
+                                <a href="<c:url value="/Dang-nhap?action=logout" />">
+                                    <button type="button" class=" btn-lg show-modal fa fa-sign-out" aria-hidden="true">  Đăng xuất</button>
+                                </a>
+                                <!-- Modal -->
                             </div>
-                            <div class="header__top__right__auth">
-                                <!-- sau chinh sua -->
-                                <div class="modal-box">
-                                    <a href="<c:url value="/Dang-nhap?action=logout" />">
-                                        <button type="button" class=" btn-lg show-modal fa fa-sign-out" aria-hidden="true">  Đăng xuất</button>
-                                    </a>
-                                    <!-- Modal -->
-                                </div>
-                            </div>
-
+                        </div>
                         </c:if>
                         <c:if test="${ empty USERMODEL}">
                             <div class="header__top__right__auth">
@@ -168,6 +166,7 @@
                                 <div class="modal-box">
                                     <!-- Button trigger modal -->
                                     <a href="<c:url value = "/Dang-nhap"/>">
+
                                     <button type="button" class=" btn-lg show-modal" data-toggle="modal" data-target="#myModal">
                                         Đăng nhập
                                     </button>
@@ -232,7 +231,8 @@
                     <div class="hero__categories">
                         <button class="dropdown-btn hero__categories__all">Danh Mục
 
-<%--                            <i class="fa fa-caret-down"></i>--%>
+                            <%--                            <i class="fa fa-caret-down"></i>--%>
+
                         </button>
                         <div class="dropdown-container">
                             <c:forEach items="${listC}" var="ca">
@@ -246,8 +246,9 @@
                         <div class="hero__search__form">
                             <form action="<c:url value="/search"/>">
 
-                                <input type="text" placeholder="Tìm kiếm sách bạn mong muốn...." name="keyword">
-                                <button type="submit" class="site-btn">Tìm Kiếm</button>
+                                <input type="text" placeholder="Tìm kiếm sách mong muốn...." name="keyword">
+                                <button  type="submit" class="site-btn">TÌM</button>
+
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -268,6 +269,7 @@
 <script>
     var dropdown = document.getElementsByClassName("dropdown-btn");
     var i;
+
     for (i = 0; i < dropdown.length; i++) {
         dropdown[i].addEventListener("click", function() {
             this.classList.toggle("activec");
