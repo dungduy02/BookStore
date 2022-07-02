@@ -9,5 +9,4 @@ import java.util.List;
 
 public class ItemDAO extends AbstractDAO<Item> implements IItemDAO{
 
-
 }

@@ -1,4 +1,4 @@
-<%@include file="/common/taglib.jsp"%>
+ <%@include file="/common/taglib.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -55,30 +55,36 @@
                         </thead>
 
                         <tbody>
-                        <c:forEach items="${cart}" var="i">
-                        <tr>
-                            <td class="shoping__cart__item">
-                                <img src="${i.getProductById().getImg()}" alt="" style="width: 30%;">
-                                <h5>${i.name}</h5>
-                            </td>
-                            <td class="shoping__cart__price">
-                                ${i.price} VND
-                            </td>
-                            <td class="shoping__cart__quantity">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="shoping__cart__total">
-                                69.000 VND
-                            </td>
-                            <td class="shoping__cart__item__close">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </td>
-                        </tr>
+                        <c:forEach items="${sessionScope.cart }" var="item">
 
+                                <tr>
+                                    <td class="shoping__cart__item">
+                                        <img src=" ${item.product.img}" alt="" style="width: 30%;">
+                                        <h5>${item.product.name}</h5>
+                                    </td>
+                                    <td class="shoping__cart__price">
+                                            ${item.product.price}
+                                    </td>
+                                    <td class="shoping__cart__quantity">
+                                        <div class="quantity">
+                                            <div class="pro-qty"style="display: flex">
+                                                <a class="btn btn-primary"><i class="fa fa-minus-square-o" aria-hidden="true"></i>  </a>
+                                                <input type="text" name="quantity" value="33333">
+
+                                              <i class="fa fa-plus-square" aria-hidden="true"></i>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="shoping__cart__total">
+                                           ${item.quantity * item.product.price} VND
+                                    </td>
+                                    <td class="shoping__cart__item__close">
+                                        <a href="removeCart?id=${item.product.id}">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
 
                         </c:forEach>
                         </tbody>
@@ -109,10 +115,10 @@
                 <div class="shoping__checkout">
                     <h5>Tổng tiền trong giỏ hàng</h5>
                     <ul>
-                        <li>Tạm Tính <span>999.999 VND</span></li>
-                        <li>Tổng <span>999.999 VND</span></li>
+                        <li>Tạm Tính <span>${cart.totalPrice()} VND</span></li>
+                        <li>Tổng <span>${cart.totalPrice()} VND</span></li>
                     </ul>
-                    <a href="./checkout.html" class="primary-btn">Kiểm tra</a>
+                    <a href="checkout" class="primary-btn">Kiểm tra</a>
                 </div>
             </div>
         </div>

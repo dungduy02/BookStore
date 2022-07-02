@@ -10,12 +10,15 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-eq uiv="X-UA-Compatible" content="ie=edge">
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
 
-    <!-- Google Font -->
 
 </head>
 
-<body>
+<body >
 
 <!-- Hero Section End -->
 <!-- Begin banner top -->
@@ -30,35 +33,25 @@
             </div>
         </div>
     </div>
+
+
 </section>
+<div class="silder" id="mySlider">
 
-<!-- Breadcrumb Section Begin -->
+        <div class="container d-flex" >
 
-<!-- Categories Section Begin -->
-<section class="categories">
-    <div class="section-title">
-        <h4 class="tit-box">
-            <a href="product-sale.html">Tìm Kiếm Hàng Đầu</a>
-        </h4>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="categories__slider owl-carousel">
-
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="#">
-                        <h5><a href="#">Đầu Tư</a></h5>
-                    </div>
-                </div>
-
-
-
-
+            <c:forEach items="${slider}" var="slid">
+            <div class="row">
+                <img src="${slid.img}" alt="">
+                <h5>${slid.name}</h5>
             </div>
+            </c:forEach>
+
         </div>
-    </div>
-</section>
-<!-- Categories Section End -->
+
+
+
+</div>
 
 <!-- Featured Section Begin -->
 <section class="featured spad">
@@ -71,16 +64,16 @@
 
             </div>
         </div>
-        <div class="row featured__filter">
-                        <c:forEach items="${list}" var="pro" begin="1" end="12">
-                        <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+        <div class="row featured__filter" id="content">
+                        <c:forEach items="${list}" var="pro">
+                        <div class="loadp col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                             <div class="featured__item">
                                 <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
                                     <img src="${pro.img}">
                                     <ul class="featured__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="add-to-cart?bid=${pro.id}muasp&txtmasp=${pro.id}"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-heart" style="margin: 10px"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-retweet" style="margin: 10px;"></i></a></li>
+                                        <li><a href="add-to-cart?bid=${pro.id}muasp&txtmasp=${pro.id}"><i class="fa fa-shopping-cart" style="margin: 10px"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">
@@ -88,7 +81,9 @@
                                     <h5>${pro.price} VND</h5>
                                 </div>
                             </div>
+
                         </div>
+
                         </c:forEach>
 
 
@@ -96,6 +91,11 @@
 
 
 
+        </div>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-primary" onclick="loadMore()">
+                Load More
+            </button>
         </div>
     </div>
 </section>
@@ -118,9 +118,7 @@
         </div>
     </div>
 </div>
-<!-- Banner End -->
 
-<!-- Latest Product Section Begin -->
 <section class="latest-product spad">
     <div class="section-title">
         <h4 class="tit-box">
@@ -132,7 +130,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="latest-product__text">
                     <h4>Mới Nhất</h4>
-                    <c:forEach items="${ListNew}" var="news">
+                    <c:forEach items="${ListNew}" var="news" begin="1" end="6">
                     <div class="new">
 
                         <div class="n">
@@ -244,9 +242,7 @@
         </div>
     </div>
 </section>
-<!-- Latest Product Section End -->
 
-<!-- Blog Section Begin -->
 <section class="from-blog spad">
     <div class="container">
         <div class="row">
@@ -305,7 +301,32 @@
         </div>
     </div>
 </section>
-<!-- Blog Section End -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script>
+        function loadMore(){
+            var amount = document.getElementsByClassName("loadp").length;
+                $.ajax({
+                    url: "/BookStore/load",
+                    type: "get", //send it through get method
+                    data:{
+                        exits: amount
+                    },
+                    success: function(data) {
+
+
+                        var row = document.getElementById("content");
+                        row.innerHTML += data;
+                    },
+                    error: function(xhr) {
+                        //Do Something to handle error
+                    }
+                });
+
+
+        }
+    </script>
+
 
 </body>
 </html>

@@ -19,73 +19,7 @@
 </head>
 
 <body>
-   <!-- Hero Section Begin -->
-   <section class="hero hero-normal">
-       <div class="container">
-           <div class="row">
-               <div class="col-lg-3">
-                   <div class="hero__categories">
-                       <div class="hero__categories__all">
-                           <i class="fa fa-bars"></i>
-                           <span>Danh Mục</span>
-                       </div>
-                       <ul>
-                           <li><a href="#">Văn Học</a></li>
-                           <li><a href="#">Kinh Tế</a></li>
-                           <li><a href="#">Tâm Lý</a></li>
-                           <li><a href="#">Kỹ Năng Sống</a></li>
-                           <li><a href="#">Nuôi Dạy Con</a></li>
-                           <li><a href="#">Sách Thiếu Nhi</a></li>
-                           <li><a href="#">Tiểu Sử</a></li>
-                           <li><a href="#">Giáo Dục</a></li>
-                           <li><a href="#">Ngoại Ngữ</a></li>
-                           <li><a href="#">Tham Khảo</a></li>
-                           <li><a href="#">Khác</a></li>
-                       </ul>
-                   </div>
-               </div>
-               <div class="col-lg-9">
-                   <div class="hero__search">
-                       <div class="hero__search__form">
-                           <form action="#">
 
-                               <input type="text" placeholder="Tìm kiếm sách bạn mong muốn....">
-                               <button type="submit" class="site-btn">Tìm Kiếm</button>
-                           </form>
-                       </div>
-                       <div class="hero__search__phone">
-                           <div class="hero__search__phone__icon">
-                               <i class="fa fa-phone"></i>
-                           </div>
-                           <div class="hero__search__phone__text">
-                               <h5>+ 84353535355</h5>
-                               <span>Hỗ trợ 24/7</span>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </section>
-   <!-- Hero Section End -->
-
-   <!-- Breadcrumb Section Begin -->
-   <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
-       <div class="container">
-           <div class="row">
-               <div class="col-lg-12 text-center">
-                   <div class="breadcrumb__text">
-                       <h2>Liên Hệ</h2>
-                       <div class="breadcrumb__option">
-                           <a href="./index.html">Trang Chủ</a>
-                           <span>Liên Hệ</span>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </section>
-   <!-- Breadcrumb Section End -->
    <!-- Contact Form Begin -->
    <div class="contact-form spad">
        <div class="container">

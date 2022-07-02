@@ -8,22 +8,6 @@
 
 <body>
 
-
-<section class="breadcrumb-section set-bg" data-setbg="<c:url value="/template/web/img/breadcrumb.jpg"/>">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="breadcrumb__text">
-                    <h2>Sản phẩm</h2>
-                    <div class="breadcrumb__option">
-                        <a href="./index.html">Home</a>
-                        <span>Sản phẩm</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <!-- Breadcrumb Section End -->
 
 <!-- Product Section Begin -->
@@ -45,13 +29,12 @@
                     <div class="sidebar__item">
                         <h4>Giá</h4>
                         <div class="price-range-wrap">
-                            <select name="price_filter">
-                                <option name="small"> Từ 0 VND đến 40000 VND</option>
-                                <option name="medium">Từ 40000 VND đến 100000 VND</option>
-                                <option name="large">Từ 100000 trở lên</option>
 
+                            <select id="filter-price" name="filter" onchange="changeFilterPrice()">
+                                <option value="small"> Từ 0 VND đến 50000 VND</option>
+                                <option value="medium">Từ 50000 VND đến 100000 VND</option>
+                                <option value="large">Từ 100000 trở lên</option>
                             </select>
-
                         </div>
 
 
@@ -79,7 +62,7 @@
 
 
 
-                                    <a href="#" class="latest-product__item">
+                                    <a href="DetailsController?pid=${lastP.id}" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="${lastP.img}" alt="">
                                         </div>
@@ -94,22 +77,24 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9 col-md-7">
+            <div class="col-lg-9 col-md-7" id="main-view">
 
                 <div class="filter__item">
                     <div class="row">
                         <div class="col-lg-4 col-md-5">
                             <div class="filter__sort">
+
                                 <span>Sắp xếp</span>
-                                <select>
-                                    <option value="0">Mới Nhất</option>
-                                    <option value="0">Giá Cả</option>
+                                <select name="select" id="sort" onchange="SortbyFilter()">
+                                    <option value="new" name="new">Mới Nhất</option>
+                                    <option value="price" name="price">Giá Cả</option>
                                 </select>
+
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="filter__found">
-                                <h6><span>12</span> Sản phẩm đã được tìm thấy</h6>
+                                <h6><span id="count-product">0</span> Sản phẩm đã được tìm thấy</h6>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-3">
@@ -120,7 +105,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+
+                <div class="row" id="content">
 
                     <c:forEach items="${Page}" var="pag">
                     <div class="col-lg-4 col-md-6 col-sm-6">
@@ -128,9 +114,10 @@
                             <div class="product__item__pic set-bg" data-setbg="${pag.img}">
                                 <img src="${pag.img}" alt="" style="cursor: pointer">
                                 <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                    <li><a href="add-to-cart?id=${pag.id}"><i class="fa fa-shopping-cart"></i></a></li>
+
+                                    <li><a href="favourite?pid=${pag.id}"><i class="fa fa-heart" style="margin: 10px"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-retweet" style="margin: 10px"></i></a></li>
+                                    <li><a href="cart?action=add&id=${pag.id}"><i class="fa fa-shopping-cart" style="margin: 10px"></i></a></li>
                                 </ul>
                             </div>
                             <div class="product__item__text">
@@ -147,13 +134,92 @@
             </div>
             <div class="row" style="margin: 0 auto">
             <c:forEach begin="${1}" end="${requestScope.num}" var="i">
-                <div class="product__pagination" >
-                    <a href="shop?page=${i}">${i}</a>
+                <div class="product__pagination mr-3" >
+                    <a href="page?page=${i}" id="paging">${i}</a>
                 </div></c:forEach></div>
 
         </div>
     </div>
 </section>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script>
+   function changeFilterPrice(){
+
+       let select = document.getElementById("filter-price");
+       let content = document.getElementById("content");
+       let page = document.getElementById("paging");
+       document.getElementById("main-view").scrollIntoView();
+       if(document.getElementById("loading") == null){
+           content.innerHTML = '<p id="loading">Loading...</p>';
+           $.ajax({
+               url: "/BookStore/price",
+               type: "get", //send it through get method
+               data: {
+                   type: select.value
+               },
+               success: function(data) {
+                   content.innerHTML = data;
+
+               },
+               error: function(xhr) {
+                   //Do Something to handle error
+               }
+           });
+           $.ajax({
+               url: "/BookStore/CountProduct",
+               type: "get", //send it through get method
+               data: {
+                   type: select.value
+               },
+               success: function(data) {
+                   document.getElementById("count-product").innerHTML = data;
+                   console.log(data)
+               },
+               error: function(xhr) {
+                   //Do Something to handle error
+               }
+           });
+
+       }
+   }
+   function SortbyFilter(){
+       let select = document.getElementById("sort");
+       let content = document.getElementById("content");
+       document.getElementById("main-view").scrollIntoView();
+       if(document.getElementById("loading") == null){
+           content.innerHTML = '<p id="loading">Loading...</p>';
+           $.ajax({
+               url: "/BookStore/SortProduct",
+               type: "get", //send it through get method
+               data: {
+                   type: select.value
+               },
+               success: function(data) {
+                   content.innerHTML = data;
+               },
+               error: function(xhr) {
+                   //Do Something to handle error
+               }
+           });
+           $.ajax({
+               url: "/BookStore/CountProduct",
+               type: "get", //send it through get method
+               data: {
+                   type: select.value
+               },
+               success: function(data) {
+                   document.getElementById("count-product").innerHTML = data;
+                   console.log(data)
+               },
+               error: function(xhr) {
+                   //Do Something to handle error
+               }
+           });
+
+       }
+   }
+</script>
 </body>
 </html>

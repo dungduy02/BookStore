@@ -41,4 +41,13 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
         String sql = "SELECT * FROM users WHERE id = ?";
         return queryOne(sql,new USerMapper(),id);
     }
+
+    @Override
+    public boolean update(User user) {
+        StringBuilder sql = new StringBuilder();
+        sql.append("update users set ");
+        sql.append("password = ?");
+        sql.append("where email = ?");
+        return update(sql.toString(),user.getPassword());
+    }
 }

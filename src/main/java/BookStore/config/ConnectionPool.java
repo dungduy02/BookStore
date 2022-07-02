@@ -30,6 +30,10 @@ public class ConnectionPool {
             logPoolStatus(task);
             return conn;
         }
+    public static Connection Connection() throws SQLException{
+        Connection conn = cpds.getConnection();
+        return conn;
+    }
     public synchronized static void logPoolStatus(String task) throws SQLException {
         System.out.println("Received connection for task " + task);
         System.out.println("+ Num of Connections: " + cpds.getNumConnections());

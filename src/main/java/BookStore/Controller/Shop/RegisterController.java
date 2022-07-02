@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.security.Timestamp;
 import java.util.Calendar;
 
-@WebServlet(urlPatterns = "/register")
+@WebServlet(urlPatterns = "/dang-ky")
 public class RegisterController extends HttpServlet {
     @Inject
     private IUserService userService;
@@ -27,44 +27,46 @@ public class RegisterController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String fullname = request.getParameter("fullname");
         String username = request.getParameter("username");
+        String fullname = request.getParameter("fullname");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
-        String address = request.getParameter("address");
-        String gender = request.getParameter("gender");
-        User tmp = userService.getUser(username);
-        if (tmp == null){
-            User user = new User();
-            password = EncryptUtil.encryptMD5(password);
-            user.setFullname(fullname);
-            user.setUsername(username);
-            user.setPassword(password);
-            user.setEmail(email);
-            user.setAddress(address);
-            user.setPhone(phone);
-            user.setSex(gender);
-            user.setStatus(1);
+        String confirmPassword = request.getParameter("confirmPassword");
+        if (password.equals(confirmPassword)) {
+            User us = userService.getUser(username);
+            if (us == null) {
+                User user = new User();
 
-            if ((user = userService.register(user)) != null){
-                SessionUtil.getInstance().putValue(request,"USERMODE",user);
-                response.sendRedirect(request.getContextPath() + "/login");
-            }else {
-                request.getRequestDispatcher("/views/web/register.jsp").forward(request,response);
+                password = EncryptUtil.encryptMD5(password);
+                user.setUsername(username);
+                user.setPassword(password);
+                user.setFullname(fullname);
+                user.setEmail(email);
+                user.setPhone(phone);
+
+
+
+                try {
+                    user = userService.insert(user);
+                    System.out.println(user.toString());
+                    request.getSession().setAttribute("USERMODEL", user);
+                } catch (Exception e) {
+                    response.sendRedirect(request.getContextPath() + "/TrangChu");
+                }
+                response.sendRedirect(request.getContextPath() + "/TrangChu");
+            } else {
+                request.setAttribute("username", username);
+                request.setAttribute("fullname", fullname);
+                request.setAttribute("password", password);
+                request.setAttribute("email", email);
+                request.setAttribute("phone", phone);
+                request.setAttribute("uname-err", "Tên tài khoản đã tồn tại");
+                request.getRequestDispatcher("/views/web/register.jsp").forward(request, response);
             }
-        }else {
-            request.setAttribute("fullname",fullname);
-            request.setAttribute("email",email);
-            request.setAttribute("address",address);
-            request.setAttribute("phone",phone);
-            request.setAttribute("gender",gender);
-            request.setAttribute("uname-err", "Tên tài khoản đã tồn tại");
-            request.getRequestDispatcher("/views/web/register.jsp").forward(request,response);
-
-
-
+        }else{
+            request.setAttribute("mess", "Password không khớp");
+            request.getRequestDispatcher("/views/web/register.jsp").forward(request, response);
         }
-
     }
 }

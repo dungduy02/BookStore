@@ -11,6 +11,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,16 +22,6 @@ public class AddToCartController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             response.setContentType("text/html;charset=UTF-8");
-        Cart cart = new Cart();
-        String masp = request.getParameter("masp");
-        String bid = request.getParameter("bid");
-
-        if (bid.equals("muasp")){
-            cart.addItem(masp);
-            request.setAttribute("cart",cart.getListItems());
-        }
-            RequestDispatcher rd = request.getRequestDispatcher("/views/web/shoping-cart.jsp");
-            rd.forward(request,response);
 
     }
 

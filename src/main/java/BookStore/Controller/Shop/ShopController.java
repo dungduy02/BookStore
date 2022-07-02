@@ -57,7 +57,6 @@ public class ShopController extends HttpServlet {
             request.setAttribute("Page",listPage);
             request.setAttribute("num",num);
 
-
             RequestDispatcher rd = request.getRequestDispatcher("/views/web/shop.jsp");
             rd.forward(request,response);
     }
