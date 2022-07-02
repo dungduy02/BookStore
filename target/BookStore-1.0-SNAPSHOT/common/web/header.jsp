@@ -3,6 +3,8 @@
          pageEncoding="UTF-8" %>
 <%@ include file="/common/taglib.jsp" %>
 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     .dropdown-btn {
         padding: 6px 8px 6px 16px;
@@ -71,6 +73,55 @@
     }
 
 
+    /* On mouse-over */
+    .sidenav a:hover, .dropdown-btn:hover {
+        color: #f1f1f1;
+    }
+
+    /* Main content */
+    .main {
+        margin-left: 200px; /* Same as the width of the sidenav */
+        font-size: 20px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+    }
+
+    /* Add an active class to the active dropdown button */
+    .activec {
+        background-color: #7fad39;
+        color: white;
+    }
+
+    /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+    .dropdown-container {
+        display: none;
+        background-color: #ffffff;
+        padding-left: 8px;
+
+    }
+
+    /* Optional: Style the caret down icon */
+    .fa-caret-down {
+        float: right;
+        padding-right: 8px;
+    }
+
+    /* Some media queries for responsiveness */
+    @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+    }
+    .dropdown-container a{
+        font-size: 16px;
+        color: #1c1c1c;
+        line-height: 39px;
+        display: block;
+    }
+    .hero__categories{
+        position: absolute;
+    }
+    .hero-normal{
+        height: 100px;
+    }
 </style>
 <!-- Header Section Begin -->
 <header class="header" >
@@ -94,6 +145,7 @@
                             <a href="#"><i class="fa fa-pinterest-p"></i></a>
                         </div>
                         <c:if test="${not empty USERMODEL}">
+
                             <div class="header__top__right__register">
 
                                 <p href="<c:url value = "#"/>"> ${USERMODEL.fullname}</p>
@@ -108,6 +160,7 @@
                                     <!-- Modal -->
                                 </div>
                             </div>
+
                         </c:if>
                         <c:if test="${ empty USERMODEL}">
                             <div class="header__top__right__auth">
@@ -115,9 +168,9 @@
                                 <div class="modal-box">
                                     <!-- Button trigger modal -->
                                     <a href="<c:url value = "/Dang-nhap"/>">
-                                        <button type="button" class=" btn-lg show-modal" data-toggle="modal" data-target="#myModal">
-                                            Đăng nhập
-                                        </button>
+                                    <button type="button" class=" btn-lg show-modal" data-toggle="modal" data-target="#myModal">
+                                        Đăng nhập
+                                    </button>
                                     </a>
                                     <!-- Modal -->
                                 </div>
@@ -141,6 +194,7 @@
             <div class="col-lg-3">
                 <div class="header__logo">
                     <a href="<c:url value = "/TrangChu"/>"> <img src="https://firebasestorage.googleapis.com/v0/b/image-c757c.appspot.com/o/logo.png?alt=media&token=e813ab15-c955-48fe-83cf-47d48007a4b6"> </a>
+
 
                 </div>
             </div>
@@ -177,7 +231,8 @@
                 <div class="col-lg-3">
                     <div class="hero__categories">
                         <button class="dropdown-btn hero__categories__all">Danh Mục
-                            <%--                            <i class="fa fa-caret-down"></i>--%>
+
+<%--                            <i class="fa fa-caret-down"></i>--%>
                         </button>
                         <div class="dropdown-container">
                             <c:forEach items="${listC}" var="ca">
@@ -240,3 +295,4 @@
         }
     }
 </script>
+

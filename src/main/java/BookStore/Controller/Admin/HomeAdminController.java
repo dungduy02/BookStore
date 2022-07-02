@@ -16,6 +16,7 @@ public class HomeAdminController extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        RequestDispatcher rd = request.getRequestDispatcher("/views/admin/index.jsp");
+        rd.forward(request, response);
     }
 }

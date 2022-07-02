@@ -5,7 +5,7 @@ import BookStore.Model.User;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class USerMapper implements RowMapper<User>{
+public class UserMapper implements RowMapper<User>{
     @Override
     public User mapRow(ResultSet rs) {
         User user = new User();

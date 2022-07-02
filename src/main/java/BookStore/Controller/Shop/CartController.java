@@ -35,8 +35,20 @@ public class CartController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             response.setContentType("text/html;charset=UTF-8");
-
-
+        String action = request.getParameter("action");
+        int productId = Integer.parseInt(request.getParameter("code"));
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        System.out.println(quantity);
+        HttpSession session = request.getSession();
+        Cart cart = (Cart) request.getSession().getAttribute("cart");
+        if (action.equalsIgnoreCase("update")) {
+            Item item = cart.getItem1(productId);
+            item.update(productId, quantity);
+            session.setAttribute("cart", cart);
+            request.getRequestDispatcher("views/web/shoping-cart.jsp").forward(request, response);
+        }
+//        doGet(request, response);
+//        super.doPost(request, response);
     }
 
 

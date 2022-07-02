@@ -1,6 +1,7 @@
 package BookStore.service.impl;
 
 import BookStore.Dao.IUserDAO;
+
 import BookStore.Dao.impl.UserDAO;
 import BookStore.Model.User;
 import BookStore.service.IUserService;
@@ -32,7 +33,7 @@ public class UserService implements IUserService {
         return findOneById(id);
     }
 
-    @Override
+
     public User register(User user) {
         Integer id = userDAO.insert(user);
         return userDAO.getUser(id);

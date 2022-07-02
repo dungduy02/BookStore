@@ -2,24 +2,24 @@ package BookStore.Dao.impl;
 
 import BookStore.Dao.IUserDAO;
 import BookStore.Model.User;
-import BookStore.mapper.USerMapper;
+import BookStore.mapper.UserMapper;
+
 
 import java.util.List;
 
 public class UserDAO extends AbstractDAO<User> implements IUserDAO {
-
-
     @Override
     public User findOneById(Integer id) {
         String sql = "select * from users where id = ?";
-        return query(sql, new USerMapper(), id).get(0);
+        return query(sql, new UserMapper(), id).get(0);
     }
 
     @Override
     public User getUser(String username) {
         String sql = "select * from users where username = ?";
-        List<User> list = query(sql, new USerMapper(), username);
+        List<User> list = query(sql, new UserMapper(), username);
         return list.size() == 0 ? null : list.get(0);
+
     }
 
     @Override
@@ -32,14 +32,16 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
                 user.getPassword(),
                 user.getFullname(),
                 user.getEmail(),
-                user.getPhone()
-                );
+//                user.getAddressid(),
+//                user.getSex(),
+                user.getPhone());
+//                user.getBlogid()
     }
 
     @Override
     public User getUser(Integer id) {
         String sql = "SELECT * FROM users WHERE id = ?";
-        return queryOne(sql,new USerMapper(),id);
+        return queryOne(sql,new UserMapper(),id);
     }
 
     @Override
@@ -50,4 +52,5 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
         sql.append("where email = ?");
         return update(sql.toString(),user.getPassword());
     }
+
 }

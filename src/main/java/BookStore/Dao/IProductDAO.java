@@ -24,5 +24,8 @@ public interface IProductDAO {
     List<Product> get12Product();
     List<Product> getNextProduct(int count);
 
+    List<Product> getByPrice(String price);
+
+
 
 }

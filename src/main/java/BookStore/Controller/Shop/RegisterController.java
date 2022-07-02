@@ -17,10 +17,11 @@ import java.util.Calendar;
 public class RegisterController extends HttpServlet {
     @Inject
     private IUserService userService;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/register.jsp");
-        rd.forward(request,response);
+        rd.forward(request, response);
     }
 
     @Override
@@ -32,40 +33,44 @@ public class RegisterController extends HttpServlet {
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
-        String confirmPassword = request.getParameter("confirmPassword");
-        if (password.equals(confirmPassword)) {
-            User us = userService.getUser(username);
-            if (us == null) {
-                User user = new User();
+        // String confirmPassword = request.getParameter("confirmPassword");
+  
+//        String address = request.getParameter("address");
+//        String sex = request.getParameter("sex");
 
-                password = EncryptUtil.encryptMD5(password);
-                user.setUsername(username);
-                user.setPassword(password);
-                user.setFullname(fullname);
-                user.setEmail(email);
-                user.setPhone(phone);
+        User us = userService.getUser(username);
+        if (us == null) {
+            User user = new User();
+
+            password = EncryptUtil.encryptMD5(password);
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setFullname(fullname);
+            user.setEmail(email);
+            user.setPhone(phone);
+//            user.setAddressid(address);
+//            user.setSex(sex);
+//            user.setStatus(1);
+//            user.setBlogid(1);
 
 
-
-                try {
-                    user = userService.insert(user);
-                    System.out.println(user.toString());
-                    request.getSession().setAttribute("USERMODEL", user);
-                } catch (Exception e) {
-                    response.sendRedirect(request.getContextPath() + "/TrangChu");
-                }
+            try {
+                user = userService.insert(user);
+                System.out.println(user.toString());
+                request.getSession().setAttribute("USERMODEL", user);
+            } catch (Exception e) {
                 response.sendRedirect(request.getContextPath() + "/TrangChu");
-            } else {
-                request.setAttribute("username", username);
-                request.setAttribute("fullname", fullname);
-                request.setAttribute("password", password);
-                request.setAttribute("email", email);
-                request.setAttribute("phone", phone);
-                request.setAttribute("uname-err", "Tên tài khoản đã tồn tại");
-                request.getRequestDispatcher("/views/web/register.jsp").forward(request, response);
             }
-        }else{
-            request.setAttribute("mess", "Password không khớp");
+            response.sendRedirect(request.getContextPath() + "/TrangChu");
+        } else {
+            request.setAttribute("username", username);
+            request.setAttribute("fullname", fullname);
+            request.setAttribute("password", password);
+            request.setAttribute("email", email);
+//            request.setAttribute("address",address);
+            request.setAttribute("phone", phone);
+//            request.setAttribute("sex",sex);
+            request.setAttribute("uname-err", "Tên tài khoản đã tồn tại");
             request.getRequestDispatcher("/views/web/register.jsp").forward(request, response);
         }
     }

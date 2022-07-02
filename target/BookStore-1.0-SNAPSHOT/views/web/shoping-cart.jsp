@@ -18,6 +18,7 @@
 
 <body>
 
+
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
     <div class="container">
@@ -48,14 +49,15 @@
                         <tr>
                             <th class="shoping__product">Sản Phẩm</th>
                             <th>Giá</th>
-                            <th>Số Lượng</th>
+                            <th>Số Lượng
+                            </th>
                             <th>Tổng Giá</th>
                             <th></th>
                         </tr>
                         </thead>
-
                         <tbody>
-                        <c:forEach items="${sessionScope.cart }" var="item">
+
+                        <!-- <c:forEach items="${sessionScope.cart }" var="item">
 
                                 <tr>
                                     <td class="shoping__cart__item">
@@ -63,21 +65,31 @@
                                         <h5>${item.product.name}</h5>
                                     </td>
                                     <td class="shoping__cart__price">
-                                            ${item.product.price}
+                                            ${item.product.price} -->
+                        <c:forEach items="${cart.items}" var="item">
+                            <form action="/BookStore/cart?action=update&code=${item.product.id}" method="post">
+                                <tr>
+                                    <td class="shoping__cart__item">
+                                        <img src="<c:url value='${item.product.img}' /> " alt="" style="width: 30%;">
+                                        <h5>${item.product.name}</h5>
+                                    </td>
+                                    <td class="shoping__cart__price">
+                                            ${item.price}
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
                                             <div class="pro-qty"style="display: flex">
-                                                <a class="btn btn-primary"><i class="fa fa-minus-square-o" aria-hidden="true"></i>  </a>
-                                                <input type="text" name="quantity" value="33333">
 
-                                              <i class="fa fa-plus-square" aria-hidden="true"></i>
-
+                                                <input type="text" name="quantity" value="${item.quantity}"
+                                                        <%= request.getAttribute("quantity") == null
+                                   ? "" : request.getAttribute("quantity") %>>
+                                                <button type="submit" style="margin-left: auto; border-radius: 5px;"><i class="fa fa-refresh" aria-hidden="true"></i></button>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="shoping__cart__total">
-                                           ${item.quantity * item.product.price} VND
+                                           <!-- ${item.quantity * item.product.price} VND -->
+                                            ${item.price * item.quantity} VND
                                     </td>
                                     <td class="shoping__cart__item__close">
                                         <a href="removeCart?id=${item.product.id}">
@@ -86,6 +98,7 @@
                                     </td>
                                 </tr>
 
+                            </form>
                         </c:forEach>
                         </tbody>
                     </table>
@@ -95,9 +108,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__btns">
-                    <a href="#" class="primary-btn cart-btn">Tiếp tục mua sắm</a>
-                    <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                        Cập nhật giỏ hàng</a>
+                    <a href="<c:url value = "/TrangChu"/>" class="primary-btn cart-btn">Tiếp tục mua sắm</a>
+                    <%--                    <a href="<c:url value = "/cart"/>" class="primary-btn cart-btn cart-btn-right"><span--%>
+                    <%--                            class="icon_loading"></span>--%>
+                    <%--                        Cập nhật giỏ hàng</a>--%>
                 </div>
             </div>
             <div class="col-lg-6">

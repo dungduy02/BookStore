@@ -1,8 +1,9 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Admin
-  Date: 17/04/2022
-  Time: 10:45 CH
+
+  User: DUNGDUY
+  Date: 3/11/2022
+  Time: 8:19 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,12 +11,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Ogani Template">
-  <meta name="keywords" content="Ogani, unica, creative, html">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>BOOKSTORE NLU | Đăng Nhập</title>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BOOKSTORE NLU | Đăng Nhập</title>
 
 </head>
 <body>

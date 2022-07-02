@@ -15,18 +15,6 @@
 	<title>Thêm admin</title>
 	<link href="assets/img/icon/icon-logo.png" rel="shortcut icon">
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-
-	<!-- Fontawesome CSS -->
-	<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
-	<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-
-	<!-- Animate CSS -->
-	<link rel="stylesheet" href="assets/css/animate.min.css">
-
-	<!-- Main CSS -->
-	<link rel="stylesheet" href="assets/css/admin.css">
 
 </head>
 
@@ -91,18 +79,6 @@
 	</div>
 </div>
 <!-- /Sidebar -->
-
-<
-<!-- jQuery -->
-<script src="assets/js/jquery-3.5.0.min.js"></script>
-
-<!-- Bootstrap Core JS -->
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-<!-- Custom JS -->
-<script src="assets/js/admin.js"></script>
-
 
 </body>
 

@@ -10,4 +10,5 @@ public interface IUserService {
     boolean update(User user);
 //    public  boolean sendMail(String to, String sb,String txt);
 //    public boolean passwordRecovery(String userName,String email);
+
 }

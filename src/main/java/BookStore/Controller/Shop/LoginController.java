@@ -1,5 +1,7 @@
 package BookStore.Controller.Shop;
 
+
+import BookStore.Dao.IUserDAO;
 import BookStore.Model.User;
 import BookStore.service.IUserService;
 import BookStore.utils.EncryptUtil;
@@ -12,12 +14,17 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/Dang-nhap")
+
+@WebServlet(name = "LoginController", value = "/Dang-nhap")
 public class LoginController extends HttpServlet {
+
     @Inject
     private IUserService userService;
+
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         String action = request.getParameter("action");
         if (action == null) {
             request.getRequestDispatcher("views/web/login.jsp").forward(request, response);
@@ -26,10 +33,12 @@ public class LoginController extends HttpServlet {
             SessionUtil.getInstance().removeValue(request, "cart");
             response.sendRedirect(request.getRequestURI());
         }
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
@@ -49,7 +58,5 @@ public class LoginController extends HttpServlet {
             request.setAttribute("uname-err", "Tài khoản không tồn tại");
             request.getRequestDispatcher("/views/web/login.jsp").forward(request, response);
         }
-
-
     }
 }
