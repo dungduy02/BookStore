@@ -3,17 +3,11 @@ package BookStore.service.impl;
 import BookStore.Dao.ICartDAO;
 import BookStore.Dao.impl.CartDAO;
 import BookStore.Model.Cart;
-import BookStore.Model.Item;
 import BookStore.Model.Product;
-import BookStore.config.ConnectionPool;
-import BookStore.mapper.ProductMapper;
 import BookStore.Model.User;
 import BookStore.service.ICartService;
 
 import javax.inject.Inject;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CartService implements ICartService {
@@ -34,6 +28,11 @@ public class CartService implements ICartService {
         cartDAO.insert(cart, user);
     }
 
+    @Override
+    public Cart getLastCart() {
+        return cartDAO.getLastCart();
+    }
+
     public static void main(String[] args) {
         CartDAO cd = new CartDAO();
 //        cd.insert()
@@ -41,4 +40,5 @@ public class CartService implements ICartService {
         List<Cart> c = (List<Cart>) cd.findByCustomerId(1);
         System.out.println(c);
     }
+
 }

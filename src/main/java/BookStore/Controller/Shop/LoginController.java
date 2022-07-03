@@ -1,6 +1,5 @@
 package BookStore.Controller.Shop;
 
-
 import BookStore.Dao.IUserDAO;
 import BookStore.Model.User;
 import BookStore.service.IUserService;
@@ -14,13 +13,11 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-
 @WebServlet(name = "LoginController", value = "/Dang-nhap")
 public class LoginController extends HttpServlet {
 
     @Inject
     private IUserService userService;
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,7 +27,6 @@ public class LoginController extends HttpServlet {
             request.getRequestDispatcher("views/web/login.jsp").forward(request, response);
         } else if (action.equals("logout")) {
             SessionUtil.getInstance().removeValue(request, "USERMODEL");
-            SessionUtil.getInstance().removeValue(request, "cart");
             response.sendRedirect(request.getRequestURI());
         }
 
@@ -38,6 +34,7 @@ public class LoginController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        response.setContentType("text/html;charset=UTF-8");
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");

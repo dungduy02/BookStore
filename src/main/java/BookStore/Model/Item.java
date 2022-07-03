@@ -1,6 +1,5 @@
 package BookStore.Model;
 
-
 public class Item extends AbstracModel{
     private Integer cartId;
     private Integer quantity;

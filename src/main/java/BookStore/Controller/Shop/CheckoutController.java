@@ -36,15 +36,16 @@ public class CheckoutController extends HttpServlet {
 
 
             Cart cart = (Cart) session.getAttribute("cart");
+//            for (cart.getItems().)
 //            System.out.println("ten gì đó: " + cart.getId());
 //            System.out.println("gì đây:" + cart.getCustomerId());
 //            System.out.println("bao nhieu:" + user.getId());
 //            System.out.println("đô la:" + cart.getItems().get(cart.getId()).getPrice());
 //            System.out.println("nhiêu:" + cart.getItems().get(cart.getId()).getQuantity());
-//            System.out.println("gì:" + cart.getItems().size());
+//            System.out.println("gì:" + cart.getItems().ge);
 //            System.out.println("ko biết là gì:" + cart.getItems().get(cart.getId()).getProduct().getId());
             cartService.insert(cart, user);
-            request.getSession().setAttribute("cart", cart);
+            request.setAttribute("cartDetail", cart);
             RequestDispatcher rd = request.getRequestDispatcher("/views/web/checkout.jsp");
             rd.forward(request, response);
         }else {

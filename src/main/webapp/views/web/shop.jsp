@@ -12,7 +12,21 @@
 <body>
 
 
-
+<%--<section class="breadcrumb-section set-bg" data-setbg="<c:url value="/template/web/img/breadcrumb.jpg"/>">--%>
+<%--    <div class="container">--%>
+<%--        <div class="row">--%>
+<%--            <div class="col-lg-12 text-center">--%>
+<%--                <div class="breadcrumb__text">--%>
+<%--                    <h2>Sản phẩm</h2>--%>
+<%--                    <div class="breadcrumb__option">--%>
+<%--                        <a href="./index.html">Home</a>--%>
+<%--                        <span>Sản phẩm</span>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</section>--%>
 <!-- Breadcrumb Section End -->
 
 <!-- Product Section Begin -->
@@ -24,13 +38,10 @@
                     <div class="sidebar__item">
                         <h4>Giá</h4>
                         <div class="price-range-wrap">
-
-
-                            <select id="filter-price" name="filter" onchange="changeFilterPrice()">
-                                <option value="small"> Từ 0 VND đến 50000 VND</option>
-                                <option value="medium">Từ 50000 VND đến 100000 VND</option>
-                                <option value="large">Từ 100000 trở lên</option>
-
+                            <select name="price_filter">
+                                <option name="small"> Từ 0 VND đến 40000 VND</option>
+                                <option name="medium">Từ 40000 VND đến 100000 VND</option>
+                                <option name="large">Từ 100000 trở lên</option>
                             </select>
                         </div>
 
@@ -56,48 +67,25 @@
                                 </div>
                             </a>
 
-                    <div class="sidebar__item">
-                        <div class="latest-product__text">
-                            <h4>Sản Phẩm Mới Nhất</h4>
-                            <div class="last">
-
-
-
-                                    <a href="DetailsController?pid=${lastP.id}" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="${lastP.img}" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>${lastP.name}</h6>
-                                            <span>${lastP.price} VND</span>
-                                        </div>
-                                    </a>
-
-                            </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9 col-md-7" id="main-view">
-
-
+            <div class="col-lg-8 col-md-7">
                 <div class="filter__item">
                     <div class="row">
                         <div class="col-lg-4 col-md-5">
                             <div class="filter__sort">
-
                                 <span>Sắp xếp</span>
-                                <select name="select" id="sort" onchange="SortbyFilter()">
-                                    <option value="new" name="new">Mới Nhất</option>
-                                    <option value="price" name="price">Giá Cả</option>
+                                <select>
+                                    <option value="0">Mới Nhất</option>
+                                    <option value="0">Giá Cả</option>
                                 </select>
-
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="filter__found">
-                                <h6><span id="count-product">0</span> Sản phẩm đã được tìm thấy</h6>
+                                <h6><span>12</span> Sản phẩm đã được tìm thấy</h6>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-3">
@@ -129,103 +117,16 @@
                 </div>
             </div>
             <div class="row" style="margin: 0 auto">
-
-            <c:forEach begin="${1}" end="${requestScope.num}" var="i">
-                <div class="product__pagination mr-3" >
-                    <a href="page?page=${i}" id="paging">${i}</a>
-                </div></c:forEach></div>
-
-
-                <!-- <c:forEach begin="${1}" end="${requestScope.num}" var="i">
+                <c:forEach begin="${1}" end="${requestScope.num}" var="i">
                     <div class="product__pagination">
                         <a href="shop?page=${i}">${i}</a>
                     </div>
                 </c:forEach>
-            </div> -->
-
+            </div>
         </div>
     </div>
 </section>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<script>
-   function changeFilterPrice(){
-
-       let select = document.getElementById("filter-price");
-       let content = document.getElementById("content");
-       let page = document.getElementById("paging");
-       document.getElementById("main-view").scrollIntoView();
-       if(document.getElementById("loading") == null){
-           content.innerHTML = '<p id="loading">Loading...</p>';
-           $.ajax({
-               url: "/BookStore/price",
-               type: "get", //send it through get method
-               data: {
-                   type: select.value
-               },
-               success: function(data) {
-                   content.innerHTML = data;
-
-               },
-               error: function(xhr) {
-                   //Do Something to handle error
-               }
-           });
-           $.ajax({
-               url: "/BookStore/CountProduct",
-               type: "get", //send it through get method
-               data: {
-                   type: select.value
-               },
-               success: function(data) {
-                   document.getElementById("count-product").innerHTML = data;
-                   console.log(data)
-               },
-               error: function(xhr) {
-                   //Do Something to handle error
-               }
-           });
-
-       }
-   }
-   function SortbyFilter(){
-       let select = document.getElementById("sort");
-       let content = document.getElementById("content");
-       document.getElementById("main-view").scrollIntoView();
-       if(document.getElementById("loading") == null){
-           content.innerHTML = '<p id="loading">Loading...</p>';
-           $.ajax({
-               url: "/BookStore/SortProduct",
-               type: "get", //send it through get method
-               data: {
-                   type: select.value
-               },
-               success: function(data) {
-                   content.innerHTML = data;
-               },
-               error: function(xhr) {
-                   //Do Something to handle error
-               }
-           });
-           $.ajax({
-               url: "/BookStore/CountProduct",
-               type: "get", //send it through get method
-               data: {
-                   type: select.value
-               },
-               success: function(data) {
-                   document.getElementById("count-product").innerHTML = data;
-                   console.log(data)
-               },
-               error: function(xhr) {
-                   //Do Something to handle error
-               }
-           });
-
-       }
-   }
-</script>
 <%--page--%>
 <%--<section class="product spad">--%>
 <%--    <div class="row" style="margin: 0 auto">--%>
@@ -343,5 +244,6 @@
     });
 </script>
 <!-- Product Section End -->
+
 </body>
 </html>

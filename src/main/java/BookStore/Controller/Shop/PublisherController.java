@@ -50,7 +50,6 @@ public class PublisherController extends HttpServlet {
         request.setAttribute("listC",listC);
         request.setAttribute("list",listpub);
         request.setAttribute("listPu",listPu);
-        request.setAttribute("num",num);
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/shop.jsp");
         rd.forward(request,response);
     }

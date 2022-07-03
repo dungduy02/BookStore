@@ -29,6 +29,7 @@
 /*----------------------------------------*/
 /* Template default CSS
 /*----------------------------------------*/
+
 html,
 body {
 	height: 100%;
@@ -901,27 +902,14 @@ ol {
 .featured__item__pic__hover li:hover a {
 	background: #7fad39;
 	border-color: #7fad39;
-	margin-top: 10px;
-	padding-top: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
 }
 
 .featured__item__pic__hover li:hover a i {
 	color: #ffffff;
 	transform: rotate(360deg);
-	margin-top: 10px;
-	padding-top: 10px;
-	margin: 10px;
-
 }
 
 .featured__item__pic__hover li a {
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	font-size: 16px;
 	color: #1c1c1c;
 	height: 40px;
@@ -930,29 +918,23 @@ ol {
 	text-align: center;
 	border: 1px solid #ebebeb;
 	background: #ffffff;
-	margin-top: 10px;
-	padding-top: 10px;
+	display: block;
 	border-radius: 50%;
 	-webkit-transition: all, 0.5s;
 	-moz-transition: all, 0.5s;
 	-ms-transition: all, 0.5s;
 	-o-transition: all, 0.5s;
 	transition: all, 0.5s;
-
-
 }
 
 .featured__item__pic__hover li a i {
 	position: relative;
-	margin: 10px !important;
 	transform: rotate(0);
 	-webkit-transition: all, 0.3s;
 	-moz-transition: all, 0.3s;
 	-ms-transition: all, 0.3s;
 	-o-transition: all, 0.3s;
 	transition: all, 0.3s;
-	margin-top: 10px;
-	padding-top: 10px;
 }
 
 .featured__item__text {
