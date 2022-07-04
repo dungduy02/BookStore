@@ -37,4 +37,8 @@ public class ConnectionPool {
         System.out.println("+ Num of Busy Connections: " + cpds.getNumBusyConnections());
     }
 
+    public static Connection Connection() throws SQLException{
+        Connection conn = cpds.getConnection();
+        return conn;
+    }
 }

@@ -160,4 +160,51 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
             throwables.printStackTrace();
         }
     }
+
+
+
+
+
+    public List<Product> getProductbyPrice() {
+        String sql = "SELECT * FROM products p ORDER BY p.price";
+        return query(sql,new ProductMapper());
+    }
+
+
+
+
+    @Override
+    public List<Product> SmallPrice() {
+        String sql = "SELECT * FROM products p WHERE p.price BETWEEN 0 AND 50000";
+        return query(sql,new ProductMapper());
+    }
+
+    @Override
+    public List<Product> MediumPrice() {
+        String sql = "SELECT * FROM products p WHERE p.price BETWEEN 50000 AND 100000";
+        return query(sql,new ProductMapper());
+    }
+
+    @Override
+    public List<Product> LargePrice() {
+        String sql = "SELECT * FROM products p WHERE p.price > 100000";
+        return query(sql,new ProductMapper());
+    }
+
+    @Override
+    public List<Product> get12Product() {
+        String sql = "SELECT * FROM products LIMIT 12";
+        return query(sql,new ProductMapper());
+    }
+
+    @Override
+    public List<Product> getNextProduct(int count) {
+        String sql = "SELECT * FROM products LIMIT ?,8";
+        return query(sql, new ProductMapper(), count);
+    }
+
+
+
+
+
 }

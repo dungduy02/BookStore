@@ -10,5 +10,6 @@ public interface IUserService {
     User insert(User user);
 
     User register(User user);
+    boolean update(User user);
 
 }

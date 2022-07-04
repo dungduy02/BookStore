@@ -11,4 +11,5 @@ public interface IUserDAO extends GenericDAO<User> {
     Integer insert(User user);
 
     User getUser(Integer id);
+    boolean update(User user);
 }

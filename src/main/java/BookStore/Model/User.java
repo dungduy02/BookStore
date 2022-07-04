@@ -113,4 +113,20 @@ public class User extends AbstracModel {
         this.blogid = blogid;
     }
 
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", fullname='" + fullname + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", sex='" + sex + '\'' +
+                ", Date=" + Date +
+                ", phone='" + phone + '\'' +
+                ", status=" + status +
+                ", blogid=" + blogid +
+                '}';
+    }
 }

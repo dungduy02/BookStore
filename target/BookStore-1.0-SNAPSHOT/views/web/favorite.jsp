@@ -1,3 +1,9 @@
+
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="BookStore.Model.Product" %>
+<%@ page import="BookStore.service.impl.FavoriteService" %>
+<%@ page import="java.util.List" %>
+<%@ page import="BookStore.service.IProductService" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/common/taglib.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -56,54 +62,25 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <% IProductService productService = null;
+                            List<Product> list =  productService.getAll();
+
+                        %>
+                        <c:forEach var="item" items="list">
                         <tr>
                             <td class="shoping__cart__item">
-                                <img src="../../img/product/product-9.jpg" alt="" style="width: 30%;">
-                                <h5>Tập Viết 3</h5>
+                                <img src="${item.img}" alt="" style="width: 30%;">
+                                <h5>${item.name}</h5>
                             </td>
                             <td class="shoping__cart__price">
-                                55.000 VND
+                                ${item.price} VND
                             </td>
 
-                            <td class="shoping__cart__total">
-                                55.000 VND
-                            </td>
                             <td class="shoping__cart__item__close">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </td>
                         </tr>
-                        <tr>
-                            <td class="shoping__cart__item">
-                                <img src="../../img/categories/cat-1.jpg" alt="" style="width: 30%;">
-                                <h5>Nhà Đầu Tư Thông Minh</h5>
-                            </td>
-                            <td class="shoping__cart__price">
-                                99.000 VND
-                            </td>
-
-                            <td class="shoping__cart__total">
-                                99.000 VND
-                            </td>
-                            <td class="shoping__cart__item__close">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="shoping__cart__item">
-                                <img src="../../img/categories/cat-3.jpg" alt="" style="width: 30%;">
-                                <h5>Hai Số Phận</h5>
-                            </td>
-                            <td class="shoping__cart__price">
-                                69.000 VND
-                            </td>
-
-                            <td class="shoping__cart__total">
-                                69.000 VND
-                            </td>
-                            <td class="shoping__cart__item__close">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </td>
-                        </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>

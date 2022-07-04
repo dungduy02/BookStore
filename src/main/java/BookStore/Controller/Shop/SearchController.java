@@ -25,7 +25,6 @@ public class SearchController extends HttpServlet {
         List<Product> list = searchService.search(keyword);
 
         request.setAttribute("listProduct",list);
-
         request.setAttribute("keyword",keyword);
 
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/search.jsp");

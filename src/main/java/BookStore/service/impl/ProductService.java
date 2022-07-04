@@ -7,6 +7,7 @@ import BookStore.service.ICategoryService;
 import BookStore.service.IProductService;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService implements IProductService {
@@ -80,6 +81,58 @@ public class ProductService implements IProductService {
     public void updateProduct(Product product){
         productDAO.updateProduct(product);
     }
+
+
+    @Override
+    public List<Product> getProductByPrice() {
+
+        return productDAO.getProductbyPrice();
+    }
+
+
+
+    @Override
+    public List<Product> getPriceSmall() {
+        return productDAO.SmallPrice();
+    }
+
+    @Override
+    public List<Product> getPriceMedium() {
+        return productDAO.MediumPrice();
+    }
+
+    @Override
+    public List<Product> getPriceLarge() {
+        return productDAO.LargePrice();
+    }
+
+
+    @Override
+    public List<Product> getProductBySort(String select) {
+        List<Product> sort = new ArrayList<>();
+        switch (select){
+            case "price":
+                sort = productDAO.getProductbyPrice();
+                break;
+            case "new":
+                sort = productDAO.getNewProduct();
+                break;
+            default:
+                break;
+        }
+        return sort;
+    }
+
+    @Override
+    public List<Product> get12Product() {
+        return productDAO.get12Product();
+    }
+
+    @Override
+    public List<Product> getNextProduct(int count) {
+        return productDAO.getNextProduct(count);
+    }
+
     public static void main(String[] args) {
         ProductDAO productDAO = new ProductDAO();
 //         productDAO.insertProduct("fsd","sdf", "sdf", 342, 2, 1,2,1);

@@ -35,4 +35,8 @@ public class UserService implements IUserService {
         return userDAO.getUser(id);
     }
 
+    @Override
+    public boolean update(User user) {
+        return userDAO.update(user);
+    }
 }
