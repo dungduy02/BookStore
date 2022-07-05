@@ -2,10 +2,6 @@ package BookStore.Controller.Shop;
 
 import BookStore.Model.Cart;
 
-
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +12,6 @@ import java.io.IOException;
 
 @WebServlet(name = "RemoveCartController", urlPatterns = "/removeCart")
 public class RemoveCartController extends HttpServlet {
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }

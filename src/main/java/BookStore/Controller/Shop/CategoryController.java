@@ -49,7 +49,7 @@ public class CategoryController extends HttpServlet {
         request.setAttribute("list",listpc);
         request.setAttribute("listPu",listPu);
         request.setAttribute("lastP",product);
-        request.setAttribute("num",num);
+
 
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/shop.jsp");
         rd.forward(request,response);

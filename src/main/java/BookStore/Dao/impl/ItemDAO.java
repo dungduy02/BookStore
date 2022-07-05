@@ -5,4 +5,5 @@ import BookStore.Model.Item;
 
 public class ItemDAO extends AbstractDAO<Item> implements IItemDAO{
 
+
 }

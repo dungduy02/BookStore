@@ -1,10 +1,7 @@
 package BookStore.Model;
 
-import BookStore.service.IProductService;
-import java.util.ArrayList;
-import java.sql.Date;
-import java.util.HashMap;
 import javax.servlet.http.HttpSession;
+
 import java.util.List;
 
 public class Cart extends AbstracModel{

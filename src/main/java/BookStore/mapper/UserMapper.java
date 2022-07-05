@@ -1,5 +1,6 @@
 package BookStore.mapper;
 
+import BookStore.Model.Info;
 import BookStore.Model.User;
 
 import java.sql.ResultSet;
@@ -26,4 +27,5 @@ public class UserMapper implements RowMapper<User>{
         }
         return user;
     }
+
 }

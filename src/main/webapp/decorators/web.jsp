@@ -24,7 +24,7 @@
     <!-- Css Styles -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link href="<c:url value= '/template/web/css/bootstrap.min.css'/>" rel="stylesheet" type="text/css" media="all">
+    <link href="<c:url value='/template/web/css/bootstrap.min.css' />" rel="stylesheet" type="text/css" media="all">
     <link href="<c:url value='/template/web/css/font-awesome.min.css' />" rel="stylesheet" type="text/css" media="all">
     <link href="<c:url value='/template/web/css/elegant-icons.css' />" rel="stylesheet" type="text/css" media="all">
     <link href="<c:url value='/template/web/css/nice-select.css' />" rel="stylesheet" type="text/css" media="all">
@@ -33,11 +33,7 @@
     <link href="<c:url value='/template/web/css/slicknav.min.css' />" rel="stylesheet" type="text/css" media="all">
     <link href="<c:url value='/template/web/css/style.css' />" rel="stylesheet" type="text/css" media="all">
     <link href="<c:url value='/template/web/css/style-page.css' />" rel="stylesheet" type="text/css" media="all">
-    <link
-            rel="stylesheet"
-            href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     <script type="text/javascript" src="<:c:url value='/template/web/js/jquery-3.3.1.min.js'/>"></script>
     <script type="text/javascript" src="<:c:url value='/template/web/js/bootstrap.min.js'/>"></script>
     <script type="text/javascript" src="<:c:url value='/template/web/js/jquery.nice-select.min.js'/>"></script>
@@ -67,7 +63,7 @@
 
 <%@include file="/common/web/header.jsp"%>
 <!-- Header Section End -->
-<div class="container" style="padding-top: 30px">
+<div class="container">
     <dec:body />
 </div>
 <!-- Blog Section End -->

@@ -10,7 +10,6 @@ public class CartMapper implements RowMapper<Cart>{
 
     @Override
     public Cart mapRow(ResultSet rs) {
-
         Cart cart = new Cart();
         try {
             cart.setId(rs.getInt("id"));

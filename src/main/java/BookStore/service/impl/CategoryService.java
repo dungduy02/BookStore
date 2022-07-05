@@ -1,6 +1,7 @@
 package BookStore.service.impl;
 
 import BookStore.Dao.ICategoryDAO;
+import BookStore.Dao.impl.CategoryDAO;
 import BookStore.Model.Category;
 import BookStore.service.ICategoryService;
 

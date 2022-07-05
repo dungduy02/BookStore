@@ -12,6 +12,7 @@
 <body>
 
 
+
 <!-- Product Section Begin -->
 <section class="product spad">
     <div class="container">
@@ -21,10 +22,12 @@
                     <div class="sidebar__item">
                         <h4>Giá</h4>
                         <div class="price-range-wrap">
+
                             <select id="filter-price" name="filter" onchange="changeFilterPrice()">
                                 <option value="small"> Từ 0 VND đến 50000 VND</option>
                                 <option value="medium">Từ 50000 VND đến 100000 VND</option>
                                 <option value="large">Từ 100000 trở lên</option>
+
                             </select>
                         </div>
                     </div>
@@ -36,6 +39,7 @@
                             </c:forEach>
                         </ul>
                     </div>
+
                     <div class="sidebar__item">
                         <div class="latest-product__text">
                             <h4>Sản Phẩm Mới Nhất</h4>
@@ -66,6 +70,7 @@
                                                 <option value="price" name="price">Giá Cả</option>
                                             </select>
                                         </div>
+
                                     </div>
                                     <div class="col-lg-4 col-md-4">
                                         <div class="filter__found">
@@ -197,12 +202,6 @@
         }
     }
 </script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-
-<!-- Product Section End -->
 
 
 </body>
