@@ -48,7 +48,6 @@ public class CartController extends HttpServlet {
             request.getRequestDispatcher("views/web/shoping-cart.jsp").forward(request, response);
         }
 //        doGet(request, response);
-//        super.doPost(request, response);
     }
 
 
