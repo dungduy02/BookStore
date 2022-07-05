@@ -102,7 +102,7 @@
                         <input type="checkbox">
                         <label>Lưu</label>
                     </div>
-                    <a href="register.jsp" class="forgot-pass">Quên mật khẩu?</a>
+                    <a href="forgot" class="forgot-pass">Quên mật khẩu?</a>
                     <button class="btn" type="submit" onclick="alert(ValidCaptcha());">Đăng nhập</button>
 
 
