@@ -2,8 +2,10 @@ package BookStore.Dao;
 
 import BookStore.Model.User;
 
-public interface IUserDAO extends GenericDAO<User> {
+import java.util.List;
 
+public interface IUserDAO extends GenericDAO<User> {
+    List<User> getAll();
     User findOneById(Integer id);
 
     User getUser(String username);
@@ -12,4 +14,5 @@ public interface IUserDAO extends GenericDAO<User> {
 
     User getUser(Integer id);
     boolean update(User user);
+
 }

@@ -41,8 +41,9 @@
 									<span class="dash-widget-icon bg-primary">
 										<i class="far fa-user"></i>
 									</span>
+
                                 <div class="dash-widget-info">
-                                    <h3>429</h3>
+                                    <h3>${totalUser}</h3>
                                     <h6 class="text-muted">Người dùng</h6>
                                 </div>
                             </div>
@@ -57,7 +58,7 @@
 										<i class="fas fa-qrcode"></i>
 									</span>
                                 <div class="dash-widget-info">
-                                    <h3>124</h3>
+                                    <h3>${totalProduct}</h3>
                                     <h6 class="text-muted">Sản phẩm</h6>
                                 </div>
                             </div>
@@ -72,7 +73,7 @@
 										<i class="fas fa-user-shield"></i>
 									</span>
                                 <div class="dash-widget-info">
-                                    <h3>184</h3>
+                                    <h3>${totalPublisher}</h3>
                                     <h6 class="text-muted">Nhà cung cấp</h6>
                                 </div>
                             </div>
@@ -87,7 +88,7 @@
 										<i class="far fa-address-card"></i>
 									</span>
                                 <div class="dash-widget-info">
-                                    <h3>148</h3>
+                                    <h3>${totalAuthor}</h3>
                                     <h6 class="text-muted">Nhà xuất bản</h6>
                                 </div>
                             </div>
@@ -116,19 +117,20 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <c:forEach items="${order}" var="ord">
                                     <tr>
                                         <td class="text-nowrap">
                                             <img class="avatar-xs rounded-circle" src="assets/img/customer/user5.jpg" alt="User Image"> Nguyễn Văn A
                                         </td>
-                                        <td class="text-nowrap">9 Dec 2021</td>
-                                        <td>Thánh kinh Coco Chanel</td>
+                                        <td class="text-nowrap">${ord.date}</td>
+                                        <td>${ord.product_id}</td>
                                         <td>
                                             <span class="badge bg-danger inv-badge">chờ xử lý</span>
                                         </td>
                                         <td>
-                                            <div class="font-weight-600">100.000 VNĐ</div>
+                                            <div class="font-weight-600">${ord.price} VNĐ</div>
                                         </td>
-                                    </tr>
+                                    </tr></c:forEach>
                                     <tr>
                                         <td class="text-nowrap">
                                             <img class="avatar-xs rounded-circle" src="assets/img/customer/user6.jpg" alt="User Image"> Trần Thị B</td>

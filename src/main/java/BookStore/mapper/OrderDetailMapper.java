@@ -1,5 +1,6 @@
 package BookStore.mapper;
 
+import BookStore.Model.Cart;
 import BookStore.Model.Info;
 import BookStore.Model.OrderDetails;
 import BookStore.Model.User;
@@ -12,21 +13,16 @@ public class OrderDetailMapper implements RowMapper<OrderDetails>{
     public OrderDetails mapRow(ResultSet rs) {
         OrderDetails order = new OrderDetails();
         try {
-            order.setId(rs.getInt("id"));
-            order.setFirstName(rs.getString("firstname"));
-            order.setLastName(rs.getString("lastname"));
+            order.setFullname(rs.getString("fullname"));
             order.setAddress(rs.getString("address"));
-            order.setConscious(rs.getString("conscious"));
-            order.setDistric(rs.getString("district"));
-            order.setWards(rs.getString("wards"));
-            order.setPhone(rs.getString("phone"));
             order.setEmail(rs.getString("email"));
+            order.setPhone(rs.getString("phone"));
             order.setNote(rs.getString("note"));
-            order.setCart_id(rs.getInt("cart_id"));
-
         } catch (SQLException e) {
             return null;
         }
+
+
         return order;
     }
 }

@@ -114,7 +114,7 @@
                                 <td class="text-right">
                                     <a href="update?sid=${x.id}" class="btn btn-sm bg-success-light mr-2"> <i
                                             class="far fa-edit mr-1"></i> Sửa</a>
-                                    <a href="#" type="button" onclick="showMess(${x.id})" class="btn btn-outline-danger btn-sm"><i
+                                    <a href="delete?sid=${x.id}" type="button" onclick="showMess(${x.id})" class="btn btn-outline-danger btn-sm"><i
                                             class="fa fa-trash-o"></i> Xóa
                                     </a>
                                 </td>

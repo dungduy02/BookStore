@@ -11,8 +11,6 @@
 </style>
 <body>
 
-
-
 <!-- Product Section Begin -->
 <section class="product spad">
     <div class="container">
@@ -67,13 +65,14 @@
                                             <select name="select" id="sort" onchange="SortbyFilter()">
                                                 <option value="new" name="new">Mới Nhất</option>
                                                 <option value="price" name="price">Giá Cả</option>
+                                                <option value="sale" name="sale">Giảm giá </option>
                                             </select>
                                         </div>
 
                                     </div>
                                     <div class="col-lg-4 col-md-4">
                                         <div class="filter__found">
-                                            <h6><span id="count-product">0</span> Sản phẩm đã được tìm thấy</h6>
+                                            <h6><span id="count-product">  <%= request.getAttribute("totalProduct") %></span> Sản phẩm đã được tìm thấy</h6>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-3">

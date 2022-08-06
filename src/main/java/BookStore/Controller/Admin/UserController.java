@@ -11,6 +11,9 @@ import java.io.IOException;
 @WebServlet(name = "/Admin-users", urlPatterns = "/Admin-users")
 public class UserController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+
         RequestDispatcher rd = request.getRequestDispatcher("/views/admin/users.jsp");
         rd.forward(request, response);
     }

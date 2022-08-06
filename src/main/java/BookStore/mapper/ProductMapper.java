@@ -10,7 +10,6 @@ public class ProductMapper implements RowMapper<Product>{
     @Override
     public Product mapRow(ResultSet rs) {
         Product product = new Product();
-
         try {
             product.setId(rs.getInt("id"));
             product.setCode(rs.getString("code_product"));

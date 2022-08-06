@@ -33,7 +33,7 @@ public class RegisterController extends HttpServlet {
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
-//        String address = request.getParameter("address");
+        String address = request.getParameter("address");
 //        String sex = request.getParameter("sex");
 
         User us = userService.getUser(username);
@@ -46,7 +46,7 @@ public class RegisterController extends HttpServlet {
             user.setFullname(fullname);
             user.setEmail(email);
             user.setPhone(phone);
-//            user.setAddressid(address);
+            user.setAddress(address);
 //            user.setSex(sex);
 //            user.setStatus(1);
 //            user.setBlogid(1);
@@ -69,6 +69,7 @@ public class RegisterController extends HttpServlet {
             request.setAttribute("phone", phone);
 //            request.setAttribute("sex",sex);
             request.setAttribute("uname-err", "Tên tài khoản đã tồn tại");
+            request.setAttribute("email-err","Email đã tồn tại");
             request.getRequestDispatcher("/views/web/register.jsp").forward(request, response);
         }
     }

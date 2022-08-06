@@ -30,6 +30,8 @@ public class CountProduct extends HttpServlet {
             list = productService.getNewProduct();
         }else if (filter.equals("price")){
             list = productService.getProductByPrice();
+        }else if (filter.equals("sale")){
+            list = productService.getSaleProduct();
         }
         PrintWriter out = response.getWriter();
         response.setContentType("text/plain;charset=UTF-8");

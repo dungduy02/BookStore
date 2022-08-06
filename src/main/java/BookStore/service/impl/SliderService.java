@@ -11,16 +11,17 @@ import java.util.List;
 public class SliderService implements ISliderService {
     @Inject
     ISliderDAO sliderDAO;
-    @Override
-    public List<Slider> getAll() {
-        return sliderDAO.getAll();
-    }
 
+
+
+
+    @Override
+    public Slider getSlide() {
+        return sliderDAO.getSlide();
+    }
     public static void main(String[] args) {
         ISliderDAO sliderDAO = new SliderDAO();
-        List<Slider> list = sliderDAO.getAll();
-        for (Slider sl : list){
-            System.out.println(sl);
-        }
+        System.out.println(sliderDAO.getSlide());
+
     }
 }

@@ -4,6 +4,7 @@ import BookStore.Dao.IProductDAO;
 import BookStore.Model.Product;
 import BookStore.config.ConnectionPool;
 import BookStore.mapper.ProductMapper;
+import BookStore.mapper.SaleMapper;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -60,8 +61,8 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
 
     @Override
     public List<Product> getSaleProduct() {
-        String sql = "SELECT p.*,sl.* FROM products p JOIN sale sl ON p.sale_id = sl.id WHERE p.sale_id = 3;";
-        return query(sql,new ProductMapper());
+        String sql = "SELECT p.*,sl.* FROM products p JOIN sale sl ON p.sale_id = sl.id WHERE p.sale_id > 1";
+        return query(sql,new ProductMapper(),new SaleMapper());
     }
 
     @Override

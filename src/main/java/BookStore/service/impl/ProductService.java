@@ -134,14 +134,15 @@ public class ProductService implements IProductService {
     }
 
     public static void main(String[] args) {
-        ProductDAO productDAO = new ProductDAO();
+        IProductDAO productDAO = new ProductDAO();
 //         productDAO.insertProduct("fsd","sdf", "sdf", 342, 2, 1,2,1);
 //        System.out.println(productDAO.deleteProduct("50"));
 //        productDAO.updateProduct(new Product());
-//        List<Product> all = productDAO.getAll();
-//        for (Product a : all){
-//        }
-//        System.out.println(productDAO.getProductById("2"));
+        List<Product> all = productDAO.getSaleProduct();
+        for (Product a : all){
+            System.out.println(a);
+        }
+
     }
 
 }

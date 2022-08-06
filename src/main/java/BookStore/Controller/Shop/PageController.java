@@ -59,6 +59,7 @@ public class PageController extends HttpServlet {
         request.setAttribute("listPu",listPu);
         request.setAttribute("lastP",product);
         request.setAttribute("Sale",sale);
+        request.setAttribute("totalProduct",size);
 
 
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/shop.jsp");

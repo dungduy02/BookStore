@@ -29,7 +29,7 @@ public class AddToCartController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         int quantity = 1;
-        String id;
+        String id,pid;
         if(request.getParameter("bid") != null){
             id = request.getParameter("bid");
             Product product = productService.getProductById(id);

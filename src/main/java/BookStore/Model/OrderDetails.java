@@ -1,48 +1,34 @@
 package BookStore.Model;
 
-public class OrderDetails extends AbstracModel{
-    private String firstName;
-    private String lastName;
+public class OrderDetails{
+
+    private String fullname;
     private String address;
-    private String conscious;
-    private String distric;
-    private String wards;
     private String phone;
     private String email;
     private String note;
-    private Integer cart_id;
 
-    public OrderDetails(String firstName, String lastName, String address, String conscious, String distric, String wards, String phone, String email, String note, Integer cart_id) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+
+
+    public OrderDetails() {
+    }
+
+    public OrderDetails( String fullname, String address, String phone, String email, String note) {
+        this.fullname = fullname;
         this.address = address;
-        this.conscious = conscious;
-        this.distric = distric;
-        this.wards = wards;
         this.phone = phone;
         this.email = email;
         this.note = note;
-        this.cart_id = cart_id;
-    }
-
-    public OrderDetails() {
 
     }
 
-    public String getFirstName() {
-        return firstName;
+
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
     public String getAddress() {
@@ -51,30 +37,6 @@ public class OrderDetails extends AbstracModel{
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getConscious() {
-        return conscious;
-    }
-
-    public void setConscious(String conscious) {
-        this.conscious = conscious;
-    }
-
-    public String getDistric() {
-        return distric;
-    }
-
-    public void setDistric(String distric) {
-        this.distric = distric;
-    }
-
-    public String getWards() {
-        return wards;
-    }
-
-    public void setWards(String wards) {
-        this.wards = wards;
     }
 
     public String getPhone() {
@@ -101,11 +63,16 @@ public class OrderDetails extends AbstracModel{
         this.note = note;
     }
 
-    public Integer getCart_id() {
-        return cart_id;
-    }
 
-    public void setCart_id(Integer cart_id) {
-        this.cart_id = cart_id;
+
+    @Override
+    public String toString() {
+        return "OrderDetails{" +
+                ", fullname='" + fullname + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", note='" + note + '\'' +
+                '}';
     }
 }

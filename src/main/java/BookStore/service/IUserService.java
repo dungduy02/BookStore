@@ -3,7 +3,10 @@ package BookStore.service;
 import BookStore.Model.Info;
 import BookStore.Model.User;
 
+import java.util.List;
+
 public interface IUserService {
+    List<User> getAll();
     User findOneById(Integer id);
 
     User getUser(String username);
@@ -11,5 +14,6 @@ public interface IUserService {
 
     User register(User user);
     boolean update(User user);
+
 
 }

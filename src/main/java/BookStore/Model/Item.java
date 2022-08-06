@@ -74,4 +74,15 @@ public class Item extends AbstracModel{
         }
     }
 
+    @Override
+    public String toString() {
+        return "Item{" +
+                "cartId=" + cartId +
+                ", quantity=" + quantity +
+                ", productid=" + productid +
+                ", cart=" + cart +
+                ", product=" + product +
+                ", price=" + price +
+                '}';
+    }
 }

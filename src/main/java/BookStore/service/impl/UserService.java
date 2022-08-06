@@ -8,11 +8,17 @@ import BookStore.Model.User;
 import BookStore.service.IUserService;
 
 import javax.inject.Inject;
+import java.util.List;
 
 
 public class UserService implements IUserService {
     @Inject
     private IUserDAO userDAO;
+
+    @Override
+    public List<User> getAll() {
+        return userDAO.getAll();
+    }
 
     @Override
     public User findOneById(Integer id) {
@@ -39,4 +45,9 @@ public class UserService implements IUserService {
     public boolean update(User user) {
         return userDAO.update(user);
     }
+
+
+
+
+
 }

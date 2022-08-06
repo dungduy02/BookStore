@@ -28,6 +28,7 @@ public class CategoryController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String caid = request.getParameter("cid");
         List<Product> listpc = productService.getProductByCategory(caid);
+        int totalP = listpc.size();
         List<Publisher> listPu = publisherService.getAllPublisher();
         List<Category> listC = categoryService.findAll();
         Product product = productService.getLastProduct();
@@ -50,6 +51,7 @@ public class CategoryController extends HttpServlet {
         request.setAttribute("listPu",listPu);
         request.setAttribute("lastP",product);
         request.setAttribute("num",num);
+        request.setAttribute("totalProduct",totalP);
 
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/shop.jsp");
         rd.forward(request,response);

@@ -1,19 +1,15 @@
 package BookStore.Controller.Shop;
 
 import BookStore.Dao.IOrderDetailDAO;
-import BookStore.Model.Cart;
-import BookStore.Model.Info;
-import BookStore.Model.OrderDetails;
+import BookStore.Model.*;
 import BookStore.service.ICartService;
 import BookStore.service.IOrderDetailService;
 
 import javax.inject.Inject;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet(name = "ActionBillController", urlPatterns = "/actionBill")
@@ -25,45 +21,64 @@ public class ActionBillController extends HttpServlet {
     private ICartService cartService;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        String firstname = request.getParameter("firstname");
-        String lastname = request.getParameter("lastname");
+        response.setContentType("text/html;charset=UTF-8");
+        String fullname = request.getParameter("fullname");
         String address = request.getParameter("address");
-        String conscious = request.getParameter("conscious");
-        String district = request.getParameter("district");
-        String wards = request.getParameter("wards");
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String note = request.getParameter("note");
+        User user = (User) session.getAttribute("USERMODEL");
+        OrderDetails order;
+        Cart cart = (Cart) session.getAttribute("cart");
 
-        OrderDetails in = new OrderDetails();
+            if (user != null){
+                order = new OrderDetails();
+                order.setFullname(user.getFullname());
+                order.setAddress(user.getAddress());
+                order.setEmail(user.getEmail());
+                order.setPhone(user.getPhone());
+                order.setNote(note);
 
-        in.setFirstName(firstname);
-        in.setLastName(lastname);
-        in.setAddress(address);
-        in.setConscious(conscious);
-        in.setDistric(district);
-        in.setWards(wards);
-        in.setPhone(phone);
-        in.setEmail(email);
-        in.setNote(note);
+                System.out.println(order);
+            }else {
+                order = new OrderDetails();
+                order.setFullname(fullname);
+                order.setAddress(address);
+                order.setEmail(email);
+                order.setPhone(phone);
+                order.setNote(note);
+            }
+            orderDetailService.Payment(order);
+            response.sendRedirect(request.getContextPath() + "/checkout");
+            request.setAttribute("err","không thể bỏ trống");
 
-        try {
-            Cart cart = (Cart) session.getAttribute("cart");
-//            System.out.println("ra ketqua: " + cart.getItems().get(cart.getId()).getPrice());
-            Cart cart1 = cartService.getLastCart();
-            System.out.println("fasdf : " + cart.getId());
-            in = orderDetailService.insert(in, cart1);
-            System.out.println("hiển thị gì đây: " +in.toString());
-            request.getSession().setAttribute("cart", cart);
-            request.getSession().setAttribute("ORDERMODEL", in);
-        }catch (Exception e){
-            response.sendRedirect(request.getContextPath() + "/TrangChu");
-        }
+//        try {
+//
+//            Cart cart1 = cartService.getLastCart();
+//            System.out.println("fasdf : " + cart.getId());
+//            in = orderDetailService.insert(in, cart1);
+//            System.out.println("hiển thị gì đây: " +in.toString());
+//            request.getSession().setAttribute("cart", cart);
+//            request.getSession().setAttribute("ORDERMODEL", in);
+//            request.setAttribute("err","không thể bỏ trống");
+//            request.setAttribute("fullname",user.getFullname());
+//            request.setAttribute("email",user.getEmail());
+//            request.setAttribute("phone",user.getPhone());
+//            request.setAttribute("address",user.getAddress());
+//            request.setAttribute("note",note);
+//            response.sendRedirect(request.getContextPath() + "/TrangChu");
+//
+//        }catch (Exception e){
+//            System.out.println("asdf");
+//            response.sendRedirect(request.getContextPath() + "/checkout");
+//        }
+
 
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+            doPost(request,response);
     }
+
 }

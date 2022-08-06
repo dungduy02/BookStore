@@ -29,6 +29,7 @@ public class PublisherController extends HttpServlet {
 
         String puid = request.getParameter("pid");
         List<Product> listpub = productService.getProductByPublisher(puid);
+        int totalP = listpub.size();
         List<Publisher> listPu = publisherService.getAllPublisher();
         List<Category> listC = categoryService.findAll();
         Product product = productService.getLastProduct();
@@ -51,6 +52,7 @@ public class PublisherController extends HttpServlet {
         request.setAttribute("list",listpub);
         request.setAttribute("listPu",listPu);
         request.setAttribute("num",num);
+        request.setAttribute("totalProduct",totalP);
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/shop.jsp");
         rd.forward(request,response);
     }

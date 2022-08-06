@@ -25,25 +25,28 @@
         <div class="title">Đăng Ký</div>
         <div class="content">
 
-            <form id="registry" action="<c:url value="/dang-ky"/> " method="POST">
+            <form id="registry" action="<c:url value="/dang-ky"/> " method="POST" name="myForm" onsubmit="validateForm()">
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Họ Và Tên</span>
                         <input type="text" name="fullname" id="fullname" placeholder="Tên của bạn" required
                                value="<%=request.getAttribute("fullname")==null?"":request.getAttribute("fullname")%>"/>
-<%--                        <input type="text" placeholder="Tên của bạn" required>--%>
+                            <label id="errFullname" style="color: red">
+                            </label>
                     </div>
                     <div class="input-box">
                         <span class="details">Tên Tài Khoản</span>
                         <input type="text" name="username" id="username" placeholder="Nhập tên tài khoản" required
                                value="<%=request.getAttribute("username")==null?"":request.getAttribute("username")%>"/>
-<%--                        <input type="text" placeholder="Nhập tên tài khoản" required>--%>
+                        <label id="errUsername" style="color: red">      <%=request.getAttribute("uname-err") == null ? ""
+                                : request.getAttribute("uname-err")%> </label>
                     </div>
                     <div class="input-box">
                         <span class="details">Email</span>
                         <input type="email" name="email" id="email" placeholder="Email của bạn" required
                                value="<%=request.getAttribute("email")==null?"":request.getAttribute("email")%>">
-<%--                        <input type="text" placeholder="Email của bạn" required>--%>
+                        <label id="errEmail" style="color: red"><%=request.getAttribute("email-err") == null ? ""
+                                : request.getAttribute("email-err")%>  </label>
 
                     </div>
                     <div class="input-box">
@@ -58,13 +61,13 @@
                         <span class="details">Mật khẩu</span>
                         <input type="password" name="password" id="password" placeholder="Nhập mật khẩu" required
                                value="<%=request.getAttribute("password")==null?"":request.getAttribute("password")%>">
-<%--                        <input type="text" placeholder="Nhập mật khẩu" required>--%>
+                        <label id="errPassword" style="color: red"> </label>
                     </div>
                     <div class="input-box">
                         <span class="details">Nhập lại mật khẩu</span>
                         <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Nhập lại mật khẩu" required>
-<%--                        <input type="text" placeholder="Nhập lại mật khẩu" required>--%>
 
+                        <label id="errConfirm" style="color: red"> </label>
                     </div>
                 </div>
                 <div style="display: flex">
@@ -92,6 +95,7 @@
     </div>
 
 </div>
+
 </body>
 
 </html>

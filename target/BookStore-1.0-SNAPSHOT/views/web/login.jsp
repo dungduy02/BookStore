@@ -57,7 +57,7 @@
 <body>
 <div class="moda fad" id="myModa" tabindex="-" role="dialo" aria-labelledby="myModalLabe">
     <div class="modal-dialog" role="document">
-        <form id="login" action="<c:url value="/Dang-nhap"/> " method="POST">
+        <form id="login" action="<c:url value="/Dang-nhap"/>" method="POST" name="myForm" onsubmit="ValidateForm()">
             <div class="modal-content clearfix">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">×</span></button>
@@ -66,12 +66,11 @@
                     <p class="description"></p>
                     <div class="form-group">
                         <span class="input-icon"><i class="fa fa-user"></i></span>
-                        <%--                        <input type="text" class="form-control" placeholder="Tên tài khoản" name="username">--%>
                         <input type="text" name="username" id="username" class="form-control"
                                placeholder="Tên tài khoản"
                                value="<%= request.getAttribute("username") == null
                                    ? "" : request.getAttribute("username") %>">
-                        <label style="color:#F00;" for="username" class="error" id="">
+                        <label style="color:#F00;" for="username" class="error" id="errUsername">
                             <%=request.getAttribute("uname-err") == null ? ""
                                     : request.getAttribute("uname-err")%>
                         </label>
@@ -81,9 +80,9 @@
                         <%--                        <input type="password" class="form-control" placeholder="Mật khẩu" name="password">--%>
                         <input type="password" class="form-control" placeholder="Mật khẩu" name="password"
                                id="password">
-                        <label style="color:#F00;" for="password" class="error">
-                                <%=request.getAttribute("pwd-err") == null ? ""
-                    : request.getAttribute("pwd-err")%>
+                        <label style="color:#F00;" for="password" class="error" id="errPassword">
+                            <%=request.getAttribute("pwd-err") == null ? "" : request.getAttribute("pwd-err")%>
+                        </label>
                     </div>
                     <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"  onclick="hideCaptcha() ">
                     <label for="vehicle1"> Tôi không phải người máy</label><br>
@@ -107,7 +106,9 @@
 
 
                 </div>
+                <a href="https://www.facebook.com/dialog/oauth?client_id=610447636925613&redirect_uri=https://localhost:8080/BookStore/login-facebook">Login with FaceBook</a>
             </div>
+
         </form>
     </div>
 </div>
@@ -158,5 +159,8 @@
         Captcha();
     }
 </script>
+
+
+
 </body>
 </html>

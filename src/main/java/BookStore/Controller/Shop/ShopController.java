@@ -1,13 +1,7 @@
 package BookStore.Controller.Shop;
 
-import BookStore.Model.Category;
-import BookStore.Model.Product;
-import BookStore.Model.Publisher;
-import BookStore.Model.Sale;
-import BookStore.service.ICategoryService;
-import BookStore.service.IProductService;
-import BookStore.service.IPublisherService;
-import BookStore.service.ISaleService;
+import BookStore.Model.*;
+import BookStore.service.*;
 
 import javax.inject.Inject;
 import javax.servlet.*;
@@ -26,6 +20,7 @@ public class ShopController extends HttpServlet {
     private IPublisherService publisherService;
     @Inject
     private ISaleService saleService;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             response.setContentType("text/html;charset=UTF-8");
@@ -35,6 +30,7 @@ public class ShopController extends HttpServlet {
             List<Publisher> listPu = publisherService.getAllPublisher();
             Product product = productService.getLastProduct();
             List<Sale> sale = saleService.getAllSale();
+            int totalProduct = list.size();
             int page, numberpage = 18;
             int size = list.size();
             int num = (size % 18 == 0?(size/18): ((size/18))+ 1); // number page
@@ -56,6 +52,8 @@ public class ShopController extends HttpServlet {
             request.setAttribute("Sale",sale);
             request.setAttribute("Page",listPage);
             request.setAttribute("num",num);
+            request.setAttribute("totalProduct",totalProduct);
+
             
 
 

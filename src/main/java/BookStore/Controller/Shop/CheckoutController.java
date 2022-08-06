@@ -22,9 +22,7 @@ public class CheckoutController extends HttpServlet {
     private ICartService cartService;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-//        User user = (User) session.getAttribute("USERMODE");
-//        System.out.println("ten gì đó: " + user.getPassword());
-//        response.sendRedirect(request.getContextPath() + "/TrangChu");
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

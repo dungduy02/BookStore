@@ -1,15 +1,14 @@
-<%@ page import="BookStore.service.IProductService" %>
-
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@include file="/common/taglib.jsp"%>
+<%@ include file="/common/taglib.jsp"%>
 <html>
 <head>
     <title>BOOKSTORE NLU | Chi tiết sản phẩm</title>
 </head>
 
 <body>
-
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0&appId=418772152885415&autoLogAppEvents=1" nonce="o1p9UyRa"></script>
 
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
@@ -66,11 +65,17 @@
                         <span>(18 reviews)</span>
                     </div>
                     <div class="product__details__price">${details.price}
-                        <span>${sale.priceSale}</span> </div>
+                        <c:if test="${sales.priceSale > 0} ">
+                        <span>
+                             <fmt:formatNumber maxFractionDigits="0" type="number"  value="${(sales.priceSale)}"/> vnd
+                           </span>
+                        </c:if>
+                    </div>
 
 
-                    <a href="#" class="primary-btn" style="background:steelblue;">ADD TO CARD</a>
-                    <a href="#" class="primary-btn" >MUA NGAY</a>
+
+                    <a href="add-to-cart?bid=${details.id}" class="primary-btn" style="background:steelblue;">ADD TO CARD</a>
+                    <a href="<c:url value = "/checkout"/>" class="primary-btn" >MUA NGAY</a>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
 
@@ -269,41 +274,9 @@
     </div>
     <!-- end binh luan 2 -->
     <div class="comment-reviews">
-        <a class="shopee-product-rating__avatar"></a>
-        <div class="shopee-avatar">
-            <div class="shopee-avatar__placeholder">
-                <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-headshot">
-                    <g>
-                        <circle cx="7.5" cy="4.5" fill="none" r="3.8" stroke-miterlimit="10">
 
-                        </circle>
-                        <path d="m1.5 14.2c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" stroke-linecap="round" stroke-miterlimit="10">
+        <div class="fb-comments" data-href="http://localhost:8080/BookStore/" data-width="500" data-numposts="5"></div>
 
-                        </path>
-                    </g>
-                </svg>
-            </div>
-        </div>
-        <b>Võ Huy Hành</b><i class="fa fa-check-circle" style="color:  #7fad39;font-size: 20px;margin-left: 5px; margin-right: 5px;"></i><i style="color: #7fad39 ;">Đã mua hàng </i><br>
-        <i class="size-time">2020-10-02 07:43</i><br>
-        <i>Đánh giá:</i><b class="sao">5/5</b>
-        <div class="starrating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-        </div>
-        <i>Phân loại hàng:</i> Sách Văn Học<br>
-        <i>Nhận xét:</i>Chất lượng tốt, giống như mô tả...<br>
-
-        <div class="containhuuich" >
-            <div class="huuich">
-                <i class="fa fa-thumbs-up"></i> <i style="color: #7fad39;">Hữu ích (5)</i>
-            </div>
-            <i style="float: left;margin-left: 5px;color:#7fad39 ;padding-top: 2px;cursor: pointer;">Gửi trả lời</i>
-        </div>
-        </a>
     </div>
     <!-- end binh luan 3 -->
     <!-- comment section end -->
@@ -384,6 +357,7 @@
         </div>
     </div>
 </section>
+
 </body>
 
 </html>

@@ -129,8 +129,8 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn" style="background:steelblue;">ADD TO CARD</a>
-                    <a href="#" class="primary-btn" >MUA NGAY</a>
+                    <a href="add-to-cart?bid=${dt.id}" class="primary-btn" style="background:steelblue;">ADD TO CARD</a>
+                    <a href="<c:url value = "/checkout"/>" class="primary-btn" >MUA NGAY</a>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
                         <li><b>Nhà cung cấp:</b> <span>Minh Long</span></li>

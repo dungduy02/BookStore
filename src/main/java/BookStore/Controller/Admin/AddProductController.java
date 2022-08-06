@@ -37,7 +37,10 @@ public class AddProductController extends HttpServlet {
             p.setQuantity(Integer.parseInt(quantity));
             p.setDescription(description);
         try {
+
             productService.insertProduct(p);
+
+
         } catch (NumberFormatException e) {
             response.sendRedirect(request.getContextPath() + "/admin-product");
 //            e.printStackTrace();

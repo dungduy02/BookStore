@@ -7,9 +7,10 @@ import BookStore.mapper.SliderMapper;
 import java.util.List;
 
 public class SliderDAO extends AbstractDAO<Slider> implements ISliderDAO{
+
     @Override
-    public List<Slider> getAll() {
+    public Slider getSlide() {
         String sql = "SELECT * FROM slider";
-        return query(sql,new SliderMapper());
+        return queryOne(sql,new SliderMapper());
     }
 }

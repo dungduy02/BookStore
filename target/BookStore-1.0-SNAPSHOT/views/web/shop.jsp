@@ -11,8 +11,6 @@
 </style>
 <body>
 
-
-
 <!-- Product Section Begin -->
 <section class="product spad">
     <div class="container">
@@ -22,11 +20,11 @@
                     <div class="sidebar__item">
                         <h4>Giá</h4>
                         <div class="price-range-wrap">
-
                             <select id="filter-price" name="filter" onchange="changeFilterPrice()">
                                 <option value="small"> Từ 0 VND đến 50000 VND</option>
                                 <option value="medium">Từ 50000 VND đến 100000 VND</option>
                                 <option value="large">Từ 100000 trở lên</option>
+
 
                             </select>
                         </div>
@@ -39,7 +37,6 @@
                             </c:forEach>
                         </ul>
                     </div>
-
                     <div class="sidebar__item">
                         <div class="latest-product__text">
                             <h4>Sản Phẩm Mới Nhất</h4>
@@ -68,13 +65,14 @@
                                             <select name="select" id="sort" onchange="SortbyFilter()">
                                                 <option value="new" name="new">Mới Nhất</option>
                                                 <option value="price" name="price">Giá Cả</option>
+                                                <option value="sale" name="sale">Giảm giá </option>
                                             </select>
                                         </div>
 
                                     </div>
                                     <div class="col-lg-4 col-md-4">
                                         <div class="filter__found">
-                                            <h6><span id="count-product">0</span> Sản phẩm đã được tìm thấy</h6>
+                                            <h6><span id="count-product">  <%= request.getAttribute("totalProduct") %></span> Sản phẩm đã được tìm thấy</h6>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-3">
@@ -118,6 +116,7 @@
                     </div>
                 </div>
             </div>
+
 
 </section>
 

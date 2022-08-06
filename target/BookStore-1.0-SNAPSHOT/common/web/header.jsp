@@ -67,6 +67,16 @@
     .hero-normal{
         height: 100px;
     }
+    .sticky{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        margin-left: 250px;
+        background-color: #f5f5f5;
+
+    }
 </style>
 <!-- Header Section Begin -->
 <header class="header">
@@ -132,12 +142,11 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" id="myHeader">
         <div class="row" style="margin-top: 20px">
             <div class="col-lg-3">
                 <div class="header__logo">
                    <a href="<c:url value = "/TrangChu"/>"> <img src="https://firebasestorage.googleapis.com/v0/b/image-c757c.appspot.com/o/logo.png?alt=media&token=e813ab15-c955-48fe-83cf-47d48007a4b6"> </a>
-<%--                    <a src="https://firebasestorage.googleapis.com/v0/b/image-c757c.appspot.com/o/logo.png?alt=media&token=e813ab15-c955-48fe-83cf-47d48007a4b6" alt="" style="height: 85%;width: 100px"></a>--%>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -222,5 +231,19 @@
                 dropdownContent.style.display = "grid";
             }
         });
+    }
+</script>
+<script>
+    window.onscroll = function (){
+        myFunction()
+    };
+    var header  = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+    function myFunction(){
+        if (window.pageYOffset > sticky){
+            header.classList.add("sticky");
+        }else {
+            header.classList.remove("sticky");
+        }
     }
 </script>

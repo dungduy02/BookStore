@@ -9,6 +9,12 @@ import java.util.List;
 
 public class UserDAO extends AbstractDAO<User> implements IUserDAO {
     @Override
+    public List<User> getAll() {
+        String sql = "SELECT * FROM users";
+        return query(sql,new UserMapper());
+    }
+
+    @Override
     public User findOneById(Integer id) {
         String sql = "select * from users where id = ?";
         return query(sql, new UserMapper(), id).get(0);
@@ -52,6 +58,8 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
         sql.append("where email = ?");
         return update(sql.toString(),user.getPassword());
     }
+
+
 
 
 }
