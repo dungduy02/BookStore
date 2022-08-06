@@ -33,6 +33,20 @@ public class User extends AbstracModel {
         this.blogid = blogid;
     }
 
+    //admin
+    public User(String username, String password, String fullname, String email, String address, String sex, String phone, int status, int blogid) {
+
+        this.username = username;
+        this.password = password;
+        this.fullname = fullname;
+        this.email = email;
+        this.address = address;
+        this.sex = sex;
+        this.phone = phone;
+        this.status = status;
+        this.blogid = blogid;
+    }
+
     public String getUsername() {
         return username;
     }

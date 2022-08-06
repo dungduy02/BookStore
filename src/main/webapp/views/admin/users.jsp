@@ -12,52 +12,23 @@
 
 </head>
 
-<body>
+<div>
 <div class="content container-fluid">
 
     <!-- Page Header -->
     <div class="page-header">
         <div class="row">
             <div class="col">
-                <h3 class="page-title">Khách hàng</h3>
+                <h3 class="page-title">Người dùng</h3>
             </div>
             <div class="col-auto text-right">
-                <a class="btn btn-white filter-btn" href="javascript:void(0);" id="filter_search">
-                    <i class="fas fa-filter"></i>
+                <a href="admin-add-user" class="btn btn-primary add-button ml-3">
+                    <i class="fas fa-plus"></i>
                 </a>
             </div>
         </div>
     </div>
     <!-- /Page Header -->
-
-    <!-- Search Filter -->
-    <div class="card filter-card" id="filter_inputs">
-        <div class="card-body pb-0">
-            <form>
-                <div class="row filter-row">
-                    <div class="col-sm-6 col-md-3">
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="form-group">
-                            <label>Tên</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="form-group">
-                            <button class="btn btn-primary btn-block" type="submit">Chọn</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- /Search Filter -->
-
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -66,121 +37,44 @@
                         <table class="table table-hover table-center mb-0 datatable">
                             <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Tên</th>
+                                <th>Tài khoản</th>
+                                <th>Họ tên</th>
                                 <th>Email</th>
-                                <th>Đăng nhập lần cuối</th>
-                                <th>Chỉnh sửa</th>
                             </tr>
                             </thead>
                             <tbody>
+                            <c:forEach items="${requestScope.data}" var="x">
                             <tr>
-                                <td>1</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>nguyenvana@gmail.com</td>
-                                <td>12 Dec 2021</td>
-                                <td class="text-right">
-                                    <a href="edit-users.html" class="btn btn-sm bg-success-light mr-2"> <i
-                                            class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
-                                            class="fa fa-trash-o"></i> Xóa
-                                    </button>
-
-                                </td>
+                                <td>${x.username}</td>
+                                <td>${x.fullname}</td>
+                                <td>${x.email}</td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Trần Văn B</td>
-                                <td>tranvanb@gmail.com</td>
-                                <td>11 Dec 2021</td>
-                                <td class="text-right">
-                                    <a href="edit-users.html" class="btn btn-sm bg-success-light mr-2"> <i
-                                            class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
-                                            class="fa fa-trash-o"></i> Xóa
-                                    </button>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Lê Văn C</td>
-                                <td>levanc@gmail.com</td>
-                                <td>10 Dec 2021</td>
-                                <td class="text-right">
-                                    <a href="edit-users.html" class="btn btn-sm bg-success-light mr-2"> <i
-                                            class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
-                                            class="fa fa-trash-o"></i> Xóa
-                                    </button>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Lý Văn D</td>
-                                <td>lyvand@gmail.com</td>
-                                <td>09 Dec 2021</td>
-                                <td class="text-right">
-                                    <a href="edit-users.html" class="btn btn-sm bg-success-light mr-2"> <i
-                                            class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
-                                            class="fa fa-trash-o"></i> Xóa
-                                    </button>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Mai Văn H</td>
-                                <td>maivanh@gmail.com</td>
-                                <td>08 Dec 2021</td>
-                                <td class="text-right">
-                                    <a href="edit-users.html" class="btn btn-sm bg-success-light mr-2"> <i
-                                            class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
-                                            class="fa fa-trash-o"></i> Xóa
-                                    </button>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Nông Văn E</td>
-                                <td>nongvane@gmail.com</td>
-                                <td>07 Dec 2021</td>
-                                <td class="text-right">
-                                    <a href="edit-users.html" class="btn btn-sm bg-success-light mr-2"> <i
-                                            class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
-                                            class="fa fa-trash-o"></i> Xóa
-                                    </button>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>Lư Văn L</td>
-                                <td>luvanl@gmail.com</td>
-                                <td>06 Dec 2021</td>
-                                <td class="text-right">
-                                    <a href="edit-users.html" class="btn btn-sm bg-success-light mr-2"> <i
-                                            class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
-                                            class="fa fa-trash-o"></i> Xóa
-                                    </button>
-
-                                </td>
-                            </tr>
-
+                            </c:forEach>
                             </tbody>
                         </table>
+                        <c:set var="page" value="${requestScope.page}"/>
+                        <div class="pagination" style="margin-left: 20px; margin-bottom: 10px; margin-top:10px;">
+                            <c:forEach begin="${1}" end="${requestScope.num}" var="i">
+                                <%--                                    <a href="admin-product?page=${i}">${i}</a>--%>
+                                <a style="background-color: #7fad39;color: white;width: 25px;height: 21px;text-align: center;margin-right: 3px;" href="admin-user?page=${i}">${i}</a>
+                            </c:forEach>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</div>
+<script>
+    <%--    deleteProduct?sid=${x.id}--%>
+    function  showMess(username){
+        var option = confirm('Bạn có chắc chắn xóa không? ');
+        if(option === true ) {
+            window.location.href ='admin-delete-user?susername='+username;
+        }
+    }
+</script>
 </body>
 
 </html>

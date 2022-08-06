@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-	<title>Thêm danh mục</title>
+	<title>Thêm tác giả</title>
 	<link href="assets/img/icon/icon-logo.png" rel="shortcut icon">
 
 	<!-- Bootstrap CSS -->
@@ -22,10 +22,10 @@
 						<div class="page-header">
 							<div class="row">
 								<div class="col">
-									<h3 class="page-title">Thêm danh mục</h3>
+									<h3 class="page-title">Thêm tác giả</h3>
 									<ul class="breadcrumb">
-										<li class="breadcrumb-item"><a href="admin-category">Danh mục</a></li>
-										<li class="breadcrumb-item active">Thêm danh mục</li>
+										<li class="breadcrumb-item"><a href="admin-author">Danh sách tác giả</a></li>
+										<li class="breadcrumb-item active">Thêm tác giả</li>
 									</ul>
 								</div>
 							</div>
@@ -36,7 +36,7 @@
 							<div class="card-body">
 							
 								<!-- Form -->
-								<form action="admin-add-category" method="post">
+								<form action="admin-add-author" method="post">
 									<p class="text-danger">${mess}</p>
                                     <div class="form-group row">
                                         <label class="col-form-label col-md-2">ID</label>
@@ -45,7 +45,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-form-label col-md-2">Tên danh mục</label>
+                                        <label class="col-form-label col-md-2">Tên tác giả</label>
                                         <div class="col-md-10">
                                             <input type="text" name="name" class="form-control">
                                         </div>
@@ -54,7 +54,7 @@
 
                                     <div class="mt-4">
 										<button class="btn btn-primary" type="submit">Thêm</button>
-										<a href="admin-category" class="btn btn-link">Hủy</a>
+										<a href="admin-author" class="btn btn-link">Hủy</a>
 									</div>
                                 </form>
 								<!-- /Form -->
