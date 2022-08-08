@@ -1,7 +1,9 @@
 package BookStore.Controller.Shop;
 
 import BookStore.Dao.IUserDAO;
+import BookStore.Model.Category;
 import BookStore.Model.User;
+import BookStore.service.ICategoryService;
 import BookStore.service.IUserService;
 import BookStore.utils.EncryptUtil;
 import BookStore.utils.SessionUtil;
@@ -12,6 +14,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "LoginController", value = "/Dang-nhap")
 public class LoginController extends HttpServlet {
@@ -19,9 +22,13 @@ public class LoginController extends HttpServlet {
     @Inject
     private IUserService userService;
 
+    @Inject
+    private ICategoryService categoryService;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        List<Category> listC = categoryService.findAll();
+        request.setAttribute("listC",listC);
         String action = request.getParameter("action");
         if (action == null) {
             request.getRequestDispatcher("views/web/login.jsp").forward(request, response);

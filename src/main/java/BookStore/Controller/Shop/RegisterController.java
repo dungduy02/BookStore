@@ -34,10 +34,27 @@ public class RegisterController extends HttpServlet {
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
+        String confirmPassword = request.getParameter("confirmPassword");
 //        String sex = request.getParameter("sex");
 
+//        if(username == null || username.equals("") ){
+//
+//            request.setAttribute("notyfi", "Thiếu tên đăng nhập");
+//            request.getRequestDispatcher("/views/web/register.jsp").forward(request, response);
+//        }else if(password.length() < 6){
+//            request.setAttribute("notyfi", "Độ dài mật khẩu chưa đảm bảo");
+//        }else if(!password.equals(confirmPassword)){
+//            request.setAttribute("notyfi", "Mật khẩu nhập lại chưa khớp");
+//        }else if(phone.length() <10){
+//            request.setAttribute("notyfi", "nhập sai số điện thoại, tối thiểu 10 số");
+//        }else if(!email.contains("@") && !email.contains(".")){
+//            request.setAttribute("notyfi", "Địa chỉ Email chưa chính xác");
+//        }
         User us = userService.getUser(username);
-        if (us == null) {
+        User us1 = userService.getEmail(email);
+
+        if (us1 == null && us == null) {
+
             User user = new User();
 
             password = EncryptUtil.encryptMD5(password);
@@ -65,11 +82,12 @@ public class RegisterController extends HttpServlet {
             request.setAttribute("fullname", fullname);
             request.setAttribute("password", password);
             request.setAttribute("email", email);
-//            request.setAttribute("address",address);
+            request.setAttribute("address",address);
             request.setAttribute("phone", phone);
 //            request.setAttribute("sex",sex);
             request.setAttribute("uname-err", "Tên tài khoản đã tồn tại");
             request.setAttribute("email-err","Email đã tồn tại");
+//            request.setAttribute("entry","Không thể để trống");
             request.getRequestDispatcher("/views/web/register.jsp").forward(request, response);
         }
     }

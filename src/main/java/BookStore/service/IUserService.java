@@ -16,4 +16,5 @@ public interface IUserService {
     boolean update(User user);
 
 
+    User getEmail(String email);
 }

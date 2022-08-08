@@ -84,7 +84,7 @@
                             <%=request.getAttribute("pwd-err") == null ? "" : request.getAttribute("pwd-err")%>
                         </label>
                     </div>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"  onclick="hideCaptcha() ">
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"   onclick="hideCaptcha() " >
                     <label for="vehicle1"> Tôi không phải người máy</label><br>
                     <div>
                         <div class="capt" id="hideCaptcha" style="display: none" >
@@ -102,7 +102,7 @@
                         <label>Lưu</label>
                     </div>
                     <a href="forgot" class="forgot-pass">Quên mật khẩu?</a>
-                    <button class="btn" type="submit" onclick="alert(ValidCaptcha());">Đăng nhập</button>
+                    <button id="show12" class="btn" type="submit" onclick="alert(ValidCaptcha());" disabled>Đăng nhập</button>
 
 
                 </div>
@@ -148,16 +148,26 @@
     }
 
     function hideCaptcha(){
-        var checkBox = document.getElementById("vehicle1");
-        var element = document.getElementById("hideCaptcha");
-        if (checkBox.checked == true) {
-            // var element = document.getElementById("hideCaptcha");
-            element.style.display = "block";
-        }else{
-            element.style.display = "none";
-        }
-        Captcha();
+        // if (document.getElementById("vehicle1").checked = true){
+        //     document.getElementById("show12").setAttribute("disabled");
+        // }else {
+        //     document.getElementById("show12").removeAttribute("disabled");
+
+            var checkBox = document.getElementById("vehicle1");
+            var element = document.getElementById("hideCaptcha");
+            if (checkBox.checked == true) {
+                // var element = document.getElementById("hideCaptcha");
+                element.style.display = "block";
+                document.getElementById("show12").removeAttribute("disabled");
+            } else {
+                element.style.display = "none";
+                document.getElementById("show12").setAttribute("disabled","");
+            }
+            Captcha();
+        // }
     }
+
+
 </script>
 
 

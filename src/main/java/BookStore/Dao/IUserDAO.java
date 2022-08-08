@@ -15,4 +15,5 @@ public interface IUserDAO extends GenericDAO<User> {
     User getUser(Integer id);
     boolean update(User user);
 
+    User getEmail(String email);
 }
