@@ -48,8 +48,8 @@ public class OrderDetailService implements IOrderDetailService {
     }
 
     @Override
-    public void Payment(OrderDetails orderDetails) {
-        orderDetailDAO.Payment(orderDetails);
+    public OrderDetails Payment(OrderDetails orderDetails) {
+        return orderDetailDAO.Payment(orderDetails);
     }
 
     public static void main(String[] args) {

@@ -119,7 +119,7 @@
                         <li>Tạm Tính <span>${cart.totalPrice()} VND</span></li>
                         <li>Tổng <span>${cart.totalPrice()} VND</span></li>
                     </ul>
-                    <a href="<c:url value = "/checkout"/>" class="primary-btn">Kiểm tra</a>
+                    <a href="<c:url value = "/checkout"/>" class="primary-btn">Mua Hàng</a>
                 </div>
             </div>
         </div>

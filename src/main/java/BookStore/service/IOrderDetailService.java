@@ -12,5 +12,5 @@ public interface IOrderDetailService {
     OrderDetails findOneById(Integer id);
     OrderDetails insert(OrderDetails orderDetails, Cart cart);
     List<Order> getOrder();
-    void Payment(OrderDetails orderDetails);
+    OrderDetails Payment(OrderDetails orderDetails);
 }

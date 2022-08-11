@@ -34,12 +34,12 @@ public class ActionBillController extends HttpServlet {
             if (user != null){
                 order = new OrderDetails();
                 order.setFullname(user.getFullname());
-                order.setAddress(user.getAddress());
+//                order.setAddress(user.getAddress());
                 order.setEmail(user.getEmail());
                 order.setPhone(user.getPhone());
                 order.setNote(note);
 
-                System.out.println(order);
+                System.out.println("order của 1 " +order);
             }else {
                 order = new OrderDetails();
                 order.setFullname(fullname);
@@ -48,8 +48,13 @@ public class ActionBillController extends HttpServlet {
                 order.setPhone(phone);
                 order.setNote(note);
             }
-            orderDetailService.Payment(order);
-            response.sendRedirect(request.getContextPath() + "/checkout");
+            order.setAddress(address);
+            System.out.println("order là gì: " + order);
+
+        order =  orderDetailService.Payment(order);
+        System.out.println("order là gì: " + order);
+            session.setAttribute("bill", order);
+            response.sendRedirect(request.getContextPath() + "/bill");
             request.setAttribute("err","không thể bỏ trống");
 
 //        try {
