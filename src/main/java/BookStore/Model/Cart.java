@@ -1,16 +1,17 @@
 package BookStore.Model;
 
 import javax.servlet.http.HttpSession;
+
 import java.util.List;
 
 public class Cart extends AbstracModel{
     List<Item> items ;
-    private Integer customerId;
+    private String customerId;
 
     public Cart() {
     }
 
-    public Cart(List<Item> items, Integer customerId) {
+    public Cart(List<Item> items, String customerId) {
         this.items = items;
         this.customerId = customerId;
     }
@@ -24,11 +25,11 @@ public class Cart extends AbstracModel{
         this.items = items;
     }
 
-    public Integer getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Integer customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
     public Integer totalPrice(){
@@ -77,7 +78,7 @@ public class Cart extends AbstracModel{
         if (item.getQuantity() <= 0) {
             items.remove(productId);
         }
-        
+
     }
     public Item getItem1(Integer itemId){
         for (Item cd : items) {
@@ -85,5 +86,16 @@ public class Cart extends AbstracModel{
                 return cd;
         }
         return null;
+    }
+
+    public void setCustomerId(int user_id) {
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "items=" + items +
+                ", customerId='" + customerId + '\'' +
+                '}';
     }
 }

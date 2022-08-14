@@ -41,8 +41,10 @@
 									<span class="dash-widget-icon bg-primary">
 										<i class="far fa-user"></i>
 									</span>
+
                                 <div class="dash-widget-info">
                                     <h3>${countUser}</h3>
+
                                     <h6 class="text-muted">Người dùng</h6>
                                 </div>
                             </div>
@@ -58,6 +60,7 @@
 									</span>
                                 <div class="dash-widget-info">
                                     <h3>${countProduct}</h3>
+
                                     <h6 class="text-muted">Sản phẩm</h6>
                                 </div>
                             </div>
@@ -73,6 +76,7 @@
 									</span>
                                 <div class="dash-widget-info">
                                     <h3>${countPublisher}</h3>
+
                                     <h6 class="text-muted">Nhà xuất bản</h6>
                                 </div>
                             </div>
@@ -103,6 +107,7 @@
                                     <tbody>
                                     <c:forEach items="${requestScope.data}" var="x">
                                     <tr>
+
                                         <td>
                                              ${x.id}
                                         </td>

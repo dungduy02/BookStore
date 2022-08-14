@@ -2123,9 +2123,9 @@ html.menu-opened body {
 	position: relative;
 }
 
-.sidebar-menu ul ul {
-	display: none;
-}
+/*.sidebar-menu ul ul {*/
+/*	display: none;*/
+/*}*/
 
 .sidebar-menu ul ul ul a {
 	padding-left: 65px;

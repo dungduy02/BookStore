@@ -1,12 +1,11 @@
 package BookStore.service;
 
 import BookStore.Model.Cart;
-import BookStore.Model.Item;
+import BookStore.Model.User;
 
 public interface ICartService {
     Cart findByCustomerId(Integer customerId);
-    boolean deleteDetailItemById(Integer detailCartId);
-    boolean updateItem(Item cartDetails);
-    Item insertItem(Item cartDetails);
+    void insert(Cart cart, User user);
+    Cart getLastCart();
 
 }
