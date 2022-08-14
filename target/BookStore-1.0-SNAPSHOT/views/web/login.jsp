@@ -84,7 +84,11 @@
                             <%=request.getAttribute("pwd-err") == null ? "" : request.getAttribute("pwd-err")%>
                         </label>
                     </div>
+<%--                    <label style="color:#F00;" for="vehicle1" class="error" id="errPassCaptchar">--%>
+<%--                        <%=request.getAttribute("pwd-captchar") == null ? "" : request.getAttribute("pwd-captchar")%>--%>
+<%--                    </label>--%>
                     <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"   onclick="hideCaptcha() " >
+
                     <label for="vehicle1"> Tôi không phải người máy</label><br>
                     <div>
                         <div class="capt" id="hideCaptcha" style="display: none" >
@@ -138,9 +142,12 @@
         var string2 = removeSpaces(document.getElementById('txtInput').value);
         console.log("ValidCaptcha",string1)
         if (string1 == string2) {
+
             return true;
-        }
+        }else{
+            alert("Nhập sai Captcha")
             return false;
+        }
 
     }
 

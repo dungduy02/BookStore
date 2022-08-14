@@ -73,7 +73,6 @@
                 <th class="product-name">Tên sản phẩm</th>
                 <th class="product-price">Giá</th>
                 <th class="product-quantity">Số lượng</th>
-
             </tr>
             </thead>
             <tbody>
@@ -113,7 +112,6 @@
                             <c:if test="${not empty bill}">
                                 <a class="hidden-xs"
 
-
                                                                          href="<c:url value = "/Trangchu?action=remove"/>"><strong><i
                                 class="fa fa-caret-right"></i> Quay lại trang chính</strong></a>
                             </c:if>
@@ -133,6 +131,5 @@
         </table>
     </form>
 </div>
-
 </body>
 </html>

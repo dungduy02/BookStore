@@ -51,11 +51,11 @@ public class LoginController extends HttpServlet {
         if (user != null) {
 
             if (user.getPassword().equals(password) || user.getPassword().equals(pass)){//user.getPassword().equals(password)
-                if (user.getStatus() == 1){
+                if (user.getStatus() == 0){
                     HttpSession ss = request.getSession();
                     ss.setAttribute("USERMODEL", user);
                     response.sendRedirect(request.getContextPath() + "/TrangChu");
-                }else if (user.getStatus() == 0){
+                }else if (user.getStatus() == 1){
 
                     response.sendRedirect(request.getContextPath() + "/admin-home");
                 }
@@ -69,5 +69,9 @@ public class LoginController extends HttpServlet {
             request.setAttribute("uname-err", "Tài khoản không tồn tại");
             request.getRequestDispatcher("/views/web/login.jsp").forward(request, response);
         }
+
+//        request.setAttribute("pwd-captchar", "Captcha không chính xác");
+//        request.getRequestDispatcher("/views/web/login.jsp").forward(request, response);
+
     }
 }

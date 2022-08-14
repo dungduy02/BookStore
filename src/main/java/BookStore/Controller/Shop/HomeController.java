@@ -37,6 +37,7 @@ public class HomeController extends HttpServlet {
         List<Sale> sales = saleService.getAllSale();
         List<Blog> listBlog = blogService.getAllBlog();
         Sale sal = saleService.getSaleById2();
+        List<Product> radomProduct5 = productService.getRandomPr();
 
         request.setAttribute("ListNew",listn);
         request.setAttribute("listSale",listS);
@@ -46,6 +47,7 @@ public class HomeController extends HttpServlet {
         request.setAttribute("Percent",sales);
         request.setAttribute("listBlog",listBlog);
         request.setAttribute("sale2",sal);
+        request.setAttribute("rdPro",radomProduct5);
 
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/index.jsp");
         rd.forward(request, response);

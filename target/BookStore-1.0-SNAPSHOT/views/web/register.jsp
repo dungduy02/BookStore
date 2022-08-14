@@ -25,7 +25,6 @@
         <div class="title">Đăng Ký</div>
         <div class="content">
 
-
             <h2><%=request.getAttribute("notyfi")==null?"":request.getAttribute("notyfi")%></h2>
             <form id="registry" action="<c:url value="/dang-ky"/> " method="POST" name="myForm"
                   onsubmit="return validateForm()">
@@ -63,6 +62,7 @@
                     </div>
                     <div class="input-box form-group">
                         <span for="phone" class="details">Số điện thoại</span>
+
                         <input name="phone" type="text" id="phone" placeholder="Nhập số điện thoại"
                                value="<%=request.getAttribute("phone")==null?"":request.getAttribute("phone")%>">
                         <label id="errPhone">
@@ -209,6 +209,7 @@
         }
 
     </script>
+
     <!-- <script>
         Validator({
             form: '#registry',
@@ -226,6 +227,7 @@
         });
 
     </script> -->
+
 
 </body>
 

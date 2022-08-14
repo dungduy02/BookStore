@@ -28,4 +28,6 @@ public interface IProductDAO {
 //    void updateProduct(String name, String picture, String description, String price,
 //                       String quantity, String published, String categoryid, String authorid);
     void updateProduct(Product product);
+
+    List<Product> getRandomPr();
 }
