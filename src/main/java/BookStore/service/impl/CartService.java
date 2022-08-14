@@ -1,44 +1,41 @@
 package BookStore.service.impl;
 
-import BookStore.Dao.ICartDAO;
-import BookStore.Dao.impl.CartDAO;
+import BookStore.Dao.ICart;
+import BookStore.Dao.IItemDAO;
+import BookStore.Dao.impl.ItemDAO;
 import BookStore.Model.Cart;
-import BookStore.Model.Product;
-import BookStore.Model.User;
+import BookStore.Model.Item;
 import BookStore.service.ICartService;
 
 import javax.inject.Inject;
 import java.util.List;
 
 public class CartService implements ICartService {
-
     @Inject
-    private ICartDAO cartDAO;
+    ICart cartDAO;
+    @Inject
+    IItemDAO iItemDAO;
 
     @Override
     public Cart findByCustomerId(Integer customerId) {
-        Cart cart = cartDAO.findByCustomerId(customerId);
-        return cart;
+        Cart cart = cartDAO.findByCustomer(customerId);
+        List<Item> item = iItemDAO.findByCartId(cart.getId());
+        return null;
     }
 
     @Override
-    public void insert(Cart cart, User user) {
-//        Integer id = cartDAO.insert(cart);
-//        return cartDAO.findById(id);
-        cartDAO.insert(cart, user);
+    public boolean deleteDetailItemById(Integer detailCartId) {
+        return iItemDAO.delete(detailCartId);
     }
 
     @Override
-    public Cart getLastCart() {
-        return cartDAO.getLastCart();
+    public boolean updateItem(Item cartDetails) {
+        return iItemDAO.update(cartDetails);
     }
 
-    public static void main(String[] args) {
-        CartDAO cd = new CartDAO();
-//        cd.insert()
-
-        List<Cart> c = (List<Cart>) cd.findByCustomerId(1);
-        System.out.println(c);
+    @Override
+    public Item insertItem(Item cartDetails) {
+        Integer id = iItemDAO.insert(cartDetails);
+        return iItemDAO.findById(id);
     }
-
 }

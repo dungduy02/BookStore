@@ -1,12 +1,10 @@
 package BookStore.Controller.Shop;
 
 import BookStore.Dao.IUserDAO;
-import BookStore.Model.Category;
 import BookStore.Model.User;
-import BookStore.service.ICategoryService;
 import BookStore.service.IUserService;
-import BookStore.utils.EncryptUtil;
 import BookStore.utils.SessionUtil;
+import BookStore.utils.EncryptUtil;
 
 
 import javax.inject.Inject;
@@ -14,7 +12,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "LoginController", value = "/Dang-nhap")
 public class LoginController extends HttpServlet {
@@ -22,18 +19,14 @@ public class LoginController extends HttpServlet {
     @Inject
     private IUserService userService;
 
-    @Inject
-    private ICategoryService categoryService;
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Category> listC = categoryService.findAll();
-        request.setAttribute("listC",listC);
         String action = request.getParameter("action");
         if (action == null) {
             request.getRequestDispatcher("views/web/login.jsp").forward(request, response);
         } else if (action.equals("logout")) {
             SessionUtil.getInstance().removeValue(request, "USERMODEL");
+            SessionUtil.getInstance().removeValue(request, "cart");
             response.sendRedirect(request.getRequestURI());
         }
 
@@ -45,13 +38,15 @@ public class LoginController extends HttpServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
         String pass = EncryptUtil.encryptMD5(password);
         User user = userService.getUser(username);
         if (user != null) {
-            if (user.getPassword().equals(password) || user.getPassword().equals(pass)){//user.getPassword().equals(password)
+            if (user.getUsername().equals(username) && user.getPassword().equals(password) || user.getPassword().equals(pass)){//user.getPassword().equals(password)
+
                 HttpSession ss = request.getSession();
                 ss.setAttribute("USERMODEL", user);
+
+
                 response.sendRedirect(request.getContextPath() + "/TrangChu");
             } else {
                 request.setAttribute("username", username);

@@ -6,7 +6,7 @@ public class Item extends AbstracModel{
     private Integer productid;
     private Cart cart;
     private Product product;
-    private double price;
+    private long price;
 
 
     public Item() {
@@ -60,29 +60,28 @@ public class Item extends AbstracModel{
         this.product = product;
     }
 
-    public double getPrice() {
+    public long getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(long price) {
         this.price = price;
     }
 
+//    public void sub(){
+//        if(quantity > 1)
+//            --quantity;
+//        else
+//            quantity = 1;
+//    }
+//    public void plus(){
+//        ++quantity;
+//    }
+
     public void update(int productId, int quantity){
         if (product.getId() == productId) {
-            setQuantity(quantity);
+           setQuantity(quantity);
         }
     }
 
-    @Override
-    public String toString() {
-        return "Item{" +
-                "cartId=" + cartId +
-                ", quantity=" + quantity +
-                ", productid=" + productid +
-                ", cart=" + cart +
-                ", product=" + product +
-                ", price=" + price +
-                '}';
     }
-}

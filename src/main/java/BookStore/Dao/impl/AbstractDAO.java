@@ -90,7 +90,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
         ResultSet rs = null;
         try {
             Integer id = null;
-            connection = ConnectionPool.Connection();
+            connection = ConnectionPool.getConnection("insert");
             connection.setAutoCommit(false);
             prestament = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             setParameter(prestament,parameters);

@@ -3,12 +3,12 @@ package BookStore.Model;
 public class Sale {
     private int id;
     private String percent;
-    private double priceSale;
+    private int priceSale;
 
     public Sale() {
     }
 
-    public Sale(int id, String percent, double priceSale) {
+    public Sale(int id, String percent, int priceSale) {
         this.id = id;
         this.percent = percent;
         this.priceSale = priceSale;
@@ -30,11 +30,11 @@ public class Sale {
         this.percent = percent;
     }
 
-    public double getPriceSale() {
+    public int getPriceSale() {
         return priceSale;
     }
 
-    public void setPriceSale(double priceSale) {
+    public void setPriceSale(int priceSale) {
         this.priceSale = priceSale;
     }
 

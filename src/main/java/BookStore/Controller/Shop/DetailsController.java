@@ -29,15 +29,14 @@ public class DetailsController extends HttpServlet {
         Category category = categoryService.getCategory(id);
         Publisher publisher = publisherService.getPublisherById(id);
         Author author = authorService.getAuthorById(id);
-        Sale sale = saleService.getPercentId(id);
-
+        Sale sale = saleService.getSaleById(id);
 
 
         request.setAttribute("details",product);
         request.setAttribute("cate",category);
         request.setAttribute("publis",publisher);
         request.setAttribute("author",author);
-        request.setAttribute("sales",sale);
+        request.setAttribute("sale",sale);
         request.getRequestDispatcher("/views/web/details.jsp").forward(request,response);
 
     }

@@ -12,7 +12,7 @@ public class SaleMapper implements RowMapper<Sale>{
         try {
             sale.setId(rs.getInt("id"));
             sale.setPercent(rs.getString("name"));
-            sale.setPriceSale(rs.getDouble("price_sale"));
+            sale.setPriceSale(rs.getInt("price_sale"));
         } catch (SQLException e) {
             e.printStackTrace();
             return null;

@@ -16,30 +16,15 @@ public class SaleService implements ISaleService {
     }
 
     @Override
-    public Sale getSaleById2() {
-        return saleDAO.getSaleById2();
-    }
-    @Override
-    public Sale getSaleById3() {
-        return saleDAO.getSaleById3();
-    }
-
-    @Override
-    public Sale getPercentId(String id) {
-        return saleDAO.getPercentId(id);
+    public Sale getSaleById(String id) {
+        return saleDAO.getSaleById(id);
     }
 
     public static void main(String[] args) {
         SaleDAO saleDAO = new SaleDAO();
 
-//        Sale sale = saleDAO.getPercentId("2");
+//        Sale sale = saleDAO.getSaleById("3");
 //        System.out.println(sale);
-        List<Sale> list = saleDAO.getAllSale();
-        for (Sale s: list) {
-            System.out.println(s);
-        }
-
-
 
     }
 }

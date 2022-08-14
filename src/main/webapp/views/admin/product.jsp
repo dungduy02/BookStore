@@ -23,7 +23,6 @@
             </div>
             <div class="col-auto text-right">
                 <a href="admin-add-product" class="btn btn-primary add-button ml-3">
-
                     <i class="fas fa-plus"></i>
                 </a>
             </div>

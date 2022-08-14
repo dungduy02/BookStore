@@ -41,11 +41,11 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="add-product" method="post">
+                            <form action="categories.html">
 
                                 <div class="form-group">
                                     <label>Ảnh</label>
-                                    <input class="form-control" type="file" name="img">
+                                    <input class="form-control" type="file">
                                 </div>
                                 <div class="form-group">
                                     <div class="avatar">
@@ -54,27 +54,27 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tên sản phẩm</label>
-                                    <input class="form-control" type="text" value="" name="name">
+                                    <input class="form-control" type="text" value="">
                                 </div>
                                 <div class="form-group">
                                     <label>Danh mục</label>
-                                    <input class="form-control" type="text" value="" name="category">
+                                    <input class="form-control" type="text" value="">
                                 </div>
                                 <div class="form-group">
                                     <label>Giá khuyến mãi</label>
-                                    <input class="form-control" type="text" value="" name="price">
+                                    <input class="form-control" type="text" value="">
                                 </div>
                                 <div class="form-group">
                                     <label>Nhà cung cấp</label>
-                                    <input class="form-control" type="text" value="" name="published">
+                                    <input class="form-control" type="text" value="">
                                 </div>
                                 <div class="form-group">
                                     <label>Nhà xuất bản</label>
-                                    <input class="form-control" type="text" value="" name="author">
+                                    <input class="form-control" type="text" value="">
                                 </div>
                                 <div class="form-group">
                                     <label>Số lượng</label>
-                                    <input class="form-control" type="text" value="" name="quantity">
+                                    <input class="form-control" type="text" value="">
                                 </div>
                                 <!-- <div class="status-toggle">
                                     <label>Có khuyến mãi không ?</label>
@@ -83,7 +83,7 @@
                                 </div> -->
                                 <div class="form-group">
                                     <label>Mô tả ngắn</label>
-                                    <textarea style="height: 100px;" class="form-control" type="text" name="description"></textarea>
+                                    <textarea style="height: 100px;" class="form-control" type="text"></textarea>
                                 </div>
                                 <div>
                                     <label>Mô tả dài</label>

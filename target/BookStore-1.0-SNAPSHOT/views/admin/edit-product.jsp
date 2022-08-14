@@ -38,47 +38,47 @@
             <!-- /Page Header -->
 
             <!-- Search Filter -->
-<%--            <div class="card filter-card" id="filter_inputs">--%>
-<%--                <div class="card-body pb-0">--%>
-<%--                    <form action="update" method="post">--%>
-<%--                        <div class="row filter-row">--%>
+            <div class="card filter-card" id="filter_inputs">
+                <div class="card-body pb-0">
+                    <form action="#" method="post">
+                        <div class="row filter-row">
 
-<%--                            <!-- thay đổi ở đây ************************ -->--%>
-<%--                            <div class="col-sm-6 col-md-3">--%>
-<%--                                <div class="form-group">--%>
-<%--                                    <label>Mã sản phẩm</label>--%>
-<%--                                    <input class="form-control" type="text" value="${pr.id}" readonly name="id">--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                            <div class="col-sm-6 col-md-3">--%>
-<%--                                <div class="form-group">--%>
-<%--                                    <label>Tên sản phẩm</label>--%>
-<%--                                    <input class="form-control" type="text" value="${pr.name}" name="name">--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                            <!-- Thay đổi theo danh sách đề mục -->--%>
-<%--                            <div class="col-sm-6 col-md-3">--%>
-<%--                                <div class="form-group">--%>
-<%--                                    <label >Category</label>--%>
-<%--                                    <select class="form-control select">--%>
-<%--                                        <option value="${pr.categoryid}" name="category">Chọn Danh Mục</option>--%>
-<%--                                        <option>Văn Học</option>--%>
-<%--                                        <option>Kinh Tế</option>--%>
-<%--                                        <option>Khoa Học</option>--%>
+                            <!-- thay đổi ở đây ************************ -->
+                            <div class="col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label>Mã sản phẩm</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label>Tên sản phẩm</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <!-- Thay đổi theo danh sách đề mục -->
+                            <div class="col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    <select class="form-control select">
+                                        <option>Chọn Danh Mục</option>
+                                        <option>Văn Học</option>
+                                        <option>Kinh Tế</option>
+                                        <option>Khoa Học</option>
 
-<%--                                    </select>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
+                                    </select>
+                                </div>
+                            </div>
 
-<%--                            <div class="col-sm-6 col-md-3">--%>
-<%--                                <div class="form-group">--%>
-<%--                                    <button class="btn btn-primary btn-block" type="submit">Chọn</button>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </form>--%>
-<%--                </div>--%>
-<%--            </div>--%>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-block" type="submit">Chọn</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <!-- /Search Filter -->
 
             <div class="row">
@@ -89,31 +89,28 @@
                                 <!-- <table class="table table-hover table-center mb-0 datatable"> -->
                                 <!-- Thay đổi code ở đây Thay đổi theo file word -->
                                 <!-- Form -->
-                                <form action="update?sid=" method="post">
-                                    <div class="form-group">
-                                        <label>Mã sản phẩm</label>
-                                        <input class="form-control" type="text" value="${pr.id}" readonly name="id">
-                                  </div>
+                                <form action="categories.html">
+
                                     <div class="form-group">
                                         <label>Ảnh</label>
-                                        <input class="form-control" type="file" value="${pr.img}" name="img">
+                                        <input class="form-control" type="file">
                                     </div>
                                     <div class="form-group">
                                         <div class="avatar">
-                                            <img class="avatar-img rounded" alt="" src="${pr.img}" name="img">
+                                            <img class="avatar-img rounded" alt="" src="assets/img/categories/tu-huyet-cam-xuc.jpg">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Tên sản phẩm</label>
-                                        <input class="form-control" type="text" value="${pr.name}" name="name">
+                                        <input class="form-control" type="text" value="Tứ Nguyệt Cảm Xúc">
                                     </div>
                                     <div class="form-group">
                                         <label>Danh mục</label>
-                                        <input class="form-control" type="text" value="${pr.categoryid}" name="category">
+                                        <input class="form-control" type="text" value="Tâm Lý">
                                     </div>
                                     <div class="form-group">
                                         <label>Giá </label>
-                                        <input class="form-control" type="text" value="${pr.price}" name="price">
+                                        <input class="form-control" type="text" value="50.000 VNĐ">
                                     </div>
                                     <!-- <div class="status-toggle">
                                         <label>Có khuyến mãi không</label>
@@ -122,7 +119,7 @@
                                     </div> -->
                                     <div class="form-group">
                                         <label>Số lượng</label>
-                                        <input class="form-control" type="text" value="${pr.quantity}" name="quantity">
+                                        <input class="form-control" type="text" value="10">
                                     </div>
                                     <!-- <div class="form-group">
 										<label>Loại</label><br>
@@ -144,12 +141,12 @@
                                     </div> -->
                                     <div class="form-group">
                                         <label>Mô tả ngắn</label>
-                                        <textarea style="height: 100px;" class="form-control" type="text" name="description">${pr.description}</textarea>
+                                        <textarea style="height: 100px;" class="form-control" type="text">Hiểu được chính mình không phải dễ, và phát hiện ra điểm mạnh cũng như điểm yếu của bản thân là cả quá trình sống, tồn tại, học hỏi và trải nghiệm.</textarea>
                                     </div>
                                     <div>
                                         <label>Mô tả dài</label>
                                         <textarea name="" id="textExample" cols="30" rows="10">
-											<p></p>
+											<p>Á thần Achilles trong thần thoại Hy Lạp là một vị anh hùng bách chiến bách thắng, có một thân hình thép, tưởng chứng như không thể bị đánh bại, nhưng trong cuộc chiến thành Troy lại chết tức tưởi bởi một mũi tên bắn trúng vào gót chân. Từ đó, khi nói đến điểm yếu hay tử huyệt của con người, người ta thường ví với “Gót chân Achilles”. Cảm xúc là một yếu tố vô hình, nhưng nó chi phối mọi suy nghĩ cũng như hành động của con người, mọi hỷ nộ ái ố của bản thân cũng đều bị cảm xúc dẫn dắt.</p>
 										</textarea>
                                     </div>
                                     <!-- <div class="status-toggle">

@@ -11,24 +11,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-eq uiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- Google Font -->
 
 </head>
 
 <body>
 
-<section>
-    <div class="slider " >
-
-        <div class="numberText" style="height: 200px;width: 100%">
-            <img src="${slider.img}" >
-        </div>
-
-    </div>
-</section>
 <!-- Hero Section End -->
 <!-- Begin banner top -->
-<section class="container" >
-    <div class=" banner_top row set-bg" data-setbg="<c:url value="/template/web/img/banner/bg1.png"/>">
+<section class="container ">
+    <div class=" banner_top row set-bg" data-setbg="img/banner/bg1.png">
         <div class="col-lg-12">
             <h2>BOOKSTORE NLU</h2>
             <div class="row ">
@@ -38,9 +30,9 @@
             </div>
         </div>
     </div>
-
 </section>
 
+<!-- Breadcrumb Section Begin -->
 
 <!-- Categories Section Begin -->
 <section class="categories">
@@ -54,7 +46,7 @@
             <div class="categories__slider owl-carousel">
 
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="#">
+                    <div class="categories__item set-bg" data-setbg="../../template/web/img/categories/cat-1.jpg">
                         <h5><a href="#">Đầu Tư</a></h5>
                     </div>
                 </div>
@@ -79,15 +71,15 @@
 
             </div>
         </div>
-        <div class="row featured__filter" id="content">
-                        <c:forEach items="${list}" var="pro">
-                        <div class="loadp col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+        <div class="row featured__filter">
+                        <c:forEach items="${list}" var="pro" begin="1" end="12">
+                        <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                             <div class="featured__item">
                                 <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
                                     <img src="${pro.img}">
                                     <ul class="featured__item__pic__hover">
-<%--                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>--%>
-                                        <li><a href="DetailsController?pid=${pro.id}"><i class="fa fa-retweet"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                         <li><a href="add-to-cart?bid=${pro.id}"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
@@ -104,11 +96,6 @@
 
 
 
-        </div>
-        <div class="d-flex justify-content-center">
-            <button class="btn btn-primary" onclick="loadMore()">
-                Load More
-            </button>
         </div>
     </div>
 </section>
@@ -169,7 +156,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="latest-product__text">
                     <h4>Giảm Giá</h4>
-                    <c:forEach items="${listSale}" var="sale" begin="1" end="6">
+                    <c:forEach items="${listSale}" var="sale">
                     <div class="sale">
 
                         <div class="sl">
@@ -177,11 +164,11 @@
                                 <div class="latest-product__item__pic">
                                     <img src="${sale.img}" alt="">
                                 </div>
-<%--                                <div class="discount__precent">${sales.percent}</div>--%>
+                                <div class="discount__precent">-15%</div>
                                 <div class="latest-product__item__text">
                                     <h6>${sale.name}</h6>
-                                    <span class="discount">${sale.price} VND</span>
-                                    <span>${sale.price}VND</span>
+                                    <span class="discount">79.200 VND</span>
+                                    <span>${sale.price} VND</span>
                                 </div>
                             </a>
                         </div>
@@ -270,51 +257,55 @@
             </div>
         </div>
         <div class="row">
-            <c:forEach items="${listBlog}" var="blog">
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="blog__item">
                     <div class="blog__item__pic">
-                        <img src="${blog.image}" alt="" style="height: 350px">
+                        <img src="../../img/blog/blog-1.jpg" alt="">
                     </div>
                     <div class="blog__item__text">
                         <ul>
-                            <li><i class="fa fa-calendar-o"></i> ${blog.dateCreate}</li>
+                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
                             <li><i class="fa fa-comment-o"></i> 5</li>
                         </ul>
-                        <h5><a href="detailsBlog?blogId=${blog.id}">${blog.title}</a></h5>
-                        <p>${blog.shortcut} </p>
+                        <h5><a href="#">PROUST CÓ THỂ THAY ĐỔI CUỘC ĐỜI BẠN NHƯ THẾ NÀO</a></h5>
+                        <p>Nếu đã chán ngấy những đầu sách self-help thì hãy “đối gió” một chút với “Proust có thể thay đổi cuộc đời bạn như thế nào” của Alain de Botton. Cuốn sách này gồm những quan điểm triết lý về cuộc sống, tình yêu, trí tuệ, cảm xúc qua góc nhìn của một nhà văn người Pháp Marcel Proust. </p>
                     </div>
                 </div>
             </div>
-            </c:forEach>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic">
+                        <img src="../../img/blog/blog-2.jpg" alt="">
+                    </div>
+                    <div class="blog__item__text">
+                        <ul>
+                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                            <li><i class="fa fa-comment-o"></i> 5</li>
+                        </ul>
+                        <h5><a href="#">THÁNH KINH COCO CHANEL</a></h5>
+                        <p>Nếu đã theo dõi trang blog này từ trước chắc bạn sẽ biết rằng mình là một đứa “cuồng” lifestyle châu Âu, điển hình là đất nước Pháp. Nhân dịp mừng đội tuyển Pháp vô địch World Cup 2018, mình xin review cuốn sách viết về một nhân vật đình đám, một biểu tượng thời trang toàn cầu và góp phần làm nên đất nước Pháp gắn liền với hai từ “thanh lịch”....</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic">
+                        <img src="../../img/blog/blog-3.jpg" alt="">
+                    </div>
+                    <div class="blog__item__text">
+                        <ul>
+                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                            <li><i class="fa fa-comment-o"></i> 5</li>
+                        </ul>
+                        <h5><a href="#">VỪA ĐỦ – ĐẲNG CẤP SỐNG CỦA NGƯỜI THỤY ĐIỂN</a></h5>
+                        <p>Dạo gần đây xu hướng sống tối giản (minimalism) đang khá thịnh hành khi mà con người ta đã cơ bản đầy đủ về điều kiện vật chất. Điển hình cho lối sống này phải kể đến người Nhật với việc sắp xếp, bài trí nhà cửa siêu tinh gọn của họ. ...</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 <!-- Blog Section End -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<script>
-    function loadMore(){
-        var amount = document.getElementsByClassName("loadp").length;
-        $.ajax({
-            url: "/BookStore/load",
-            type: "get", //send it through get method
-            data:{
-                exits: amount
-            },
-            success: function(data) {
 
-
-                var row = document.getElementById("content");
-                row.innerHTML += data;
-            },
-            error: function(xhr) {
-                //Do Something to handle error
-            }
-        });
-
-
-    }
-</script>
 </body>
 </html>

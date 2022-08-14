@@ -37,11 +37,11 @@
             <!-- /Page Header -->
 
             <div class="row mr-1 ml-1">
-
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
+
                                 <form action="admin-edit-product" method="post">
 
                                     <div class="form-group">
@@ -103,7 +103,6 @@
                                     <div class="form-group">
                                         <label>Ảnh</label>
                                         <input class="form-control" type="text" value="${st.img}" name="img">
-
                                     </div>
                                     <div class="form-group">
                                         <label>Số lượng</label>
@@ -112,7 +111,6 @@
                                     <div class="form-group">
                                         <label>Gia</label>
                                         <input class="form-control" type="text" value="${st.price}" name="price">
-
                                     </div>
                                     <div class="form-group">
                                         <label>Mô tả</label>

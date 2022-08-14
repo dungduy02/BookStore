@@ -34,7 +34,7 @@
 				</li>
 				<li class="submenu">
 					<a href="#"><i class="fas fa-tasks"></i> <span>Quản lí</span> <span class="menu-arrow"></span></a>
-					<ul>
+					<ul style="display: none;">
 						<li><a href="categories.jsp">Danh mục</a></li>
 						<li><a href="product.jsp" >Sản phẩm</a></li>
 						<li><a href="blog.jsp" >Blog</a></li>
@@ -49,7 +49,7 @@
 
 				<li class="submenu">
 					<a href="#"><i class="fas fa-shopping-cart"></i><span>Bán hàng</span> <span class="menu-arrow"></span></a>
-					<ul>
+					<ul style="display: none;">
 						<li><a href="total-report.jsp">Danh sách đặt hàng</a></li>
 						<!-- <li><a href="shipments.html">Vận chuyển</a></li>
                         <li><a href="return-request.html">Bảo hành</a></li>
@@ -61,7 +61,7 @@
 
 				<li class="submenu">
 					<a href="#"><i class="fas fa-users"></i><span>Người dùng</span> <span class="menu-arrow"></span></a>
-					<ul>
+					<ul style="display: none;">
 						<li><a href="users.jsp" class="active" >Khách hàng</a></li>
 						<li><a href="admin-list.jsp">Danh sách admin</a></li>
 						<li><a href="service-list.jsp" >Nhà cung cấp</a></li>

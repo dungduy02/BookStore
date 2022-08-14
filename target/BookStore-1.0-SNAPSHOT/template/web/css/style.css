@@ -527,15 +527,14 @@ ol {
 
 .header__cart ul li a i {
 	font-size: 18px;
-	font-size: 35px;
 	color: #1c1c1c;
 }
 
 .header__cart ul li a span {
-	height: 23px;
-	width: 23px;
+	height: 13px;
+	width: 13px;
 	background: #7fad39;
-	font-size: 23px;
+	font-size: 10px;
 	color: #ffffff;
 	line-height: 13px;
 	text-align: center;
@@ -1366,7 +1365,6 @@ ol {
 .product__item__pic__hover li a i {
 	position: relative;
 	transform: rotate(0);
-	margin-top: 10px;
 	-webkit-transition: all, 0.3s;
 	-moz-transition: all, 0.3s;
 	-ms-transition: all, 0.3s;
@@ -4382,6 +4380,4 @@ changPass*/
 }
 .hero-normal{
 	height: 100px;
-
 }
-

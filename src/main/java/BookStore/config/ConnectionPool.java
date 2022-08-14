@@ -21,7 +21,7 @@ public class ConnectionPool {
                 e.printStackTrace();
             }
         }
-        public ConnectionPool(){
+        private ConnectionPool(){
             super();
         }
         public static Connection getConnection(String task) throws SQLException{
@@ -33,10 +33,8 @@ public class ConnectionPool {
     public synchronized static void logPoolStatus(String task) throws SQLException {
         System.out.println("Received connection for task " + task);
         System.out.println("+ Num of Connections: " + cpds.getNumConnections());
+        System.out.println("+ Num of Idle Connections: " + cpds.getNumIdleConnections());
+        System.out.println("+ Num of Busy Connections: " + cpds.getNumBusyConnections());
     }
 
-    public static Connection Connection() throws SQLException{
-        Connection conn = cpds.getConnection();
-        return conn;
-    }
 }

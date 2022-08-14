@@ -1,13 +1,14 @@
 package BookStore.service.impl;
 
 import BookStore.Dao.IProductDAO;
+import BookStore.Dao.impl.CategoryDAO;
 import BookStore.Dao.impl.ProductDAO;
+import BookStore.Model.Category;
 import BookStore.Model.Product;
 import BookStore.service.ICategoryService;
 import BookStore.service.IProductService;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService implements IProductService {
@@ -30,10 +31,10 @@ public class ProductService implements IProductService {
         return productDAO.getByPublisher(pubid);
     }
 
-//    @Override
-//    public List<Product> getProductByPrice(String price) {
-//        return productDAO.getByPrice(price);
-//    }
+    @Override
+    public List<Product> getProductByPrice(String price) {
+        return productDAO.getByPrice(price);
+    }
 
 
     @Override
@@ -64,85 +65,18 @@ public class ProductService implements IProductService {
     }
 
 
-    @Override
-    public List<Product> getPageProduct(List<Product> list, int start, int end) {
-        return productDAO.getPageProduct(list,start,end);
-    }
 
-    @Override
-    public void deleteProduct(String id) {
-        productDAO.deleteProduct(id);
-    }
-
-    public void insertProduct(Product product){
-        productDAO.insertProduct(product);
-    }
-
-    public void updateProduct(Product product){
-        productDAO.updateProduct(product);
-    }
-
-
-    @Override
-    public List<Product> getProductByPrice() {
-
-        return productDAO.getProductbyPrice();
-    }
-
-
-
-    @Override
-    public List<Product> getPriceSmall() {
-        return productDAO.SmallPrice();
-    }
-
-    @Override
-    public List<Product> getPriceMedium() {
-        return productDAO.MediumPrice();
-    }
-
-    @Override
-    public List<Product> getPriceLarge() {
-        return productDAO.LargePrice();
-    }
-
-
-    @Override
-    public List<Product> getProductBySort(String select) {
-        List<Product> sort = new ArrayList<>();
-        switch (select){
-            case "price":
-                sort = productDAO.getProductbyPrice();
-                break;
-            case "new":
-                sort = productDAO.getNewProduct();
-                break;
-            default:
-                break;
-        }
-        return sort;
-    }
-
-    @Override
-    public List<Product> get12Product() {
-        return productDAO.get12Product();
-    }
-
-    @Override
-    public List<Product> getNextProduct(int count) {
-        return productDAO.getNextProduct(count);
-    }
 
     public static void main(String[] args) {
-        IProductDAO productDAO = new ProductDAO();
-//         productDAO.insertProduct("fsd","sdf", "sdf", 342, 2, 1,2,1);
-//        System.out.println(productDAO.deleteProduct("50"));
-//        productDAO.updateProduct(new Product());
-        List<Product> all = productDAO.getSaleProduct();
+        ProductDAO productDAO = new ProductDAO();
+//        Product product = productDAO.getProductById("12");
+
+        List<Product> all = productDAO.getAll();
         for (Product a : all){
             System.out.println(a);
         }
 
-    }
 
+
+    }
 }

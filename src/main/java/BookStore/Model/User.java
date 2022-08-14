@@ -1,4 +1,8 @@
 package BookStore.Model;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.Timestamp;
 import java.util.Date;
 
 public class User extends AbstracModel {
@@ -12,8 +16,6 @@ public class User extends AbstracModel {
     private String phone;
     private Integer status;
     private Integer blogid;
-    private Integer roleid;
-    private Role role;
 
     public User() {
     }
@@ -123,37 +125,5 @@ public class User extends AbstracModel {
 
     public void setBlogid(Integer blogid) {
         this.blogid = blogid;
-    }
-
-    public Integer getRoleid() {
-        return roleid;
-    }
-
-    public void setRoleid(Integer roleid) {
-        this.roleid = roleid;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", fullname='" + fullname + '\'' +
-                ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
-                ", sex='" + sex + '\'' +
-                ", Date=" + Date +
-                ", phone='" + phone + '\'' +
-                ", status=" + status +
-                ", blogid=" + blogid +
-                '}';
     }
 }

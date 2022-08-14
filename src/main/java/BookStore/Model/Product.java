@@ -1,6 +1,6 @@
 package BookStore.Model;
 
-public class Product{
+public class Product extends AbstracModel{
     private int id;
     private String code;
     private String name;

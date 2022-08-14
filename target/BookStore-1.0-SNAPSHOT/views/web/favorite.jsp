@@ -1,9 +1,3 @@
-
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="BookStore.Model.Product" %>
-<%@ page import="BookStore.service.impl.FavoriteService" %>
-<%@ page import="java.util.List" %>
-<%@ page import="BookStore.service.IProductService" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/common/taglib.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -24,6 +18,56 @@
 </head>
 
 <body>
+
+<!-- Hero Section Begin -->
+<section class="hero hero-normal">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>Danh mục</span>
+                    </div>
+                    <ul>
+                        <li><a href="#">Văn Học</a></li>
+                        <li><a href="#">Kinh Tế</a></li>
+                        <li><a href="#">Tâm Lý</a></li>
+                        <li><a href="#">Kĩ Năng Sống</a></li>
+                        <li><a href="#">Nuôi dạy con</a></li>
+                        <li><a href="#">Sách Thiếu Nhi</a></li>
+                        <li><a href="#">Tiểu Sử</a></li>
+                        <li><a href="#">Giáo Dục</a></li>
+                        <li><a href="#">Ngoại Ngữ</a></li>
+                        <li><a href="#">Tham Khảo</a></li>
+                        <li><a href="#">Khác</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="#">
+
+                            <input type="text" placeholder="Tìm tên sách mong muốn ...?">
+                            <button type="submit" class="site-btn">Tìm Kiếm</button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>+84 123 456 789</h5>
+                            <span>Hỗ trợ 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
@@ -62,25 +106,54 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <% IProductService productService = null;
-                            List<Product> list =  productService.getAll();
-
-                        %>
-                        <c:forEach var="item" items="list">
                         <tr>
                             <td class="shoping__cart__item">
-                                <img src="${item.img}" alt="" style="width: 30%;">
-                                <h5>${item.name}</h5>
+                                <img src="../../img/product/product-9.jpg" alt="" style="width: 30%;">
+                                <h5>Tập Viết 3</h5>
                             </td>
                             <td class="shoping__cart__price">
-                                ${item.price} VND
+                                55.000 VND
                             </td>
 
+                            <td class="shoping__cart__total">
+                                55.000 VND
+                            </td>
                             <td class="shoping__cart__item__close">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </td>
                         </tr>
-                        </c:forEach>
+                        <tr>
+                            <td class="shoping__cart__item">
+                                <img src="../../img/categories/cat-1.jpg" alt="" style="width: 30%;">
+                                <h5>Nhà Đầu Tư Thông Minh</h5>
+                            </td>
+                            <td class="shoping__cart__price">
+                                99.000 VND
+                            </td>
+
+                            <td class="shoping__cart__total">
+                                99.000 VND
+                            </td>
+                            <td class="shoping__cart__item__close">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="shoping__cart__item">
+                                <img src="../../img/categories/cat-3.jpg" alt="" style="width: 30%;">
+                                <h5>Hai Số Phận</h5>
+                            </td>
+                            <td class="shoping__cart__price">
+                                69.000 VND
+                            </td>
+
+                            <td class="shoping__cart__total">
+                                69.000 VND
+                            </td>
+                            <td class="shoping__cart__item__close">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
