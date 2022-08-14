@@ -43,6 +43,7 @@ public class ActionBillController extends HttpServlet {
 
 
                 System.out.println("order của 1 " +order);
+
             }else {
                 order = new OrderDetails();
                 order.setFullname(fullname);
@@ -81,7 +82,6 @@ public class ActionBillController extends HttpServlet {
 //            System.out.println("asdf");
 //            response.sendRedirect(request.getContextPath() + "/checkout");
 //        }
-
 
 
     }

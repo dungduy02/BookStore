@@ -22,8 +22,10 @@
 
     <!-- Google Font -->
 
+
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
 <div style="text-align: center; font-size: 35px"><b>THÔNG TIN ĐƠN HÀNG</b></div>
 <div class="col-md-12 center-column " id="content">
@@ -56,6 +58,7 @@
 <%--            </c:if>--%>
 <%--            </tbody>--%>
 <%--        </table>--%>
+
         <div style="font-size: 20px; margin: 10px 5px;">
             <c:if test="${not empty bill}">
                 <div>Họ và tên: &nbsp;&nbsp;<span style="margin-left: 50px;"><b>${bill.fullname}</b></span></div>
@@ -109,7 +112,9 @@
                     <tr>
                         <div class="buttons" style="min-height: 15px">
                             <c:if test="${not empty bill}">
+
                                 <a class="hidden-xs"  href="<c:url value = "/Trangchu?action=remove"/>"><strong><i
+
                                 class="fa fa-caret-right"></i> Quay lại trang chính</strong></a>
                             </c:if>
 <%--                            <c:if test="${not empty bill}">--%>

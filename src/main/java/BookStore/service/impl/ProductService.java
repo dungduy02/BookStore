@@ -82,6 +82,11 @@ public class ProductService implements IProductService {
         productDAO.updateProduct(product);
     }
 
+    @Override
+    public List<Product> getRandomPr() {
+        return productDAO.getRandomPr();
+    }
+
 
     @Override
     public List<Product> getProductByPrice() {

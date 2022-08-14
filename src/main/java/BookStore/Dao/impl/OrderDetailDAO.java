@@ -44,6 +44,7 @@ public class OrderDetailDAO extends AbstractDAO<OrderDetails> implements IOrderD
                 orderDetails.getEmail(),
                 orderDetails.getNote(),
                 cart.getId());
+
     }
 
     @Override
@@ -68,7 +69,6 @@ public class OrderDetailDAO extends AbstractDAO<OrderDetails> implements IOrderD
 
     @Override
     public OrderDetails Payment(OrderDetails orderDetails) {
-
 
 //        String sql = "INSERT INTO detail_order (fullname, address, phone, email, note) VALUES (?,?,?,?,?)";
 //       insert(sql,orderDetails.getFullname(),orderDetails.getAddress(),orderDetails.getEmail(),orderDetails.getPhone(),orderDetails.getNote());

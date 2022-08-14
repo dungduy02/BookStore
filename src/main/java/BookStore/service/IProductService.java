@@ -24,4 +24,6 @@ public interface IProductService {
     void deleteProduct(String id);
     void insertProduct(Product product);
     void updateProduct(Product product);
+
+    List<Product> getRandomPr();
 }

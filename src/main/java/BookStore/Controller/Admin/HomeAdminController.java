@@ -59,4 +59,5 @@ public class HomeAdminController extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("/views/admin/index.jsp");
         rd.forward(request, response);
     }
+
 }

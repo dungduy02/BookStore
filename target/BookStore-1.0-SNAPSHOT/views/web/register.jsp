@@ -2,6 +2,7 @@
          pageEncoding="UTF-8" %>
 
 <%@include file="/common/taglib.jsp" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -28,6 +29,7 @@
             <h2><%=request.getAttribute("notyfi")==null?"":request.getAttribute("notyfi")%></h2>
             <form id="registry" action="<c:url value="/dang-ky"/> " method="POST" name="myForm"
                   onsubmit="return validateForm()">
+
                 <div class="user-details">
                     <div class="input-box form-group">
                         <span class="details">Họ Và Tên</span>
@@ -38,6 +40,7 @@
                             <%=request.getAttribute("entry") == null ? ""
                                     : request.getAttribute("entry")%>
                         </label>
+
                     </div>
                     <div class="input-box form-group">
                         <span class="details">Tên Tài Khoản</span>
@@ -47,6 +50,7 @@
                         <label id="errUsername" style="color: red">
                             <%=request.getAttribute("uname-err") == null ? "" : request.getAttribute("uname-err")%>
                         </label>
+
                     </div>
                     <div class="input-box form-group">
                         <span class="details">Email</span>
@@ -56,6 +60,7 @@
                         <label id="errEmail" style="color: red"><%=request.getAttribute("email-err") == null ? ""
                                 : request.getAttribute("email-err")%>
                         </label>
+
 
                     </div>
                     <div class="input-box form-group">
@@ -204,6 +209,7 @@
         }
 
     </script>
+
 </body>
 
 </html>

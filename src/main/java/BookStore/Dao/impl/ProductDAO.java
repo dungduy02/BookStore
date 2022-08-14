@@ -162,8 +162,14 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
         }
     }
 
+    @Override
+    public List<Product> getRandomPr() {
+        String sql = "SELECT * FROM products\n" +
+                "ORDER BY RAND()\n" +
+                "LIMIT 5";
 
-
+        return query(sql, new ProductMapper());
+    }
 
 
     public List<Product> getProductbyPrice() {

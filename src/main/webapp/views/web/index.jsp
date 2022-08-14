@@ -129,7 +129,7 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="latest-product__text">
-                    <h4>Giảm Giá</h4>
+                    <h4>Giảm giá </h4>
                     <c:forEach items="${listSale}" var="sale" begin="1" end="6">
                     <div class="sale">
 
@@ -152,22 +152,26 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="latest-product__text">
-                    <h4>Dành cho bạn</h4>
-                    <div class="latest-product__slider owl-carousel">
+                    <h4>Ngẫu nhiên</h4>
+                    <c:forEach items="${rdPro}" var="rdPro">
+                        <div class="new">
 
-                        <div class="latest-prdouct__slider__item">
+                            <div class="n">
+                                <a href="DetailsController?pid=${rdPro.id}" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="${rdPro.img}" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>${rdPro.name}</h6>
+                                        <span>${rdPro.price} VND</span>
+                                    </div>
+                                </a>
 
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-9.jpg" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h6>OSHO - Yêu - Being In Love</h6>
-                                    <span>114.240 VND</span>
-                                </div>
-                            </a>
+
+                            </div>
+
                         </div>
-                    </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>
