@@ -28,7 +28,7 @@ public class AProductDAO {
 
             while (rs.next()){
                 list.add(new Product(rs.getInt("id"),
-                rs.getString("code_product"),
+//                rs.getString("code_product"),
                 rs.getString("name"),
                 rs.getInt("price"),
                 rs.getString("picture"),

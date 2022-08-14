@@ -24,7 +24,7 @@
                             <div class="col">
                                 <h3 class="page-title">Sửa danh mục</h3>
                                 <ul class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="categories.html">Danh mục</a></li>
+                                    <li class="breadcrumb-item"><a href="admin-category">Danh mục</a></li>
                                     <li class="breadcrumb-item active">Sửa danh mục</li>
                                 </ul>
                             </div>
@@ -36,23 +36,21 @@
                         <div class="card-body">
 
                             <!-- Form -->
-                            <form action="categories.html">
-                                <div class="form-group">
-                                    <label>Tên danh mục</label>
-                                    <input class="form-control" type="text" value="Tâm Lý">
-                                </div>
-                                <div class="form-group">
-                                    <label>Hình ảnh danh mục</label>
-                                    <input class="form-control" type="file">
-                                </div>
-                                <div class="form-group">
-                                    <div class="avatar">
-                                        <img class="avatar-img rounded" alt="" src="assets/img/categories/tu-huyet-cam-xuc.jpg">
+                            <form action="admin-edit-category" method="post">
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-2">ID</label>
+                                    <div class="col-md-10">
+                                        <input type="text" name="id" value="${st.id}" class="form-control" readonly>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label>Tên danh mục</label>
+                                    <input class="form-control" type="text" name="name" value="${st.name}">
+                                </div>
+
                                 <div class="mt-4">
                                     <button class="btn btn-primary" type="submit">Lưu</button>
-                                    <a href="categories.html" class="btn btn-link">Hủy</a>
+                                    <a href="admin-category" class="btn btn-link">Hủy</a>
                                 </div>
                             </form>
                             <!-- /Form -->

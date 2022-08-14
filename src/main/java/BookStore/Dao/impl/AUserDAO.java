@@ -38,8 +38,8 @@ public class AUserDAO {
                         rs.getString("address"),
                         rs.getString("sex"),
                         rs.getString("phone"),
-                        rs.getInt("status"),
-                        rs.getInt("blog_id")
+                        rs.getInt("status")
+//                        rs.getInt("blog_id")
 
                         ));
             }

@@ -67,6 +67,16 @@
     .hero-normal{
         height: 100px;
     }
+    .sticky{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        margin-left: 180px;
+        background-color: #f5f5f5;
+
+    }
 </style>
 <!-- Header Section Begin -->
 <header class="header">
@@ -132,11 +142,11 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" id="myHeader">
         <div class="row" style="margin-top: 20px">
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a src="https://firebasestorage.googleapis.com/v0/b/image-c757c.appspot.com/o/logo.png?alt=media&token=e813ab15-c955-48fe-83cf-47d48007a4b6" alt="" style="height: 85%;width: 100px"></a>
+                   <a href="<c:url value = "/TrangChu"/>"> <img src="https://firebasestorage.googleapis.com/v0/b/image-c757c.appspot.com/o/logo.png?alt=media&token=e813ab15-c955-48fe-83cf-47d48007a4b6"> </a>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -145,7 +155,7 @@
                         <li class="actives"><a href="<c:url value = "/"/>">Trang Chủ</a></li>
                         <li><a href="<c:url value = "/shop"/>">Mua Sắm</a></li>
 
-                        <li><a href="#">Bài Viết</a></li>
+                        <li><a href="<c:url value = "/blog"/>">Bài Viết</a></li>
                         <li><a href="<c:url value = "/contact"/>">Liên Hệ</a></li>
                     </ul>
                 </nav>
@@ -153,8 +163,8 @@
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-                        <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="<c:url value = "/cart"/>"><i class="fa fa-shopping-bag"></i> <span>${cart.size()}</span></a></li>
+<%--                        <li><a href="<c:url value = "/favourite"/>"><i class="fa fa-heart"></i> <span>1</span></a></li>--%>
+                        <li><a href="<c:url value = "/cart"/>"><i class="fa fa-shopping-bag" style="font-size: 35px"></i> <span>${cart.size()}</span></a></li>
                     </ul>
                     <div class="header__cart__price">Tổng: <span>${cart.totalPrice()} VND</span></div>
                 </div>
@@ -184,18 +194,20 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="<c:url value="/search"/>">
+                            <form action="<c:url value="/search"/>" method="get">
 
-                                <input type="text" placeholder="Tìm kiếm sách bạn mong muốn....">
-                                <button type="submit" class="site-btn">Tìm Kiếm</button>
+                                <input type="text" placeholder="Tìm kiếm sách mong muốn...." name="keyword">
+                                <button  type="submit" class="site-btn">TÌM</button>
+
+
                             </form>
                         </div>
                         <div class="hero__search__phone">
                             <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
+                                <i class="fa fa-phone" style="margin-top: 15px"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+ 84353535355</h5>
+                                <h5> 0889013464</h5>
                                 <span>Hỗ trợ 24/7</span>
                             </div>
                         </div>
@@ -219,5 +231,19 @@
                 dropdownContent.style.display = "grid";
             }
         });
+    }
+</script>
+<script>
+    window.onscroll = function (){
+        myFunction()
+    };
+    var header  = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+    function myFunction(){
+        if (window.pageYOffset > sticky){
+            header.classList.add("sticky");
+        }else {
+            header.classList.remove("sticky");
+        }
     }
 </script>

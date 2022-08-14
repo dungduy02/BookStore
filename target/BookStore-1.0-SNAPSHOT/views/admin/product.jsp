@@ -10,7 +10,6 @@
     <title>Sản phẩm</title>
     <link href="assets/img/icon/icon-logo.png" rel="shortcut icon">
 
-
 </head>
 
 <body>
@@ -23,179 +22,73 @@
                 <h3 class="page-title">Sản phẩm</h3>
             </div>
             <div class="col-auto text-right">
-                <a class="btn btn-white filter-btn" href="javascript:void(0);" id="filter_search">
-                    <i class="fas fa-filter"></i>
-                </a>
-                <a href="add-product.html" class="btn btn-primary add-button ml-3">
+                <a href="admin-add-product" class="btn btn-primary add-button ml-3">
                     <i class="fas fa-plus"></i>
                 </a>
             </div>
         </div>
-    </div>
-    <!-- /Page Header -->
-
-    <!-- Search Filter -->
-    <div class="card filter-card" id="filter_inputs">
-        <div class="card-body pb-0">
-            <form action="#" method="post">
-                <div class="row filter-row">
-
-                    <!-- thay đổi ở đây ************************ -->
-                    <div class="col-sm-6 col-md-3">
-                        <div class="form-group">
-                            <label>Mã sản phẩm</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="form-group">
-                            <label>Tên sản phẩm</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </div>
-                    <!-- Thay đổi theo danh sách đề mục -->
-                    <div class="col-sm-6 col-md-3">
-                        <div class="form-group">
-                            <label>Category</label>
-                            <select class="form-control select">
-                                <option>Chọn Danh Mục</option>
-                                <option>Khoa Học</option>
-                                <option>Tâm Lý</option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="form-group">
-                            <button class="btn btn-primary btn-block" type="submit">Chọn</button>
-                        </div>
-                    </div>
-                </div>
+        <div class="row">
+            <form class="example " action="admin-search-product" method="get" >
+                <input style="width: 500px;border: 1px #ffffff;height: 45px;margin-left: 15px;" type="text" placeholder="Tìm kiếm tên sách" name="key">
+                <button style="height: 45px; width: 45px; background: yellowgreen;color: white;" type="submit" class="btn btn-white"><i class="fa fa-search"></i></button>
             </form>
         </div>
     </div>
-    <!-- /Search Filter -->
+    <!-- /Page Header -->
+
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 d-flex">
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-center mb-0 datatable">
-                            <!-- Thay đổi code ở đây Thay đổi theo file word -->
+
+                        <table class="table table-center table-hover mb-0 datatable">
+                            <!-- Thay đổi code ở đây Thay đổi theo file word table-hover mb-0 datatable-->
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Ảnh</th>
+<%--                                <th>Anh</th>--%>
                                 <th>Tên sản phẩm</th>
-                                <th>Danh mục</th>
                                 <th>Giá</th>
                                 <th>Số lượng</th>
-                                <th>ID nhà cung cấp</th>
+                                <th>ID danh mục </th>
                                 <th>ID nhà xuất bản</th>
-                                <th class="text-right">Hành Động</th>
+                                <th class="text-right"></th>
                             </tr>
                             </thead>
-
-                            <!-- Thêm vào nội dung ở đây -->
                             <tbody>
+                            <c:forEach items="${requestScope.data}" var="x">
                             <tr>
-                                <td>1</td>
-                                <td>
-                                    <img class="rounded service-img mr-1" src="assets/img/categories/powervsforce.jpg"
-                                         alt="Hình ảnh danh mục"></td>
-                                <td>Power vs Force</td>
-                                <td>Tâm Lý</td>
-                                <td>149.000 VNĐ</td>
-                                <td>10</td>
-                                <td>1</td>
-                                <td>1</td>
+
+<%--                                <td>--%>
+<%--                                    <img class="rounded service-img mr-1" src="assets/img/categories/powervsforce.jpg"--%>
+<%--                                         alt="Hình ảnh danh mục"></td>--%>
+                                <td>${x.id}</td>
+                                <td>${x.name}</td>
+                                <td>${x.price}<small> VND</small></td>
+                                <td>${x.quantity}</td>
+                                <td>${x.categoryid}</td>
+                                <td>${x.publisherid}</td>
                                 <td class="text-right">
-                                    <a href="edit-product.html" class="btn btn-sm bg-success-light mr-2"> <i
+                                    <a href="admin-edit-product?sid=${x.id}" class="btn btn-sm bg-success-light mb-2"> <i
                                             class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
+                                    <a  href="#" class="btn btn-outline-danger btn-sm" onclick="showMess(${x.id})"><i
                                             class="fa fa-trash-o"></i> Xóa
-                                    </button>
+                                    </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <img class="rounded service-img mr-1" src="assets/img/categories/powervsforce.jpg"
-                                         alt="Hình ảnh danh mục"></td>
-                                <td>Power vs Force</td>
-                                <td>Tâm Lý</td>
-                                <td>149.000 VNĐ</td>
-                                <td>10</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td class="text-right">
-                                    <a href="edit-product.html" class="btn btn-sm bg-success-light mr-2"> <i
-                                            class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
-                                            class="fa fa-trash-o"></i> Xóa
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <img class="rounded service-img mr-1" src="assets/img/categories/powervsforce.jpg"
-                                         alt="Hình ảnh danh mục"></td>
-                                <td>Power vs Force</td>
-                                <td>Tâm Lý</td>
-                                <td>149.000 VNĐ</td>
-                                <td>10</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td class="text-right">
-                                    <a href="edit-product.html" class="btn btn-sm bg-success-light mr-2"> <i
-                                            class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
-                                            class="fa fa-trash-o"></i> Xóa
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <img class="rounded service-img mr-1" src="assets/img/categories/powervsforce.jpg"
-                                         alt="Hình ảnh danh mục"></td>
-                                <td>Power vs Force</td>
-                                <td>Tâm Lý</td>
-                                <td>149.000 VNĐ</td>
-                                <td>10</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td class="text-right">
-                                    <a href="edit-product.html" class="btn btn-sm bg-success-light mr-2"> <i
-                                            class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
-                                            class="fa fa-trash-o"></i> Xóa
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <img class="rounded service-img mr-1" src="assets/img/categories/powervsforce.jpg"
-                                         alt="Hình ảnh danh mục"></td>
-                                <td>Power vs Force</td>
-                                <td>Tâm Lý</td>
-                                <td>149.000 VNĐ</td>
-                                <td>10</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td class="text-right">
-                                    <a href="edit-product.html" class="btn btn-sm bg-success-light mr-2"> <i
-                                            class="far fa-edit mr-1"></i> Sửa</a>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i
-                                            class="fa fa-trash-o"></i> Xóa
-                                    </button>
-                                </td>
-                            </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
+                        <c:set var="k" value="${requestScope.key}"></c:set>
+                        <c:set var="page" value="${requestScope.page}"/>
+                            <div class="pagination" >
+                                <c:forEach begin="${1}" end="${requestScope.num}" var="i">
+<%--                                    <a href="admin-product?page=${i}">${i}</a>--%>
+                                    <a style="background-color: #7fad39;color: white;width: 25px;height: 21px;text-align: center;margin-right: 3px;" href="admin-search-product?page=${i}&key=${key}">${i}</a>
+                                </c:forEach>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -203,7 +96,16 @@
     </div>
 </div>
 
-</body>
+<script>
+    <%--    deleteProduct?sid=${x.id}--%>
+    function  showMess(id){
+        var option = confirm('ban co chan chan xoa khong ?');
+        if(option === true ) {
+            window.location.href = 'deleteProduct?sid='+id;
+        }
+    }
+</script>
 
+</body>
 </html>
 
