@@ -26,6 +26,7 @@
         <div class="title">Đăng Ký</div>
         <div class="content">
 
+
             <h2><%=request.getAttribute("notyfi")==null?"":request.getAttribute("notyfi")%></h2>
             <form id="registry" action="<c:url value="/dang-ky"/> " method="POST" name="myForm"
                   onsubmit="return validateForm()">
@@ -61,7 +62,6 @@
                                 : request.getAttribute("email-err")%>
                         </label>
 
-
                     </div>
                     <div class="input-box form-group">
                         <span for="phone" class="details">Số điện thoại</span>
@@ -71,6 +71,7 @@
                         <label id="errPhone">
                             <%= request.getAttribute("entry") == null ? "" : request.getAttribute("entry") %>
 
+
                         </label>
                     </div>
                     <div class="input-box form-group">
@@ -79,6 +80,7 @@
                                value="<%=request.getAttribute("password")==null?"":request.getAttribute("password")%>">
                         <label id="errPassword" style="color: red">
                             <%= request.getAttribute("entry") == null ? "" : request.getAttribute("entry") %></label>
+
                     </div>
                     <div class="input-box form-group">
                         <span class="details">Nhập lại mật khẩu</span>

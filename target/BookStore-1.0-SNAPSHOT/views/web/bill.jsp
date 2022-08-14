@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="BookStore.Model.OrderDetails" %>
 <%@ page import="BookStore.Model.Cart" %>
+
 <%@ page import="BookStore.Model.Product" %><%--
   Created by IntelliJ IDEA.
   User: DUNGDUY
@@ -10,7 +11,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
-
 <html>
 <head>
     <meta charset="UTF-8">
@@ -21,6 +21,7 @@
     <title>BOOKSTORE NLU | Đơn hàng</title>
 
     <!-- Google Font -->
+
 
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 </head>
@@ -74,6 +75,7 @@
                 <th class="product-name">Tên sản phẩm</th>
                 <th class="product-price">Giá</th>
                 <th class="product-quantity">Số lượng</th>
+
             </tr>
             </thead>
             <tbody>
@@ -86,7 +88,6 @@
                 <td>${item.product.name}</td>
                 <td> ${item.price}</td>
                 <td>${item.quantity}</td>
-
             </tr>
             </c:forEach>
             <%--                <%--%>
@@ -106,15 +107,14 @@
                     </tr>
                     </tbody>
                 </table>
-
                 <table>
                     <tbody>
                     <tr>
                         <div class="buttons" style="min-height: 15px">
                             <c:if test="${not empty bill}">
-                                <a class="hidden-xs"
 
-                                                                         href="<c:url value = "/Trangchu?action=remove"/>"><strong><i
+                                <a class="hidden-xs"  href="<c:url value = "/Trangchu?action=remove"/>"><strong><i
+
                                 class="fa fa-caret-right"></i> Quay lại trang chính</strong></a>
                             </c:if>
 <%--                            <c:if test="${not empty bill}">--%>
@@ -123,7 +123,6 @@
 <%--                               href="<c:url value = "/removeSession?action=remove"/>"><strong><i--%>
 <%--                                    class="fa fa-caret-right"></i> Quay lại trang chính</strong></a>--%>
 <%--                        </c:if>--%>
-
                         </div>
                     </tr>
 
