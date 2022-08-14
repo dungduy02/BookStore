@@ -36,16 +36,7 @@ public class HomeController extends HttpServlet {
         Slider slider = sliderService.getSlide();
         List<Sale> sales = saleService.getAllSale();
         List<Blog> listBlog = blogService.getAllBlog();
-        Sale sale = null;
-        for (Product p: listS) {
-            if (p.getSaleid() == 2){
-                sale = saleService.getSaleById2();
-                request.setAttribute("PriceSale",sale);
-            }else if (p.getSaleid() == 3){
-                sale = saleService.getSaleById3();
-                request.setAttribute("PriceSale",sale);
-            }
-        }
+        Sale sal = saleService.getSaleById2();
 
         request.setAttribute("ListNew",listn);
         request.setAttribute("listSale",listS);
@@ -54,6 +45,7 @@ public class HomeController extends HttpServlet {
         request.setAttribute("slider",slider);
         request.setAttribute("Percent",sales);
         request.setAttribute("listBlog",listBlog);
+        request.setAttribute("sale2",sal);
 
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/index.jsp");
         rd.forward(request, response);

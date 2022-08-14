@@ -20,6 +20,7 @@ public class ActionBillController extends HttpServlet {
     @Inject
     private ICartService cartService;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         response.setContentType("text/html;charset=UTF-8");
         String fullname = request.getParameter("fullname");
@@ -34,12 +35,13 @@ public class ActionBillController extends HttpServlet {
             if (user != null){
                 order = new OrderDetails();
                 order.setFullname(user.getFullname());
-                order.setAddress(user.getAddress());
+                order.setAddress(address);
                 order.setEmail(user.getEmail());
-                order.setPhone(user.getPhone());
+                order.setPhone(phone);
                 order.setNote(note);
 
-                System.out.println(order);
+
+
             }else {
                 order = new OrderDetails();
                 order.setFullname(fullname);
@@ -48,30 +50,10 @@ public class ActionBillController extends HttpServlet {
                 order.setPhone(phone);
                 order.setNote(note);
             }
-            orderDetailService.Payment(order);
-            response.sendRedirect(request.getContextPath() + "/checkout");
-            request.setAttribute("err","không thể bỏ trống");
-
-//        try {
-//
-//            Cart cart1 = cartService.getLastCart();
-//            System.out.println("fasdf : " + cart.getId());
-//            in = orderDetailService.insert(in, cart1);
-//            System.out.println("hiển thị gì đây: " +in.toString());
-//            request.getSession().setAttribute("cart", cart);
-//            request.getSession().setAttribute("ORDERMODEL", in);
-//            request.setAttribute("err","không thể bỏ trống");
-//            request.setAttribute("fullname",user.getFullname());
-//            request.setAttribute("email",user.getEmail());
-//            request.setAttribute("phone",user.getPhone());
-//            request.setAttribute("address",user.getAddress());
-//            request.setAttribute("note",note);
-//            response.sendRedirect(request.getContextPath() + "/TrangChu");
-//
-//        }catch (Exception e){
-//            System.out.println("asdf");
-//            response.sendRedirect(request.getContextPath() + "/checkout");
-//        }
+            order = orderDetailService.Payment(order);
+            session.setAttribute("bill",order);
+            response.sendRedirect(request.getContextPath() + "/bill");
+        request.setAttribute("err","không thể bỏ trống");
 
 
 

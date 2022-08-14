@@ -57,7 +57,7 @@
 <body>
 <div class="moda fad" id="myModa" tabindex="-" role="dialo" aria-labelledby="myModalLabe">
     <div class="modal-dialog" role="document">
-        <form id="login" action="<c:url value="/Dang-nhap"/>" method="POST" name="myForm" onsubmit="ValidateForm()">
+        <form id="login" action="<c:url value="/Dang-nhap"/>" method="POST" name="myForm" onsubmit="return ValidCaptcha()">
             <div class="modal-content clearfix">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">×</span></button>
@@ -102,7 +102,7 @@
                         <label>Lưu</label>
                     </div>
                     <a href="forgot" class="forgot-pass">Quên mật khẩu?</a>
-                    <button class="btn" type="submit" onclick="alert(ValidCaptcha());">Đăng nhập</button>
+                    <button id="show12" class="btn" type="submit"  disabled>Đăng nhập</button>
 
 
                 </div>
@@ -153,8 +153,10 @@
         if (checkBox.checked == true) {
             // var element = document.getElementById("hideCaptcha");
             element.style.display = "block";
+            document.getElementById("show12").removeAttribute("disabled");
         }else{
             element.style.display = "none";
+            document.getElementById("show12").setAttribute("disabled");
         }
         Captcha();
     }

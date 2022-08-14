@@ -39,12 +39,13 @@ public class HomeAdminController extends HttpServlet {
         List<Author> allAuthor = authorService.getAllAuthor();
         List<Publisher> allPublisher = publisherService.getAllPublisher();
         List<Order> order = orderDetailServicel.getOrder();
-
+        List<OrderDetails> orderDetails = orderDetailServicel.getAll();
         int totalProduct = listAll.size();
         int totalUser = AllUser.size();
         int totalAuthor = allAuthor.size();
         int totalPubliser = allPublisher.size();
 
+        request.setAttribute("detailOrder",orderDetails);
         request.setAttribute("totalUser",totalUser);
         request.setAttribute("totalProduct",totalProduct);
         request.setAttribute("totalPublisher",totalPubliser);

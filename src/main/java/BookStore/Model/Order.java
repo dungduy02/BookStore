@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
-public class Order implements Serializable {
+public class Order implements Serializable{
     private Integer id;
     private Integer cart_id;
     private Integer product_id;
