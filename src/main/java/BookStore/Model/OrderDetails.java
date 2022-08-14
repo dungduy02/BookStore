@@ -1,13 +1,11 @@
 package BookStore.Model;
 
-public class OrderDetails{
-
+public class OrderDetails extends  AbstracModel{
     private String fullname;
     private String address;
     private String phone;
     private String email;
     private String note;
-
 
 
     public OrderDetails() {
@@ -62,7 +60,6 @@ public class OrderDetails{
     public void setNote(String note) {
         this.note = note;
     }
-
 
 
     @Override

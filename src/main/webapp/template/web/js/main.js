@@ -230,3 +230,64 @@ var swiper = new Swiper(".mySwiper", {
         prevEl: ".swiper-button-prev",
     },
 });
+
+
+function Validator(options){
+    function validate(inputElement, rule){
+        var errElement = inputElement.parentElement.querySelector(options.errorSelector);
+        var errMassage = rule.test(inputElement.value);
+
+        if (errMassage){
+            errElement.innerText = errMassage;
+            inputElement.parentElement.classList.add('invalid');
+        }else {
+            errMassage.innerText = '';
+            inputElement.parentElement.classList.remove('invalid');
+        }
+    }
+
+    var formElement = document.querySelector(options.form);
+    if (formElement){
+        console.log(formElement);
+        options.rules.forEach(function (rule){
+            var inputElement = formElement.querySelector(rule.selector);
+
+            if (inputElement){
+
+                inputElement.onblur = function (){
+                        validate(inputElement,rule);
+                }
+                inputElement.oninput = function (){
+                    var errElement = inputElement.parentElement.querySelector('.form-message');
+                    errElement.innerText = '';
+                    inputElement.parentElement.classList.remove('invalid');
+                }
+            }
+        });
+    }
+}
+Validator.isRequired = function (selector){
+    return{
+        selector: selector,
+        test: function (value){
+            return value.trim() ? undefined : 'Không thể bỏ trống'
+        }
+    }
+}
+Validator.isEmail = function (selector){
+    return{
+        selector: selector,
+        test: function (value){
+            var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            return regex.test(value) ? undefined : 'Phải nhập đúng định dạng email';
+        }
+    }
+}
+Validator.minLength = function (selector,min){
+    return{
+        selector: selector,
+        test: function (value){
+            return value.length >= min ? undefined : 'Vui lòng nhập mật khẩu ${min} ký tự';
+        }
+    }
+}

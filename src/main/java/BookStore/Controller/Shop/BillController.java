@@ -31,4 +31,5 @@ public class BillController extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/bill.jsp");
         rd.forward(request,response);
     }
+
 }

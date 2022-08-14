@@ -34,9 +34,10 @@ public class OrderDetailService implements IOrderDetailService {
     }
 
     @Override
-    public OrderDetails insert(OrderDetails orderDetails, Cart cart) {
-        Integer id = orderDetailDAO.insert(orderDetails, cart);
-        return findOneById(id);
+    public void insert(OrderDetails orderDetails, Cart cart) {
+//        Integer id = orderDetailDAO.insert(orderDetails, cart);
+        orderDetailDAO.insert(orderDetails, cart);
+//        return findOneById(id);
 //        Integer id = OrderDetailDAO.insert(orderDetails);
 //        return findOneById(id);
     }

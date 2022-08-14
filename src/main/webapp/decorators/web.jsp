@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: DUNGDUY
-  Date: 2/28/2022
-  Time: 4:56 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/common/taglib.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -33,30 +27,11 @@
     <link href="<c:url value='/template/web/css/slicknav.min.css' />" rel="stylesheet" type="text/css" media="all">
     <link href="<c:url value='/template/web/css/style.css' />" rel="stylesheet" type="text/css" media="all">
     <link href="<c:url value='/template/web/css/style-page.css' />" rel="stylesheet" type="text/css" media="all">
-
-    <script type="text/javascript" src="<:c:url value='/template/web/js/jquery-3.3.1.min.js'/>"></script>
-    <script type="text/javascript" src="<:c:url value='/template/web/js/bootstrap.min.js'/>"></script>
-    <script type="text/javascript" src="<:c:url value='/template/web/js/jquery.nice-select.min.js'/>"></script>
-    <script type="text/javascript" src="<:c:url value='/template/web/js/jquery-ui.min.js'/>"></script>
-    <script type="text/javascript" src="<:c:url value='/template/web/js/jquery.slicknav.js'/>"></script>
-    <script type="text/javascript" src="<:c:url value='/template/web/js/mixitup.min.js'/>"></script>
-    <script type="text/javascript" src="<:c:url value='/template/web/js/owl.carousel.min.js'/>"></script>
-    <script type="text/javascript" src="<:c:url value='/template/web/js/main.js'/>"></script>
+    <script src="<c:url value="/template/web/js/jquery-3.3.1.min.js" />"></script>
+    <script src="<c:url value="/template/web/js/jquery.validate.min.js"/> " ></script>
 
 
 
-
-<%--    <link rel="stylesheet" href="../../css/bootstrap.min.css" type="text/css">--%>
-<%--    <link rel="stylesheet" href="../../css/font-awesome.min.css" type="text/css">--%>
-<%--    <link rel="stylesheet" href="../../css/elegant-icons.css" type="text/css">--%>
-<%--    <link rel="stylesheet" href="../../css/nice-select.css" type="text/css">--%>
-<%--    <link rel="stylesheet" href="../../css/jquery-ui.min.css" type="text/css">--%>
-<%--    <link rel="stylesheet" href="../../css/owl.carousel.min.css" type="text/css">--%>
-<%--    <link rel="stylesheet" href="../../css/slicknav.min.css" type="text/css">--%>
-<%--    <link rel="stylesheet" href="css/style.css" type="text/css">--%>
-<%--    <link rel="stylesheet" href="../../css/style-page.css" type="text/css">--%>
-<%--    <link rel="stylesheet" href="css/style.css" type="text/css">--%>
-<%--    <link rel="stylesheet" href="css/style.css" type="text/css">--%>
 </head>
 
 <body>
@@ -89,6 +64,14 @@
 <%--<script src="../../js/owl.carousel.min.js"></script>--%>
 <%--<script src="../../js/main.js"></script>--%>
 
+<script type="text/javascript" src="<:c:url value='/template/web/js/jquery-3.3.1.min.js'/>"></script>
+<script type="text/javascript" src="<:c:url value='/template/web/js/bootstrap.min.js'/>"></script>
+<script type="text/javascript" src="<:c:url value='/template/web/js/jquery.nice-select.min.js'/>"></script>
+<script type="text/javascript" src="<:c:url value='/template/web/js/jquery-ui.min.js'/>"></script>
+<script type="text/javascript" src="<:c:url value='/template/web/js/jquery.slicknav.js'/>"></script>
+<script type="text/javascript" src="<:c:url value='/template/web/js/mixitup.min.js'/>"></script>
+<script type="text/javascript" src="<:c:url value='/template/web/js/owl.carousel.min.js'/>"></script>
+<script type="text/javascript" src="<:c:url value='/template/web/js/main.js'/>"></script>
 
 
 </body>

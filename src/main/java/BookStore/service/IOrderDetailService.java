@@ -10,7 +10,7 @@ import java.util.List;
 public interface IOrderDetailService {
     List<OrderDetails> getAll();
     OrderDetails findOneById(Integer id);
-    OrderDetails insert(OrderDetails orderDetails, Cart cart);
+    void insert(OrderDetails orderDetails, Cart cart);
     List<Order> getOrder();
     OrderDetails Payment(OrderDetails orderDetails);
 }

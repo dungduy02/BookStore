@@ -49,32 +49,32 @@
                                 </div></c:if>
 
                             </div>
-                            <c:if test="${not empty USERMODEL}">
+
                             <div class="checkout__input">
                                 <p>Địa chỉ<span>*</span></p>
                                 <input type="text" placeholder="Nhập địa chỉ" class="checkout__input__add"
-                                       name="address" value="${USERMODEL.address}">
+                                       name="address" style="color: black">
                                 <label style="color:#F00;" for="fullname" class="error" id="address">
                                     <%=request.getAttribute("err") == null ? "" : request.getAttribute("err")%>
                                 </label>
-                            </div></c:if>
+                            </div>
 
                             <div class="row">
                                 <c:if test="${not empty USERMODEL}">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Số điện thoại<span>*</span></p>
-                                        <input type="text" name="phone" value="${USERMODEL.phone}">
+                                        <input type="text" name="phone" value="${USERMODEL.phone}" style="color: black">
                                         <label style="color:#F00;" for="fullname" class="error" id="phone">
                                             <%=request.getAttribute("err") == null ? "" : request.getAttribute("err")%>
-                                        </label>%>
+                                        </label>
                                     </div>
                                 </div></c:if>
                                 <c:if test="${not empty USERMODEL}">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Email<span>*</span></p>
-                                        <input type="text" name="email" value="${USERMODEL.email}">
+                                        <input type="text" name="email" value="${USERMODEL.email}" style="color: black">
                                         <label style="color:#F00;" for="fullname" class="error" id="email">
                                             <%=request.getAttribute("err") == null ? "" : request.getAttribute("err")%>
                                         </label>                                    </div>
@@ -85,7 +85,7 @@
                             <div class="checkout__input">
                                 <p>Ghi chú đơn hàng<span>*</span></p>
                                 <input type="text"
-                                       placeholder="Ghi chú chi tiết." name="note">
+                                       placeholder="Ghi chú chi tiết." name="note" style="color: black">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
@@ -122,7 +122,7 @@
         var phone = document.getElementById("phone");
         var email = document.getElementById("email");
         if (full == null || address == null || phone == null || email || null) {
-            alert("khoong");
+            // alert("khoong");
             return false;
         }
 

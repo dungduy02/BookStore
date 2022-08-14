@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@include file="/common/taglib.jsp" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -12,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BOOKSTORE NLU | Đăng ký</title>
-
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
@@ -25,11 +25,13 @@
         <div class="title">Đăng Ký</div>
         <div class="content">
 
+
             <h2><%=request.getAttribute("notyfi")==null?"":request.getAttribute("notyfi")%></h2>
             <form id="registry" action="<c:url value="/dang-ky"/> " method="POST" name="myForm"
                   onsubmit="return validateForm()">
+
                 <div class="user-details">
-                    <div class="input-box">
+                    <div class="input-box form-group">
                         <span class="details">Họ Và Tên</span>
                         <input type="text" name="fullname" id="fullname" placeholder="Tên của bạn"
                                value="<%=request.getAttribute("fullname")==null?"":request.getAttribute("fullname")%>"/>
@@ -37,8 +39,9 @@
                             <%=request.getAttribute("entry") == null ? ""
                                     : request.getAttribute("entry")%>
                         </label>
+
                     </div>
-                    <div class="input-box">
+                    <div class="input-box form-group">
                         <span class="details">Tên Tài Khoản</span>
                         <input type="text" name="username" id="username" placeholder="Nhập tên tài khoản"
                                value="<%=request.getAttribute("username")==null?"":request.getAttribute("username")%>"/>
@@ -46,8 +49,9 @@
                             <%=request.getAttribute("uname-err") == null ? "" : request.getAttribute("uname-err")%>
                         </label>
 
+
                     </div>
-                    <div class="input-box">
+                    <div class="input-box form-group">
                         <span class="details">Email</span>
                         <input type="email" name="email" id="email" placeholder="Email của bạn"
                                value="<%=request.getAttribute("email")==null?"":request.getAttribute("email")%>">
@@ -55,24 +59,27 @@
                                 : request.getAttribute("email-err")%>
                         </label>
 
+
                     </div>
-                    <div class="input-box">
+                    <div class="input-box form-group">
                         <span for="phone" class="details">Số điện thoại</span>
                         <input name="phone" type="text" id="phone" placeholder="Nhập số điện thoại"
                                value="<%=request.getAttribute("phone")==null?"":request.getAttribute("phone")%>">
                         <label id="errPhone">
                             <%= request.getAttribute("entry") == null ? "" : request.getAttribute("entry") %>
 
+
                         </label>
                     </div>
-                    <div class="input-box">
+                    <div class="input-box form-group">
                         <span class="details">Mật khẩu</span>
                         <input type="password" name="password" id="password" placeholder="Nhập mật khẩu"
                                value="<%=request.getAttribute("password")==null?"":request.getAttribute("password")%>">
                         <label id="errPassword" style="color: red">
                             <%= request.getAttribute("entry") == null ? "" : request.getAttribute("entry") %></label>
+
                     </div>
-                    <div class="input-box">
+                    <div class="input-box form-group">
                         <span class="details">Nhập lại mật khẩu</span>
                         <input type="password" name="confirmPassword" id="confirmPassword"
                                value="<%=request.getAttribute("confirmPassword")==null?"":request.getAttribute("confirmPassword")%>"
@@ -89,6 +96,7 @@
                         <label id="errAddress" style="color: red">
                             <%= request.getAttribute("entry") == null ? "" : request.getAttribute("entry") %></label>
                         </label>
+
                     </div>
                 </div>
                 <div style="display: flex">
@@ -118,7 +126,7 @@
 <%--                    </div>--%>
                 </div>
                 <div class="button">
-                    <input type="submit" value="Đăng Ký">
+                    <input type="submit" value="Đăng Ký" class="form-submit">
                 </div>
             </form>
         </div>
@@ -201,6 +209,24 @@
         }
 
     </script>
+    <!-- <script>
+        Validator({
+            form: '#registry',
+            errorSelector: '.form-message',
+            rules:[
+                Validator.isRequired('#fullname'),
+                Validator.isEmail('#email'),
+                Validator.minLength('#password',6),
+                Validator.isRequired('#phone'),
+                Validator.isRequired('#address'),
+                Validator.isRequired('#username'),
+
+
+            ]
+        });
+
+    </script> -->
+
 </body>
 
 </html>

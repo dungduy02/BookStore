@@ -20,52 +20,13 @@
     <div class="slider " >
 
         <div class="numberText" style="height: 200px;width: 100%">
-            <img src="${slider.img}" >
+            <img src="${slider.img}" style="width: 100%;height: 250px">
         </div>
 
     </div>
 </section>
-<!-- Hero Section End -->
-<!-- Begin banner top -->
-<section class="container" >
-    <div class=" banner_top row set-bg" data-setbg="<c:url value="/template/web/img/banner/bg1.png"/>">
-        <div class="col-lg-12">
-            <h2>BOOKSTORE NLU</h2>
-            <div class="row ">
-                <p>Uy tính</p>
-                <p>Chất lượng</p>
-                <p>Tiện lợi</p>
-            </div>
-        </div>
-    </div>
-
-</section>
 
 
-<!-- Categories Section Begin -->
-<section class="categories">
-    <div class="section-title">
-        <h4 class="tit-box">
-            <a href="product-sale.html">Tìm Kiếm Hàng Đầu</a>
-        </h4>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="categories__slider owl-carousel">
-
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="#">
-                        <h5><a href="#">Đầu Tư</a></h5>
-                    </div>
-                </div>
-
-
-
-
-            </div>
-        </div>
-    </div>
-</section>
 <!-- Categories Section End -->
 
 <!-- Featured Section Begin -->
@@ -74,7 +35,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>NỔI BẬT</h2>
+                    <h2>SẢN PHẨM</h2>
                 </div>
 
             </div>
@@ -177,11 +138,11 @@
                                 <div class="latest-product__item__pic">
                                     <img src="${sale.img}" alt="">
                                 </div>
-<%--                                <div class="discount__precent">${sales.percent}</div>--%>
+                                <div class="discount__precent">${sale2.percent}</div>
                                 <div class="latest-product__item__text">
                                     <h6>${sale.name}</h6>
                                     <span class="discount">${sale.price} VND</span>
-                                    <span>${sale.price}VND</span>
+                                    <span>${sale.price - (sale2.priceSale * sale.price)}VND</span>
                                 </div>
                             </a>
                         </div>
@@ -193,54 +154,9 @@
                 <div class="latest-product__text">
                     <h4>Dành cho bạn</h4>
                     <div class="latest-product__slider owl-carousel">
+
                         <div class="latest-prdouct__slider__item">
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-4.jpg" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h6>Thay Đổi Cuộc Sống Với Nhân Số Học</h6>
-                                    <span>110.400 VND</span>
-                                </div>
-                            </a>
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-5.jpg" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h6>Hiểu Về Trái Tim</h6>
-                                    <span>68.000 VND</span>
-                                </div>
-                            </a>
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-6.jpg" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h6>Trên Đường Băng</h6>
-                                    <span>79.200 VND</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="latest-prdouct__slider__item">
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-7.jpg" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h6>Rèn Luyện Tư Duy Phản Biện</h6>
-                                    <span>79.200 VND</span>
-                                </div>
-                            </a>
-                            <a href="./shop-details.html" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="../../img/latest-product/lp-8.jpg" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h6>Kiếp Nào Ta Cũng Tìm Thấy Nhau y</h6>
-                                    <span>148.800 VND</span>
-                                </div>
-                            </a>
+
                             <a href="./shop-details.html" class="latest-product__item">
                                 <div class="latest-product__item__pic">
                                     <img src="../../img/latest-product/lp-9.jpg" alt="">
@@ -270,7 +186,7 @@
             </div>
         </div>
         <div class="row">
-            <c:forEach items="${listBlog}" var="blog">
+            <c:forEach items="${listBlog}" var="blog" end="2">
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="blog__item">
                     <div class="blog__item__pic">

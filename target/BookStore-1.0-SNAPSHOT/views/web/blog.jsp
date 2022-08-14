@@ -20,11 +20,19 @@
 
 <body>
 
-
+<section>
+    <div class="container">
+    <div class="row">
+        <div class="col-sm-12" style="display: flex;text-align: center;justify-content: center;align-items: center">
+            <h2>Danh Sách Blog</h2>
+        </div>
+    </div></div>
+</section>
 
 <section class="blog spad">
 
     <div class="container">
+
         <div class="row">
             <c:forEach items="${listBlog}" var="blog">
 
@@ -48,6 +56,7 @@
             </div>
             </c:forEach>
         </div>
+
     </div>
 </section>
 

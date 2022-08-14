@@ -20,6 +20,7 @@ public class ActionBillController extends HttpServlet {
     @Inject
     private ICartService cartService;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         response.setContentType("text/html;charset=UTF-8");
         String fullname = request.getParameter("fullname");
@@ -35,11 +36,10 @@ public class ActionBillController extends HttpServlet {
                 order = new OrderDetails();
                 order.setFullname(user.getFullname());
 //                order.setAddress(user.getAddress());
-                order.setEmail(user.getEmail());
-                order.setPhone(user.getPhone());
-                order.setNote(note);
 
-                System.out.println("order của 1 " +order);
+                order.setEmail(user.getEmail());
+                order.setPhone(phone);
+                order.setNote(note);
             }else {
                 order = new OrderDetails();
                 order.setFullname(fullname);
@@ -77,6 +77,7 @@ public class ActionBillController extends HttpServlet {
 //            System.out.println("asdf");
 //            response.sendRedirect(request.getContextPath() + "/checkout");
 //        }
+
 
 
 

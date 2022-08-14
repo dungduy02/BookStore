@@ -22,6 +22,11 @@ public class BlogService implements IBlogService {
         return blogDAO.getDetailBlog(id);
     }
 
+    @Override
+    public List<Blog> getPageBlog(List<Blog> list, int start, int end) {
+        return blogDAO.getPageBlog(list,start,end);
+    }
+
     public static void main(String[] args) {
         BlogDAO blogDAO = new BlogDAO();
 //        List<Blog> list = blogDAO.getBlog();

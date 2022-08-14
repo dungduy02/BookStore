@@ -11,4 +11,5 @@ public interface IOrderDetailDAO extends GenericDAO<OrderDetails>{
     Integer insert(OrderDetails orderDetails, Cart cart);
     List<OrderDetails> getAll();
     OrderDetails Payment(OrderDetails orderDetails);
+
 }

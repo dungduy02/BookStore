@@ -19,6 +19,8 @@ public class OrderDetailMapper implements RowMapper<OrderDetails>{
             order.setPhone(rs.getString("phone"));
             order.setNote(rs.getString("note"));
         } catch (SQLException e) {
+            e.printStackTrace();
+
             return null;
         }
 

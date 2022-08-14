@@ -49,10 +49,17 @@ public class LoginController extends HttpServlet {
         String pass = EncryptUtil.encryptMD5(password);
         User user = userService.getUser(username);
         if (user != null) {
+
             if (user.getPassword().equals(password) || user.getPassword().equals(pass)){//user.getPassword().equals(password)
-                HttpSession ss = request.getSession();
-                ss.setAttribute("USERMODEL", user);
-                response.sendRedirect(request.getContextPath() + "/TrangChu");
+                if (user.getStatus() == 1){
+                    HttpSession ss = request.getSession();
+                    ss.setAttribute("USERMODEL", user);
+                    response.sendRedirect(request.getContextPath() + "/TrangChu");
+                }else if (user.getStatus() == 0){
+
+                    response.sendRedirect(request.getContextPath() + "/admin-home");
+                }
+
             } else {
                 request.setAttribute("username", username);
                 request.setAttribute("pwd-err", "Mật khẩu không chính xác");
