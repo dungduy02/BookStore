@@ -1,33 +1,30 @@
 package BookStore.Controller.Admin;
 
-import BookStore.Dao.GenericDAO;
-import BookStore.Dao.impl.AbstractDAO;
-import BookStore.service.IProductService;
+import BookStore.Dao.impl.AProductDAO;
 
-import javax.inject.Inject;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "DeleteProductController", urlPatterns = "/delete")
+@WebServlet(name = "DeleteProduct", value = "/deleteProduct")
 public class DeleteProductController extends HttpServlet {
-
-    @Inject
-    private IProductService productService;
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        get sid tu jsp
         String id = request.getParameter("sid");
 
-        productService.deleteProduct(id);
+//        dua sid den dao
+        AProductDAO dao = new AProductDAO();
+        dao.deleteProduct(id);
+
+//        load lai trang danh sach
         response.sendRedirect("admin-product");
+    }
 
-
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request,response);
     }
 }

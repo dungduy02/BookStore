@@ -31,6 +31,11 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public User getEmail(String email) {
+        return userDAO.getEmail(email);
+    }
+
+    @Override
     public User insert(User user) {
         Integer id = userDAO.insert(user);
         return findOneById(id);
@@ -45,8 +50,6 @@ public class UserService implements IUserService {
     public boolean update(User user) {
         return userDAO.update(user);
     }
-
-
 
 
 

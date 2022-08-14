@@ -84,7 +84,7 @@
                             <%=request.getAttribute("pwd-err") == null ? "" : request.getAttribute("pwd-err")%>
                         </label>
                     </div>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"  onclick="hideCaptcha() ">
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"   onclick="hideCaptcha() " >
                     <label for="vehicle1"> Tôi không phải người máy</label><br>
                     <div>
                         <div class="capt" id="hideCaptcha" style="display: none" >
@@ -136,11 +136,12 @@
     function ValidCaptcha() {
         var string1 = removeSpaces(document.getElementById('mainCaptcha').value);
         var string2 = removeSpaces(document.getElementById('txtInput').value);
+        console.log("ValidCaptcha",string1)
         if (string1 == string2) {
             return true;
-        } else {
-            return false;
         }
+            return false;
+
     }
 
     function removeSpaces(string) {
@@ -148,18 +149,27 @@
     }
 
     function hideCaptcha(){
-        var checkBox = document.getElementById("vehicle1");
-        var element = document.getElementById("hideCaptcha");
-        if (checkBox.checked == true) {
-            // var element = document.getElementById("hideCaptcha");
-            element.style.display = "block";
-            document.getElementById("show12").removeAttribute("disabled");
-        }else{
-            element.style.display = "none";
-            document.getElementById("show12").setAttribute("disabled");
-        }
-        Captcha();
+
+        // if (document.getElementById("vehicle1").checked = true){
+        //     document.getElementById("show12").setAttribute("disabled");
+        // }else {
+        //     document.getElementById("show12").removeAttribute("disabled");
+
+            var checkBox = document.getElementById("vehicle1");
+            var element = document.getElementById("hideCaptcha");
+            if (checkBox.checked == true) {
+                // var element = document.getElementById("hideCaptcha");
+                element.style.display = "block";
+                document.getElementById("show12").removeAttribute("disabled");
+            } else {
+                element.style.display = "none";
+                document.getElementById("show12").setAttribute("disabled","");
+            }
+            Captcha();
+        // }
     }
+
+
 </script>
 
 

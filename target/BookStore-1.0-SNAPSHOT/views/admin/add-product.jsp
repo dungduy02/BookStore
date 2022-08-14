@@ -41,67 +41,63 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="add-product" method="post">
+                            <form action="admin-add-product" method="post">
+
+                                   <p class="text-danger">${mess}</p>
 
                                 <div class="form-group">
-                                    <label>Ảnh</label>
-                                    <input class="form-control" type="file" name="img">
-                                </div>
-                                <div class="form-group">
-                                    <div class="avatar">
-                                        <img class="avatar-img rounded" alt="" src="">
-                                    </div>
+                                    <label>Mã </label>
+                                    <input class="form-control" name="id" type="text" value="">
                                 </div>
                                 <div class="form-group">
                                     <label>Tên sản phẩm</label>
-                                    <input class="form-control" type="text" value="" name="name">
+                                    <input class="form-control" type="text" name="name" value="">
                                 </div>
                                 <div class="form-group">
-                                    <label>Danh mục</label>
-                                    <input class="form-control" type="text" value="" name="category">
+                                    <label for="authorid">Tác giả</label>
+                                    <select id="authorid" name="authorid" style="width: 100%;height: 40px;border: 1px solid #ddd;border-radius: 0.25rem;">
+                                        <c:forEach items="${listA}" var="x">
+                                            <option value="${x.id}">${x.authorname}</option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Giá khuyến mãi</label>
-                                    <input class="form-control" type="text" value="" name="price">
+                                    <label for="categoryid">Danh mục:</label>
+                                    <select id="categoryid" name="categoryid" style="width: 100%;height: 40px;border: 1px solid #ddd;border-radius: 0.25rem;" >
+                                        <c:forEach items="${listC}" var="x">
+                                            <option value="${x.id}">${x.name}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="publisherid">Nhà xuất bản</label>
+                                    <select  id="publisherid" name="publisherid" style="width: 100%;height: 40px;border: 1px solid #ddd;border-radius: 0.25rem;">
+                                        <c:forEach items="${listP}" var="x">
+                                        <option value="${x.id}">${x.publishername}</option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Nhà cung cấp</label>
-                                    <input class="form-control" type="text" value="" name="published">
-                                </div>
-                                <div class="form-group">
-                                    <label>Nhà xuất bản</label>
-                                    <input class="form-control" type="text" value="" name="author">
+                                    <label>Ảnh</label>
+                                    <input class="form-control" type="text" name="img">
                                 </div>
                                 <div class="form-group">
                                     <label>Số lượng</label>
                                     <input class="form-control" type="text" value="" name="quantity">
                                 </div>
-                                <!-- <div class="status-toggle">
-                                    <label>Có khuyến mãi không ?</label>
-                                    <input id="rating_1" class="check" type="checkbox" checked>
-                                    <label for="rating_1" class="checktoggle">checkbox</label>
-                                </div> -->
                                 <div class="form-group">
-                                    <label>Mô tả ngắn</label>
+                                    <label>Gia</label>
+                                    <input class="form-control" type="text" value="" name="price">
+                                </div>
+                                <div class="form-group">
+                                    <label>Mô tả</label>
                                     <textarea style="height: 100px;" class="form-control" type="text" name="description"></textarea>
                                 </div>
-                                <div>
-                                    <label>Mô tả dài</label>
-                                    <textarea name="" id="textExample" cols="30" rows="10"></textarea>
-                                </div>
-                                <div class="status-toggle">
-                                    <label>Hiển thị ở mục nổi bật</label>
-                                    <input id="rating_3" class="check" type="checkbox" checked>
-                                    <label for="rating_3" class="checktoggle">checkbox</label>
-                                </div>
-                                <div class="status-toggle">
-                                    <label>Hiển thị mới nhất</label>
-                                    <input id="rating_4" class="check" type="checkbox" checked>
-                                    <label for="rating_4" class="checktoggle">checkbox</label>
-                                </div>
+
                                 <div class="mt-4">
-                                    <button class="btn btn-primary" type="submit">Lưu thay đổi</button>
-                                    <a href="categories.html" class="btn btn-link">Hủy</a>
+                                    <button class="btn btn-primary" type="submit">Lưu </button>
+                                    <a href="admin-product" class="btn btn-link">Hủy</a>
                                 </div>
                             </form>
                         </div>

@@ -1,6 +1,6 @@
 package BookStore.Model;
 
-public class Product{
+public class Product extends AbstracModel{
     private int id;
     private String code;
     private String name;
@@ -28,6 +28,35 @@ public class Product{
         this.categoryid = categoryid;
         this.saleid = saleid;
         this.authorid = authorid;
+    }
+//admin
+public Product(int id, String code_product, String name,  int price, String picture,
+               String description, int quanity, int publisher_id, int category_id,
+               int sale_id, int author_id) {
+    this.id = id;
+    this.code = code_product;
+    this.name = name;
+    this.img = picture;
+    this.price = price;
+    this.description = description;
+    this.quantity = quanity;
+    this.publisherid = publisher_id;
+    this.categoryid = category_id;
+    this.saleid = sale_id;
+    this.authorid = author_id;
+}
+
+    public Product(int id, String name, int price, String picture, String description, int quanity, int publisher_id, int category_id, int sale_id, int author_id) {
+        this.id = id;
+        this.name = name;
+        this.img = picture;
+        this.price = price;
+        this.description = description;
+        this.quantity = quanity;
+        this.publisherid = publisher_id;
+        this.categoryid = category_id;
+        this.saleid = sale_id;
+        this.authorid = author_id;
     }
 
     public int getId() {

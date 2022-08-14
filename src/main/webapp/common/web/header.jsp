@@ -73,7 +73,7 @@
         left: 0;
         width: 100%;
         z-index: 999;
-        margin-left: 250px;
+        margin-left: 180px;
         background-color: #f5f5f5;
 
     }
@@ -203,10 +203,10 @@
                         </div>
                         <div class="hero__search__phone">
                             <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
+                                <i class="fa fa-phone" style="margin-top: 15px"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+ 84353535355</h5>
+                                <h5> 0889013464</h5>
                                 <span>Hỗ trợ 24/7</span>
                             </div>
                         </div>

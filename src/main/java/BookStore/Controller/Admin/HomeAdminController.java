@@ -1,9 +1,10 @@
 package BookStore.Controller.Admin;
 
-import BookStore.Model.*;
-import BookStore.service.*;
+import BookStore.Dao.impl.AProductDAO;
+import BookStore.Dao.impl.APublisherDao;
+import BookStore.Dao.impl.AUserDAO;
+import BookStore.Model.Product;
 
-import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,46 +14,49 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "admin-home", value = "/admin-home")
+@WebServlet(name = "Admin-home", value = "/admin-home")
 public class HomeAdminController extends HttpServlet {
-    @Inject
-    IProductService productService;
-    @Inject
-    IUserService userService;
-    @Inject
-    IPublisherService publisherService;
-    @Inject
-    IAuthorService authorService;
-    @Inject
-    IOrderDetailService orderDetailServicel;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-        RequestDispatcher rd = request.getRequestDispatcher("/views/admin/index.jsp");
-        rd.forward(request, response);
+        doGet(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        List<Product> listAll = productService.getAll();
-        List<User> AllUser = userService.getAll();
-        List<Author> allAuthor = authorService.getAllAuthor();
-        List<Publisher> allPublisher = publisherService.getAllPublisher();
-        List<Order> order = orderDetailServicel.getOrder();
-        List<OrderDetails> orderDetails = orderDetailServicel.getAll();
-        int totalProduct = listAll.size();
-        int totalUser = AllUser.size();
-        int totalAuthor = allAuthor.size();
-        int totalPubliser = allPublisher.size();
+        //        get data tu dao
+        AProductDAO dao = new AProductDAO();
+        List<Product> list1 = dao.getAllProduct();
+        int countProduct = dao.countProduct();
 
-        request.setAttribute("detailOrder",orderDetails);
-        request.setAttribute("totalUser",totalUser);
-        request.setAttribute("totalProduct",totalProduct);
-        request.setAttribute("totalPublisher",totalPubliser);
-        request.setAttribute("totalAuthor",totalAuthor);
-        request.setAttribute("order",order);
+        AUserDAO daoU = new AUserDAO();
+        int countUser = daoU.countUser();
 
-        RequestDispatcher rd = request.getRequestDispatcher("/views/admin/dashboard.jsp");
+        APublisherDao daoP = new APublisherDao();
+        int countPublisher = daoP.countPublisher();
+
+//        set data cho jsp
+        request.setAttribute("list1",list1);
+//        phan trang | get tong so sach
+        int page, numperpage = 10;
+        int size = list1.size();
+        int num = (size%10 == 0 ?(size/10):((size/10))+1);
+        String xpage = request.getParameter("page");
+        if(xpage == null){
+            page=1;
+        }else
+        {
+            page=Integer.parseInt(xpage);
+        }
+        int start,end;
+        start = (page-1)*numperpage;
+        end=Math.min(page*numperpage,size);
+        List<Product> list = dao.getListPage(list1,start,end);
+        request.setAttribute("data",list);
+        request.setAttribute("page",page);
+        request.setAttribute("num",num);
+        request.setAttribute("countProduct",countProduct);
+        request.setAttribute("countPublisher",countPublisher);
+        request.setAttribute("countUser",countUser);
+
+        RequestDispatcher rd = request.getRequestDispatcher("/views/admin/index.jsp");
         rd.forward(request, response);
     }
 }

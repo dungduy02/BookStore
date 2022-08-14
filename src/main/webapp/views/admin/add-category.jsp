@@ -24,7 +24,7 @@
 								<div class="col">
 									<h3 class="page-title">Thêm danh mục</h3>
 									<ul class="breadcrumb">
-										<li class="breadcrumb-item"><a href="categories.jsp">Danh mục</a></li>
+										<li class="breadcrumb-item"><a href="admin-category">Danh mục</a></li>
 										<li class="breadcrumb-item active">Thêm danh mục</li>
 									</ul>
 								</div>
@@ -36,41 +36,25 @@
 							<div class="card-body">
 							
 								<!-- Form -->
-								<form action="categories.jsp">
+								<form action="admin-add-category" method="post">
+									<p class="text-danger">${mess}</p>
                                     <div class="form-group row">
                                         <label class="col-form-label col-md-2">ID</label>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="id" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-form-label col-md-2">Tên danh mục</label>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="name" class="form-control">
                                         </div>
 									</div>
-									<div class="form-group row">
-										<label class="col-form-label col-md-2">Hình ảnh</label>
-										<div class="col-md-10">
-											<input class="form-control" type="file">
-										</div>
-									</div>
-                                    <!-- <div class="form-group row">
-                                        <label class="col-form-label col-md-2">Số lượng</label>
-                                        <div class="col-md-10">
-                                            <input type="number" class="form-control">
-                                        </div>
-									</div>
-									<div class="form-group row">
-                                        <label class="col-form-label col-md-2">Admin</label>
-                                        <div class="col-md-10">
-                                            <input type="text" class="form-control" disabled>
-                                        </div>
-									</div> -->
+
 
                                     <div class="mt-4">
 										<button class="btn btn-primary" type="submit">Thêm</button>
-										<a href="add-admin.jsp" class="btn btn-link">Hủy</a>
+										<a href="admin-category" class="btn btn-link">Hủy</a>
 									</div>
                                 </form>
 								<!-- /Form -->

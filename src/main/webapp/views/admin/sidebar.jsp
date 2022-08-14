@@ -12,7 +12,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-	<title>Thêm admin</title>
+	<title></title>
 	<link href="assets/img/icon/icon-logo.png" rel="shortcut icon">
 	<!-- Bootstrap CSS -->
 
@@ -30,49 +30,22 @@
 		<div id="sidebar-menu" class="sidebar-menu">
 			<ul>
 				<li >
-					<a href="dashboard.jsp"><i class="fas fa-columns"></i> <span>Dashboard</span></a>
+					<a href="admin-home" ><span>Tổng quan</span></a>
 				</li>
 				<li class="submenu">
-					<a href="#"><i class="fas fa-tasks"></i> <span>Quản lí</span> <span class="menu-arrow"></span></a>
-					<ul>
-						<li><a href="categories.jsp">Danh mục</a></li>
-						<li><a href="product.jsp" >Sản phẩm</a></li>
-						<li><a href="blog.jsp" >Blog</a></li>
-						<!-- <li><a href="coupon-code-type.html">Loại mã giảm giá</a></li>
-                        <li><a href="coupon-code.html">Mã giảm giá</a></li>
-                        <li><a href="ratingstype.html">Loại đánh giá</a></li>
-                        <li><a href="email.html">Email</a></li> -->
-
-
-					</ul>
+					<a href="admin-product"> <span>Sản phẩm</span> </a>
 				</li>
-
 				<li class="submenu">
-					<a href="#"><i class="fas fa-shopping-cart"></i><span>Bán hàng</span> <span class="menu-arrow"></span></a>
-					<ul>
-						<li><a href="total-report.jsp">Danh sách đặt hàng</a></li>
-						<!-- <li><a href="shipments.html">Vận chuyển</a></li>
-                        <li><a href="return-request.html">Bảo hành</a></li>
-                        <li><a href="review-reports.html">Đánh giá sản phẩm</a></li> -->
-
-
-					</ul>
+					<a href="admin-category"> <span>Danh mục</span> </a>
 				</li>
-
 				<li class="submenu">
-					<a href="#"><i class="fas fa-users"></i><span>Người dùng</span> <span class="menu-arrow"></span></a>
-					<ul>
-						<li><a href="users.jsp" class="active" >Khách hàng</a></li>
-						<li><a href="admin-list.jsp">Danh sách admin</a></li>
-						<li><a href="service-list.jsp" >Nhà cung cấp</a></li>
-						<li><a href="publisher.jsp">Nhà xuất bản</a></li>
-					</ul>
+					<a href="admin-publisher"> <span>Nhà xuất bản</span> </a>
 				</li>
-				<li >
-					<a href="admin-profile.jsp" ><i class="fas fa-user-plus"></i> <span>Thông tin cá nhân</span></a>
+				<li class="submenu">
+					<a href="admin-user"> <span>Người dùng</span> </a>
 				</li>
-				<li>
-					<a href="settings.jsp"><i class="fas fa-cog"></i> <span>Thiết lập</span></a>
+				<li class="submenu">
+					<a href="admin-author"> <span>Tác giả</span> </a>
 				</li>
 			</ul>
 		</div>

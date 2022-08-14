@@ -2,7 +2,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="BookStore.Model.OrderDetails" %>
 <%@ page import="BookStore.Model.Cart" %>
-<%@ page import="BookStore.Model.Product" %>
+
+<%@ page import="BookStore.Model.Product" %><%--
+  Created by IntelliJ IDEA.
+  User: DUNGDUY
+  Date: 8/11/2022
+  Time: 10:02 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -13,13 +21,41 @@
     <title>BOOKSTORE NLU | Đơn hàng</title>
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet"></head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+</head>
 <body>
 <div style="text-align: center; font-size: 35px"><b>THÔNG TIN ĐƠN HÀNG</b></div>
 <div class="col-md-12 center-column " id="content">
 
-    <form method="get">
 
+    <!-- <div class="page_error">-->
+    <!-- </div>-->
+    <!-- <div class="text-center">Giỏ hàng của bạn đang trống!</div>-->
+    <form method="get">
+<%--        <table class="table table-hover table-bordered">--%>
+<%--            <thead>--%>
+<%--            <tr>--%>
+<%--                <th style="width:215px">Họ và tên</th>--%>
+<%--                <th style="width:215px">Số điện thoại</th>--%>
+<%--                <th style="width:450px">Địa chỉ</th>--%>
+<%--                <th style="width:450px">Email</th>--%>
+<%--                <th style="width:450px">Chú thích</th>--%>
+<%--            </tr>--%>
+<%--            </thead>--%>
+<%--            <tbody>--%>
+<%--            <c:if test="${not empty bill}">--%>
+<%--            <tr>--%>
+<%--                    <td style="width:215px"><input type="text" name="ten" placeholder="${bill.fullname}" disabled></td>--%>
+<%--                    <td style="width:215px"><input type="text" name="sodienthoai" placeholder="${bill.phone}" disabled></td>--%>
+<%--                    <td style="width:450px"><input type="text" size="40" name="diachi" placeholder="${bill.address}" disabled></td>--%>
+<%--                    <td style="width:450px"><input type="text" size="40" name="email" placeholder="${bill.email}" disabled></td>--%>
+<%--                    <td style="width:450px"><input type="text" size="40" name="note" placeholder="${bill.note}" disabled></td>--%>
+
+<%--            </tr>--%>
+<%--            </c:if>--%>
+<%--            </tbody>--%>
+<%--        </table>--%>
         <div style="font-size: 20px; margin: 10px 5px;">
             <c:if test="${not empty bill}">
                 <div>Họ và tên: &nbsp;&nbsp;<span style="margin-left: 50px;"><b>${bill.fullname}</b></span></div>
@@ -36,7 +72,6 @@
                 <th class="product-name">Tên sản phẩm</th>
                 <th class="product-price">Giá</th>
                 <th class="product-quantity">Số lượng</th>
-                <th colspan="product-total">Tổng cộng </th>
             </tr>
             </thead>
             <tbody>
@@ -49,11 +84,26 @@
                 <td>${item.product.name}</td>
                 <td> ${item.price}</td>
                 <td>${item.quantity}</td>
-                <td>${item.price * item.quantity}</td>
+
             </tr>
             </c:forEach>
+            <%--                <%--%>
+            <%--                                                        int sum = 0;--%>
+            <%--                                                        for (Product p : data) {--%>
+            <%--                                                            sum += p.getQuantity() * p.getPrice();--%>
+            <%--                                                        }--%>
+            <%--                                                    %>--%>
             <div class="card-total">
-
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td class="text-left">
+                            Tổng cộng
+                        </td>
+                        <%--                        <td class="text-right"><%=sum%> đ</td>--%>
+                    </tr>
+                    </tbody>
+                </table>
                 <table>
                     <tbody>
                     <tr>
@@ -61,10 +111,15 @@
                             <c:if test="${not empty bill}">
                                 <a class="hidden-xs"
 
-                                   href="<c:url value = "/Trangchu?action=remove"/>"><strong><i
-                                        class="fa fa-caret-right"></i> Quay lại trang chính</strong></a>
+                                                                         href="<c:url value = "/Trangchu?action=remove"/>"><strong><i
+                                class="fa fa-caret-right"></i> Quay lại trang chính</strong></a>
                             </c:if>
+<%--                            <c:if test="${not empty bill}">--%>
+<%--                                <a class="hidden-xs"--%>
 
+<%--                               href="<c:url value = "/removeSession?action=remove"/>"><strong><i--%>
+<%--                                    class="fa fa-caret-right"></i> Quay lại trang chính</strong></a>--%>
+<%--                        </c:if>--%>
                         </div>
                     </tr>
 

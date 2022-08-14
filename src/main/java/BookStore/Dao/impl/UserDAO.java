@@ -25,14 +25,20 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
         String sql = "select * from users where username = ?";
         List<User> list = query(sql, new UserMapper(), username);
         return list.size() == 0 ? null : list.get(0);
+    }
 
+    @Override
+    public User getEmail(String email) {
+        String sql = "select * from users where email = ?";
+        List<User> list = query(sql, new UserMapper(), email);
+        return list.size() == 0 ? null : list.get(0);
     }
 
     @Override
     public Integer insert(User user) {
         StringBuilder sql = new StringBuilder("INSERT INTO users " +
-                "(username,password,fullname,email,phone) ");
-        sql.append("VALUES (?,?,?,?,?) ");
+                "(username,password,fullname,email,phone,address) ");
+        sql.append("VALUES (?,?,?,?,?,?) ");
         return insert(sql.toString(),
                 user.getUsername(),
                 user.getPassword(),
@@ -40,7 +46,8 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
                 user.getEmail(),
 //                user.getAddressid(),
 //                user.getSex(),
-                user.getPhone());
+                user.getPhone(),
+                user.getAddress());
 //                user.getBlogid()
     }
 
@@ -58,7 +65,6 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
         sql.append("where email = ?");
         return update(sql.toString(),user.getPassword());
     }
-
 
 
 
