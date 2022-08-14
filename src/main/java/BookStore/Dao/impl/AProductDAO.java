@@ -3,6 +3,7 @@ package BookStore.Dao.impl;
 import BookStore.Model.Product;
 import BookStore.config.ConnectionPool;
 import BookStore.config.DBConfiguration;
+import BookStore.config.DBContext;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,7 +21,7 @@ public class AProductDAO {
         List<Product> list = new ArrayList<>();
         String query = "SELECT * FROM products";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
            prestament = connection.prepareStatement(query);
             rs = prestament.executeQuery();
 
@@ -39,8 +40,9 @@ public class AProductDAO {
                 rs.getInt("author_id")));
             }
 
-        }catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
 
@@ -50,13 +52,14 @@ public class AProductDAO {
     public void deleteProduct (String id){
         String query = "DELETE FROM products WHERE id=?";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             prestament.executeUpdate();
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -66,7 +69,7 @@ public class AProductDAO {
 
         String query = "INSERT INTO products (id,name,author_id,category_id,publisher_id,picture,quanity,description,price) VALUES (?,?,?,?,?,?,?,?,?)";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             prestament.setString(2,name);
@@ -81,8 +84,8 @@ public class AProductDAO {
             prestament.executeUpdate();
 
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -90,7 +93,7 @@ public class AProductDAO {
         String query = "SELECT * FROM products WHERE id=?";
 
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             rs = prestament.executeQuery();
@@ -108,8 +111,9 @@ public class AProductDAO {
                         rs.getInt("author_id"));
             }
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -129,7 +133,7 @@ public class AProductDAO {
                 "WHERE id=?";
         try {
 
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
 
             prestament.setString(1,name);
@@ -143,8 +147,9 @@ public class AProductDAO {
             prestament.setString(9,id);
             prestament.executeUpdate();
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 //dem so luong sach trong data
@@ -152,15 +157,16 @@ public class AProductDAO {
         String query = "SELECT count(*)\n" +
                 "FROM products ";
         try {
-        connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
         prestament = connection.prepareStatement(query);
         rs = prestament.executeQuery();
         while (rs.next()){
             return rs.getInt(1);
         }
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return 0;
     }
@@ -176,7 +182,7 @@ public class AProductDAO {
         List<Product> list = new ArrayList<>();
         String query = "SELECT * FROM products WHERE `name` LIKE ?";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,"%"+key+"%");
             rs = prestament.executeQuery();
@@ -196,8 +202,9 @@ public class AProductDAO {
                         rs.getInt("author_id")));
             }
 
-        }catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
 
@@ -208,7 +215,7 @@ public class AProductDAO {
 
         String query = "SELECT * FROM products WHERE id=?";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             rs = prestament.executeQuery();
@@ -227,8 +234,9 @@ public class AProductDAO {
                         rs.getInt("author_id"));
             }
 
-        }catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
 

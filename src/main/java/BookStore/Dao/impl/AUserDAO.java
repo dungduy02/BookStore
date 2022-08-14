@@ -5,6 +5,7 @@ import BookStore.Model.Product;
 import BookStore.Model.Publisher;
 import BookStore.Model.User;
 import BookStore.config.ConnectionPool;
+import BookStore.config.DBContext;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +25,7 @@ public class AUserDAO {
         List<User> list = new ArrayList<>();
         String query = "SELECT * FROM users";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             rs = prestament.executeQuery();
 
@@ -43,8 +44,9 @@ public class AUserDAO {
                         ));
             }
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return list;
     }
@@ -62,7 +64,7 @@ public class AUserDAO {
 
         String query = "INSERT INTO users(username,fullname,`password`,email,address,sex,phone) VALUES (?,?,?,?,?,?,?)";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,username);
             prestament.setString(2,fullname);
@@ -75,23 +77,24 @@ public class AUserDAO {
             prestament.executeUpdate();
 
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public int countUser(){
         String query = "SELECT count(*) FROM users";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             rs = prestament.executeQuery();
             while (rs.next()){
                 return rs.getInt(1);
             }
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return 0;
     }
@@ -100,7 +103,7 @@ public class AUserDAO {
 
         String query = "SELECT * FROM users WHERE username=?";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,username);
             rs = prestament.executeQuery();
@@ -119,8 +122,9 @@ public class AUserDAO {
                 );
             }
 
-        }catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
 

@@ -44,7 +44,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Tên danh mục</label>
+                                    <label>Tên tác giả</label>
                                     <input class="form-control" type="text" name="name" value="${st.authorname}">
                                 </div>
 

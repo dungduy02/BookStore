@@ -31,6 +31,7 @@ public class AddCategoryCtroller extends HttpServlet {
             dao.insertCateroty(id, name);
 //        load du lieu
             response.sendRedirect("admin-category");
+
         }
         else{
             request.setAttribute("mess","Mã danh mục không được trùng !");

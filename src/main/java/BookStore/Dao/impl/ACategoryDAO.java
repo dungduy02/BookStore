@@ -3,6 +3,7 @@ package BookStore.Dao.impl;
 import BookStore.Model.Category;
 import BookStore.Model.Product;
 import BookStore.config.ConnectionPool;
+import BookStore.config.DBContext;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,7 +21,7 @@ public class ACategoryDAO {
         List<Category> list = new ArrayList<>();
         String query = "SELECT * FROM category";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             rs = prestament.executeQuery();
 
@@ -30,8 +31,8 @@ public class ACategoryDAO {
                         rs.getString("name")));
             }
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return list;
     }
@@ -39,34 +40,36 @@ public class ACategoryDAO {
     public void deleteCategory (String id){
         String query = "DELETE FROM category WHERE id=?";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             prestament.executeUpdate();
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     public void insertCateroty(String id,String name){
 
         String query = "INSERT INTO category (id,name) VALUES (?,?)";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             prestament.setString(2,name);
 
             prestament.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     public Category getCategoryById(String id){
         String query = "SELECT * FROM category WHERE id=?";
 
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             rs = prestament.executeQuery();
@@ -76,8 +79,9 @@ public class ACategoryDAO {
                        );
             }
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -86,16 +90,17 @@ public class ACategoryDAO {
     public void updateCategory(String id, String name){
         String query="UPDATE category SET `name`=? WHERE id=?";
            try{
-            connection = ConnectionPool.getConnection("query");
+               connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
 
             prestament.setString(1,name);
             prestament.setString(2,id);
             prestament.executeUpdate();
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+
+        } catch (Exception e) {
+               e.printStackTrace();
+           }
     }
 
     public List<Category> getListPage(List<Category> list,int start, int end){
@@ -110,7 +115,7 @@ public class ACategoryDAO {
 
         String query = "SELECT * FROM category WHERE id=?";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             rs = prestament.executeQuery();
@@ -121,8 +126,9 @@ public class ACategoryDAO {
                         rs.getString("name") ) ;
             }
 
-        }catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
 

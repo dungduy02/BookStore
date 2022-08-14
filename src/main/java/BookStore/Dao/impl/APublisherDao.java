@@ -3,6 +3,7 @@ package BookStore.Dao.impl;
 import BookStore.Model.Category;
 import BookStore.Model.Publisher;
 import BookStore.config.ConnectionPool;
+import BookStore.config.DBContext;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +24,7 @@ public class APublisherDao {
         List<Publisher> list = new ArrayList<>();
         String query = "SELECT * FROM publisher";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             rs = prestament.executeQuery();
 
@@ -33,8 +34,8 @@ public class APublisherDao {
                         rs.getString("name")));
             }
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return list;
     }
@@ -42,13 +43,13 @@ public class APublisherDao {
     public void deletePublisher (String id){
         String query = "DELETE FROM publisher WHERE id=?";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             prestament.executeUpdate();
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -71,7 +72,7 @@ public class APublisherDao {
         String query = "SELECT * FROM publisher WHERE id=?";
 
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             rs = prestament.executeQuery();
@@ -81,8 +82,9 @@ public class APublisherDao {
                 );
             }
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -90,15 +92,15 @@ public class APublisherDao {
     public void updatePublisher(String id, String publishername){
         String query="UPDATE publisher SET `name`=? WHERE id=?";
         try{
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
 
             prestament.setString(1,publishername);
             prestament.setString(2,id);
             prestament.executeUpdate();
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -113,15 +115,16 @@ public class APublisherDao {
     public int countPublisher(){
         String query = "SELECT count(*) FROM publisher";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             rs = prestament.executeQuery();
             while (rs.next()){
                 return rs.getInt(1);
             }
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return 0;
     }
@@ -130,7 +133,7 @@ public class APublisherDao {
 
         String query = "SELECT * FROM publisher WHERE id=?";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             rs = prestament.executeQuery();
@@ -141,8 +144,9 @@ public class APublisherDao {
                         rs.getString("name") ) ;
             }
 
-        }catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
 

@@ -5,6 +5,7 @@ import BookStore.Model.Category;
 import BookStore.Model.Product;
 import BookStore.Model.Publisher;
 import BookStore.config.ConnectionPool;
+import BookStore.config.DBContext;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,7 +23,7 @@ public class AAuthorDAO {
         List<Author> list = new ArrayList<>();
         String query = "SELECT * FROM author";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             rs = prestament.executeQuery();
 
@@ -32,8 +33,8 @@ public class AAuthorDAO {
                         rs.getString("name")));
             }
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return list;
     }
@@ -49,14 +50,15 @@ public class AAuthorDAO {
 
         String query = "INSERT INTO  author (id,name) VALUES(?,?)";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             prestament.setString(2,authorname);
 
             prestament.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -64,7 +66,7 @@ public class AAuthorDAO {
         String query = "SELECT * FROM author WHERE id=?";
 
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             rs = prestament.executeQuery();
@@ -74,8 +76,9 @@ public class AAuthorDAO {
                 );
             }
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -83,28 +86,30 @@ public class AAuthorDAO {
     public void updateAuthor(String id, String authorname){
         String query="UPDATE author SET `name`=? WHERE id=?";
         try{
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
 
             prestament.setString(1,authorname);
             prestament.setString(2,id);
             prestament.executeUpdate();
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public void deleteAuthor (String id){
         String query = "DELETE FROM author WHERE id=?";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             prestament.executeUpdate();
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -112,7 +117,7 @@ public class AAuthorDAO {
 
         String query = "SELECT * FROM author WHERE id=?";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             rs = prestament.executeQuery();
@@ -123,8 +128,9 @@ public class AAuthorDAO {
                         rs.getString("name") ) ;
             }
 
-        }catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
 
@@ -135,7 +141,7 @@ public class AAuthorDAO {
         List<Author> list = new ArrayList<>();
         String query = "SELECT * FROM author WHERE `name` LIKE ?";
         try {
-            connection = ConnectionPool.getConnection("query");
+            connection = new DBContext().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,"%"+key+"%");
             rs = prestament.executeQuery();
@@ -145,8 +151,9 @@ public class AAuthorDAO {
                 list.add(new Author(rs.getInt("id"), rs.getString("name")));
             }
 
-        }catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
 
