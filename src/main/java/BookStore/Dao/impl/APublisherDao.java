@@ -1,9 +1,8 @@
 package BookStore.Dao.impl;
 
-import BookStore.Model.Category;
 import BookStore.Model.Publisher;
 import BookStore.config.ConnectionPool;
-import BookStore.config.DBContext;
+import BookStore.config.DBConfiguration;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +23,7 @@ public class APublisherDao {
         List<Publisher> list = new ArrayList<>();
         String query = "SELECT * FROM publisher";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             rs = prestament.executeQuery();
 
@@ -43,7 +42,7 @@ public class APublisherDao {
     public void deletePublisher (String id){
         String query = "DELETE FROM publisher WHERE id=?";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             prestament.executeUpdate();
@@ -72,7 +71,7 @@ public class APublisherDao {
         String query = "SELECT * FROM publisher WHERE id=?";
 
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             rs = prestament.executeQuery();
@@ -92,7 +91,7 @@ public class APublisherDao {
     public void updatePublisher(String id, String publishername){
         String query="UPDATE publisher SET `name`=? WHERE id=?";
         try{
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
 
             prestament.setString(1,publishername);
@@ -115,7 +114,7 @@ public class APublisherDao {
     public int countPublisher(){
         String query = "SELECT count(*) FROM publisher";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             rs = prestament.executeQuery();
             while (rs.next()){
@@ -133,7 +132,7 @@ public class APublisherDao {
 
         String query = "SELECT * FROM publisher WHERE id=?";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             rs = prestament.executeQuery();

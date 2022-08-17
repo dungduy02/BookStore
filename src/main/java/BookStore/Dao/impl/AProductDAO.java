@@ -1,14 +1,11 @@
 package BookStore.Dao.impl;
 
 import BookStore.Model.Product;
-import BookStore.config.ConnectionPool;
 import BookStore.config.DBConfiguration;
-import BookStore.config.DBContext;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +18,7 @@ public class AProductDAO {
         List<Product> list = new ArrayList<>();
         String query = "SELECT * FROM products";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
            prestament = connection.prepareStatement(query);
             rs = prestament.executeQuery();
 
@@ -52,7 +49,7 @@ public class AProductDAO {
     public void deleteProduct (String id){
         String query = "DELETE FROM products WHERE id=?";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             prestament.executeUpdate();
@@ -69,7 +66,7 @@ public class AProductDAO {
 
         String query = "INSERT INTO products (id,name,author_id,category_id,publisher_id,picture,quanity,description,price) VALUES (?,?,?,?,?,?,?,?,?)";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             prestament.setString(2,name);
@@ -93,7 +90,7 @@ public class AProductDAO {
         String query = "SELECT * FROM products WHERE id=?";
 
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             rs = prestament.executeQuery();
@@ -133,7 +130,7 @@ public class AProductDAO {
                 "WHERE id=?";
         try {
 
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
 
             prestament.setString(1,name);
@@ -157,7 +154,7 @@ public class AProductDAO {
         String query = "SELECT count(*)\n" +
                 "FROM products ";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
         prestament = connection.prepareStatement(query);
         rs = prestament.executeQuery();
         while (rs.next()){
@@ -182,7 +179,7 @@ public class AProductDAO {
         List<Product> list = new ArrayList<>();
         String query = "SELECT * FROM products WHERE `name` LIKE ?";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,"%"+key+"%");
             rs = prestament.executeQuery();
@@ -190,7 +187,7 @@ public class AProductDAO {
 
             while (rs.next()){
                 list.add(new Product(rs.getInt("id"),
-                        rs.getString("code_product"),
+//                        rs.getString("code_product"),
                         rs.getString("name"),
                         rs.getInt("price"),
                         rs.getString("picture"),
@@ -215,7 +212,7 @@ public class AProductDAO {
 
         String query = "SELECT * FROM products WHERE id=?";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             rs = prestament.executeQuery();

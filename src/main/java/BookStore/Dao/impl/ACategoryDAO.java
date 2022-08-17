@@ -1,14 +1,11 @@
 package BookStore.Dao.impl;
 
 import BookStore.Model.Category;
-import BookStore.Model.Product;
-import BookStore.config.ConnectionPool;
-import BookStore.config.DBContext;
+import BookStore.config.DBConfiguration;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +18,7 @@ public class ACategoryDAO {
         List<Category> list = new ArrayList<>();
         String query = "SELECT * FROM category";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             rs = prestament.executeQuery();
 
@@ -40,7 +37,7 @@ public class ACategoryDAO {
     public void deleteCategory (String id){
         String query = "DELETE FROM category WHERE id=?";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             prestament.executeUpdate();
@@ -54,7 +51,7 @@ public class ACategoryDAO {
 
         String query = "INSERT INTO category (id,name) VALUES (?,?)";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             prestament.setString(2,name);
@@ -69,7 +66,7 @@ public class ACategoryDAO {
         String query = "SELECT * FROM category WHERE id=?";
 
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             rs = prestament.executeQuery();
@@ -90,7 +87,7 @@ public class ACategoryDAO {
     public void updateCategory(String id, String name){
         String query="UPDATE category SET `name`=? WHERE id=?";
            try{
-               connection = new DBContext().getConnection();
+               connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
 
             prestament.setString(1,name);
@@ -115,7 +112,7 @@ public class ACategoryDAO {
 
         String query = "SELECT * FROM category WHERE id=?";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             rs = prestament.executeQuery();

@@ -1,18 +1,12 @@
 package BookStore.Dao.impl;
 
-import BookStore.Model.Category;
-import BookStore.Model.Product;
-import BookStore.Model.Publisher;
 import BookStore.Model.User;
-import BookStore.config.ConnectionPool;
-import BookStore.config.DBContext;
+import BookStore.config.DBConfiguration;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class AUserDAO {
@@ -25,7 +19,7 @@ public class AUserDAO {
         List<User> list = new ArrayList<>();
         String query = "SELECT * FROM users";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             rs = prestament.executeQuery();
 
@@ -64,7 +58,7 @@ public class AUserDAO {
 
         String query = "INSERT INTO users(username,fullname,`password`,email,address,sex,phone) VALUES (?,?,?,?,?,?,?)";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,username);
             prestament.setString(2,fullname);
@@ -86,7 +80,7 @@ public class AUserDAO {
     public int countUser(){
         String query = "SELECT count(*) FROM users";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             rs = prestament.executeQuery();
             while (rs.next()){
@@ -103,7 +97,7 @@ public class AUserDAO {
 
         String query = "SELECT * FROM users WHERE username=?";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,username);
             rs = prestament.executeQuery();

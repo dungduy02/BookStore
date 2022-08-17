@@ -1,5 +1,8 @@
 package BookStore.config;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 public class DBConfiguration {
     public class DbConfiguration{
         public static final String USER_NAME = "root";
@@ -11,5 +14,17 @@ public class DBConfiguration {
         private DbConfiguration(){
             super();
         }
+    }
+
+
+    public Connection getConnection()throws Exception {
+        final String instance="";//LEAVE THIS ONE EMPTY IF YOUR SQL IS A SINGLE INSTANCE
+        final String userID = "root";
+        final String password = "";
+        String url = "jdbc:mysql://localhost/bookstore?useUnicode=true&characterEncoding=utf-8";
+        if(instance == null || instance.trim().isEmpty())
+            url ="jdbc:mysql://localhost/bookstore?useUnicode=true&characterEncoding=utf-8";
+        Class.forName("com.mysql.jdbc.Driver");
+        return DriverManager.getConnection(url, userID, password);
     }
 }

@@ -1,16 +1,11 @@
 package BookStore.Dao.impl;
 
 import BookStore.Model.Author;
-import BookStore.Model.Category;
-import BookStore.Model.Product;
-import BookStore.Model.Publisher;
-import BookStore.config.ConnectionPool;
-import BookStore.config.DBContext;
+import BookStore.config.DBConfiguration;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +18,7 @@ public class AAuthorDAO {
         List<Author> list = new ArrayList<>();
         String query = "SELECT * FROM author";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             rs = prestament.executeQuery();
 
@@ -50,7 +45,7 @@ public class AAuthorDAO {
 
         String query = "INSERT INTO  author (id,name) VALUES(?,?)";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             prestament.setString(2,authorname);
@@ -66,7 +61,7 @@ public class AAuthorDAO {
         String query = "SELECT * FROM author WHERE id=?";
 
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             rs = prestament.executeQuery();
@@ -86,7 +81,7 @@ public class AAuthorDAO {
     public void updateAuthor(String id, String authorname){
         String query="UPDATE author SET `name`=? WHERE id=?";
         try{
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
 
             prestament.setString(1,authorname);
@@ -102,7 +97,7 @@ public class AAuthorDAO {
     public void deleteAuthor (String id){
         String query = "DELETE FROM author WHERE id=?";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             prestament.executeUpdate();
@@ -117,7 +112,7 @@ public class AAuthorDAO {
 
         String query = "SELECT * FROM author WHERE id=?";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,id);
             rs = prestament.executeQuery();
@@ -141,7 +136,7 @@ public class AAuthorDAO {
         List<Author> list = new ArrayList<>();
         String query = "SELECT * FROM author WHERE `name` LIKE ?";
         try {
-            connection = new DBContext().getConnection();
+            connection = new DBConfiguration().getConnection();
             prestament = connection.prepareStatement(query);
             prestament.setString(1,"%"+key+"%");
             rs = prestament.executeQuery();
